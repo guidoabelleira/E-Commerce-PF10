@@ -14,6 +14,13 @@ function rootReducer(state = initialState, action) {
                 example: action.example
             }
         }
+
+        case "GET_RECIPE_BY_NAME" : 
+        return {
+            ...state,
+            product: action.payload
+        }
+
         default: {
             return state
         }
