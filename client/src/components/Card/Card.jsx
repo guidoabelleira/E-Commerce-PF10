@@ -1,6 +1,6 @@
 import { NavLink as Link } from 'react-router-dom';
 import style from './Card.module.css'
-
+ 
 export default function Card ({image, name, category,id,price, index}){
     return(
         <div className={style.container} key={index}>

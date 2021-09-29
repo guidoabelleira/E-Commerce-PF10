@@ -1,6 +1,6 @@
 import Card from "../Card/Card"
 import style from "./Cards.module.css"
-
+ 
 export default function Cards ({state}) {
     if(state[0] !== {error: "Product not found"} && state[0]){
        return(<div className={style.container}>
