@@ -3,6 +3,7 @@ const { DataTypes } = require('sequelize');
 // Luego le injectamos la conexion a sequelize.git
 module.exports = (sequelize) => {
   // defino el modelo
+  
   sequelize.define('product', {
     id: {
       type: DataTypes.INTEGER,
