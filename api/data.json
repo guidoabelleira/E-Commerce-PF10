@@ -7,7 +7,8 @@
         "stock": 50,
         "onStock": true,
         "onSale": false,
-        "description": "Description a completar"
+        "description": "Description a completar",
+        "category": ["Azucareras", "Yerberas"]
     },
     {
         "name": "Azucarera cazuela de calden",
@@ -17,7 +18,8 @@
         "stock": 50,
         "onStock": true,
         "onSale": false,
-        "description": "Description a completar"
+        "description": "Description a completar",
+        "category": ["Azucareras", "Yerberas"]
     },
     {
         "name": "Mate barril redondo de algarrobo",
@@ -27,7 +29,8 @@
         "stock": 50,
         "onStock": true,
         "onSale": false,
-        "description": "Description a completar"
+        "description": "Description a completar",
+        "category": ["Mates"]
     },
     {
         "name": "Mate barril redondo de calden",
@@ -37,7 +40,8 @@
         "stock": 50,
         "onStock": true,
         "onSale": false,
-        "description": "Description a completar"
+        "description": "Description a completar",
+        "category": ["Mates"]
     },
     {
         "name": "Tabla de algarrobo con 2 orificios",
@@ -47,7 +51,8 @@
         "stock": 50,
         "onStock": true,
         "onSale": false,
-        "description": "Description a completar"
+        "description": "Description a completar",
+        "category": ["Tablas", "Posapavas"]
     },
     {
         "name": "Tabla de pino 15cm x 40cm",
@@ -57,7 +62,8 @@
         "stock": 50,
         "onStock": true,
         "onSale": false,
-        "description": "Description a completar"
+        "description": "Description a completar",
+        "category": ["Tablas", "Posapavas"]
     },
     {
         "name": "Azucarera barril de calden",
@@ -67,7 +73,8 @@
         "stock": 50,
         "onStock": true,
         "onSale": false,
-        "description": "Description a completar"
+        "description": "Description a completar",
+        "category": ["Azucareras", "Yerberas"]
     },
     {
         "name": "Azucarera cazuela de calden",
@@ -77,7 +84,8 @@
         "stock": 50,
         "onStock": true,
         "onSale": false,
-        "description": "Description a completar"
+        "description": "Description a completar",
+        "category": ["Azucareras", "Yerberas"]
     },
     {
         "name": "Mate barril redondo de algarrobo",
@@ -87,7 +95,8 @@
         "stock": 50,
         "onStock": true,
         "onSale": false,
-        "description": "Description a completar"
+        "description": "Description a completar",
+        "category": ["Mates"]
     },
     {
         "name": "Mate barril redondo de calden",
@@ -97,7 +106,8 @@
         "stock": 50,
         "onStock": true,
         "onSale": false,
-        "description": "Description a completar"
+        "description": "Description a completar",
+        "category": ["Mates"]
     },
     {
         "name": "Tabla de algarrobo con 2 orificios",
@@ -107,7 +117,8 @@
         "stock": 50,
         "onStock": true,
         "onSale": false,
-        "description": "Description a completar"
+        "description": "Description a completar",
+        "category": ["Tablas", "Posapavas"]
     },
     {
         "name": "Tabla de pino 15cm x 40cm",
@@ -117,7 +128,8 @@
         "stock": 50,
         "onStock": true,
         "onSale": false,
-        "description": "Description a completar"
+        "description": "Description a completar",
+        "category": ["Tablas", "Posapavas"]
     },
     {
         "name": "Azucarera barril de calden",
@@ -127,7 +139,8 @@
         "stock": 50,
         "onStock": true,
         "onSale": false,
-        "description": "Description a completar"
+        "description": "Description a completar",
+        "category": ["Azucareras", "Yerberas"]
     },
     {
         "name": "Azucarera cazuela de calden",
@@ -137,7 +150,8 @@
         "stock": 50,
         "onStock": true,
         "onSale": false,
-        "description": "Description a completar"
+        "description": "Description a completar",
+        "category": ["Azucareras", "Yerberas"]
     },
     {
         "name": "Mate barril redondo de algarrobo",
@@ -147,7 +161,8 @@
         "stock": 50,
         "onStock": true,
         "onSale": false,
-        "description": "Description a completar"
+        "description": "Description a completar",
+        "category": ["Mates"]
     },
     {
         "name": "Mate barril redondo de calden",
@@ -157,7 +172,8 @@
         "stock": 50,
         "onStock": true,
         "onSale": false,
-        "description": "Description a completar"
+        "description": "Description a completar",
+        "category": ["Mates"]
     },
     {
         "name": "Tabla de algarrobo con 2 orificios",
@@ -167,7 +183,8 @@
         "stock": 50,
         "onStock": true,
         "onSale": false,
-        "description": "Description a completar"
+        "description": "Description a completar",
+        "category": ["Tablas", "Posapavas"]
     },
     {
         "name": "Tabla de pino 15cm x 40cm",
@@ -177,7 +194,8 @@
         "stock": 50,
         "onStock": true,
         "onSale": false,
-        "description": "Description a completar"
+        "description": "Description a completar",
+        "category": ["Tablas", "Posapavas"]
     },
     {
         "name": "Azucarera barril de calden",
@@ -187,7 +205,8 @@
         "stock": 50,
         "onStock": true,
         "onSale": false,
-        "description": "Description a completar"
+        "description": "Description a completar",
+        "category": ["Azucareras", "Yerberas"]
     },
     {
         "name": "Azucarera cazuela de calden",
@@ -197,7 +216,8 @@
         "stock": 50,
         "onStock": true,
         "onSale": false,
-        "description": "Description a completar"
+        "description": "Description a completar",
+        "category": ["Azucareras", "Yerberas"]
     },
     {
         "name": "Mate barril redondo de algarrobo",
@@ -207,7 +227,8 @@
         "stock": 50,
         "onStock": true,
         "onSale": false,
-        "description": "Description a completar"
+        "description": "Description a completar",
+        "category": ["Mates"]
     },
     {
         "name": "Mate barril redondo de calden",
@@ -217,7 +238,8 @@
         "stock": 50,
         "onStock": true,
         "onSale": false,
-        "description": "Description a completar"
+        "description": "Description a completar",
+        "category": ["Mates"]
     },
     {
         "name": "Tabla de algarrobo con 2 orificios",
@@ -227,7 +249,8 @@
         "stock": 50,
         "onStock": true,
         "onSale": false,
-        "description": "Description a completar"
+        "description": "Description a completar",
+        "category": ["Tablas", "Posapavas"]
     },
     {
         "name": "Tabla de pino 15cm x 40cm",
@@ -237,6 +260,7 @@
         "stock": 50,
         "onStock": true,
         "onSale": false,
-        "description": "Description a completar"
+        "description": "Description a completar",
+        "category": ["Tablas", "Posapavas"]
     }
 ]
