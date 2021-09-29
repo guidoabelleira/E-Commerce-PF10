@@ -2,6 +2,7 @@ const {Product, Categories, category_product} = require('../db');
 //const axios = require('axios');
 //const data = require('./data.json');
 
+
   const getAllInfo = async () => {
      // return await data
     return await Product.findAll({      

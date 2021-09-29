@@ -7,6 +7,7 @@ const { Product, Categories, category_product } = require("../db.js");
 
 const router = Router();
 
+
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 const productsRoute = require('./products');
