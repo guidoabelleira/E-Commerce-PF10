@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import NavBar from '../NavBar/NavBar';
 import SearchBar from '../Searchbar';
-import Cards from '../Cards/Cards';
+import ReutilizableCard from '';
 import { useDispatch, useSelector } from 'react-redux';
 
 import style from './home.module.css';
@@ -28,14 +28,13 @@ function Home() {
     return (
         <div className={style.body}>
             <div className={style.navegate}>
-                <NavBar />
                 <SearchBar /> 
             </div>
             
             <div className={style.bodyCards}>
-                <Cards popularProducts={popularProducts}/>
-                <Cards discountProducts={discountProducts}/>
-                <Cards lastAdded={lastAdded}/>
+                <ReutilizableCard props={popularProducts}/>
+                <ReutilizableCard props={discountProducts}/>
+                <ReutilizableCard props={lastAdded}/>
             </div>
             <div className={style.startedPack}>
                 aca va startedPack
