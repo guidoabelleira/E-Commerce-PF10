@@ -1,4 +1,4 @@
-const { Product, Categories } = require('../db');
+const { Product, Category } = require('../db');
 const data = require('../../data.json')
 
 const loaderProducts = async () => {
@@ -13,10 +13,11 @@ const loaderProducts = async () => {
                 onStock: el.onStock,
                 onSale: el.onSale,
                 description: el.description,
+                category: el.category
             };
         });
         modelProducts.forEach(async (el) => {
-            await Product.findOrCreate({
+            const productIns = await Product.findOrCreate({
                 where: {
                     name: el.name,
                     id: el.id,
@@ -28,6 +29,14 @@ const loaderProducts = async () => {
                     description: el.description,
                 },
             });
+            el.category.forEach(async (e) => {
+                const categoryIns = await Category.findOne({
+                    where: {
+                        name: e.name
+                    }
+                })
+                await categoryIns.addProduct(productIns[0])
+            })
         });
         console.log('Productos cargados en la DB 😉👌')
     }
@@ -48,7 +57,7 @@ const loaderCategory = async () => {
             }
         }
         allCategories.forEach(async (el) => {
-            await Categories.findOrCreate({
+            await Category.findOrCreate({
                 where: {
                     name: el
                 }
