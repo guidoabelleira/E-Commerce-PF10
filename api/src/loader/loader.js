@@ -1,8 +1,7 @@
-const { Product } = require('../db');
-const axios = require('axios');
+const { Product, Categories } = require('../db');
 const data = require('../../data.json')
 
-const loaderDB = async () => {
+const loaderProducts = async () => {
     try {
         const modelProducts = data.map((el) => {
             return {
@@ -37,4 +36,29 @@ const loaderDB = async () => {
     }
 }
 
-module.exports = { loaderDB }
+const loaderCategory = async () => {
+    try {
+        const modelCategories = data.map((el) => {
+            return el.category.map((e) => e.name)
+        })
+        const allCategories = []
+        for (let i = 0; i < modelCategories.length; i++) {
+            for (let j = 0; j < modelCategories[i].length; j++) {
+                if (!allCategories.includes(modelCategories[i][j])) allCategories.push(modelCategories[i][j])
+            }
+        }
+        allCategories.forEach(async (el) => {
+            await Categories.findOrCreate({
+                where: {
+                    name: el
+                }
+            })
+        })
+        console.log("Categorías cargadas correctamente! 😊✔")
+    }
+    catch (error) {
+        console.log("Error en la carga de categorías 🤦‍♀️👀")
+    }
+}
+
+module.exports = { loaderProducts, loaderCategory }
