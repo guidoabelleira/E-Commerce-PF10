@@ -1,13 +1,13 @@
 [
     {
-        "name": "Azucarera barril de calden",
+        "name": "Azucarera barril de caldén",
         "id": 1,
-        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210802100821845.jpg",
+        "image": "https://www.kositaspami.c om.ar/uploads/kositaspami.com.ar_20210802100821845.jpg",
         "price": 340.50,
         "stock": 50,
         "onStock": true,
         "onSale": false,
-        "description": "Description a completar",
+        "description": "Azucarera barril de calden, producto artesanal. Medidas: 13x8cm (pueden existir diferencias de tamaño entre uno y otro articulo del mismo modelo). Puede usarse como yerbera o azucarera",
         "category": [
             {
                 "name": "Azucareras"
@@ -18,20 +18,242 @@
         ]
     },
     {
-        "name": "Azucarera cazuela de calden",
+        "name": "Azucarera cazuela de caldén",
         "id": 2,
         "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210802100836384.jpg",
-        "price": 340.50,
+        "price": 340.5,
         "stock": 50,
         "onStock": true,
         "onSale": false,
-        "description": "Description a completar",
+        "description": "Azucarera cazuela de calden, producto artesanal. Medidas: 13,5x7,5cm (pueden existir diferencias de tamaño entre uno y otro articulo del mismo modelo). Puede usarse como yerbera o azucarera",
         "category": [
             {
                 "name": "Azucareras"
             },
             {
                 "name": "Yerberas"
+            }
+        ]
+    },
+    {
+        "name": "Azucarera recta de quebracho",
+        "id": 3,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210515120526561.jpg",
+        "price": 313.55,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Azucarera recta de quebracho, producto artesanal. Medidas: 9x9cm (pueden existir diferencias de tamaño entre uno y otro articulo del mismo modelo). Puede usarse como yerbera o azucarera",
+        "category": [
+            {
+                "name": "Azucareras"
+            },
+            {
+                "name": "Yerberas"
+            }
+        ]
+    },
+    {
+        "name": "Azucarera tapita diamante de algarrobo",
+        "id": 4,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210802100828700.jpg",
+        "price": 402.50,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Azucarera tapita de diamante de algarrobo, producto artesanal. Medidas: 9x9cm (pueden existir diferencias de tamaño entre uno y otro articulo del mismo modelo). Puede usarse como yerbera o azucarera",
+        "category": [
+            {
+                "name": "Azucareras"
+            },
+            {
+                "name": "Yerberas"
+            }
+        ]
+    },
+    {
+        "name": "Bowl de algarrobo 8cm x 12cm",
+        "id": 5,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210809010814277.jpg",
+        "price": 402.9,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Bowl/cuenco de algarrobo blanco, producto artesanal. Medidas: 8x12cm (pueden existir diferencias de tamaño entre uno y otro articulo del mismo modelo). ",
+        "category": [
+            {
+                "name": "Cuencos"
+            },
+            {
+                "name": "Oyitos"
+            }
+        ]
+    },
+    {
+        "name": "Bowl de algarrobo 8cm x 14cm",
+        "id": 6,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210809010804401.jpg",
+        "price": 458.5,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Bowl/cuenco de algarrobo blanco, producto artesanal. Medidas: 8x14cm (pueden existir diferencias de tamaño entre uno y otro articulo del mismo modelo). ",
+        "category": [
+            {
+                "name": "Cuencos"
+            },
+            {
+                "name": "Oyitos"
+            }
+        ]
+    },
+    {
+        "name": "Bowl de algarrobo 8cm x 16cm",
+        "id": 7,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210809010812334.jpg",
+        "price": 539.0,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Bowl/cuenco de algarrobo blanco, producto artesanal. Medidas: 8x16cm (pueden existir diferencias de tamaño entre uno y otro articulo del mismo modelo). ",
+        "category": [
+            {
+                "name": "Cuencos"
+            },
+            {
+                "name": "Oyitos"
+            }
+        ]
+    },
+    {
+        "name": "Bowl de algarrobo 8cm x 20cm",
+        "id": 8,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210809010833340.jpg",
+        "price": 677.25,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Bowl/cuenco de algarrobo blanco, producto artesanal. Medidas: 8x12cm (pueden existir diferencias de tamaño entre uno y otro articulo del mismo modelo). ",
+        "category": [
+            {
+                "name": "Cuencos"
+            },
+            {
+                "name": "Oyitos"
+            }
+        ]
+    },
+    {
+        "name": "Bowl de caldén 6cm x 10cm",
+        "id": 9,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_2021080901080142.jpg",
+        "price": 227.5,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Bowl/cuenco de calden, producto artesanal. Medidas: 6x10cm (pueden existir diferencias de tamaño entre uno y otro articulo del mismo modelo). ",
+        "category": [
+            {
+                "name": "Cuencos"
+            },
+            {
+                "name": "Oyitos"
+            }
+        ]
+    },
+    {
+        "name": "Caja multiuso cuadrada 18cm x 18cm",
+        "id": 10,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210812010859951.jpg",
+        "price": 255.00,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Caja organizadora multiuso cuadrada de pino. Medidas: 18x18x9 cm (Largo - Ancho - Alto).",
+        "category": [
+            {
+                "name": "Cajas"
+            },
+            {
+                "name": "Organizadores"
+            }
+        ]
+    },
+    {
+        "name": "Caja multiuso rectangular 24cm x 10cm",
+        "id": 11,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_2021081912082199.jpg",
+        "price": 170.00,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Caja organizadora multiuso rectangular de pino. Medidas 10x24x9 cm (Largo - Ancho - Alto).",
+        "category": [
+            {
+                "name": "Cajas"
+            },
+            {
+                "name": "Organizadores"
+            }
+        ]
+    },
+    {
+        "name": "Cenicero pupito de caldén",
+        "id": 12,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210809020820471.jpg",
+        "price": 140.00,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Cenicero de caldén. Producto artesanal. Medidas: 11 cm (pueden existir diferencias de tamaño entre uno y otro articulo del mismo modelo)",
+        "category": [
+            {
+                "name": "Ceniceros"
+            }
+        ]
+    },
+    {
+        "name": "Cuchara de madera dura 30cm",
+        "id": 13,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210128030104606.jpg",
+        "price": 165.00,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Cuchara de algarrobo. Producto artesanal. Medidas: 30 cm (pueden existir diferencias de tamaño entre uno y otro articulo del mismo modelo)",
+        "category": [
+            {
+                "name": "Cucharas"
+            }
+        ]
+    },
+    {
+        "name": "Cuchara de madera dura 40cm",
+        "id": 14,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210128030155703.jpg",
+        "price": 192.00,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Cuchara de algarrobo. Producto artesanal. Medidas: 40 cm (pueden existir diferencias de tamaño entre uno y otro articulo del mismo modelo)",
+        "category": [
+            {
+                "name": "Cucharas"
+            }
+        ]
+    },
+    {
+        "name": "Cuchara de madera dura 50cm",
+        "id": 15,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_202101280301317.jpg",
+        "price": 232.00,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Cuchara de algarrobo. Producto artesanal. Medidas: 50 cm (pueden existir diferencias de tamaño entre uno y otro articulo del mismo modelo)",
+        "category": [
+            {
+                "name": "Cucharas"
             }
         ]
     },
@@ -43,7 +265,7 @@
         "stock": 50,
         "onStock": true,
         "onSale": false,
-        "description": "Description a completar",
+        "description": "Mate de algarrobo blanco, producto artesanal. Medidas: 8x8cm (pueden existir diferencias de tamaño entre uno y otro articulo del mismo modelo).",
         "category": [
             {
                 "name": "Mates"
@@ -51,14 +273,134 @@
         ]
     },
     {
-        "name": "Mate barril redondo de calden",
+        "name": "Mate barril redondo de caldén",
         "id": 17,
         "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210128020108116.jpg",
         "price": 210.00,
         "stock": 50,
         "onStock": true,
         "onSale": false,
-        "description": "Description a completar",
+        "description": "Mate de caldén, producto artesanal. Medidas: 8x8cm (pueden existir diferencias de tamaño entre uno y otro articulo del mismo modelo).",
+        "category": [
+            {
+                "name": "Mates"
+            }
+        ]
+    },
+    {
+        "name": "Mate barrilito acanalado de algarrobo",
+        "id": 18,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210515120537840.jpg",
+        "price": 153.00,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Mate de algarrobo blanco, producto artesanal. Medidas: 9x6cm (pueden existir diferencias de tamaño entre uno y otro articulo del mismo modelo).",
+        "category": [
+            {
+                "name": "Mates"
+            }
+        ]
+    },
+    {
+        "name": "Mate barril redondo de caldén",
+        "id": 19,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210515120522463.jpg",
+        "price": 221.00,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Mate de algarrobo blanco, producto artesanal. Medidas: 8x7cm (pueden existir diferencias de tamaño entre uno y otro articulo del mismo modelo).",
+        "category": [
+            {
+                "name": "Mates"
+            }
+        ]
+    },
+    {
+        "name": "Mate barril redondo de caldén",
+        "id": 20,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210128010149862.jpg",
+        "price": 221.00,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Mate de algarrobo blanco, producto artesanal. Medidas: 8x7cm (pueden existir diferencias de tamaño entre uno y otro articulo del mismo modelo).",
+        "category": [
+            {
+                "name": "Mates"
+            }
+        ]
+    },
+    {
+        "name": "Mate bolita de algarrobo",
+        "id": 21,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210128010142647.jpg",
+        "price": 157.50,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Mate Bolita de algarrobo Blanco, producto artesanal. Medidas: 8,5x7,5cm (pueden existir diferencias de tamaño entre uno y otro articulo del mismo modelo).",
+        "category": [
+            {
+                "name": "Mates"
+            }
+        ]
+    },
+    {
+        "name": "Mate camionero de algarrobo",
+        "id": 22,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210128010125952.jpg",
+        "price": 150.70,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Mate de algarrobo blanco, producto artesanal. Medidas: 9x10cm (pueden existir diferencias de tamaño entre uno y otro articulo del mismo modelo).",
+        "category": [
+            {
+                "name": "Mates"
+            }
+        ]
+    },
+    {
+        "name": "Mate camionero de caldén",
+        "id": 23,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210128020133552.jpg   ",
+        "price": 203.73,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Mate de caldén, producto artesanal. Medidas: 9x10cm (pueden existir diferencias de tamaño entre uno y otro articulo del mismo modelo).",
+        "category": [
+            {
+                "name": "Mates"
+            }
+        ]
+    },
+    {
+        "name": "Mate cuadrado de algarrobo",
+        "id": 24,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210128010135247.jpg",
+        "price": 221.00,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Mate de algarrobo blanco, producto artesanal. Medidas: 8x8cm (pueden existir diferencias de tamaño entre uno y otro articulo del mismo modelo).",
+        "category": [
+            {
+                "name": "Mates"
+            }
+        ]
+    },
+    {
+        "name": "Mate inclinado de caldén",
+        "id": 25,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210809020806126.jpg",
+        "price": 210.00,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Mate de calden inclinado, producto artesanal. Medidas: 7x7cm (pueden existir diferencias de tamaño entre uno y otro mate del mismo modelo). Producto sin acabado final, en algunos casos será necesario lijarlo y/o rellenarlo con masilla para madera.",
         "category": [
             {
                 "name": "Mates"
