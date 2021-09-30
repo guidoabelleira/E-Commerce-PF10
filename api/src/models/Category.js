@@ -2,7 +2,7 @@ const { DataTypes } = require("sequelize");
 // Exporting the function that define the orderline model, inside connect with sequelize
 
 module.exports = (sequelize) => {
-  sequelize.define("categories", {
+  sequelize.define("category", {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
