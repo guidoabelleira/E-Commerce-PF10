@@ -1,13 +1,16 @@
 
 const initialState = {
-    user: {
+    products = [],
+    product = {
         name: '',
-        secondName: '',
-        lastName: '',
-        age: 0
-    },
-    product: {
-        name: ''
+        id: 0,
+        image: '',
+        price: 0.0,
+        stock: 0,
+        onStock: false,
+        onSale: false,
+        description: '',
+        category: [],
     },
     texto: "soy una carta de cartas raras"
 }
