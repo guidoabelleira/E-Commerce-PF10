@@ -1,11 +1,12 @@
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
-const { loaderDB } = require('./src/loader/loader')
+const { loaderProducts, loaderCategory } = require('./src/loader/loader')
 
 
 conn.sync({ force: true }).then(() => {
   server.listen(3001, () => {
-    loaderDB();
+    loaderProducts();
+    loaderCategory();
     console.log('%s listening at 3001');
   });
 });
