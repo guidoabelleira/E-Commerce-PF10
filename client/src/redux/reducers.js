@@ -1,9 +1,18 @@
+
 const initialState = {
-    product: {},
-    products: [],
-    user: {},
-    users: [],
-    example: ''
+    products = [],
+    product = {
+        name: '',
+        id: 0,
+        image: '',
+        price: 0.0,
+        stock: 0,
+        onStock: false,
+        onSale: false,
+        description: '',
+        category: [],
+    },
+    texto: "soy una carta de cartas raras"
 }
 
 function rootReducer(state = initialState, action) {
@@ -11,7 +20,7 @@ function rootReducer(state = initialState, action) {
         case "EXAMPLE":{
             return {
                 ...state,
-                example: action.example
+                texto: action.texto
             }
         }
 
@@ -76,3 +85,5 @@ function rootReducer(state = initialState, action) {
         }
     }
 }
+
+export default rootReducer;

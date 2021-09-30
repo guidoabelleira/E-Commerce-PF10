@@ -1,0 +1,410 @@
+[
+    {
+        "name": "Azucarera barril de calden",
+        "id": 1,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210802100821845.jpg",
+        "price": 340.50,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Description a completar",
+        "category": [
+            {
+                "name": "Azucareras"
+            },
+            {
+                "name": "Yerberas"
+            }
+        ]
+    },
+    {
+        "name": "Azucarera cazuela de calden",
+        "id": 2,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210802100836384.jpg",
+        "price": 340.50,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Description a completar",
+        "category": [
+            {
+                "name": "Azucareras"
+            },
+            {
+                "name": "Yerberas"
+            }
+        ]
+    },
+    {
+        "name": "Mate barril redondo de algarrobo",
+        "id": 16,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210128010147946.jpg",
+        "price": 210.00,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Description a completar",
+        "category": [
+            {
+                "name": "Mates"
+            }
+        ]
+    },
+    {
+        "name": "Mate barril redondo de calden",
+        "id": 17,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210128020108116.jpg",
+        "price": 210.00,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Description a completar",
+        "category": [
+            {
+                "name": "Mates"
+            }
+        ]
+    },
+    {
+        "name": "Tabla de algarrobo con 2 orificios",
+        "id": 43,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210128030125122.jpg",
+        "price": 127.50,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Description a completar",
+        "category": [
+            {
+                "name": "Tablas"
+            },
+            {
+                "name": "Posapavas"
+            }
+        ]
+    },
+    {
+        "name": "Tabla de pino 15cm x 40cm",
+        "id": 44,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210128030124628.jpg",
+        "price": 210.00,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Description a completar",
+        "category": [
+            {
+                "name": "Tablas"
+            },
+            {
+                "name": "Posapavas"
+            }
+        ]
+    },
+    {
+        "name": "Azucarera barril de calden",
+        "id": 101,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210802100821845.jpg",
+        "price": 340.50,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Description a completar",
+        "category": [
+            {
+                "name": "Azucareras"
+            },
+            {
+                "name": "Yerberas"
+            }
+        ]
+    },
+    {
+        "name": "Azucarera cazuela de calden",
+        "id": 102,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210802100836384.jpg",
+        "price": 340.50,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Description a completar",
+        "category": [
+            {
+                "name": "Azucareras"
+            },
+            {
+                "name": "Yerberas"
+            }
+        ]
+    },
+    {
+        "name": "Mate barril redondo de algarrobo",
+        "id": 116,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210128010147946.jpg",
+        "price": 210.00,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Description a completar",
+        "category": [
+            {
+                "name": "Mates"
+            }
+        ]
+    },
+    {
+        "name": "Mate barril redondo de calden",
+        "id": 117,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210128020108116.jpg",
+        "price": 210.00,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Description a completar",
+        "category": [
+            {
+                "name": "Mates"
+            }
+        ]
+    },
+    {
+        "name": "Tabla de algarrobo con 2 orificios",
+        "id": 143,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210128030125122.jpg",
+        "price": 127.50,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Description a completar",
+        "category": [
+            {
+                "name": "Tablas"
+            },
+            {
+                "name": "Posapavas"
+            }
+        ]
+    },
+    {
+        "name": "Tabla de pino 15cm x 40cm",
+        "id": 144,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210128030124628.jpg",
+        "price": 210.00,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Description a completar",
+        "category": [
+            {
+                "name": "Tablas"
+            },
+            {
+                "name": "Posapavas"
+            }
+        ]
+    },
+    {
+        "name": "Azucarera barril de calden",
+        "id": 201,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210802100821845.jpg",
+        "price": 340.50,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Description a completar",
+        "category": [
+            {
+                "name": "Azucareras"
+            },
+            {
+                "name": "Yerberas"
+            }
+        ]
+    },
+    {
+        "name": "Azucarera cazuela de calden",
+        "id": 202,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210802100836384.jpg",
+        "price": 340.50,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Description a completar",
+        "category": [
+            {
+                "name": "Azucareras"
+            },
+            {
+                "name": "Yerberas"
+            }
+        ]
+    },
+    {
+        "name": "Mate barril redondo de algarrobo",
+        "id": 216,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210128010147946.jpg",
+        "price": 210.00,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Description a completar",
+        "category": [
+            {
+                "name": "Mates"
+            }
+        ]
+    },
+    {
+        "name": "Mate barril redondo de calden",
+        "id": 217,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210128020108116.jpg",
+        "price": 210.00,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Description a completar",
+        "category": [
+            {
+                "name": "Mates"
+            }
+        ]
+    },
+    {
+        "name": "Tabla de algarrobo con 2 orificios",
+        "id": 243,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210128030125122.jpg",
+        "price": 127.50,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Description a completar",
+        "category": [
+            {
+                "name": "Tablas"
+            },
+            {
+                "name": "Posapavas"
+            }
+        ]
+    },
+    {
+        "name": "Tabla de pino 15cm x 40cm",
+        "id": 244,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210128030124628.jpg",
+        "price": 210.00,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Description a completar",
+        "category": [
+            {
+                "name": "Tablas"
+            },
+            {
+                "name": "Posapavas"
+            }
+        ]
+    },
+    {
+        "name": "Azucarera barril de calden",
+        "id": 301,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210802100821845.jpg",
+        "price": 340.50,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Description a completar",
+        "category": [
+            {
+                "name": "Azucareras"
+            },
+            {
+                "name": "Yerberas"
+            }
+        ]
+    },
+    {
+        "name": "Azucarera cazuela de calden",
+        "id": 302,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210802100836384.jpg",
+        "price": 340.50,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Description a completar",
+        "category": [
+            {
+                "name": "Azucareras"
+            },
+            {
+                "name": "Yerberas"
+            }
+        ]
+    },
+    {
+        "name": "Mate barril redondo de algarrobo",
+        "id": 316,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210128010147946.jpg",
+        "price": 210.00,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Description a completar",
+        "category": [
+            {
+                "name": "Mates"
+            }
+        ]
+    },
+    {
+        "name": "Mate barril redondo de calden",
+        "id": 317,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210128020108116.jpg",
+        "price": 210.00,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Description a completar",
+        "category": [
+            {
+                "name": "Mates"
+            }
+        ]
+    },
+    {
+        "name": "Tabla de algarrobo con 2 orificios",
+        "id": 343,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210128030125122.jpg",
+        "price": 127.50,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Description a completar",
+        "category": [
+            {
+                "name": "Tablas"
+            },
+            {
+                "name": "Posapavas"
+            }
+        ]
+    },
+    {
+        "name": "Tabla de pino 15cm x 40cm",
+        "id": 344,
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210128030124628.jpg",
+        "price": 210.00,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Description a completar",
+        "category": [
+            {
+                "name": "Tablas"
+            },
+            {
+                "name": "Posapavas"
+            }
+        ]
+    }
+]
