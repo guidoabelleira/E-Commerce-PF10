@@ -1,7 +1,7 @@
 
 const initialState = {
-    products = [],
-    CreateNewProduct = {
+    products: [],
+    CreateNewProduct: {
         name: '',
         id: 0,
         price: 0.0,
@@ -11,8 +11,8 @@ const initialState = {
         description: '',
         category: [],
     },
-    SearchProductFromDb = {},
-    shoppingCart = [],
+    SearchProductFromDb: {},
+    shoppingCart: [],
 
 }
 
