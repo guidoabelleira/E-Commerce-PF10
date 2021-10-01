@@ -1,10 +1,9 @@
 
 const initialState = {
     products = [],
-    product = {
+    CreateNewProduct = {
         name: '',
         id: 0,
-        image: '',
         price: 0.0,
         stock: 0,
         onStock: false,
@@ -12,22 +11,40 @@ const initialState = {
         description: '',
         category: [],
     },
-    texto: "soy una carta de cartas raras"
+    SearchProductFromDb = {},
+    shoppingCart = [],
+
 }
 
 function rootReducer(state = initialState, action) {
     switch(action.type) {
-        case "EXAMPLE":{
+
+        case 'GET_PRODUCT_BY_ID':{
             return {
                 ...state,
-                texto: action.texto
+                SearchProductFromDb: action.payload
             }
         }
 
-        case "GET_RECIPE_BY_NAME" : 
-        return {
-            ...state,
-            product: action.payload
+        case 'GET_PRODUCT_BY_NAME':{
+            return {
+                ...state,
+                SearchProductFromDb: action.payload
+            }
+        }
+
+        case 'ADD_PRODUCT_TO_THE_SHOPPING-CART':{
+            return {
+                ...state,
+                shoppingCart: state.shoppingCart.push(action.payload)
+            }
+        }
+
+        case 'REMOVE_PRODUCT_OF_THE_SHOPPING-CART':{
+            return {
+                ...state,
+                shoppingCart: state.shoppingCart.filter(products => products.id !== action.payload)
+            }
         }
 
         default: {
