@@ -1,10 +1,12 @@
 import { useState } from "react"
 import { useDispatch } from 'react-redux'
-import { getProductByName } from "../redux/actions"
+import { getProductByName } from "../../redux/actions";
+
+// se corrije ruta de redux/actions
 
 function Searchbar() {
     const dispatch = useDispatch()
-    const [input, setInput] = useState("")
+    const [input, setInput] = useState()
 
     function handleInputChange(e) {
         setInput(e.target.value)
@@ -24,8 +26,9 @@ function Searchbar() {
             />
             <button
                 type="submit"
-                onClick={handleSubmit}
-            >Buscar</button>
+                onClick={handleSubmit}>
+            Buscar
+            </button>
         </div>
     )
 }

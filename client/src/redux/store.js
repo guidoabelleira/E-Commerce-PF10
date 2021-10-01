@@ -3,12 +3,14 @@ import thunk from "redux-thunk"
 import { composeWithDevTools } from 'redux-devtools-extension'
 import reducer from './reducers'
 
-const reducers = combineReducers({
-    reducer,
-})
+// const reducers = combineReducers({
+//     reducer,
+// })
 
-export const store = createStore(
-    reducers,composeWithDevTools(
+const store = createStore(
+    reducer,composeWithDevTools(
         applyMiddleware(thunk)
         )
     );
+
+export default store;

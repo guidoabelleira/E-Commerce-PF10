@@ -15,7 +15,7 @@ function App() {
             <Switch>
                 {/* <Route exact path='/' component={LandingPage} /> */}
                 {/* Falta creear landingPage con login */}
-                <Route path='/' component={NavBar} />
+                {/* <Route path='/' component={NavBar} /> */}
                 <Route exact path='/home' component={Home} />
                 <Route exact path='/products' component={Products} />
                 <Route exact path='/products/:id' component={DetailCard} />
