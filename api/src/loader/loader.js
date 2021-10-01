@@ -6,7 +6,6 @@ const loaderProducts = async () => {
         const modelProducts = data.map((el) => {
             return {
                 name: el.name,
-                id: el.id,
                 image: el.image,
                 price: el.price,
                 stock: el.stock,
@@ -20,7 +19,6 @@ const loaderProducts = async () => {
             const productIns = await Product.findOrCreate({
                 where: {
                     name: el.name,
-                    id: el.id,
                     image: el.image,
                     price: el.price,
                     stock: el.stock,
