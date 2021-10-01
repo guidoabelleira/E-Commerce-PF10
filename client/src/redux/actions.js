@@ -1,11 +1,16 @@
 import axios from 'axios';
+import { PRODUCTS_URL } from '../constantes';
 
-export const exampleFunction = example =>{
-    return {
-        type: "EXAMPLE",
-        payload: example
-    }
-}
+export function getAllProducts() {
+    return async function(dispatch) {
+        const all = await axios.get(PRODUCTS_URL);
+        console.log(all)
+            dispatch({
+                type: 'GET_ALL_PRODUCTS',
+                payload: all.data
+            })   
+    };
+};
 
 export function getProductByName(input) {
     return async function(dispatch) {
