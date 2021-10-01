@@ -3,7 +3,7 @@ import { useParams, } from "react-router"
 //import { useState, useEffect, } from "react"
 import { useDispatch, } from 'react-redux'
 //import { store } from '../../redux/store'
-import { getProductByID } from '../../redux/actions'
+import { getProductByID, addProductToTheShoppingCart } from '../../redux/actions'
 
 export default function detailCard () {
     //const product = useSelector(state => state.product)
@@ -11,6 +11,7 @@ export default function detailCard () {
     const dispatch = useDispatch()
     const { id } = useParams
 
+    const product = dispatch(getProductByID(id))
     const {
         name,
         id,
@@ -21,7 +22,14 @@ export default function detailCard () {
         onSale,
         description,
         category,
-    } = dispatch(getProductByID(id))
+    } = product
+
+    const onSubmit = event => {
+        event.preventDefault();
+        alert("New Product was sucessfully added to the shopping cart");
+        dispatch(addProductToTheShoppingCart(product));    
+    };
+
 
     return(
         <div>
@@ -65,6 +73,10 @@ export default function detailCard () {
                 </div>
 
                 <p>{description}</p>
+
+                <button type="submit">
+                    Add to car
+                </button>
 
             </footer>
 
