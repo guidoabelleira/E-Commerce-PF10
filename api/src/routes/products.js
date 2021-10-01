@@ -1,8 +1,9 @@
 const router = require('express').Router();
-const {Product, Categories} = require('../db');
-//const axios = require('axios');
-const { getAllInfo, /* createProduct */} = require('../controllers/controllers');
+const {Product, Category} = require('../db');
+const { getAllInfo } = require('../controllers/controllers');
 const data = require('../../data.json');
+//const { v4: uuidv4 } = require('uuid');
+
 
 //Realizado por Cecilia
 router.get("/json", async (req, res, next) => {
@@ -71,6 +72,52 @@ router.put('/:id', async (req, res, next) => {
        next(err);
    } 
 })
+
+router.post('/', async (req, res, next) => {
+    try {
+        //const id = uuidv4();
+        const { 
+            name,         
+            image, 
+            price, 
+            stock, 
+            onStock, 
+            onSale, 
+            description, 
+            category  
+        } = req.body;
+
+        const newProduct = await Product.create({
+            name,     
+            image,
+            price, 
+            stock, 
+            onStock, 
+            onSale,
+            description,
+            category           
+        });
+ 
+        const categoryDb = await Category.findAll({
+            where: {name: category}
+        });
+ 
+            if(categoryDb.length === 0){
+                const newCat = await Category.create({
+                    name: category
+                })
+                await newProduct.addCategories(newCat);
+            } 
+              else {
+
+                await newProduct.addCategories(categoryDb);
+            }  
+                res.status(200).send(newProduct); 
+    } catch (error) {
+        next(error);
+    }
+});
+
 
 
 module.exports = router;
