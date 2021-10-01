@@ -12,14 +12,14 @@ export default function NavBar() {
             <img src={LogoProvi} alt="Logo"/>
             <div className={style.mainBttn}>
         <Link className={style.mainLink} to="/">
-        <img src={Home} alt="Home"/>
+        <img src={Home} alt="home"/>
         <button>
         Home
         </button>
         </Link>
         </div>
         <div className={style.mainBttn}>
-        <Link className={style.mainLink} to="/Products">
+        <Link className={style.mainLink} to="/products">
             <img src={Products} alt="Products"/>
             <button>
                 Products
@@ -28,7 +28,7 @@ export default function NavBar() {
         </div>
         <div className={style.mainBttn}>
             <Link to="/ContactUs">
-                <img src={ContactUs} alt="ContactUs"/>
+                <img src={ContactUs} alt="contactUs"/>
                 <button>
                     Contact Us
                 </button>
@@ -36,7 +36,7 @@ export default function NavBar() {
         </div>
         <div className={style.mainBttn}>
             <Link to="/AboutUs">
-                <img src={AboutUs} alt="AboutUs"/>
+                <img src={AboutUs} alt="aboutUs"/>
                 <button>
                    About Us
                 </button>
@@ -44,7 +44,7 @@ export default function NavBar() {
         </div>
         <div className={style.mainBttn}>
             <Link to="/Profile">
-                <img src={Profile} alt="Profile"/>
+                <img src={Profile} alt="profile"/>
                 <button>
                      Profile
                 </button>

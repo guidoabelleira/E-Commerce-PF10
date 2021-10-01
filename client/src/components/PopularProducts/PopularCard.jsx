@@ -1,9 +1,13 @@
 import { NavLink as Link } from 'react-router-dom';
-import style from './Card.module.css'
+import style from './PopularCard.module.css'
  
-export default function Card ({image, name, category,id,price, index}){
+export default function PopularCard ({image, name, category,id,price, index}){
     return(
         <div className={style.container} key={index}>
+            <p>Popular Products</p>
+            <Link to={"/products"}> <button>
+            <p>see all</p></button>
+            </Link>
             <Link to={`/${id}`}> <img className={style.img}src={image} alt={name} height="300px" width="350px" />
             </Link>
 
