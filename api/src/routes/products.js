@@ -31,6 +31,28 @@ router.get("/", async (req, res, next) => {
     }
 });
 
+router.get("/:category", async (req, res, next) => { 
+    const category  = req.params.category; 
+    try {
+        const dataProducts = await getAllInfo();         
+            if (category) {                 
+                let productWithcat = await dataProducts.filter( el =>
+                el.categories[0]?.name === category || el.categories[1]?.name === category                                     
+                );
+                    
+                await productWithcat.length? 
+                    res.status(200).send(productWithcat): 
+                    res.status(404).send("No se encontro ningun producto de esa categoria");
+            } else {      
+                const dataProducts = await getAllInfo();                
+                res.status(200).json(dataProducts);
+            }
+    } catch(err) {
+        next(err);
+    }
+});
+
+
 //Realizado por Pía
 router.get('/:id', async (req, res) => {
     const {id} = req.params;
@@ -100,19 +122,10 @@ router.post('/', async (req, res, next) => {
  
         const categoryDb = await Category.findAll({
             where: {name: category}
-        });
- 
-            if(categoryDb.length === 0){
-                const newCat = await Category.create({
-                    name: category
-                })
-                await newProduct.addCategories(newCat);
-            } 
-              else {
+        }); 
+            await newProduct.addCategories(categoryDb);              
+            res.status(200).send(newProduct); 
 
-                await newProduct.addCategories(categoryDb);
-            }  
-                res.status(200).send(newProduct); 
     } catch (error) {
         next(error);
     }
