@@ -31,7 +31,7 @@ router.get("/", async (req, res, next) => {
     }
 });
 
-router.get("/:category", async (req, res, next) => { 
+router.get("/category/:category", async (req, res, next) => { 
     const category  = req.params.category; 
     try {
         const dataProducts = await getAllInfo();         
