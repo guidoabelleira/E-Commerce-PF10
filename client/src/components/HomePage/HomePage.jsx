@@ -17,17 +17,24 @@ export default function HomePage() {
             await dispatch(getAllProducts());
     }, []);
 
-    console.log(state[0])
+    console.log("state", state)
 
-    let popular = state.reverse()
+
+    // Busco ultimos por ID, saco los ultimos 3.
+    let lasted = state.reverse().slice(0, 3);
+    
+    let discount = state.filter(e => e.price < '300').slice(0, 3);
+    console.log("discount: ", discount)
+
+    let popular = state.slice(10, 13);
+    console.log("popular: ", popular)
 
     return(
         <div>
-              <SearchBar /> 
-            <p>hola si sirvo c":, yo sabia que mi madre se equivocaba :v</p>
-            <Cards state={popular} />
-            {/* <Cards state={state} discountCard={true}/>
-            <Cards state={state} lastedCard={true}/> */}
+            <SearchBar /> 
+            <Cards state={discount} discountCard={true}/>
+            <Cards state={lasted} lastedCard={true}/>
+            <Cards state={popular} popularCard={true}/>
         </div>
     )
 }
