@@ -6,6 +6,12 @@ import Home from "../img/Home.png";
 import LogoProvi from "../img/LogoProvi.png";
 import Products from "../img/Products.png";
 import Profile from "../img/Profile.svg";
+
+// FONT AWEASOME
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faHouseUser, faWarehouse, faAddressCard, faEnvelopeSquare, faBookmark, faBoxOpen} from '@fortawesome/free-solid-svg-icons';
+
+
 export default function NavBar() {
     return(
         // <div>
@@ -57,7 +63,8 @@ export default function NavBar() {
                 <li className={style.li}>
                     <a>
                         <Link  to="/home">
-                            <img src={Home} alt="home"/> 
+                            {/* <img src={Home} alt="home"/>  */}
+                            <FontAwesomeIcon icon={faHouseUser}/>
                             <button>
                                 Home
                             </button>
@@ -67,7 +74,8 @@ export default function NavBar() {
                 <li className={style.li}>
                     <a>
                         <Link  to="/products">
-                            <img src={Products} alt="Products"/> 
+                            {/* <img src={Products} alt="Products"/>  */}
+                            <FontAwesomeIcon icon={faWarehouse}/>
                             <button>
                                 Products
                             </button>
@@ -78,6 +86,18 @@ export default function NavBar() {
                     <a>
                         <Link to="/Profile">
                             {/* <img src={Profile} alt="profile"/>  */}
+                            <FontAwesomeIcon icon={faBoxOpen}/>
+                            <button>
+                                Profile
+                            </button>
+                        </Link>
+                    </a>
+                </li>
+                <li className={style.li}>
+                    <a>
+                        <Link to="/Profile">
+                            {/* <img src={Profile} alt="profile"/>  */}
+                            <FontAwesomeIcon icon={faAddressCard}/>
                             <button>
                                 Profile
                             </button>
@@ -87,7 +107,8 @@ export default function NavBar() {
                 <li className={style.li}>
                     <a>
                         <Link to="/ContactUs">
-                            <img src={ContactUs} alt="contactUs"/> 
+                            {/* <img src={ContactUs} alt="contactUs"/>  */}
+                            <FontAwesomeIcon icon={faEnvelopeSquare}/>
                             <button>
                                 Contact Us
                             </button>
@@ -98,18 +119,9 @@ export default function NavBar() {
                     <a>
                         <Link to="/AboutUs">
                             {/* <img src={AboutUs} alt="aboutUs"/>  */}
+                            <FontAwesomeIcon icon={faBookmark}/>
                             <button>
                                 About Us
-                            </button>
-                        </Link>
-                    </a>
-                </li>
-                <li className={style.li}>
-                    <a>
-                        <Link to="/Profile">
-                            {/* <img src={Profile} alt="profile"/>  */}
-                            <button>
-                                Profile
                             </button>
                         </Link>
                     </a>
