@@ -4,7 +4,6 @@ import style from './PopularCard.module.css'
 export default function PopularCard ({image, name, categories,id,price, index}){
     return(
         <div className={style.container} key={index}>
-            <p>Popular Products</p>
             <Link to={"/products"}> <button>
             <p>see all</p></button>
             </Link>
