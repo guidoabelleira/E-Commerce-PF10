@@ -10,7 +10,7 @@ export default function HomePage() {
     const dispatch = useDispatch();
     const state = useSelector(state => state.products)
     useEffect(async() => {
-
+   
             await dispatch(getAllProducts());
     }, []);
     return(
