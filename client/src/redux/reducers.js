@@ -2,6 +2,7 @@
 const initialState = {
     products: [],
     detail: [],
+    categories: [],
     // product = {
     //     name: '',
     //     id: 0,
@@ -77,6 +78,16 @@ function rootReducer(state = initialState, action) {
                 return {
                     ...state,
                     products: sortedPrice
+                }
+            
+            case 'GET_CATEGORIES' :
+                return {
+                    categories: action.payload
+                }
+
+            case 'POST_PRODUCT' :
+                return {
+                    ...state,
                 }
 
         default: {
