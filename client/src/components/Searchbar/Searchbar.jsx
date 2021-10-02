@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux'
 import { getProductByName } from "../../redux/actions";
 
+import style from './Searchbar.module.css';
+
 // se corrije ruta de redux/actions
 
 function Searchbar() {
@@ -22,17 +24,20 @@ function Searchbar() {
     }, []);
     console.log(input)
     return (
-        <div>
-            <input 
-                type="text"
-                placeholder="Search product..."
-                onChange={handleInputChange}
-            />
-            <button
-                type="submit"
-                onClick={handleSubmit}>
-            Buscar
-            </button>
+        <div className={style.body}>
+            <div className={style.searchBar}>
+                <input 
+                    type="text"
+                    placeholder="Search product..."
+                    onChange={handleInputChange}
+                />
+                <button
+                    className={style.btn}
+                    type="submit"
+                    onClick={handleSubmit}>
+                        <span>Buscar</span>
+                </button>
+            </div>
         </div>
     )
 }
