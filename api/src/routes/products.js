@@ -5,12 +5,10 @@ const data = require('../../data.json');
 //const { v4: uuidv4 } = require('uuid');
 
 
-//Realizado por Cecilia
 router.get("/json", async (req, res, next) => {
         res.json(data);
 });
 
-//Realizado por Cecilia
 router.get("/", async (req, res, next) => { 
     const name  = req.query.name; 
     try {
@@ -26,8 +24,8 @@ router.get("/", async (req, res, next) => {
                 const dataProducts = await getAllInfo();                
                 res.status(200).json(dataProducts);
             }
-    } catch(err) {
-        next(err);
+    } catch(error) {
+        next(error);
     }
 });
 
@@ -42,18 +40,16 @@ router.get("/category/:category", async (req, res, next) => {
                     
                 await productWithcat.length? 
                     res.status(200).send(productWithcat): 
-                    res.status(404).send("No se encontro ningun producto de esa categoria");
+                    res.status(404).send("No se encontró ningun producto de esa categoría");
             } else {      
                 const dataProducts = await getAllInfo();                
                 res.status(200).json(dataProducts);
             }
-    } catch(err) {
-        next(err);
+    } catch(error) {
+        next(error);
     }
 });
 
-
-//Realizado por Pía
 router.get('/:id', async (req, res) => {
     const {id} = req.params;
    try {
@@ -62,23 +58,25 @@ router.get('/:id', async (req, res) => {
        let productId = await productsTotal.filter(el => el.id == id);
        productId.length ? res.status(200).json( productId) : res.json({data: {error:'No se encontró el producto requerido'}})             
      }
-   } catch (error) {
-     console.log(err);
-   }
-   })
+    } catch(error) {
+        next(error);
+    }
+})
 
-//Realizado por Pía
-router.delete ('/product', async (req, res) => {    
- let {name} = req.body;   
-  await Product.destroy({   
+router.delete ('/', async (req, res) => {    
+ let {id} = req.body;   
+  try {
+    await Product.destroy({   
         where: {                                            
-          name
+          id
         }
    })
- res.status(200).send('Producto eliminado con éxito')
+   res.status(200).send('Producto eliminado con éxito') 
+  } catch (error) {
+     next(error);
+  }
 }) 
 
-//Realizado por Pía
 router.put('/:id', async (req, res, next) => {
   let {id} = req.params
    let product = req.body;
@@ -90,8 +88,8 @@ router.put('/:id', async (req, res, next) => {
        })
         return res.status(200).json({cambiado: true})
        
-   } catch (err) {
-       next(err);
+   } catch (error) {
+       next(error);
    } 
 })
 

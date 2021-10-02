@@ -84,8 +84,8 @@ module.exports = (sequelize) => {
           msg: 'Este campo no puede estar vacío'
         },
         len: {
-          //args: [20, 255],
-          msg: 'La descripción debe tener entre 20 y 255 caracteres'
+          //args: [5, 255],
+          msg: 'La descripción debe tener entre 5 y 255 caracteres'
         }
       }
     },

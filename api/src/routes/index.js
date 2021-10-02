@@ -11,10 +11,10 @@ const router = Router();
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 const productsRoute = require('./products');
-//const categoryRoute = require('./category');
+const categoriesRoute = require('./categories');
 
 router.use('/products', productsRoute);
-//router.use('/category', categoryRoute );
+router.use('/categories', categoriesRoute );
 
 module.exports = router;
 
