@@ -1,7 +1,7 @@
 import { NavLink as Link } from 'react-router-dom';
 import style from './DiscountCard.module.css'
  
-export default function DiscountCard ({image, name, category,id,index}){
+export default function DiscountCard ({image, name, categories,id,index}){
     return(
         <div className={style.container} key={index}>
             <p>20% discount</p>
@@ -13,7 +13,7 @@ export default function DiscountCard ({image, name, category,id,index}){
             </Link>
 
             <h4 className={style.h4}>{name}</h4>
-            {category.map((e, i)=> {
+            {categories.map((e, i)=> {
             return <p className={style.p} key={i}>{e.name}</p>
             })}
             <Link to={`/${id}`}> <button>

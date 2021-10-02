@@ -14,11 +14,10 @@ function App() {
     return (
         <React.Fragment>
         <div className="App">
-
                  <Route path={'/'} component={NavBar} />
                  <Route path= {"/home"} component={HomePage} />
-                <Route exact path='/products' component={Products} />
-                <Route exact path='/products/:id' component={DetailCard} />
+                <Route exact path={"/products"} component={Products} />
+                <Route exact path={"/products/:id"} component={DetailCard} />
         </div>
         </React.Fragment>
     );

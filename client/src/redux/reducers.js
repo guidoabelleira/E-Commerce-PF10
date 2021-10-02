@@ -1,7 +1,7 @@
 
 const initialState = {
     products: [],
-    detail: [],
+    productById: [],
     categories: [],
     // product = {
     //     name: '',
@@ -23,6 +23,11 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 products: action.payload
+            }
+        case 'GET_PRODUCT_BY_ID':
+            return {
+                ...state,
+                productById: action.payload
             }
         case "GET_RECIPE_BY_NAME" : 
         return {
