@@ -1,6 +1,7 @@
 
 const initialState = {
     products: [],
+    detail: [],
     // product = {
     //     name: '',
     //     id: 0,
@@ -25,7 +26,7 @@ function rootReducer(state = initialState, action) {
         case "GET_RECIPE_BY_NAME" : 
         return {
             ...state,
-            product: action.payload
+            products: action.payload
         }
 
         case "ORDER_ASC_DESC" :

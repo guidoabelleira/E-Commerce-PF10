@@ -16,13 +16,16 @@ export function getProductByName(input) {
     return async function(dispatch) {
         try {
             let json = await axios.get('http://localhost:3001/products?name=' + input)
-            return dispatch ({
+            dispatch ({
                 type: 'GET_RECIPE_BY_NAME',
                 payload: json.data
             })
         }
         catch(error) {
-            console.log(error)
+            dispatch ({
+                type: 'GET_RECIPE_BY_NAME',
+                payload: {error: "Product not found"}
+            })
         }
     }
 }
