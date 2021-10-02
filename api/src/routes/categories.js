@@ -63,21 +63,20 @@ router.delete ('/', async (req, res) => {
   }
 }) 
 
-/* router.put('/category/:id', async (req, res, next) => {
+router.put('/:id', async (req, res, next) => {
   const {id} = req.params
-  const category = req.body;
+  const category = req.body;  //Postman: {name: 'nuevo nombre de prueba'}
    try {
-       const categoryDb = await Product.update(category, {   
+       const categoryDb = await Category.update(category, {   
               where: {
                 id: id
               }
        })
-     return res.status(200).json(category)
+     return res.status(200).send('Categoría cambiada con éxito')
    } catch (error) {
        next(error);
    } 
-}) */
-
+})
 
 
 module.exports = router;
