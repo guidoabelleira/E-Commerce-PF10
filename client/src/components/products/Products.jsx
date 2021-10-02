@@ -11,25 +11,21 @@ import style from './products.module.css';
 
 function Products() {
     const dispatch = useDispatch();
-    // const allProducts = useSelector(state => state.products)
-
-
-    // useEffect(() => {
-    //     async function geters() {
-    //         await dispatch(getAllProducts());
-    //     }
-    //     geters();
-    // }, []);
+    const state = useSelector(state => state.products)
+    useEffect(async() => {
+   
+            await dispatch(getAllProducts());
+    }, []);
 
 
     return (
-        <div className={style.body}>
-            <div className={style.navegate}>
+        <div >
+            <div >
                 <SearchBar /> 
                 <Filters />
             </div>
-            <div className={style.bodyCards}>
-                {/* <Cards props={allProducts} /> */}
+            <div >
+                <Cards state={state} />
             </div>
         </div>
         
