@@ -8,48 +8,104 @@ import Products from "../img/Products.png";
 import Profile from "../img/Profile.svg";
 export default function NavBar() {
     return(
-        <div>
-          <img src={LogoProvi} alt="Logo"/>
-            <div className={style.mainBttn}>
-                <Link className={style.mainLink} to="/home">
-                   <img src={Home} alt="home"/> 
-                    <button>
-                        Home
-                    </button>
-                </Link>
-            </div>
-        <div className={style.mainBttn}>
-            <Link className={style.mainLink} to="/products">
-                 <img src={Products} alt="Products"/> 
-                <button>
-                    Products
-                </button>
-            </Link>
-        </div>
-        <div className={style.mainBttn}>
-            <Link to="/ContactUs">
-              <img src={ContactUs} alt="contactUs"/> 
-                <button>
-                    Contact Us
-                </button>
-            </Link>
-        </div>
-        <div className={style.mainBttn}>
-            <Link to="/AboutUs">
-                <img src={AboutUs} alt="aboutUs"/> 
-                <button>
-                   About Us
-                </button>
-            </Link>
-        </div>
-        <div className={style.mainBttn}>
-            <Link to="/Profile">
-              {/* <img src={Profile} alt="profile"/>  */}
-                <button>
-                     Profile
-                </button>
-            </Link>
-        </div>
+        // <div>
+        //   <img src={LogoProvi} alt="Logo"/>
+        //     <div className={style.mainBttn}>
+        //         <Link className={style.mainLink} to="/home">
+        //            <img src={Home} alt="home"/> 
+        //             <button>
+        //                 Home
+        //             </button>
+        //         </Link>
+        //     </div>
+        // <div className={style.mainBttn}>
+        //     <Link className={style.mainLink} to="/products">
+        //          <img src={Products} alt="Products"/> 
+        //         <button>
+        //             Products
+        //         </button>
+        //     </Link>
+        // </div>
+        // <div className={style.mainBttn}>
+        //     <Link to="/ContactUs">
+        //       <img src={ContactUs} alt="contactUs"/> 
+        //         <button>
+        //             Contact Us
+        //         </button>
+        //     </Link>
+        // </div>
+        // <div className={style.mainBttn}>
+        //     <Link to="/AboutUs">
+        //         <img src={AboutUs} alt="aboutUs"/> 
+        //         <button>
+        //            About Us
+        //         </button>
+        //     </Link>
+        // </div>
+        // <div className={style.mainBttn}>
+        //     <Link to="/Profile">
+        //       {/* <img src={Profile} alt="profile"/>  */}
+        //         <button>
+        //              Profile
+        //         </button>
+        //     </Link>
+        // </div>
+        // </div>
+        <div className={style.navBar}>
+            <img src={LogoProvi} alt="Logo"/>
+            <ul className={style.ul}>
+                <li className={style.li}>
+                    <a>
+                        <Link  to="/home">
+                            <img src={Home} alt="home"/> 
+                            <button>
+                                Home
+                            </button>
+                        </Link>
+                    </a>
+                </li>
+                <li className={style.li}>
+                    <div >
+                        <Link  to="/products">
+                            <img src={Products} alt="Products"/> 
+                            <button>
+                                Products
+                            </button>
+                        </Link>
+                    </div>
+                </li>
+                <li className={style.li}>
+                    <div >
+                        <Link to="/ContactUs">
+                            <img src={ContactUs} alt="contactUs"/> 
+                            <button>
+                                Contact Us
+                            </button>
+                        </Link>
+                    </div>
+                </li>
+                <li className={style.li}>
+                    <div >
+                        <Link to="/AboutUs">
+                            {/* <img src={AboutUs} alt="aboutUs"/>  */}
+                            <button>
+                                About Us
+                            </button>
+                        </Link>
+                    </div>
+                </li>
+                <li className={style.li}>
+                    <div >
+                        <Link to="/Profile">
+                            {/* <img src={Profile} alt="profile"/>  */}
+                            <button>
+                                Profile
+                            </button>
+                        </Link>
+                    </div>
+                </li>
+            </ul>
+        
         </div>
     )
 }

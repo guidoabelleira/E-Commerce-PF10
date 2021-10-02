@@ -32,9 +32,18 @@ export default function HomePage() {
     return(
         <div>
             <SearchBar /> 
-            <Cards state={discount} discountCard={true}/>
-            <Cards state={lasted} lastedCard={true}/>
-            <Cards state={popular} popularCard={true}/>
+            <div>
+                <h3>Discount Products:</h3>
+                <Cards state={discount} discountCard={true}/>
+            </div>
+            <div>
+                <h3>Lasted Products:</h3>
+                <Cards state={lasted} lastedCard={true}/>
+            </div>
+            <div>
+                <h3>Popular Products:</h3>
+                <Cards state={popular} popularCard={true}/>
+            </div>
         </div>
     )
 }
