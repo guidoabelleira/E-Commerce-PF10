@@ -9,7 +9,7 @@ import Profile from "../img/Profile.svg";
 
 // FONT AWEASOME
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faHouseUser, faWarehouse, faAddressCard, faEnvelopeSquare, faBookmark, faBoxOpen} from '@fortawesome/free-solid-svg-icons';
+import {faHouseUser, faWarehouse, faAddressCard, faEnvelopeSquare, faBookmark, faBoxOpen, faPlusSquare} from '@fortawesome/free-solid-svg-icons';
 
 
 export default function NavBar() {
@@ -84,11 +84,22 @@ export default function NavBar() {
                 </li>
                 <li className={style.li}>
                     <a>
-                        <Link to="/Profile">
+                        <Link  to="/addproducts">
+                            {/* <img src={Products} alt="Products"/>  */}
+                            <FontAwesomeIcon icon={faPlusSquare}/>
+                            <button>
+                                New
+                            </button>
+                        </Link>
+                    </a>
+                </li>
+                <li className={style.li}>
+                    <a>
+                        <Link to="/shopcart">
                             {/* <img src={Profile} alt="profile"/>  */}
                             <FontAwesomeIcon icon={faBoxOpen}/>
                             <button>
-                                Profile
+                                Shop
                             </button>
                         </Link>
                     </a>
