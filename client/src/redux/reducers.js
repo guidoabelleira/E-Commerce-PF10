@@ -87,7 +87,7 @@ function rootReducer(state = initialState, action) {
 
             case 'POST_PRODUCT' :
                 return {
-                    ...state
+                    ...state,
                 }
 
         default: {

@@ -130,7 +130,7 @@ function Form() {
                         {
                             categories.map((el) => {
                                 return (
-                                    <option key={el.name} value={el.name}>{el.name}</option>
+                                    <option key={el.id} value={el.name}>{el.name}</option>
                                 )
                             })
                         }

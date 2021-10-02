@@ -49,7 +49,7 @@ export function getCategories() {
         let json = await axios.get('http://localhost:3001/categories')
         return dispatch({
             type: 'GET_CATEGORIES',
-            payload: json.data
+            payload: json.data,
         })
     }
 }
@@ -57,6 +57,6 @@ export function getCategories() {
 export function postProduct(payload) {
     return async function(dispatch) {
         let json = await axios.post('http://localhost:3001/products', payload)
-        return json
+        return json;
     }
 }
