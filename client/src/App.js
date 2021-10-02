@@ -16,7 +16,7 @@ function App() {
                 {/* <Route exact path='/' component={LandingPage} /> */}
                 {/* Falta creear landingPage con login */}
                 {/* <Route path='/' component={NavBar} /> */}
-                <Route exact path='/home' component={Home} />
+                <Route exact path='/' component={Home} />
                 <Route exact path='/products' component={Products} />
                 <Route exact path='/products/:id' component={DetailCard} />
                 {/* <Route exact path='/profile:id' component={Profile} /> */}
