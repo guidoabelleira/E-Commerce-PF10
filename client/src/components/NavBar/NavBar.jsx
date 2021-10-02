@@ -65,44 +65,54 @@ export default function NavBar() {
                     </a>
                 </li>
                 <li className={style.li}>
-                    <div >
+                    <a>
                         <Link  to="/products">
                             <img src={Products} alt="Products"/> 
                             <button>
                                 Products
                             </button>
                         </Link>
-                    </div>
+                    </a>
                 </li>
                 <li className={style.li}>
-                    <div >
-                        <Link to="/ContactUs">
-                            <img src={ContactUs} alt="contactUs"/> 
-                            <button>
-                                Contact Us
-                            </button>
-                        </Link>
-                    </div>
-                </li>
-                <li className={style.li}>
-                    <div >
-                        <Link to="/AboutUs">
-                            {/* <img src={AboutUs} alt="aboutUs"/>  */}
-                            <button>
-                                About Us
-                            </button>
-                        </Link>
-                    </div>
-                </li>
-                <li className={style.li}>
-                    <div >
+                    <a>
                         <Link to="/Profile">
                             {/* <img src={Profile} alt="profile"/>  */}
                             <button>
                                 Profile
                             </button>
                         </Link>
-                    </div>
+                    </a>
+                </li>
+                <li className={style.li}>
+                    <a>
+                        <Link to="/ContactUs">
+                            <img src={ContactUs} alt="contactUs"/> 
+                            <button>
+                                Contact Us
+                            </button>
+                        </Link>
+                    </a>
+                </li>
+                <li className={style.li}>
+                    <a>
+                        <Link to="/AboutUs">
+                            {/* <img src={AboutUs} alt="aboutUs"/>  */}
+                            <button>
+                                About Us
+                            </button>
+                        </Link>
+                    </a>
+                </li>
+                <li className={style.li}>
+                    <a>
+                        <Link to="/Profile">
+                            {/* <img src={Profile} alt="profile"/>  */}
+                            <button>
+                                Profile
+                            </button>
+                        </Link>
+                    </a>
                 </li>
             </ul>
         
