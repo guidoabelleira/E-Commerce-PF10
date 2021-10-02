@@ -14,19 +14,10 @@ function App() {
     return (
         <React.Fragment>
         <div className="App">
-<<<<<<< HEAD
-            <Switch>
-                {/* <Route exact path='/' component={LandingPage} /> */}
-                {/* Falta creear landingPage con login */}
-                {/* <Route path='/' component={NavBar} /> */}
-                <Route exact path='/' component={Home} />
-=======
-
                  <Route path={'/'} component={NavBar} />
                  <Route path= {"/home"} component={HomePage} />
->>>>>>> 03d9363df78e876313ca06d46a3ba605706ca106
-                <Route exact path='/products' component={Products} />
-                <Route exact path='/products/:id' component={DetailCard} />
+                <Route exact path={"/products"} component={Products} />
+                <Route exact path={"/products/:id"} component={DetailCard} />
         </div>
         </React.Fragment>
     );

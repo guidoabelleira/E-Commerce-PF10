@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { PRODUCTS_URL } from '../constantes';
 
+//Guido
 export function getAllProducts() {
     return async function(dispatch) {
         const all = await axios.get(PRODUCTS_URL);
@@ -11,6 +12,21 @@ export function getAllProducts() {
             })   
     };
 };
+
+//Guido
+export function getProductById(id){
+    return async function(dispatch){
+        try {
+            const productById = await axios.get(PRODUCTS_URL + id)
+            dispatch({
+                type: 'GET_PRODUCT_BY_ID',
+                payload: productById.data[0]
+            })
+        } catch (error){
+            console.log(error)
+        }
+    }
+}
 
 export function getProductByName(input) {
     return async function(dispatch) {
