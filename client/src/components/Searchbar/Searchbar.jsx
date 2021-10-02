@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux'
 import { getProductByName } from "../../redux/actions";
 
@@ -16,7 +16,11 @@ function Searchbar() {
         e.preventDefault()
         dispatch(getProductByName(input))
     }
-
+    useEffect(async() => {
+        await getProductByName(input)
+        
+    }, []);
+    console.log(input)
     return (
         <div>
             <input 

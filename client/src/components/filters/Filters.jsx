@@ -15,10 +15,11 @@ function Filter() {
         dispatch(orderByPrice(e.target.value))
         setOrden(`Ordenado ${e.target.value}`)
     }
-
+//facu trata de dejar esta estructura, debes re pensar las actions y las categorias deben sacarse del mapeo del array del backend (cuando puedas)
     return (
         <div>
             <select>
+            <option>Category</option>
                 <option>Azucareras</option>
                 <option>Yerberas</option>
                 <option>Mates</option>
@@ -26,12 +27,14 @@ function Filter() {
                 <option>Posapavas</option>
             </select>
             <select onChange={handleSortName}>
-                <option value="asc">Ascendente</option>
-                <option value="desc">Descendente</option>
+            <option>by</option>
+                <option value="asc">nombre</option>
+                <option value="desc">precio</option>
             </select>
             <select onChange={handleSortPrice}>
-                <option value="lowest">Precio bajo</option>
-                <option value="highest">Precio alto</option>
+            <option>Order</option>
+                <option value="lowest">Ascendenteo</option>
+                <option value="highest">Descendente</option>
             </select>
         </div>
     )
