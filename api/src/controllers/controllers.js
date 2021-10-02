@@ -11,9 +11,14 @@ const {Product, Category, category_product} = require('../db');
         },
       }, 
     });
-  }; 
+  };
   
+
+  const getAllCategories = async () => {
+    return Category.findAll({});
+  }
 
   module.exports = {
 	getAllInfo, 
+  getAllCategories,
 };
