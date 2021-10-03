@@ -1,12 +1,65 @@
-@import url('https://fonts.googleapis.com/css?family=Sarala:700|Exo+2:300');
 
-*,
-*:before,
-*:after{
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: rgba(255,255,255,0);
-  outline: 1px solid transparent;
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color:white;
+  background: #0E6655;
+  text-align: center;
+  align-items: center;
+  padding: 0px;
+  height:100%;
+  width:17vw;
+ border-radius:10px;
+ margin-bottom: 5%;
+
 }
+
+.container img{
+  margin-top: 25%;
+  border-radius: 100px;
+   height:150px;
+   width: 150px;
+  transform: rotate(0deg);
+}
+
+.price{
+  background-color:white;
+  color:#0E6655;
+  padding:5%;
+  margin-top: -5px;
+  border-radius: 10px;
+  padding-left: 40px;
+}
+
+.shop{
+  flex-direction:row;
+  display:flex;
+  margin-top: 5%;
+  margin-left: 15%;
+}
+
+.circle{
+  background-color:#0E6655;
+  border-radius:100%;
+  margin-right: -25%;
+  margin-bottom: -50px;
+  height:30px;
+  width:30px;
+  z-index: 1;
+  text-align:center;
+}
+.circle p{
+ color:white;
+ font-size:36px;
+ margin-top: -30%;
+ font-family:'Times New Roman', Times, serif;
+}
+
+
+
+/* @import url('https://fonts.googleapis.com/css?family=Sarala:700|Exo+2:300');
+
 
 .body{ 
   display: flex;
@@ -208,4 +261,4 @@ button:hover{
   body{
     transform: scale(.67);
   }
-}
+} */

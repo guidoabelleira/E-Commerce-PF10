@@ -98,8 +98,9 @@ function rootReducer(state = initialState, action) {
             case "ADD_PCART":
             return {
                 ...state,
-                shopProduct: action.payload
+                shopProduct :[...state.shopProduct, action.payload]
             }
+            
 
         default: {
             return state

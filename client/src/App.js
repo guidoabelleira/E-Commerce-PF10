@@ -15,13 +15,17 @@ function App() {
   
     return (
         <React.Fragment>
-        <div className="App">
+        <div className="container">
+            <div className="row">
                 <Route path={'/'} component={NavBar} />
+                </div>
+                <div>
                 <Route path= {"/home"} component={HomePage} />
                 <Route exact path={"/products"} component={Products} />
                 <Route exact path={"/products/:id"} component={DetailCard} />
                 <Route exact path={"/shopcart"} component={ShopCart} />
                 <Route exact path={"/addproducts"} component={AddProduct} />
+                </div>
         </div>
         </React.Fragment>
     );

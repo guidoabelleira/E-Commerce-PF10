@@ -1,0 +1,15 @@
+.container{
+    margin-left: 25vw;
+    width: 100%;
+    height: 100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container img{
+    height:200px;
+    width: 200px;
+    transform: rotate(0deg);
+}

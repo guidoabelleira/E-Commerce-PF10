@@ -1,0 +1,17 @@
+.container{
+    margin-left: 30vw;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction: column;
+}
+.paginationContainer{
+    display:flex;
+    flex-direction:row;
+    margin-top:25%;
+}
+
+.paginationContainer li{
+   margin-left:8%;
+   text-decoration: none;
+}

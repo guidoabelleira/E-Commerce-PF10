@@ -8,22 +8,23 @@ import LastedCard from "../LastedCard/LastedCard"
 export default function Cards ({state ,popularCard = false ,discountCard  = false, lastedCard  = false}) {
     console.log(state)
     if(state[0] !== {error: "Product not found"} && state[0]){
+
        return(<div className={style.container}>
            <div className={style.parent}>{ state.map((e, i) => {
                if(e.name && lastedCard){
-               return (<div key={i}>
+               return (<div className={style.cards} key={i}>
                    <LastedCard id={e.id} image={e.image} name={e.name} categories={e.categories} index={i} />
                </div>
                )
                }
                if(e.name && discountCard){
-               return (<div key={i}>
+               return (<div className={style.cards} key={i}>
                    <DiscountCard id={e.id} image={e.image} name={e.name} categories={e.categories} index={i} />
                </div>
                )
                }
                if(e.name && popularCard){
-               return (<div key={i}>
+               return (<div className={style.cards} key={i}>
                    <PopularCard id={e.id} image={e.image} name={e.name} categories={e.categories} price={e.price}
                        index={i} />
                </div>
