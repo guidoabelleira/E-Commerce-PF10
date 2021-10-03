@@ -1,11 +1,8 @@
-import PopularCard from '../PopularProducts/PopularCard';
-import DiscountCard from '../DiscountCard/DiscountCard';
-import LastedCard from '../LastedCard/LastedCard';
 import Cards from '../Cards/Cards';
 import SearchBar from '../Searchbar/Searchbar';
-
+import ShopCartButton from '../ShopCartButton/ShopCartButton';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllProducts } from '../../redux/actions';
+import {getAllProducts} from '../../redux/actions';
 import { useEffect, useState } from 'react';
 
 
@@ -32,6 +29,7 @@ export default function HomePage() {
     return(
         <div>
             <SearchBar /> 
+            <ShopCartButton/>
             <div>
                 <h3>Discount Products:</h3>
                 <Cards state={discount} discountCard={true}/>

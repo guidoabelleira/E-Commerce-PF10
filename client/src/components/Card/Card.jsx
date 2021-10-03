@@ -1,6 +1,6 @@
 import { NavLink as Link } from 'react-router-dom';
 import style from './Card.module.css'
- 
+import {addPCart} from "../../redux/actions"
 export default function Card ({image, name, categories,id,price, index}){
     return(
 //         <div className={style.container} key={index}>
