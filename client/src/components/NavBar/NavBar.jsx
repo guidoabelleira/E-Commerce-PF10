@@ -57,7 +57,14 @@ export default function NavBar() {
                 </p>
             </Link>
             </div>
-       
+            <div className={style.mainBttn}>
+            <Link className={style.mainBttn} to="/addProduct">
+               <img src={Profile} alt="add Product"/> 
+                <p>
+                     Add Product
+                </p>
+            </Link>
+            </div>
         </div>
         // <div className={style.navBar}>
         //     {/* <img src={LogoProvi} alt="Logo"/> */}

@@ -24,7 +24,7 @@ function App() {
                 <Route exact path={"/products"} component={Products} />
                 <Route exact path={"/products/:id"} component={DetailCard} />
                 <Route exact path={"/shopcart"} component={ShopCart} />
-                <Route exact path={"/addproducts"} component={AddProduct} />
+                <Route exact path={"/addProduct"} component={AddProduct} />
                 </div>
         </div>
         </React.Fragment>

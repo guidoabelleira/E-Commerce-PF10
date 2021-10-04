@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { getCategories, postProduct } from "../../redux/actions"
-
+import style from "./Form.module.css"
 function Form() {
 
     const dispatch = useDispatch()
@@ -67,7 +67,7 @@ function Form() {
     }
 
     return (
-        <div>
+        <div className={style.container}>
             <form onSubmit={handleSubmit} >
                 <span>Nombre</span>
                     <input
