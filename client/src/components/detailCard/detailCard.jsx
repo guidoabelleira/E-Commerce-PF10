@@ -1,4 +1,4 @@
-
+import style from "./detailCard.module.css"
 import React from "react";
 import  {useEffect}  from "react";
 import {useDispatch, useSelector} from "react-redux";
@@ -15,10 +15,10 @@ export default function DetailCard (props) {
     }, [dispatch]);
 
     return productId ? (
-        <div>
+        <div className={style.container}>
             <div > 
                 <div >
-                    <img src={productId.image} alt="Err img" />
+                    <img className={style.img} src={productId.image} alt="Err img" />
                 </div>
                 <div >
                     <h4>Name: "{productId.name}"</h4>

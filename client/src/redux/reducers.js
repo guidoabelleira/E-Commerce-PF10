@@ -3,6 +3,7 @@ const initialState = {
     products: [],
     productById: [],
     categories: [],
+    shopProduct : [],
     // product = {
     //     name: '',
     //     id: 0,
@@ -94,6 +95,12 @@ function rootReducer(state = initialState, action) {
                 return {
                     ...state,
                 }
+            case "ADD_PCART":
+            return {
+                ...state,
+                shopProduct :[...state.shopProduct, action.payload]
+            }
+            
 
         default: {
             return state

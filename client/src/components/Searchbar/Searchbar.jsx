@@ -27,16 +27,15 @@ function Searchbar() {
         <div className={style.body}>
             <div className={style.searchBar}>
                 <input 
+                class="form-control rounded"
                     type="text"
                     placeholder="Search product..."
                     onChange={handleInputChange}
                 />
-                <button
-                    className={style.btn}
-                    type="submit"
-                    onClick={handleSubmit}>
-                        <span>Buscar</span>
-                </button>
+                <span class="input-group-text border-0" id="search-addon">
+    <i class="fas fa-search">
+        </i>
+        </span>
             </div>
         </div>
     )
