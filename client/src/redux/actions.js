@@ -1,12 +1,15 @@
 import axios from 'axios';
 import { PRODUCTS_URL } from '../constantes';
 
-// export function removePcart(product){
-//     dispatch ({
-//         type: "ADD_PCART",
-//         payload: product
-//     })
-// }
+export function removeShopCart(products){
+   return async function (dispatch) {
+    dispatch ({
+        type: "REMOVE_PCART",
+        payload: products
+    })
+   }
+   
+}
 
 export function addPCart(product){
     return async function(dispatch) {

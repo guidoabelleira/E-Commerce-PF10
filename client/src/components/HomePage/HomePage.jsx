@@ -30,9 +30,10 @@ export default function HomePage() {
         <div className={style.container}>
             <div className={style.margin}>
 
-            
+            <div className={style.searchbar}>
             <SearchBar /> 
             <ShopCartButton/>
+            </div>
             <div className={style.cards}>
                 <h3>Popular Products:</h3>
                 <Cards state={popular} popularCard={true}/>

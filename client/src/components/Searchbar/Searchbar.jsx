@@ -31,7 +31,12 @@ function Searchbar() {
                     type="text"
                     placeholder="Search product..."
                     onChange={handleInputChange}
-                />
+                />                
+                <button 
+                    type="submit"
+                    onClick={handleSubmit}>
+                    Search
+                </button>
                 <span class="input-group-text border-0" id="search-addon">
     <i class="fas fa-search">
         </i>

@@ -50,7 +50,8 @@ activeClassName={style.activePagination}/>
     )
     } else{
         <div>
-        <p>error</p></div>
+        <p>error</p>
+        </div>
     }
    
 };
