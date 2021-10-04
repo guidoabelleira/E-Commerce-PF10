@@ -3,6 +3,7 @@ const initialState = {
     products: [],
     productById: [],
     categories: [],
+    shopProduct : [],
     // product = {
     //     name: '',
     //     id: 0,
@@ -63,19 +64,19 @@ function rootReducer(state = initialState, action) {
             case 'ORDER_BY_PRICE' :
                 let sortedPrice = action.payload === 'lowest' ? 
                 state.products.sort(function(a,b){
-                    if(a.price > b.price) {
+                    if(parseInt(a.price) > parseInt(b.price)) {
                         return 1
                     }
-                    if(b.price > a.price) {
+                    if(parseInt(b.price) > parseInt(a.price)) {
                         return -1
                     }
                     return 0
                 }) :
                 state.products.sort(function(a,b) {
-                    if(a.price > b.price) {
+                    if(parseInt(a.price) > parseInt(b.price)) {
                         return -1
                     }
-                    if(b.price > a.price) {
+                    if(parseInt(b.price) > parseInt(a.price)) {
                         return 1
                     }
                     return 0
@@ -93,6 +94,18 @@ function rootReducer(state = initialState, action) {
             case 'POST_PRODUCT' :
                 return {
                     ...state,
+                }
+            case "ADD_PCART":
+            return {
+                ...state,
+                shopProduct :[...state.shopProduct, action.payload]
+            }
+            
+
+            case 'GET_CATEGORY_FILTERED' :
+                return {
+                    ...state,
+                    products: action.payload
                 }
 
         default: {

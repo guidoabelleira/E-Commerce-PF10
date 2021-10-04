@@ -1,13 +1,10 @@
-import PopularCard from '../PopularProducts/PopularCard';
-import DiscountCard from '../DiscountCard/DiscountCard';
-import LastedCard from '../LastedCard/LastedCard';
 import Cards from '../Cards/Cards';
 import SearchBar from '../Searchbar/Searchbar';
-
+import ShopCartButton from '../ShopCartButton/ShopCartButton';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllProducts } from '../../redux/actions';
+import {getAllProducts} from '../../redux/actions';
 import { useEffect, useState } from 'react';
-
+import style from './homePage.module.css'
 
 export default function HomePage() {
     const dispatch = useDispatch();
@@ -30,20 +27,25 @@ export default function HomePage() {
     console.log("popular: ", popular)
 
     return(
-        <div>
+        <div className={style.container}>
+            <div className={style.margin}>
+
+            
             <SearchBar /> 
-            <div>
-                <h3>Discount Products:</h3>
-                <Cards state={discount} discountCard={true}/>
-            </div>
-            <div>
-                <h3>Lasted Products:</h3>
-                <Cards state={lasted} lastedCard={true}/>
-            </div>
-            <div>
+            <ShopCartButton/>
+            <div className={style.cards}>
                 <h3>Popular Products:</h3>
                 <Cards state={popular} popularCard={true}/>
             </div>
+            <div className={style.cards}>
+                <h3>Discount Products:</h3>
+                <Cards state={discount} discountCard={true}/>
+            </div>
+            <div className={style.cards}>
+                <h3>Lasted Products:</h3>
+                <Cards state={lasted} lastedCard={true}/>
+            </div>
+        </div>
         </div>
     )
 }

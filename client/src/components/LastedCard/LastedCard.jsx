@@ -4,10 +4,6 @@ import style from './LastedCard.module.css'
 export default function LastedCard ({image, name, categories,id, index}){
     return(
         <div className={style.container} key={index}>
-            <p>Last Added</p>
-            <Link to={"/products"}> <button>
-            <p>see all</p></button>
-            </Link>
             <Link to={`/products/${id}`}> <img className={style.img}src={image} alt={name} height="300px" width="350px" />
             </Link>
 
@@ -18,7 +14,7 @@ export default function LastedCard ({image, name, categories,id, index}){
             <Link to={`/${id}`}> <button>
             <p>View</p></button>
             </Link>
-            <Link to={`/${id}`}> <button>
+            <Link className={style.bttn}to={`/products/${id}`}>  <button>
             <p>Shop Now</p></button>
             </Link>
         </div>

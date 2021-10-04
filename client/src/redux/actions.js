@@ -1,6 +1,21 @@
 import axios from 'axios';
 import { PRODUCTS_URL } from '../constantes';
 
+// export function removePcart(product){
+//     dispatch ({
+//         type: "ADD_PCART",
+//         payload: product
+//     })
+// }
+
+export function addPCart(product){
+    return async function(dispatch) {
+    dispatch({
+        type: "ADD_PCART",
+        payload: product
+    })
+}
+}
 //Guido
 export function getAllProducts() {
     return async function(dispatch) {
@@ -74,5 +89,15 @@ export function postProduct(payload) {
     return async function(dispatch) {
         let json = await axios.post('http://localhost:3001/products', payload)
         return json;
+    }
+}
+
+export function getCategoryFiltered(payload) {
+    return async function(dispatch) {
+        let json = await axios.get('http://localhost:3001/products/category/'+ payload)
+        return dispatch({
+            type: 'GET_CATEGORY_FILTERED',
+            payload: json.data
+        })
     }
 }
