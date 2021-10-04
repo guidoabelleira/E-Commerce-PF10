@@ -9,6 +9,10 @@ export default function AuxiliarCards({state}){
                     </div>)
                 })}
             </div>
-        )
+        );
+    } else {
+        return(
+            <h1>Loading</h1>
+        );
     }
 }

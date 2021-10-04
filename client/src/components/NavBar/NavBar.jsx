@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import style from "./NavBar.module.css";
-import AboutUs from "../img/AboutUs.png";
+// import AboutUs from "../img/AboutUs.png";
 import ContactUs from "../img/ContacUs.png";
 import Home from "../img/Home.png";
 import LogoProvi from "../img/LogoProvi.png";
@@ -19,7 +19,8 @@ export default function NavBar() {
          
             <div className={style.mainBttn}>
                 <Link className={style.mainBttn} to="/home">
-                   <img src={Home} alt="home"/> 
+                   {/* <img src={Home} alt="home"/>  */}
+                   <i><FontAwesomeIcon icon={faHouseUser}/></i>
                     <p>
                         Home
                     </p>
@@ -43,7 +44,9 @@ export default function NavBar() {
         </div>
         <div className={style.mainBttn}>
             <Link className={style.mainBttn} to="/AboutUs">
-                <img src={AboutUs} alt="aboutUs"/> 
+                {/* <img src={faBookmark} alt="aboutUs"/>  */}
+                {/* Prueba Guido */}
+                <i><FontAwesomeIcon icon={faBookmark}/></i>
                 <p>
                    About Us
                 </p>
