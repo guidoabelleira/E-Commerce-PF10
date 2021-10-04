@@ -21,12 +21,12 @@ export default function HomePage() {
 
 
     // Busco ultimos por ID, saco los ultimos 3.
-    let lasted = state.reverse().slice(0, 3);
+    const lasted = state.reverse().slice(0, 3);
     
-    let discount = state.filter(e => e.price < '300').slice(0, 3);
+    const discount = state.filter(e => e.price < '300').slice(0, 3);
     console.log("discount: ", discount)
 
-    let popular = state.slice(10, 13);
+    const popular = state.slice(10, 13);
     console.log("popular: ", popular)
 
     return(
