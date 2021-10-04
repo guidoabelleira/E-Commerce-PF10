@@ -91,3 +91,13 @@ export function postProduct(payload) {
         return json;
     }
 }
+
+export function getCategoryFiltered(payload) {
+    return async function(dispatch) {
+        let json = await axios.get('http://localhost:3001/products/category/'+ payload)
+        return dispatch({
+            type: 'GET_CATEGORY_FILTERED',
+            payload: json.data
+        })
+    }
+}
