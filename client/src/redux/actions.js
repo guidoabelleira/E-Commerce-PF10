@@ -1,3 +1,4 @@
+import { parse } from '@fortawesome/fontawesome-svg-core';
 import axios from 'axios';
 import { PRODUCTS_URL } from '../constantes';
 
@@ -64,20 +65,6 @@ export function getProductByName(input) {
     }
 }
 
-export function orderAscDesc(payload) {
-    return {
-        type: 'ORDER_ASC_DESC',
-        payload
-    }
-}
-
-export function orderByPrice(payload) {
-    return {
-        type: 'ORDER_BY_PRICE',
-        payload
-    }
-}
-
 export function getCategories() {
     return async function(dispatch) {
         let json = await axios.get('http://localhost:3001/categories')
@@ -101,6 +88,62 @@ export function getCategoryFiltered(payload) {
         return dispatch({
             type: 'GET_CATEGORY_FILTERED',
             payload: json.data
+        })
+    }
+}
+
+function sort(jsonFinal, json, orden, option) {
+    if(orden.ord === "name") {
+        if(option.asc === "asc") {
+            json = json.sort((a, b) => a.name.localeCompare(b.name))
+            return json
+        } else if(option.asc === "desc") {
+            json = json.sort((a, b) => a.name.localeCompare(b.name))
+            return json.reverse()
+        } else {
+            return jsonFinal
+        }
+    }
+
+    if(orden.ord === "price") {
+        if(option.asc === "asc") {
+            json = json.sort(function(a,b) {
+                if(parseInt(a.price) > parseInt(b.price)) {
+                    return -1
+                }
+                if(parseInt(b.price) > parseInt(a.price)) {
+                    return 1
+                }
+                return 0
+            })
+            return json
+        } else if(option.asc === "desc") {
+            json = json.sort(function(a,b){
+                if(parseInt(a.price) > parseInt(b.price)) {
+                    return 1
+                }
+                if(parseInt(b.price) > parseInt(a.price)) {
+                    return -1
+                }
+                return 0
+            })
+            return json
+        } else {
+            return jsonFinal
+        }
+    }
+}
+
+export function setAscDesc(orden, option) {
+    console.log(orden, option)
+    return async function(dispatch) {
+        let json = await axios.get('http://localhost:3001/products')
+        json = json.data
+        let jsonFinal = await axios.get('http://localhost:3001/products')
+        jsonFinal = jsonFinal.data
+        dispatch({
+            type: 'SET_ASC_DESC',
+            payload: sort(jsonFinal, json, orden, option)
         })
     }
 }
