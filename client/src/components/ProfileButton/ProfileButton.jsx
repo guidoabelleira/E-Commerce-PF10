@@ -1,6 +1,9 @@
 import {useAuth0} from "@auth0/auth0-react"
 import React from "react"
 import {NavLink as Link} from "react-router-dom"
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faUserCircle} from '@fortawesome/free-solid-svg-icons';
+
 import style from "./ProfileButton.module.css"
 export default function ProfileButton() {
     const {loginWithRedirect, isAuthenticated,user,isLoading} = useAuth0()
@@ -18,7 +21,9 @@ export default function ProfileButton() {
            )
     } else {
         return(//aqui va la imagen que haga alusion a un perfil
-            <button type="button" onClick={loginWithRedirect}>debo ser una imagen</button>
+            <button type="button" onClick={loginWithRedirect}>
+                <i><FontAwesomeIcon icon={faUserCircle}/></i>
+            </button>
         )
     }
 }
