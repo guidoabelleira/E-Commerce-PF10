@@ -9,7 +9,7 @@ if(products){
     function remove (id){
         let copy = products;
         let result = copy.filter(e=>{
-             if (e.id != id){
+             if (e.id !== id){
                  return e 
         }})
         return result;
