@@ -11,11 +11,11 @@ export default function LastedCard ({image, name, categories,id, index}){
             {categories.map((e, i)=> {
             return <p className={style.p} key={i}>{e.name}</p>
             })}
-            <Link to={`/${id}`}> <button>
-            <p>View</p></button>
+            <Link to={`/products/${id}`}> <button>
+            <p>Ver</p></button>
             </Link>
             <Link className={style.bttn}to={`/products/${id}`}>  <button>
-            <p>Shop Now</p></button>
+            <p>Comprar</p></button>
             </Link>
         </div>
 )

@@ -88,6 +88,11 @@ function rootReducer(state = initialState, action) {
                     ...state,
                     products: action.payload
                 }
+            case "REMOVE_PCART" :
+                return {
+                    ...state,
+                    shopProduct: action.payload
+                }
 
         default: {
             return state

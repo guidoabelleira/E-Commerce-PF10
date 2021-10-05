@@ -29,28 +29,29 @@ function Products() {
         <div className={style.container}>
             <div >
                 <SearchBar /> 
-                <Filters />
+                {/* <Filters /> */}
                 <ShopCartButton/>
             </div>
             <div className={style.cards}>
                 <AuxiliarCards state={displayCards} />
             </div>
             <ReactPaginate 
-previousLabel={"previus"}
-nextLabel={"next"}
-pageCount={pageCount}
-onPageChange={changePage}
-containerClassName={style.paginationContainer}
-previousClassName= {style.bttn}
-nextLinkClassName={style.bttn}
-disabledClassName={style.disablePagination}
-activeClassName={style.activePagination}/>
+            previousLabel={"previus"}
+            nextLabel={"next"}
+            pageCount={pageCount}
+            onPageChange={changePage}
+            containerClassName={style.paginationContainer}
+            previousClassName= {style.bttn}
+            nextLinkClassName={style.bttn}
+            disabledClassName={style.disablePagination}
+            activeClassName={style.activePagination}/>
         </div>
         
     )
     } else{
         <div>
-        <p>error</p></div>
+        <p>error</p>
+        </div>
     }
    
 };

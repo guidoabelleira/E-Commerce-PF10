@@ -1,12 +1,14 @@
+
 import Card from "../Card/Card"
 import style from "./Cards.module.css"
 import PopularCard from "../PopularProducts/PopularCard"
 import DiscountCard from "../DiscountCard/DiscountCard"
 import LastedCard from "../LastedCard/LastedCard"
+import Loading from "../Loading/Loading";
 //se le debe pasar como parametros, el estado correspondiente y que tipo de card es, si es una card en productos solo se pasa el estado, si es una popular card o otra, se pasa el estado y la prop correspondiente con el valor true.
 
 export default function Cards ({state ,popularCard = false ,discountCard  = false, lastedCard  = false}) {
-    console.log(state)
+    
     if(state[0] !== {error: "Product not found"} && state[0]){
 
        return(<div className={style.container}>
@@ -47,7 +49,7 @@ export default function Cards ({state ,popularCard = false ,discountCard  = fals
         //si se puede en el futuro remplazar por un gif de carga
         return (
             <div>
-                <p>No Products Found.</p>
+                <Loading />
             </div>
         )
     }
