@@ -29,7 +29,7 @@ function Products() {
         <div className={style.container}>
             <div >
                 <SearchBar /> 
-                <Filters />
+                {/* <Filters /> */}
                 <ShopCartButton/>
             </div>
             <div className={style.cards}>
