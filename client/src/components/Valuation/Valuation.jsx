@@ -1,17 +1,26 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import store from '../../redux/store'
-import goldStar from '../img/goldStar.png'
+//import Style from './Valuation.module.css'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 
-
-export default function Valuation () {
-
+export default function Valuation (props) {
+    const dispatch = useDispatch()
     const products = store.getState()
+    console.log('-->',props) // no tengo el dato del back
     const [valuation, setValuation] = useState(0)
     
     const handleOnCHeck = event =>{
        setValuation(event.target.value)
        console.log(valuation)
+    }
+
+    const handleOnSubmit = event =>{
+        
+
     }
 
     let stars = []
@@ -23,24 +32,28 @@ export default function Valuation () {
         <div>
             <label for="addValuation">Valuation</label>
             <form>
-
                 <input
                     id="addValuation"
                     name="valuation"
                     placeholder={valuation}
-                    type='number'
+                    type='range'
+                    min="0"
+                    max="5"
                     onChange={event => handleOnCHeck(event)}
                 />
 
                 <input
+                    onSubmit={event => handleOnSubmit(valuation)}
                     type="submit"
                 />
 
             </form>
 
-            <div>
+            <div >
                 {stars.map(stars =>(
-                    <img src={goldStar} alt="" />
+                    <i>
+                        <FontAwesomeIcon icon={ faStar }/>
+                    </i>
                 ))}
             </div>
 
