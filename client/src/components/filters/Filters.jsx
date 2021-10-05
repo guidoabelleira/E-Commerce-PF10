@@ -41,7 +41,7 @@ function Filter() {
     return (
         <div>
             <select onChange={handleCategoryFilter}>
-                <option value={false}>Category</option>
+                <option value={false}>Categorias</option>
                 {
                     categories.map(el => {
                         return (
@@ -50,17 +50,17 @@ function Filter() {
                     })
                 }
             </select>
-            <span>Filter by</span>
+            <span>Filtrar por</span>
             <select onChange={handleSortChange}>
                 <option value={false}>---</option>
-                <option key={1} value="price">Price</option>
-                <option key={2} value="name">Name</option>
+                <option key={1} value="price">Precio</option>
+                <option key={2} value="name">Nombre</option>
             </select>
-            <span>Order</span>
+            <span>Orden</span>
             <select onChange={handleOrdChange}>
                 <option value={false}>---</option>
                 <option key={1} value="asc">Ascendente</option>
-                <option key={2}value="desc">Descendiente</option>
+                <option key={2}value="desc">Descendente</option>
             </select>
 
             <button onClick={handleButton}>Quitar filtros</button>
