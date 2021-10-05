@@ -6,8 +6,11 @@ export default function AuxiliarCards({state}){
         return(
             <div className={style.container}>
                 {state.map((e, i)=> {
-                    return( <div key={i} clasName={style.card}> <Card id={e.id} image={e.image} name={e.name} categories={e.categories} price={e.price} index={i} />
-                    </div>)
+                    if(e?.onStock){
+                        return(<div key={i} clasName={style.card}> <Card id={e.id} image={e.image} name={e.name} categories={e.categories} price={e.price} index={i} />
+                            </div>)
+                    }
+                    
                 })}
             </div>
         );

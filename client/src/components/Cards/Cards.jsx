@@ -13,26 +13,26 @@ export default function Cards ({state ,popularCard = false ,discountCard  = fals
 
        return(<div className={style.container}>
            <div className={style.parent}>{ state.map((e, i) => {
-               if(e.name && lastedCard){
+               if(e.name && lastedCard && e.onStock){
                return (<div className={style.cards} key={i}>
                    <LastedCard id={e.id} image={e.image} name={e.name} categories={e.categories} index={i} />
                </div>
                )
                }
-               if(e.name && discountCard){
+               if(e.name && discountCard && e.onStock){
                return (<div className={style.cards} key={i}>
                    <DiscountCard id={e.id} image={e.image} name={e.name} categories={e.categories} index={i} />
                </div>
                )
                }
-               if(e.name && popularCard){
+               if(e.name && popularCard && e.onStock){
                return (<div className={style.cards} key={i}>
                    <PopularCard id={e.id} image={e.image} name={e.name} categories={e.categories} price={e.price}
                        index={i} />
                </div>
                )
                }
-               if(e.name){
+               if(e.name && e.onStock){
                return (<div key={i}>
                    <Card id={e.id} image={e.image} name={e.name} categories={e.categories} price={e.price} index={i} />
                </div>
