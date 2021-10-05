@@ -92,21 +92,6 @@ export function getCategoryFiltered(payload) {
     }
 }
 
-export function orderAscDesc(payload) {
-    return {
-        type: 'ORDER_ASC_DESC',
-        payload
-    }
-}
-
-export function orderByPrice(payload) {
-    return {
-        type: 'ORDER_BY_PRICE',
-        payload
-    }
-}
-
-
 function sort(jsonFinal, json, orden, option) {
     if(orden.ord === "name") {
         if(option.asc === "asc") {

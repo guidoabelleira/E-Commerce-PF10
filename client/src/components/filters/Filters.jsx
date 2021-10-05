@@ -22,10 +22,14 @@ function Filter() {
     }
 
     function handleOrdChange(e) {
-        let option = {
-            asc: e.target.value,
+        if(orden.ord) {
+            let option = {
+                asc: e.target.value,
+            }
+            dispatch(setAscDesc(orden, option))
+        } else {
+            alert("Primero selecciona el tipo de filtrado")
         }
-        dispatch(setAscDesc(orden, option))
     }
 
     useEffect(() => {
