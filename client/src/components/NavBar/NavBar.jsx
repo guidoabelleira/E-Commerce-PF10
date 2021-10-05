@@ -59,7 +59,7 @@ export default function NavBar() {
                 </Link>
             </div>
             <div className={style.mainBttn}>
-                <Link className={style.mainBttn} to="/AboutUs">
+                <Link className={style.mainBttn} to="/about">
                     {/* <img src={faBookmark} alt="aboutUs"/>  */}
                     {/* Prueba Guido */}
                     <i><FontAwesomeIcon icon={faBookmark}/></i>

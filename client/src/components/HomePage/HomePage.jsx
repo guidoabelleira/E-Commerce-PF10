@@ -1,9 +1,12 @@
-import Cards from '../Cards/Cards';
-import SearchBar from '../Searchbar/Searchbar';
-import ShopCartButton from '../ShopCartButton/ShopCartButton';
 import { useDispatch, useSelector } from 'react-redux';
 import {getAllProducts} from '../../redux/actions';
 import { useEffect } from 'react';
+
+import Cards from '../Cards/Cards';
+import SearchBar from '../Searchbar/Searchbar';
+import ShopCartButton from '../ShopCartButton/ShopCartButton';
+import Loading from '../Loading/Loading';
+
 import style from './homePage.module.css'
 
 export default function HomePage() {
@@ -44,6 +47,6 @@ export default function HomePage() {
         </div>
         </div>
     ) : (
-        <h1>Cargando...</h1>
+        <Loading />
     )
 }
