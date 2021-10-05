@@ -21,9 +21,7 @@ export default function ProfileButton() {
            )
     } else {
         return(//aqui va la imagen que haga alusion a un perfil
-            <button type="button" onClick={loginWithRedirect}>
-                <i><FontAwesomeIcon icon={faUserCircle}/></i>
-            </button>
+            <button className={style.profile} type="button" onClick={loginWithRedirect}>debo ser una imagen</button>
         )
     }
 }

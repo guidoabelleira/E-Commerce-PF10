@@ -8,7 +8,7 @@ import ShopCartButton from '../ShopCartButton/ShopCartButton';
 import style from './products.module.css';
 import ReactPaginate from 'react-paginate'
 import ProfileButton from '../ProfileButton/ProfileButton';
-
+import ShowAdress from '../ShowAdress/ShowAdress'
 function Products() {
     let [pageNumber, setPageNumber] = useState(0)
    
@@ -27,15 +27,15 @@ function Products() {
     }
     return (
         <div className={style.container}>
-            <div >
-                <SearchBar /> 
-                {/* <Filters /> */}
-                <ShopCartButton/>
-                <ProfileButton/>
+           <div className={style.searchbar}>
+                <ShowAdress/>
+            <SearchBar /> 
+            <ShopCartButton/>
+            <ProfileButton/>
             </div>
             <div className={style.cards}>
                 <AuxiliarCards state={displayCards} />
-            </div>
+            
             <ReactPaginate 
             previousLabel={"previus"}
             nextLabel={"next"}
@@ -47,7 +47,7 @@ function Products() {
             disabledClassName={style.disablePagination}
             activeClassName={style.activePagination}/>
         </div>
-        
+        </div>
     )
     } else{
         <div>
