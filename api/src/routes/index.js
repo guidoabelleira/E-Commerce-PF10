@@ -12,9 +12,11 @@ const router = Router();
 // Ejemplo: router.use('/auth', authRouter);
 const productsRoute = require('./products');
 const categoriesRoute = require('./categories');
+const usersRoute = require('./users');
 
 router.use('/products', productsRoute);
 router.use('/categories', categoriesRoute );
+router.use('/users', usersRoute );
 
 module.exports = router;
 
