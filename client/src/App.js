@@ -8,6 +8,7 @@ import Products from './components/products/Products';
 import DetailCard from './components/detailCard/detailCard';
 import ShopCart from './components/ShopCart/ShopCart';
 import AddProduct from './components/CreateProductForm/Form';
+import AboutUs from './components/AboutUs/AboutUs';
 
 import './App.css';
 
@@ -25,6 +26,7 @@ function App() {
                 <Route exact path={"/products/:id"} component={DetailCard} />
                 <Route exact path={"/shopcart"} component={ShopCart} />
                 <Route exact path={"/addProduct"} component={AddProduct} />
+                <Route exact path={"/about"} component={AboutUs} />
                 </div>
         </div>
         </React.Fragment>
