@@ -1,4 +1,3 @@
-import { parse } from '@fortawesome/fontawesome-svg-core';
 import axios from 'axios';
 import { PRODUCTS_URL } from '../constantes';
 

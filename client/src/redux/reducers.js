@@ -4,18 +4,6 @@ const initialState = {
     productById: [],
     categories: [],
     shopProduct : [],
-    // product = {
-    //     name: '',
-    //     id: 0,
-    //     image: '',
-    //     price: 0.0,
-    //     stock: 0,
-    //     onStock: false,
-    //     onSale: false,
-    //     description: '',
-    //     category: [],
-    // },
-    texto: "soy una carta de cartas raras"
 }
 
 function rootReducer(state = initialState, action) {

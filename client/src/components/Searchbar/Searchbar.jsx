@@ -4,13 +4,16 @@ import { getProductByName } from "../../redux/actions";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
+//Hook localStore
+import {useLocalStorage} from '../Hooks/useLocalStorage';
+
 import style from './Searchbar.module.css';
 
 // se corrije ruta de redux/actions
 
 function Searchbar() {
     const dispatch = useDispatch()
-    const [input, setInput] = useState()
+    const [input, setInput] = useLocalStorage('text', '')
 
     function handleInputChange(e) {
         setInput(e.target.value)
@@ -28,7 +31,10 @@ function Searchbar() {
     return (
         <div className={style.container}>
             <div className={style.search}>
-                <input type="text" className={style.searchTerm} placeholder="Search your product" onChange={handleInputChange}/>
+                <input type="text" 
+                className={style.searchTerm} 
+                placeholder="Buscar..." 
+                onChange={(handleInputChange)}/>
                 <button type="submit" class={style.searchButton}onClick={handleSubmit}>
                     <i className={style.i}>
                         <FontAwesomeIcon icon={faSearch}/>

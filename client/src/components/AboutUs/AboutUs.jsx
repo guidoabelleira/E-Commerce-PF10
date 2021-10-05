@@ -1,11 +1,13 @@
 import Loading from "../Loading/Loading";
 import ReactLoading from 'react-loading';
+import { useLocalStorage } from "../Hooks/useLocalStorage";
 
+import style from './aboutUs.module.css';
 
 export default function AboutUs(){
+    const [text, setText] = useLocalStorage('text', '')
     return (
         <div>
-            {/* <ReactLoading type={'spinningBubbles'} color="#FF5733" height={667} width={375} /> */}
             <Loading />
         </div>
         
