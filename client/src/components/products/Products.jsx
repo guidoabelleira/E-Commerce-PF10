@@ -36,15 +36,15 @@ function Products() {
                 <AuxiliarCards state={displayCards} />
             </div>
             <ReactPaginate 
-previousLabel={"previus"}
-nextLabel={"next"}
-pageCount={pageCount}
-onPageChange={changePage}
-containerClassName={style.paginationContainer}
-previousClassName= {style.bttn}
-nextLinkClassName={style.bttn}
-disabledClassName={style.disablePagination}
-activeClassName={style.activePagination}/>
+            previousLabel={"previus"}
+            nextLabel={"next"}
+            pageCount={pageCount}
+            onPageChange={changePage}
+            containerClassName={style.paginationContainer}
+            previousClassName= {style.bttn}
+            nextLinkClassName={style.bttn}
+            disabledClassName={style.disablePagination}
+            activeClassName={style.activePagination}/>
         </div>
         
     )

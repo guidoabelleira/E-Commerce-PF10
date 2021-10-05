@@ -21,12 +21,12 @@ export default function DetailCard (props) {
                     <img className={style.img} src={productId.image} alt="Err img" />
                 </div>
                 <div >
-                    <h4>Name: "{productId.name}"</h4>
-                    <p>Price: {productId.price}</p>
+                    <h4>Articulo: "{productId.name}"</h4>
+                    <p>Precio: {productId.price}</p>
                 </div>
             </div>
         </div>
     ) : (
-        <h1>Loading...</h1>
+        <h1>Cargando...</h1>
     )
 }
