@@ -19,7 +19,6 @@ function Filter() {
 
     function handleSortChange(e) {
         setOrden({ord: e.target.value})
-        console.log(orden)
     }
 
     function handleOrdChange(e) {
@@ -36,7 +35,7 @@ function Filter() {
     },[dispatch])
 
     return (
-        <div style={{padding: 400}}>
+        <div>
             <select onChange={handleCategoryFilter}>
                 <option value={false}>Category</option>
                 {
