@@ -1,9 +1,12 @@
+import { useDispatch, useSelector } from 'react-redux';
+import {getAllProducts} from '../../redux/actions';
+import { useEffect } from 'react';
+
 import Cards from '../Cards/Cards';
 import SearchBar from '../Searchbar/Searchbar';
 import ShopCartButton from '../ShopCartButton/ShopCartButton';
-import { useDispatch, useSelector } from 'react-redux';
-import {getAllProducts} from '../../redux/actions';
-import { useEffect, useState } from 'react';
+import Loading from '../Loading/Loading';
+
 import style from './homePage.module.css'
 
 export default function HomePage() {
@@ -14,19 +17,14 @@ export default function HomePage() {
             await dispatch(getAllProducts());
     }, []);
 
-    console.log("state", state)
-
-
     // Busco ultimos por ID, saco los ultimos 3.
-    let lasted = state.reverse().slice(0, 3);
+    const lasted = state?.reverse().slice(0, 3);
     
-    let discount = state.filter(e => e.price < '300').slice(0, 3);
-    console.log("discount: ", discount)
+    const discount = state?.filter(e => e.price < '300').slice(0, 3);
 
-    let popular = state.slice(10, 13);
-    console.log("popular: ", popular)
+    const popular = state?.slice(10, 13);
 
-    return(
+    return lasted && discount && popular? (
         <div className={style.container}>
             <div className={style.margin}>
 
@@ -35,18 +33,20 @@ export default function HomePage() {
             <ShopCartButton/>
             </div>
             <div className={style.cards}>
-                <h3>Popular Products:</h3>
-                <Cards state={popular} popularCard={true}/>
-            </div>
-            <div className={style.cards}>
-                <h3>Discount Products:</h3>
+                <h3>Productos en descuento!!!</h3>
                 <Cards state={discount} discountCard={true}/>
             </div>
             <div className={style.cards}>
-                <h3>Lasted Products:</h3>
+                <h3>Los mas vendidos:</h3>
+                <Cards state={popular} popularCard={true}/>
+            </div>
+            <div className={style.cards}>
+                <h3>Nuestros ultimos productos:</h3>
                 <Cards state={lasted} lastedCard={true}/>
             </div>
         </div>
         </div>
+    ) : (
+        <Loading />
     )
 }

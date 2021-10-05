@@ -38,3 +38,12 @@
    margin-bottom: 20%;
     transform: rotate(0deg);
 }
+
+
+/* pueba Guido */
+.mainBttn i{
+    height: 20px;
+    width: 20px;
+    transform: rotate(0deg);
+    color: white;
+}

@@ -2,6 +2,7 @@ import { NavLink as Link } from 'react-router-dom';
 import style from './PopularCard.module.css'
 import {addPCart} from "../../redux/actions"
 import { useDispatch} from 'react-redux';
+
 export default function PopularCard ({image, name, categories,id,price, index}){
     const dispatch = useDispatch()
     const product = {image, name, categories, id, price}
@@ -18,7 +19,7 @@ export default function PopularCard ({image, name, categories,id,price, index}){
                     <div className={style.circle}>
                         <p>+</p>
                     </div>
-                <p className={style.price}> ${price}</p>
+                    <p className={style.price}> ${price}</p>
                 </div>
                 
         </div>
