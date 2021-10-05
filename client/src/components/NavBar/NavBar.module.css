@@ -8,7 +8,7 @@
     margin: 0px;
     padding: 0px;
     height: 100vh;
-    width: 20vw;
+    width: 196px;
    position: fixed;
 }
 .mainBttn{
@@ -20,6 +20,7 @@
     width: 100%;
     margin:0px;
     padding: 0px;
+    margin-bottom: 5%;
 }
 .mainBttn p {
     color:white;
@@ -34,8 +35,8 @@
 .logo{
     height:40px;
     width:70px;
-   margin-top: 20%;
-   margin-bottom: 20%;
+   margin-top: 10%;
+   margin-bottom: 40%;
     transform: rotate(0deg);
 }
 
@@ -46,4 +47,18 @@
     width: 20px;
     transform: rotate(0deg);
     color: white;
+}
+
+.column {
+    align-items: center;
+    justify-content:center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 129px;
+height: 380.25px;
+}
+
+.login{
+    margin-top:80%;
 }

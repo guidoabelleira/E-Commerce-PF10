@@ -1,31 +1,39 @@
-.link button{
-    background-color:#0E6655 ;
-    padding:10px;
-    border: 0px;
-    border-radius: 10px;
+.link button {
+    background-color: #0E6655;
+    width: 100%;
+    position: relative;
+    width: 237px;
+    height: 35px;
     align-items: center;
     justify-content: center;
     color: white;
-   width: 150px;
-   display: flex;
-   flex-direction: row;
+    display: flex;
+    flex-direction: row;
+    border-radius: 24px;
+    border: 0;
 }
 
-.link button p{
-    color:white;
+.link button p {
+    color: white;
+    font-family: Saira;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 121.4%;
+    width: 120px;
+    height: 22px;
 }
 
-.container{
-    margin-left: 40%;
+.container {
+    margin-left: 15%;
 }
 
-.link button img {
-    margin-right: 4%;
+
+
+.link button:hover {
+    background-color: #065344
 }
 
-.link button:hover{
-    background-color:#065344
-}
-.link{
+.link {
     text-decoration: none;
 }
