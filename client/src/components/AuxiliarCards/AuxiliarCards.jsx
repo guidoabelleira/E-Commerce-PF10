@@ -1,5 +1,6 @@
 import Card from "../Card/Card"
 import style from "./AuxiliarCards.module.css"
+
 export default function AuxiliarCards({state}){
     if(state.length > 0){
         return(

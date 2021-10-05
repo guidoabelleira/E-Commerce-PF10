@@ -15,142 +15,59 @@ import {faHouseUser, faWarehouse, faAddressCard, faEnvelopeSquare, faBookmark, f
 export default function NavBar() {
     return(
         <div className={style.container}>
-          <img className={style.logo} src={LogoProvi} alt="Logo"/>
+            <img className={style.logo} src={LogoProvi} alt="Logo"/>
          
             <div className={style.mainBttn}>
                 <Link className={style.mainBttn} to="/home">
                    {/* <img src={Home} alt="home"/>  */}
-                   <i><FontAwesomeIcon icon={faHouseUser}/></i>
+                    <i><FontAwesomeIcon icon={faHouseUser}/></i>
                     <p>
                         Home
                     </p>
                 </Link>
             </div>
-        <div className={style.mainBttn}>
-            <Link className={style.mainBttn}to="/products">
-                 <img src={Products} alt="Products"/> 
-                <p>
-                    Products
-                </p>
-            </Link>
-        </div>
-        <div className={style.mainBttn}>
-            <Link className={style.mainBttn} to="/ContactUs">
-              <img src={ContactUs} alt="contactUs"/> 
-                <p>
-                    Contact Us
-                </p>
-            </Link>
-        </div>
-        <div className={style.mainBttn}>
-            <Link className={style.mainBttn} to="/AboutUs">
-                {/* <img src={faBookmark} alt="aboutUs"/>  */}
-                {/* Prueba Guido */}
-                <i><FontAwesomeIcon icon={faBookmark}/></i>
-                <p>
-                   About Us
-                </p>
-            </Link>
-        </div>
-        <div className={style.mainBttn}>
-            <Link className={style.mainBttn} to="/Profile">
-               <img src={Profile} alt="profile"/> 
-                <p>
-                     Profile
-                </p>
-            </Link>
+            <div className={style.mainBttn}>
+                <Link className={style.mainBttn} to="/Profile">
+                    <img src={Profile} alt="profile"/> 
+                    <p>
+                        Mi cuenta
+                    </p>
+                </Link>
             </div>
             <div className={style.mainBttn}>
-            <Link className={style.mainBttn} to="/addProduct">
-               <img src={Profile} alt="add Product"/> 
-                <p>
-                     Add Product
-                </p>
-            </Link>
+                <Link className={style.mainBttn}to="/products">
+                    <img src={Products} alt="Products"/> 
+                    <p>
+                        Catalogo
+                    </p>
+                </Link>
+            </div>
+            <div className={style.mainBttn}>
+                <Link className={style.mainBttn} to="/addProduct">
+                    <img src={Profile} alt="add Product"/> 
+                    <p>
+                        Agregar Productos
+                    </p>
+                </Link>
+            </div>
+            <div className={style.mainBttn}>
+                <Link className={style.mainBttn} to="/ContactUs">
+                    <img src={ContactUs} alt="contactUs"/> 
+                    <p>
+                        Contactenos
+                    </p>
+                </Link>
+            </div>
+            <div className={style.mainBttn}>
+                <Link className={style.mainBttn} to="/AboutUs">
+                    {/* <img src={faBookmark} alt="aboutUs"/>  */}
+                    {/* Prueba Guido */}
+                    <i><FontAwesomeIcon icon={faBookmark}/></i>
+                    <p>
+                        Sobre Nosotros
+                    </p>
+                </Link>
             </div>
         </div>
-        // <div className={style.navBar}>
-        //     {/* <img src={LogoProvi} alt="Logo"/> */}
-        //     <ul className={style.ul}>
-        //         <li className={style.li}>
-        //             <a>
-        //                 <Link  to="/home">
-        //                     {/* <img src={Home} alt="home"/>  */}
-        //                     <FontAwesomeIcon icon={faHouseUser}/>
-        //                     <button>
-        //                         Home
-        //                     </button>
-        //                 </Link>
-        //             </a>
-        //         </li>
-        //         <li className={style.li}>
-        //             <a>
-        //                 <Link  to="/products">
-        //                     {/* <img src={Products} alt="Products"/>  */}
-        //                     <FontAwesomeIcon icon={faWarehouse}/>
-        //                     <button>
-        //                         Products
-        //                     </button>
-        //                 </Link>
-        //             </a>
-        //         </li>
-        //         <li className={style.li}>
-        //             <a>
-        //                 <Link  to="/addproducts">
-        //                     {/* <img src={Products} alt="Products"/>  */}
-        //                     <FontAwesomeIcon icon={faPlusSquare}/>
-        //                     <button>
-        //                         New
-        //                     </button>
-        //                 </Link>
-        //             </a>
-        //         </li>
-        //         <li className={style.li}>
-        //             <a>
-        //                 <Link to="/shopcart">
-        //                     {/* <img src={Profile} alt="profile"/>  */}
-        //                     <FontAwesomeIcon icon={faBoxOpen}/>
-        //                     <button>
-        //                         Shop
-        //                     </button>
-        //                 </Link>
-        //             </a>
-        //         </li>
-        //         <li className={style.li}>
-        //             <a>
-        //                 <Link to="/Profile">
-        //                     {/* <img src={Profile} alt="profile"/>  */}
-        //                     <FontAwesomeIcon icon={faAddressCard}/>
-        //                     <button>
-        //                         Profile
-        //                     </button>
-        //                 </Link>
-        //             </a>
-        //         </li>
-        //         <li className={style.li}>
-        //             <a>
-        //                 <Link to="/ContactUs">
-        //                     {/* <img src={ContactUs} alt="contactUs"/>  */}
-        //                     <FontAwesomeIcon icon={faEnvelopeSquare}/>
-        //                     <button>
-        //                         Contact Us
-        //                     </button>
-        //                 </Link>
-        //             </a>
-        //         </li>
-        //         <li className={style.li}>
-        //             <a>
-        //                 <Link to="/AboutUs">
-        //                     {/* <img src={AboutUs} alt="aboutUs"/>  */}
-        //                     <FontAwesomeIcon icon={faBookmark}/>
-        //                     <button>
-        //                         About Us
-        //                     </button>
-        //                 </Link>
-        //             </a>
-        //         </li>
-        //     </ul>
-        
-        // </div>
     )
 }

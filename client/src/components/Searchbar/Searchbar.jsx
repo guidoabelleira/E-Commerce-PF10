@@ -22,7 +22,7 @@ function Searchbar() {
         await getProductByName(input)
         
     }, []);
-    console.log(input)
+    
     return (
         <div className={style.body}>
             <div className={style.searchBar}>
@@ -35,7 +35,7 @@ function Searchbar() {
                 <button 
                     type="submit"
                     onClick={handleSubmit}>
-                    Search
+                    Buscar
                 </button>
                 <span class="input-group-text border-0" id="search-addon">
     <i class="fas fa-search">
