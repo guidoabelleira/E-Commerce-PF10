@@ -3,6 +3,7 @@ import style from "./Profile.module.css"
 
 export default function Profile(){
     const {user,isAuthenticated, logout} = useAuth0();
+    let uwu = useAuth0();
   if(isAuthenticated){
     return(<div className={style.container}>
         <img src={user.picture} alt={user.name}/>

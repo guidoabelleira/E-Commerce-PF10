@@ -1,3 +1,8 @@
 .container{
     margin-left: 24vw;
 }
+
+.container img{
+border-radius: 100%;
+    
+}

@@ -2,6 +2,15 @@ import { NavLink as Link } from 'react-router-dom';
 import style from './LastedCard.module.css'
  
 export default function LastedCard ({image, name, categories,id, index}){
+    let duplicate = name.split(" ")
+    name = [];
+     name.push(duplicate[0])
+     name.push(" ")
+     name.push(duplicate[1])
+     name.push(" ")
+     name.push(duplicate[2])
+     console.log(name)
+     name.join("")
     return(
         <div className={style.container} key={index}>
             <Link to={`/products/${id}`}> <img className={style.img}src={image} alt={name} height="300px" width="350px" />

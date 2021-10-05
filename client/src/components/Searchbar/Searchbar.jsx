@@ -24,26 +24,16 @@ function Searchbar() {
     }, []);
     
     return (
-        <div className={style.body}>
-            <div className={style.searchBar}>
-                <input 
-                class="form-control rounded"
-                    type="text"
-                    placeholder="Search product..."
-                    onChange={handleInputChange}
-                />                
-                <button 
-                    type="submit"
-                    onClick={handleSubmit}>
-                    Buscar
-                </button>
-                <span class="input-group-text border-0" id="search-addon">
-    <i class="fas fa-search">
-        </i>
-        </span>
-            </div>
+        <div className={style.container}>
+  <div className={style.search}>
+      <input type="text" className={style.searchTerm} placeholder="Search your product" onChange={handleInputChange}/>
+      <button type="submit" class={style.searchButton}onClick={handleSubmit}>
+        <i className={style.i}></i>
+     </button>
+   </div>
         </div>
     )
 }
 
 export default Searchbar
+

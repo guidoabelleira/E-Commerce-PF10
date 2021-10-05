@@ -21,45 +21,40 @@ export default function NavBar() {
     return(
         <div className={style.container}>
             <img className={style.logo} src={LogoProvi} alt="Logo"/>
-         
+             <div className={style.column}>
             <div className={style.mainBttn}>
                 <Link className={style.mainBttn} to="/home">
                    {/* <img src={Home} alt="home"/>  */}
                     <i><FontAwesomeIcon icon={faHouseUser}/></i>
-                    <p>
-                        Home
+                    <p>Home
                     </p>
                 </Link>
             </div>
             <div className={style.mainBttn}>
                 <Link className={style.mainBttn} to="/Profile">
                     <img src={Profile} alt="profile"/> 
-                    <p>
-                        Mi cuenta
+                    <p>Mi cuenta
                     </p>
                 </Link>
             </div>
             <div className={style.mainBttn}>
                 <Link className={style.mainBttn}to="/products">
                     <img src={Products} alt="Products"/> 
-                    <p>
-                        Catalogo
+                    <p>Catalogo
                     </p>
                 </Link>
             </div>
             <div className={style.mainBttn}>
                 <Link className={style.mainBttn} to="/addProduct">
                     <img src={Profile} alt="add Product"/> 
-                    <p>
-                        Agregar Productos
+                    <p>Agregar Productos
                     </p>
                 </Link>
             </div>
             <div className={style.mainBttn}>
                 <Link className={style.mainBttn} to="/ContactUs">
                     <img src={ContactUs} alt="contactUs"/> 
-                    <p>
-                        Contactenos
+                    <p>Contactenos
                     </p>
                 </Link>
             </div>
@@ -68,12 +63,12 @@ export default function NavBar() {
                     {/* <img src={faBookmark} alt="aboutUs"/>  */}
                     {/* Prueba Guido */}
                     <i><FontAwesomeIcon icon={faBookmark}/></i>
-                    <p>
-                        Sobre Nosotros
+                    <p>Sobre Nosotros
                     </p>
                 </Link>
             </div>
-            <div>
+            </div>
+            <div className={style.login}>
                 <LoginButton/>
             </div>
         </div>
@@ -87,9 +82,7 @@ export default function NavBar() {
                 <Link className={style.mainBttn} to="/home">
                    {/* <img src={Home} alt="home"/>  */}
                     <i><FontAwesomeIcon icon={faHouseUser}/></i>
-                    <p>
-                        Home
-                    </p>
+                    <p>Home</p>
                 </Link>
             </div>
             
