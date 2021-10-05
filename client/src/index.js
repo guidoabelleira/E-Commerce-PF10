@@ -6,13 +6,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './redux/store'
-
+import { Auth0Provider } from "@auth0/auth0-react";
 ReactDOM.render(
+  <Auth0Provider
+  domain="dev-816d1gr2.us.auth0.com"
+  clientId="gscsxHy6KDgoEaQe9yFDB9rnGmMHMDi0" 
+  redirectUri={window.location.origin}
+>
   <Provider store={store}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-  </Provider>,
+  </Provider>
+  </Auth0Provider>,
   document.getElementById('root')
 );
 

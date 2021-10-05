@@ -11,8 +11,13 @@ import Profile from "../img/Profile.png";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faHouseUser, faWarehouse, faAddressCard, faEnvelopeSquare, faBookmark, faBoxOpen, faPlusSquare} from '@fortawesome/free-solid-svg-icons';
 
+//auth0
+import {useAuth0} from "@auth0/auth0-react"
+import LoginButton from "../LoginButton/LoginButton"
 
 export default function NavBar() {
+ const {isAuthenticated} = useAuth0();
+ if(isAuthenticated){
     return(
         <div className={style.container}>
             <img className={style.logo} src={LogoProvi} alt="Logo"/>
@@ -68,6 +73,57 @@ export default function NavBar() {
                     </p>
                 </Link>
             </div>
+            <div>
+                <LoginButton/>
+            </div>
         </div>
     )
+ }else {
+    return(
+        <div className={style.container}>
+            <img className={style.logo} src={LogoProvi} alt="Logo"/>
+         
+            <div className={style.mainBttn}>
+                <Link className={style.mainBttn} to="/home">
+                   {/* <img src={Home} alt="home"/>  */}
+                    <i><FontAwesomeIcon icon={faHouseUser}/></i>
+                    <p>
+                        Home
+                    </p>
+                </Link>
+            </div>
+            
+            <div className={style.mainBttn}>
+                <Link className={style.mainBttn}to="/products">
+                    <img src={Products} alt="Products"/> 
+                    <p>
+                        Catalogo
+                    </p>
+                </Link>
+            </div>
+            <div className={style.mainBttn}>
+                <Link className={style.mainBttn} to="/ContactUs">
+                    <img src={ContactUs} alt="contactUs"/> 
+                    <p>
+                        Contactenos
+                    </p>
+                </Link>
+            </div>
+            <div className={style.mainBttn}>
+                <Link className={style.mainBttn} to="/about">
+                    {/* <img src={faBookmark} alt="aboutUs"/>  */}
+                    {/* Prueba Guido */}
+                    <i><FontAwesomeIcon icon={faBookmark}/></i>
+                    <p>
+                        Sobre Nosotros
+                    </p>
+                </Link>
+            </div>
+            <div>
+            <LoginButton/>
+            </div>
+        </div>
+    )
+ }
+  
 }

@@ -8,7 +8,7 @@ import ShopCartButton from '../ShopCartButton/ShopCartButton';
 import Loading from '../Loading/Loading';
 
 import style from './homePage.module.css'
-
+import ProfileButton from '../ProfileButton/ProfileButton';
 export default function HomePage() {
     const dispatch = useDispatch();
     const state = useSelector(state => state.products)
@@ -31,6 +31,7 @@ export default function HomePage() {
             <div className={style.searchbar}>
             <SearchBar /> 
             <ShopCartButton/>
+            <ProfileButton/>
             </div>
             <div className={style.cards}>
                 <h3>Productos en descuento!!!</h3>

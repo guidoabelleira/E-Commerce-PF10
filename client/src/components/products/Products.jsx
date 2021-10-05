@@ -7,7 +7,7 @@ import {getAllProducts} from '../../redux/actions';
 import ShopCartButton from '../ShopCartButton/ShopCartButton';
 import style from './products.module.css';
 import ReactPaginate from 'react-paginate'
-
+import ProfileButton from '../ProfileButton/ProfileButton';
 
 function Products() {
     let [pageNumber, setPageNumber] = useState(0)
@@ -31,6 +31,7 @@ function Products() {
                 <SearchBar /> 
                 {/* <Filters /> */}
                 <ShopCartButton/>
+                <ProfileButton/>
             </div>
             <div className={style.cards}>
                 <AuxiliarCards state={displayCards} />
