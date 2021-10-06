@@ -1,3 +1,10 @@
-.profile img{
+.profile img {
     border-radius: 100%;
+    width: 56px;
+    height: 56px;
+    margin-left: 25%;
+}
+.iconProfile{
+   font-size: 56px;
+   margin-left: 2%;
 }
