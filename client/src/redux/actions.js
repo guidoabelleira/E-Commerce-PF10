@@ -164,3 +164,16 @@ export function getAllCategories () {
         }
     }
 }
+
+export function putProduct (id) {
+    return async () => {
+        try {
+            await axios.put('',{}) //No esta completa la ruta
+            alert(`successful update of product id: ${id}`)
+        }
+        catch(error){
+            console.log(error)
+            alert(`Was failed the update of the product id: ${id}`)
+        }
+    }
+}

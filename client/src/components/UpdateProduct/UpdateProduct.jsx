@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getProductById, getAllCategories } from '../../redux/actions';
+import { 
+    getProductById, 
+    getAllCategories, 
+    putProduct
+} from '../../redux/actions';
 
 import style from './UpdateProduct.module.css'
 
@@ -73,6 +77,19 @@ export default function UpdateProduct (props) {
         console.log('productId/onSale', product.onSale)
     }
 
+    const handleNewCategorie = event => {
+        event.preventDefault()
+        const newData = { ...product }
+        newData[event.target.categories] = event.target.value
+        setProduct(newData)
+        console.log('productId/onSale', product.categories)
+    }
+    console.log(product)
+
+    const onSubmit = event => {
+        event.preventDefault()
+        dispatch(putProduct)
+    }
     
     return (
 
@@ -255,16 +272,18 @@ export default function UpdateProduct (props) {
 
                             <select 
                                 name="categories" 
-                                id="addCategorie"
+                                id="categories"
+                                onChange={event => handleNewCategorie(event)}
                             >
-                                {categories.map(cat => (
-                                    <option
-                                        key={cat.id}
-                                        value={cat.name}
-                                    >
-                                        {cat.name}
-                                    </option>
-                                )
+                                {categories.map(
+                                    cat => (
+                                        <option
+                                            key={cat.id}
+                                            value={cat.name}
+                                        >
+                                            {cat.name}
+                                        </option>
+                                    )
                                 )}
                             </select>
 
