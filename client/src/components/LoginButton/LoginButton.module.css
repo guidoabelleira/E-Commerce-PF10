@@ -5,4 +5,9 @@
     height: 35px; 
     border:none;
     border-radius: 25px; 
+    
+}
+
+.button i{
+    margin-right: 4%;
 }

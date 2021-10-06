@@ -10,7 +10,9 @@ export default function ProfileButton() {
     const {loginWithRedirect, isAuthenticated,user,isLoading} = useAuth0()
      if(isLoading) {
         return(
-            <Loading/>)//debo ser una imagen de cargado
+            <i className={style.iconProfile}>
+            <Loading/> </i>)//debo ser una imagen de cargado
+           
      }
     if(isAuthenticated){
         return(
@@ -22,9 +24,9 @@ export default function ProfileButton() {
            )
     } else {
         return(//aqui va la imagen que haga alusion a un perfil
-            <button className={style.profile} type="button" onClick={loginWithRedirect}>
-                <FontAwesomeIcon icon={faUserCircle}/>
-            </button>
+        
+               <i className={style.iconProfile}><FontAwesomeIcon  onClick={loginWithRedirect}  icon={faUserCircle}/></i> 
+            
         )
     }
 }
