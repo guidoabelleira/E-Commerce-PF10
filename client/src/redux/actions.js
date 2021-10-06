@@ -42,6 +42,7 @@ export function getProductById(id){
             })
         } catch (error){
             console.log(error)
+            alert("no encontrado")
         }
     }
 }
@@ -56,10 +57,7 @@ export function getProductByName(input) {
             })
         }
         catch(error) {
-            dispatch ({
-                type: 'GET_RECIPE_BY_NAME',
-                payload: {error: "Product not found"}
-            })
+            console.log(error)
         }
     }
 }
