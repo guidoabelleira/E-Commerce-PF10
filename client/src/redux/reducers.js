@@ -64,6 +64,15 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 shopProduct: action.payload
             }
+        case "POST_CATEGORY": 
+            return {
+                ...state
+            }   
+        case "DELETE_CATEGORY" :
+            return {
+                ...state,
+                categories: action.payload
+            }
         default: {
             return state
         }
