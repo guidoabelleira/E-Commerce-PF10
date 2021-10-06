@@ -4,6 +4,8 @@ const initialState = {
     productById: [],
     categories: [],
     shopProduct : [],
+
+    allCategories: [],
 }
 
 function rootReducer(state = initialState, action) {
@@ -52,6 +54,12 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 shopProduct: action.payload
             }
+        case 'GET_ALL_CATEGORIES':{
+            return {
+                ...state,
+                allCategories: action.payload
+            }
+        }
         default: {
             return state
         }

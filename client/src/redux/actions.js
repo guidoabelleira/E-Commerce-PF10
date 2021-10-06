@@ -146,3 +146,21 @@ export function setAscDesc(orden, option) {
         })
     }
 }
+
+export function getAllCategories () {
+    return async function (dispatch) {
+        try {
+            let json = await axios.get('http://localhost:3001/categories')
+            dispatch ({
+                type: 'GET_ALL_CATEGORIES',
+                payload: json.data
+            })
+        }
+        catch(error) {
+            dispatch ({
+                type: 'GET_ALL_CATEGORIES',
+                payload: {error: "ERROR on GET_ALL_CATEGORIES"}
+            })
+        }
+    }
+}

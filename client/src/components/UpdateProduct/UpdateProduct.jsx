@@ -1,19 +1,25 @@
 import React, { useState, useEffect } from 'react';
-
 import { useDispatch, useSelector } from 'react-redux';
-import { getProductById, addPCart } from '../../redux/actions';
+import { getProductById, getAllCategories } from '../../redux/actions';
 
 
 export default function UpdateProduct (props) {
     const dispatch =  useDispatch()
     
     useEffect(() => {
+        dispatch(getAllCategories())
         dispatch(getProductById(props.props));
-    }, [dispatch]);
+    }, []);
     const productId = useSelector((state) => state.productById);
+    const CATEGORIAS = useSelector((state) => state.allCategories)
 
     const [product, setProduct] = useState(productId)
-    console.log(product.categories)
+    const [categories, setCategories] = useState(CATEGORIAS)
+    const [showCategories, setShowCategories] = useState(false)
+    //console.log('productId', product)
+    console.log('CATEGORIAS', categories)
+    console.log(showCategories)
+    
 
     return (
         <div>
@@ -22,6 +28,7 @@ export default function UpdateProduct (props) {
 
             <form >
 
+                <label for='id'> <b>Id</b> </label>
                 <input 
                     id= 'id'
                     name= 'id'
@@ -30,6 +37,7 @@ export default function UpdateProduct (props) {
                     value= {product.id}  
                 />
 
+                <label for='name'> <b>Nombre</b> </label>
                 <input 
                     id= 'name'
                     name= 'name'
@@ -38,6 +46,7 @@ export default function UpdateProduct (props) {
                     value= {product.name} 
                 />
 
+                <label for='image'> <b>Imagen</b> </label>
                 <input 
                     id= 'image'
                     name= 'image'
@@ -45,6 +54,7 @@ export default function UpdateProduct (props) {
                     placeholder= 'image'
                 />
 
+                <label for='price'> <b>Precio</b> </label>
                 <input 
                     id= 'price'
                     name= 'price'
@@ -53,6 +63,7 @@ export default function UpdateProduct (props) {
                     value= {product.price} 
                 />
 
+                <label for='stock'> <b>Stock</b> </label>
                 <input 
                     id= 'stock'
                     name= 'stock'
@@ -61,55 +72,75 @@ export default function UpdateProduct (props) {
                     value= {product.stock} 
                 />
 
-                <label for='onStock'> onStock </label>
+                <label for='onStock'> <b>En Inventario</b> </label>
                 <input 
                     id= 'onStock'
                     name= 'onStock'
                     type= 'radio'
                 />
 
-                <label for='onSale'> onSale </label>
+                <label for='onSale'> <b>En Oferta</b> </label>
                 <input
                     id= 'onSale'
                     name= 'onSale'
                     type= 'radio'
                 />
 
-                <input
+                <label for='description'> <b>{'Descripción'}</b> </label>
+                <textarea
                     id= 'description'
                     name= 'description'
-                    type= 'text'
+                    rows= '10'
+                    cols= '45'
                     placeholder= 'description'
                     value= {product.description} 
                 />
 
-                <label for='category'>Agregar una categoria </label>
+                <label for='Categorias'> <b>Categorias</b> </label>
                 <select 
-                    id="category"
-                    name="category" 
+                    name="categories" 
+                    id="Categorias"
                 >
                     {product.categories.map(cat => (
                         <option 
                             key={product.categories.indexOf(cat.name)}
                             value={cat.name}
                         >
-                            {cat.name}</option>)
+                            {cat.name}
+                        </option>)
                     )}
                 </select>
+                <button
+                    type='button'
+                    onClick={() => setShowCategories(!showCategories)}
+                >{
+                    showCategories?
+                        'No agregar Categoría'
+                        :
+                        'Agregar Categoria'
+                }</button>
+                <div>
+                    {showCategories &&
+                        <form>
+                            <label for="addCategorie"><b>Agregar Categoria al producto</b></label>
+                            <select 
+                                name="categories" 
+                                id="addCategorie"
+                            >
+                                {categories.map(cat => (
+                                    <option
+                                        key={cat.id}
+                                        value={cat.name}
+                                    >
+                                        {cat.name}
+                                    </option>
+                                )
+                                )}
+                            </select>
+                        </form>
+                    }
+                </div>
             </form>
         </div>
     )
 }
-
-/*
-{ 
-    name: '',         
-    image: '', 
-    price: 0, 
-    stock: 0, 
-    onStock: false, 
-    onSale: false, 
-    description: '', 
-    category: '' 
-}
-*/
