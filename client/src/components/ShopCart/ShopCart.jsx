@@ -5,12 +5,18 @@ import {removeShopCart} from "../../redux/actions"
 function ShopCart() {
     const dispatch = useDispatch()
 const products = useSelector(state => state.shopProduct)
+console.log(products)
 if(products){
     function remove (id){
         let copy = products;
-        let result = copy.filter(e=>{
-             if (e.id !== id){
-                 return e 
+        let result = copy.map(e=>{
+             if (e.id === id){
+                 if(e.count === 0){
+                     e = undefined;
+                 }
+                 if(e.count > 0){
+                     e.count = e.count--
+                 }
         }})
         return result;
     }
@@ -23,6 +29,7 @@ if(products){
                </Link>
                <p>{e.name}</p>
                <p>$ {e.price}</p>
+               <p> {e.count}</p>
                <button type="button" className={style.bttn} onClick={a => dispatch(removeShopCart(remove(e.id)))}>Remove</button>
             </div>
         })}
