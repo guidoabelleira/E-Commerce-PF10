@@ -13,46 +13,12 @@ export function removeShopCart(products){
 //ver si el producto esta en elestado, si esta,solo sumarle +1, si no esta agregarlo, 
 //pienso en usar un findone
 export function addPCart(product, state ){
-    let productos = [];
-    
-    if(state){
-        
-        let products = state.map(e=>{
-          
-            if(e.name === product.name){
-                if(e.count){
-                    e.count = e.count++
-                    return e
-                }else{
-                    e.count = 1
-                    return e
-                }
-                
-                
-            }else{
-                 return e
-            }
-        })
-        return async function(dispatch) {
-            dispatch({
-                type: "ADD_PCART",
-                payload: products
-            })
-        }
-    } else{
-        
              return async function(dispatch) {
-                product.count = 1;  
-                productos.push(product);
             dispatch({
                 type: "ADD_PCART",
-                payload: productos
+                payload: product
             })
         }
-    }
-    
-    
-    
  
 }
 //Guido
