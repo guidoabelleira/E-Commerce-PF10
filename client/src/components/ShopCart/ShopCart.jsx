@@ -22,8 +22,8 @@ if(products){
     }
     return (
         <div className={style.container}>
-            {products.map(e=> {
-            return <div>
+            {products.map((e, i)=> {
+            return <div key={i} >
                 <Link to={`/products/${e.id}`}>
                <img src={e.image} alt="img" width="50px"  height="50px"/>
                </Link>
