@@ -11,6 +11,8 @@
     height:303px;
     width:225px;
    border-radius:23px;
+   box-shadow:  -5px 5px 10px #969696,
+   5px -5px 10px #ffffff;
 }
 
 
@@ -38,7 +40,9 @@ border: 1px solid #0E6655;
     border-radius: 100px;
      height:80px;
      width: 80px;
-    transform: rotate(0deg);
+     box-shadow:  -5px 5px 10px #0c5849,
+     5px -5px 10px #10725e;
+     transform: rotate(0deg);
   }
 
 .price{
@@ -57,6 +61,8 @@ font-size: 22px;
 line-height: 35px;
 margin-left: 1%;
 border: 1px solid  white;
+box-shadow:  -5px 5px 10px #0c5849,
+5px -5px 10px #10725e;
 }
 
 .shop{
@@ -68,8 +74,8 @@ border: 1px solid  white;
     padding:10px;
    
 }
-.price:hoover{
-    background-color:black;
+.price:hover{
+    background-color: #f1efef
 }
 .circle{
     background-color:#0E6655;
