@@ -10,14 +10,16 @@ export function removeShopCart(products){
    }
    
 }
-
-export function addPCart(product){
-    return async function(dispatch) {
-    dispatch({
-        type: "ADD_PCART",
-        payload: product
-    })
-}
+//ver si el producto esta en elestado, si esta,solo sumarle +1, si no esta agregarlo, 
+//pienso en usar un findone
+export function addPCart(product, state ){
+             return async function(dispatch) {
+            dispatch({
+                type: "ADD_PCART",
+                payload: product
+            })
+        }
+ 
 }
 //Guido
 export function getAllProducts() {

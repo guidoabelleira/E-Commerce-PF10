@@ -38,9 +38,11 @@ function rootReducer(state = initialState, action) {
                 ...state,
             }
         case "ADD_PCART":
+        
             return {
                 ...state,
                 shopProduct :[...state.shopProduct, action.payload]
+                //[...state.shopProduct, action.payload]
         }
         case 'GET_CATEGORY_FILTERED' :
             return {
