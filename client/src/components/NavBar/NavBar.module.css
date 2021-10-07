@@ -2,7 +2,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
- 
+    box-shadow:  4px 4px 4px #969696,
+    -4px -4px 4px #ffffff;
     color:white;
     background: #0E6655;
     margin: 0px;

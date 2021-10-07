@@ -11,6 +11,8 @@
   height:303px;
   width:225px;
  border-radius:23px;
+ box-shadow:  -5px 5px 10px #969696,
+ 5px -5px 10px #ffffff;
 }
 
 .container h4{
@@ -92,6 +94,10 @@ height: 41px;
   margin-top:3%;
   height: 220px;
   width: 120px;
+}
+
+.price:hover{
+  background-color: #f1efef
 }
 /* @import url('https://fonts.googleapis.com/css?family=Sarala:700|Exo+2:300');
 
