@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 export default function Card ({image, name, categories,id,price, index}){
     const dispatch = useDispatch()
-    const products = useSelector(state => state.shopProduct)
-   
+    let products = useSelector(state => state.shopProduct)
+    products = products?.filter(Boolean)
     const product = {image, name, categories, id, price}
     console.log(products)
     let duplicate = name.split(" ")

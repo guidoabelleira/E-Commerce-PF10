@@ -41,7 +41,9 @@ export default function HomePage() {
                 <p  className={style.verTodos}>Ver Todos:</p>
                     </Link>
                     </div>
+                    <div className={style.render}>
                 <Cards state={popular} popularCard={true}/>
+                </div>
             </div>
 
             <div className={style.cards}>
@@ -51,18 +53,20 @@ export default function HomePage() {
                 <p  className={style.verTodos}>Ver Todos:</p>
                     </Link>
                     </div>
+                    <div className={style.render}>
                 <Cards state={discount} discountCard={true}/>
+                </div>
             </div>
             
             <div className={style.cards}>
                 
                 <div className={style.seeAll}>
                 <h3 className={style.h3Terceario}>Nuestros ultimos productos:</h3>
-                <Link className={style.Link}to="/products">
-                <p  className={style.verTodos}>Ver Todos:</p>
-                    </Link>
+        
                     </div>
+                    <div className={style.render}>
                 <Cards state={lasted} lastedCard={true}/>
+                </div>
             </div>
         </div>
         </div>
