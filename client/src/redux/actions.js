@@ -181,7 +181,8 @@ export function putProduct (id) {
             console.log(error)
             alert(`Was failed the update of the product id: ${id}`)
         }
-
+    }
+}
 export function postCategory(payload) {
     return async function(dispatch) {
         let json = await axios.post('http://localhost:3001/categories/', payload)
