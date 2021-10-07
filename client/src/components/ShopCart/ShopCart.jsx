@@ -6,7 +6,7 @@ function ShopCart() {
     const dispatch = useDispatch()
 const products = useSelector(state => state.shopProduct)
 console.log(products)
-if(products > 0){
+if(products){
     function remove (id){
         let copy = products;
         let result = copy.map(e=>{
@@ -22,8 +22,8 @@ if(products > 0){
     }
     return (
         <div className={style.container}>
-            {products.map(e=> {
-            return <div>
+            {products.map((e, i)=> {
+            return <div key={i} >
                 <Link to={`/products/${e.id}`}>
                <img src={e.image} alt="img" width="50px"  height="50px"/>
                </Link>
