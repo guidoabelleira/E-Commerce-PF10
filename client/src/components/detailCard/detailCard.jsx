@@ -22,6 +22,7 @@ export default function DetailCard (props) {
                 <h2> Articulo: "{productId.name}"</h2>
                 <div >
                     <ShopCartButton />
+
                     <img className={style.img} src={productId.image} alt="Err img" />
                     <p> <b>Precio:</b> {productId.price}</p>
                     <p> <b>Descripcón:</b> {productId.description}</p>

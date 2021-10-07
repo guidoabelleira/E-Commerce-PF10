@@ -78,6 +78,7 @@ export function getProductById(id){
             })
         } catch (error){
             console.log(error)
+            alert("no encontrado")
         }
     }
 }
@@ -92,10 +93,7 @@ export function getProductByName(input) {
             })
         }
         catch(error) {
-            dispatch ({
-                type: 'GET_RECIPE_BY_NAME',
-                payload: {error: "Product not found"}
-            })
+            console.log(error)
         }
     }
 }
@@ -112,8 +110,13 @@ export function getCategories() {
 
 export function postProduct(payload) {
     return async function(dispatch) {
-        let json = await axios.post('http://localhost:3001/products', payload)
-        return json;
+        try {
+            let json = await axios.post('http://localhost:3001/products', payload)
+            return json;
+        }
+        catch(error) {
+            console.log(error)
+        }
     }
 }
 
@@ -170,7 +173,6 @@ function sort(jsonFinal, json, orden, option) {
 }
 
 export function setAscDesc(orden, option) {
-    console.log(orden, option)
     return async function(dispatch) {
         let json = await axios.get('http://localhost:3001/products')
         json = json.data
@@ -179,6 +181,23 @@ export function setAscDesc(orden, option) {
         dispatch({
             type: 'SET_ASC_DESC',
             payload: sort(jsonFinal, json, orden, option)
+        })
+    }
+}
+
+export function postCategory(payload) {
+    return async function(dispatch) {
+        let json = await axios.post('http://localhost:3001/categories/', payload)
+        return json
+    }
+}
+
+export function deleteCategory(payload) {
+    return async function(dispatch) {
+        let json = await axios.delete('http://localhost:3001/categories/', payload)
+        return dispatch({
+            type: 'DELETE_CATEGORY',
+            payload: json.data
         })
     }
 }
