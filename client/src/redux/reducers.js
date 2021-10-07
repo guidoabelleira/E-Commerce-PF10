@@ -41,7 +41,7 @@ function rootReducer(state = initialState, action) {
         
             return {
                 ...state,
-                shopProduct :[...state.shopProduct, action.payload]
+                shopProduct :action.payload
                 //[...state.shopProduct, action.payload]
         }
         case 'GET_CATEGORY_FILTERED' :

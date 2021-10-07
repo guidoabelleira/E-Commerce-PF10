@@ -6,7 +6,7 @@ function ShopCart() {
     const dispatch = useDispatch()
 const products = useSelector(state => state.shopProduct)
 console.log(products)
-if(products){
+if(products > 0){
     function remove (id){
         let copy = products;
         let result = copy.map(e=>{
