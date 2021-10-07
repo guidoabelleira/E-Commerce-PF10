@@ -151,6 +151,36 @@ export function setAscDesc(orden, option) {
     }
 }
 
+
+export function getAllCategories () {
+    return async function (dispatch) {
+        try {
+            let json = await axios.get('http://localhost:3001/categories')
+            dispatch ({
+                type: 'GET_ALL_CATEGORIES',
+                payload: json.data
+            })
+        }
+        catch(error) {
+            dispatch ({
+                type: 'GET_ALL_CATEGORIES',
+                payload: {error: "ERROR on GET_ALL_CATEGORIES"}
+            })
+        }
+    }
+}
+
+export function putProduct (id) {
+    return async () => {
+        try {
+            await axios.put('',{}) //No esta completa la ruta
+            alert(`successful update of product id: ${id}`)
+        }
+        catch(error){
+            console.log(error)
+            alert(`Was failed the update of the product id: ${id}`)
+        }
+
 export function postCategory(payload) {
     return async function(dispatch) {
         let json = await axios.post('http://localhost:3001/categories/', payload)
@@ -165,5 +195,6 @@ export function deleteCategory(payload) {
             type: 'DELETE_CATEGORY',
             payload: json.data
         })
+
     }
 }
