@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux'
 import { getProductByName } from "../../redux/actions";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -23,10 +23,12 @@ function Searchbar() {
         e.preventDefault()
         dispatch(getProductByName(input))
     }
-    useEffect(async() => {
-        await getProductByName(input)
-        
-    }, []);
+    useEffect(() => {
+        async function getters(){
+            await getProductByName(input)
+        }
+        getters()
+    }, [input]);
     
     return (
         <div className={style.container}>
@@ -35,7 +37,7 @@ function Searchbar() {
                 className={style.searchTerm} 
                 placeholder="Buscar..." 
                 onChange={(handleInputChange)}/>
-                <button type="submit" class={style.searchButton}onClick={handleSubmit}>
+                <button type="submit" className={style.searchButton}onClick={handleSubmit}>
                     <i className={style.i}>
                         <FontAwesomeIcon icon={faSearch}/>
                     </i>

@@ -25,8 +25,8 @@ export default function Profile(){
     )
   }
 } catch {
-  return (<div>
+  return (<>
     <p>something is wrong</p>
-  </div>)
+  </>)
 }
 }
