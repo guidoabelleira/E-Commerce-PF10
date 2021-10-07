@@ -21,7 +21,7 @@ router.get("/", (req, res, next) => {
 });
 // Add a User
  router.post("/", (req, res) => {
-   const { name, lastname, email, adress, userRole, password, image  } = req.body;
+   const { name, lastname, email, address, userRole, password, image  } = req.body;
 
    User.findOne({
      where: {
@@ -34,8 +34,7 @@ router.get("/", (req, res, next) => {
            name: name,
            lastname: lastname,
            email: email,
-           adress: adress,
-           phone: phone,  
+           address: address,  
            userRole: userRole,    
            password: password,        
            image: image,
@@ -169,16 +168,16 @@ router.get("/", (req, res, next) => {
   }
 ); */
 
-router.put("/:id", auth, (req, res) => {
+router.put("/:id", /* auth, */ (req, res) => {
   const { id } = req.params;
-  const {name, lastname, email, adress, password, image } = req.body; /* <--- THE ELEMENT OF THE BODY WE ARE GOING TO USE FOR THE UPDATE */
+  const {name, lastname, email, address, password, image } = req.body; /* <--- THE ELEMENT OF THE BODY WE ARE GOING TO USE FOR THE UPDATE */
   User.update(
     {
       name: name,
       lastname: lastname,
       email: email,
       password: password,
-      adress: adress,
+      address: address,
       image: image,
     } /* <----THE ATRIBUTES WE WANT TO UPDATE */,
     { where: { id: id } }
@@ -464,7 +463,7 @@ router.get("/:id/orders", (req, res) => {
 });
 
 // delete a user
-router.delete("/delete/:id", auth, isAdmin, (req, res) => {
+router.delete("/delete/:id", /* auth, isAdmin, */ (req, res) => {
   //RECUERDE PONER LA AUTENTICACION Y ISADMIN
 
   const { id } = req.params;
@@ -577,7 +576,7 @@ router.get("/:idUser/image", async (req, res) => {
   try {
     const { idUser } = req.params;
 
-    const user = await Users.findOne({ where: { id: idUser } });
+    const user = await User.findOne({ where: { id: idUser } });
     res.status(200).send(user.image);
   } catch (error) {
     res.status(400).send({ msg: error });
@@ -589,7 +588,7 @@ router.post("/:idUser/image", async (req, res) => {
     const { idUser } = req.params;
     const { img } = req.body;
 
-    const user = await Users.findOne({ where: { id: idUser } });
+    const user = await User.findOne({ where: { id: idUser } });
     user.image = img;
     await user.save();
     res.status(200).send(user.image);

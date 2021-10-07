@@ -56,7 +56,7 @@ module.exports = (sequelize) => {
       }
     },
 
-    adress:{
+    address:{
        type: DataTypes.STRING,
        allowNull: true,
        validate: {

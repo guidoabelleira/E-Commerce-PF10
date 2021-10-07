@@ -49,8 +49,8 @@ router.post('/',  async (req, res, next) => {
  }
 });
 
-router.delete ('/', async (req, res) => {    
- const {id} = req.body;   
+router.delete ('/:id', async (req, res) => {    
+ const {id} = req.params;   
   try {
     await Category.destroy({   
         where: {                                            
