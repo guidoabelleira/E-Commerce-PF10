@@ -444,10 +444,11 @@ router.delete("/:idUser/cart/:idProduct", (req, res) => {
 // Getting all orders from one user
 router.get("/:id/orders", (req, res) => {
   const userId = req.params.id;
+  const state=req.query.state;
   Order.findAll({
     where: {
       userId: userId,
-      state: Complete,
+      state: state, 
     },
   })
     .then((orders) => {
@@ -461,7 +462,6 @@ router.get("/:id/orders", (req, res) => {
       return res.send({ data: err }).status(400);
     });
 });
-
 // delete a user
 router.delete("/delete/:id", /* auth, isAdmin, */ (req, res) => {
   //RECUERDE PONER LA AUTENTICACION Y ISADMIN

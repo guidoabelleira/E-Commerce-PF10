@@ -40,9 +40,11 @@ function rootReducer(state = initialState, action) {
                 ...state,
             }
         case "ADD_PCART":
+        
             return {
                 ...state,
                 shopProduct :[...state.shopProduct, action.payload]
+                //[...state.shopProduct, action.payload]
         }
         case 'GET_CATEGORY_FILTERED' :
             return {
@@ -60,6 +62,15 @@ function rootReducer(state = initialState, action) {
                 allCategories: action.payload
             }
         }
+        case "POST_CATEGORY": 
+            return {
+                ...state
+            }   
+        case "DELETE_CATEGORY" :
+            return {
+                ...state,
+                categories: action.payload
+            }
         default: {
             return state
         }
