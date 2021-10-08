@@ -12,35 +12,46 @@ import AboutUs from './components/AboutUs/AboutUs';
 import Profile from "./components/Profile/Profile"
 import ContactUs from './components/ContactUs/ContactUs';
 
+import { authenticatedUserDb } from './components/Hooks/users';
+
 import './App.css';
 
 function App() {
-  const {isAuthenticate} = useAuth0();
+    const {isAuthenticate, user} = useAuth0();
+
+    if(user){
+        authenticatedUserDb(user)
+        console.log("entro if app")
+    }
+
     return (
         <React.Fragment>
-        <div className="container">
-        <Route exact path={"/profile"} component={Profile}/>
-        {isAuthenticate? (<>
-            <div className="row">
-                <Route path={'/'} component={NavBar} />
-                </div>
-                <div>
-                <Route path= {"/home"} component={HomePage} />
-                <Route exact path={"/products"} component={Products} />
-                <Route exact path={"/products/:id"} component={DetailCard} />
-                <Route exact path={"/shopcart"} component={ShopCart} />
-                <Route exact path={"/about"} component={AboutUs} />
-                <Route exact path={"/addProduct"} component={AddProduct} />
-                </div></>):(<>
-                    <Route path={'/'} component={NavBar} />
-                 <Route path= {"/home"} component={HomePage} />
-                 <Route exact path={"/products"} component={Products} />
-                 <Route exact path={"/products/:id"} component={DetailCard} />
-                 <Route exact path={"/shopcart"} component={ShopCart} />
-                 <Route exact path={"/about"} component={AboutUs} />
-                 <Route exact path={"/contact"} component={ContactUs} />
-                 </>)}
-        </div>
+            <div className="container">
+                <Route exact path={"/profile"} component={Profile}/>
+                    {isAuthenticate? (
+                        <>
+                        <div className="row">
+                            <Route path={'/'} component={NavBar} />
+                        </div>
+                        <div>
+                            <Route path= {"/home"} component={HomePage} />
+                            <Route exact path={"/products"} component={Products} />
+                            <Route exact path={"/products/:id"} component={DetailCard} />
+                            <Route exact path={"/shopcart"} component={ShopCart} />
+                            <Route exact path={"/about"} component={AboutUs} />
+                            <Route exact path={"/addProduct"} component={AddProduct} />
+                        </div>
+                        </>):(
+                        <>
+                            <Route path={'/'} component={NavBar} />
+                            <Route path= {"/home"} component={HomePage} />
+                            <Route exact path={"/products"} component={Products} />
+                            <Route exact path={"/products/:id"} component={DetailCard} />
+                            <Route exact path={"/shopcart"} component={ShopCart} />
+                            <Route exact path={"/about"} component={AboutUs} />
+                            <Route exact path={"/contact"} component={ContactUs} />
+                        </>)}
+            </div>
         </React.Fragment>
     );
 }

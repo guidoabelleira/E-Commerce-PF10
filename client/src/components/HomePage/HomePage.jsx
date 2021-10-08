@@ -1,21 +1,28 @@
 import { useDispatch, useSelector } from 'react-redux';
 import {getAllProducts} from '../../redux/actions';
 import { useEffect } from 'react';
+import { NavLink as Link} from 'react-router-dom';
+
 import ShowAdress from '../ShowAdress/ShowAdress'
 import Cards from '../Cards/Cards';
 import SearchBar from '../Searchbar/Searchbar';
 import ShopCartButton from '../ShopCartButton/ShopCartButton';
 import Loading from '../Loading/Loading';
-import { NavLink as Link} from 'react-router-dom';
-import style from './homePage.module.css'
 import ProfileButton from '../ProfileButton/ProfileButton';
+
+import style from './homePage.module.css'
+
+
+
 export default function HomePage() {
     const dispatch = useDispatch();
     const state = useSelector(state => state.products)
-    useEffect(async() => {
-   
+    useEffect(() => {
+        async function getters(){
             await dispatch(getAllProducts());
-    }, []);
+        }
+        getters();
+    },[dispatch]);
 
     // Busco ultimos por ID, saco los ultimos 3.
     const lasted = state?.reverse().slice(0, 3);
