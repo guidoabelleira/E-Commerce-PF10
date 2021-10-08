@@ -1,22 +1,29 @@
 import Card from "../Card/Card"
+import Loading from "../Loading/Loading"
 import style from "./AuxiliarCards.module.css"
 
 export default function AuxiliarCards({state}){
-    if(state.length > 0){
-        return(
+        return state.length > 0 ? (
             <div className={style.container}>
-                {state.map((e, i)=> {
-                    if(e?.onStock){
-                        return(<div key={i} clasName={style.card}> <Card id={e.id} image={e.image} name={e.name} categories={e.categories} price={e.price} index={i} />
-                            </div>)
+                {state.map((e, i) => {
+                    if(e){
+                        if(e?.onStock){
+                            return(
+                                <div key={i} className={style.card}> 
+                                <Card id={e.id} 
+                                    image={e.image} 
+                                    name={e.name} 
+                                    categories={e.categories} 
+                                    price={e.price} 
+                                    index={i} />
+                                </div>
+                            )
+                        }
                     }
-                    
+                    return console.log("error")
                 })}
             </div>
-        );
-    } else {
-        return(
-            <h1>Loading</h1>
-        );
-    }
+        ):(
+            <Loading/>
+        )
 }

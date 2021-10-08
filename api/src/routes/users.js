@@ -9,7 +9,7 @@ const { DB_KEY } = process.env;
 const isAdmin = require("../middleware/isAdmin");
 const auth = require("../middleware/auth");
 
-// Giving all users and counting them
+// Get todos los users
 router.get("/", (req, res, next) => {
   User.findAndCountAll()
     .then((users) => {
@@ -19,9 +19,10 @@ router.get("/", (req, res, next) => {
       return res.send({ data: err }).status(400);
     });
 });
-// Add a User
+
+// Agregar un usuario
  router.post("/", (req, res) => {
-   const { name, lastname, email, address, userRole, password, image  } = req.body;
+   const { name, lastname, email, address, userRole, isAdmin, password, image  } = req.body;
 
    User.findOne({
      where: {
@@ -35,7 +36,8 @@ router.get("/", (req, res, next) => {
            lastname: lastname,
            email: email,
            address: address,  
-           userRole: userRole,    
+           userRole: userRole,  
+           isAdmin: isAdmin,  
            password: password,        
            image: image,
          }).then(user => res.send(user))
@@ -168,9 +170,10 @@ router.get("/", (req, res, next) => {
   }
 ); */
 
+//Modificar usuarios
 router.put("/:id", /* auth, */ (req, res) => {
   const { id } = req.params;
-  const {name, lastname, email, address, password, image } = req.body; /* <--- THE ELEMENT OF THE BODY WE ARE GOING TO USE FOR THE UPDATE */
+  const {name, lastname, email, address, userRole, isAdmin, password, image } = req.body; /* <--- THE ELEMENT OF THE BODY WE ARE GOING TO USE FOR THE UPDATE */
   User.update(
     {
       name: name,
@@ -178,8 +181,10 @@ router.put("/:id", /* auth, */ (req, res) => {
       email: email,
       password: password,
       address: address,
+      userRole: userRole,
+      isAdmin: isAdmin,
       image: image,
-    } /* <----THE ATRIBUTES WE WANT TO UPDATE */,
+    },
     { where: { id: id } }
   )
     .then((value) => {
@@ -194,10 +199,86 @@ router.put("/:id", /* auth, */ (req, res) => {
     });
 });
 
-// Editing quantities of products in one orderline
+// Eliminar un usuario (Al descomentar auth y isAdmin obligatoriamente poner autenticación e isAdmin)
+router.delete("/delete/:id", /* auth, isAdmin, */ (req, res) => {
+  const { id } = req.params;
+  User.destroy({ where: { id: id } })
+    .then((value) => {
+      if (value === 1) {
+        return res.status(202).send("User deleted");
+      }
+      return res.status(400).send("User not found!");
+    })
+    .catch((err) => {
+      return res.send({ data: err }).status(400);
+    });
+});
+
+router.get("/:idUser/image", async (req, res) => {
+  try {
+    const { idUser } = req.params;
+
+    const user = await User.findOne({ where: { id: idUser } });
+    res.status(200).send(user.image);
+  } catch (error) {
+    res.status(400).send({ msg: error });
+  }
+});
+
+router.post("/:idUser/image", async (req, res) => {
+  try {
+    const { idUser } = req.params;
+    const { img } = req.body;
+
+    const user = await User.findOne({ where: { id: idUser } });
+    user.image = img;
+    await user.save();
+    res.status(200).send(user.image);
+  } catch (error) {
+    res.status(400).send({ msg: error });
+  }
+});
+
+//---------------------------------------RUTAS EN ORDEN PARA CARRITO-------------------------------------------------
+
+// Crear Orden PASO 1
+router.post("/:idUser/carrito", (req, res) => {
+  const { idUser } = req.params;
+  Order.findOrCreate({
+    where: { userId: idUser, state: "Cart" },
+  })
+    .then((respuesta) => res.status(200).send({ data: respuesta }))
+    .catch((e) => res.status(400).send({ data: e }));
+});
+
+// Agregar Orderlines a la orden PASO 2 (una orderline por producto) PASO 3 Y 4 están en routes/orders
+router.post("/:idUser/cart", async (req, res) => {
+  try {
+    const { idUser } = req.params;
+    const { quantity, productId } = req.body;
+    const order = await Order.findOrCreate({
+      where: { userId: idUser, state: "Cart" },
+    });
+
+    const product = await Product.findByPk(productId);
+    product.stock = product.stock - quantity;
+    const productSave = await product.save();
+
+    const orderLine = await Orderline.create({
+      price: product.price,
+      quantity: quantity,
+      orderId: order[0].dataValues.id,
+      productId: productId,
+      userId: idUser,
+    });
+    return res.status(200).send(orderLine);
+  } catch (error) {
+    return res.status(400).send({ data: error });
+  }
+});
+
+// Modificar cantidades de los productos en una orderline
 router.put("/:userId/cart", async (req, res) => {
-  // S41-Crear-Ruta-para-editar-las-cantidades-del-carrito
-  // PUT /users/:idUser/cart
   const id = req.params.userId; // Me llega el userId desde el login.
   const { orderlineId, orderlineQuantity } = req.body; // Se trigerean desde el body los campos de la Orderline
 
@@ -242,7 +323,7 @@ router.put("/:userId/cart", async (req, res) => {
   }
 });
 
-// Getting all Orderlines in the Cart Plus Products
+//Get de todas las orderlines en la orden del Cart + Products
 router.get("/:idUser/cart", (req, res) => {
   const { idUser } = req.params;
   Order.findOne({
@@ -281,8 +362,7 @@ router.get("/:idUser/cart", (req, res) => {
     });
 });
 
-// getting all orders for the checkout
-
+// Get a todas las ordenes para el checkout
 router.get("/:idUser/checkout", (req, res) => {
   const { idUser } = req.params;
   Order.findOne({
@@ -316,88 +396,7 @@ router.get("/:idUser/checkout", (req, res) => {
     });
 });
 
-// Add Orderlines to the Cart
-router.post("/:idUser/cart", async (req, res) => {
-  try {
-    const { idUser } = req.params;
-    const { quantity, productId } = req.body;
-    const order = await Order.findOrCreate({
-      where: { userId: idUser, state: "Cart" },
-    });
-
-    const product = await Product.findByPk(productId);
-    product.stock = product.stock - quantity;
-    const productSave = await product.save();
-
-    const orderLine = await Orderline.create({
-      price: product.price,
-      quantity: quantity,
-      orderId: order[0].dataValues.id,
-      productId: productId,
-      userId: idUser,
-    });
-    return res.status(200).send(orderLine);
-  } catch (error) {
-    return res.status(400).send({ data: error });
-  }
-});
-
-//Vaciar el carrito
-router.delete("/:idUser/cart", async (req, res) => {
-  try {
-    const { idUser } = req.params;
-    const orderUser = await Order.findOne({
-      where: { userId: idUser, state: "Cart" },
-    });
-    if (!orderUser) {
-      res.send("La orden para el usuario  " + idUser + ",no fue encontrada");
-      return;
-    }
-    const orderLine = await Orderline.findAll({
-      where: { orderId: orderUser.dataValues.id },
-    });
-    for (let i = 0; i < orderLine.length; i++) {
-      const product = await Product.findByPk(orderLine[i].dataValues.productId);
-      product.stock = product.stock + orderLine[i].dataValues.quantity;
-      const productSave = await product.save();
-    }
-    const orderDeleted = await orderUser.destroy();
-    res.status(200).send("Carrito está vacío");
-  } catch (error) {
-    return res.status(400).send({ data: error });
-  }
-});
-
-//Quitar un item del carrito
-//router.delete("/:idUser/cart/:itemId", async (req, res) => {
-//  try {
-//    const { idUser, itemId } = req.params;
-//    const orderUser = await Order.findOne({
-//      where: { userId: idUser, state: "Cart" },
-//    });
-//    if (!orderUser) {
-//      res.send("La orden para el usuario  " + idUser + ",no fue encontrada");
-//      return;
-//    }
-//    const orderLine = await Orderline.findOne({
-//      where: { orderId: orderUser.dataValues.id },
-//    });
-//    const product = await Product.findByPk(orderLine.dataValues.productId);
-//    product.stock = product.stock + orderLine.dataValues.quantity;
-//    const productSave = await product.save();
-//    if (orderLine) {
-//      const orderDeleted = await orderLine.destroy({
-//        where: { id: itemId},
-//      });
-//      res.status(200).send("Item Deleted");
-//    } else {
-//      res.status(400).send("Orderline does no exists");
-//    }
-//  } catch (error) {
-//    return res.status(400).send({ data: error });
-//  }
-//});
-
+//Eliminar un item de la orderline
 router.delete("/:idUser/cart/:idProduct", (req, res) => {
   const idUser = req.params.idUser;
   const idProduct = req.params.idProduct;
@@ -441,7 +440,34 @@ router.delete("/:idUser/cart/:idProduct", (req, res) => {
   });
 });
 
-// Getting all orders from one user
+//Vaciar el carrito en estado cart
+router.delete("/:idUser/cart", async (req, res) => {
+  try {
+    const { idUser } = req.params;
+    const orderUser = await Order.findOne({
+      where: { userId: idUser, state: "Cart" },
+    });
+    if (!orderUser) {
+      res.send("La orden para el usuario  " + idUser + ",no fue encontrada");
+      return;
+    }
+    const orderLine = await Orderline.findAll({
+      where: { orderId: orderUser.dataValues.id },
+    });
+    for (let i = 0; i < orderLine.length; i++) {
+      const product = await Product.findByPk(orderLine[i].dataValues.productId);
+      product.stock = product.stock + orderLine[i].dataValues.quantity;
+      const productSave = await product.save();
+    }
+    const orderDeleted = await orderUser.destroy();
+    res.status(200).send("Carrito está vacío");
+  } catch (error) {
+    return res.status(400).send({ data: error });
+  }
+});
+
+
+// Obtener todas las ordenes de un usuario
 router.get("/:id/orders", (req, res) => {
   const userId = req.params.id;
   const state=req.query.state;
@@ -462,21 +488,49 @@ router.get("/:id/orders", (req, res) => {
       return res.send({ data: err }).status(400);
     });
 });
-// delete a user
-router.delete("/delete/:id", /* auth, isAdmin, */ (req, res) => {
-  //RECUERDE PONER LA AUTENTICACION Y ISADMIN
 
-  const { id } = req.params;
-  User.destroy({ where: { id: id } })
-    .then((value) => {
-      if (value === 1) {
-        return res.status(202).send("User deleted");
-      }
-      return res.status(400).send("User not found!");
+// Profile route
+router.get("/:idUser/profile", async (req, res) => {
+  const { idUser } = req.params;
+  Order.findAll({
+    where: {
+      userId: idUser,
+      state: "Created",
+    },
+    include: {
+      model: Product,
+      include: {
+        model: User,
+      },
+    },
+  })
+    .then((orders) => {
+      res.send(orders);
     })
     .catch((err) => {
-      return res.send({ data: err }).status(400);
+      res.send(err);
     });
+});
+
+
+// This function brings necesary data for the completedOrderlines component
+router.get("/:userId/completedOrderlines", async (req, res) => {
+  const { userId } = req.params;
+  try {
+    const orderlines = await Orderline.findAndCountAll({
+      include: [
+        { model: Order, where: { userId: userId, state: "Complete" } },
+        { model: Product },
+      ],
+      order: [["productId", "ASC"]],
+    });
+    if (!orderlines) {
+      res.send("This user has no completed orders").status(406);
+    }
+    res.send(orderlines);
+  } catch (error) {
+    res.send(error);
+  }
 });
 
 //password Reset
@@ -485,7 +539,7 @@ router.post("/passwordReset", auth, (req, res) => {
   const { id } = req.user;
 
   const hashedPassword = bcrypt.hash(newPassword, 10).then((hashedPassword) => {
-    Users.update(
+    User.update(
       {
         password: hashedPassword,
       },
@@ -512,7 +566,7 @@ router.post("/forgotPassword/:id", (req, res) => {
   const { newPassword } = req.body;
 
   const hashedPassword = bcrypt.hash(newPassword, 10).then((hashedPassword) => {
-    Users.update(
+    User.update(
       {
         password: hashedPassword,
       },
@@ -529,85 +583,38 @@ router.post("/forgotPassword/:id", (req, res) => {
   });
 });
 
-// Profile route
-router.get("/:idUser/profile", async (req, res) => {
-  const { idUser } = req.params;
-  Order.findAll({
-    where: {
-      userId: idUser,
-      state: "Complete",
-    },
-    include: {
-      model: Product,
-      include: {
-        model: Users,
-      },
-    },
-  })
-    .then((orders) => {
-      res.send(orders);
-    })
-    .catch((err) => {
-      res.send(err);
-    });
-});
 
-// This function brings necesary data for the completedOrderlines component
-router.get("/:userId/completedOrderlines", async (req, res) => {
-  const { userId } = req.params;
-  try {
-    const orderlines = await Orderline.findAndCountAll({
-      include: [
-        { model: Order, where: { userId: userId, state: "Complete" } },
-        { model: Product },
-      ],
-      order: [["productId", "ASC"]],
-    });
-    if (!orderlines) {
-      res.send("This user has no completed orders").status(406);
-    }
-    res.send(orderlines);
-  } catch (error) {
-    res.send(error);
-  }
-});
+//Quitar un item del carrito
+//router.delete("/:idUser/cart/:itemId", async (req, res) => {
+//  try {
+//    const { idUser, itemId } = req.params;
+//    const orderUser = await Order.findOne({
+//      where: { userId: idUser, state: "Cart" },
+//    });
+//    if (!orderUser) {
+//      res.send("La orden para el usuario  " + idUser + ",no fue encontrada");
+//      return;
+//    }
+//    const orderLine = await Orderline.findOne({
+//      where: { orderId: orderUser.dataValues.id },
+//    });
+//    const product = await Product.findByPk(orderLine.dataValues.productId);
+//    product.stock = product.stock + orderLine.dataValues.quantity;
+//    const productSave = await product.save();
+//    if (orderLine) {
+//      const orderDeleted = await orderLine.destroy({
+//        where: { id: itemId},
+//      });
+//      res.status(200).send("Item Deleted");
+//    } else {
+//      res.status(400).send("Orderline does no exists");
+//    }
+//  } catch (error) {
+//    return res.status(400).send({ data: error });
+//  }
+//});
 
-router.get("/:idUser/image", async (req, res) => {
-  try {
-    const { idUser } = req.params;
-
-    const user = await User.findOne({ where: { id: idUser } });
-    res.status(200).send(user.image);
-  } catch (error) {
-    res.status(400).send({ msg: error });
-  }
-});
-
-router.post("/:idUser/image", async (req, res) => {
-  try {
-    const { idUser } = req.params;
-    const { img } = req.body;
-
-    const user = await User.findOne({ where: { id: idUser } });
-    user.image = img;
-    await user.save();
-    res.status(200).send(user.image);
-  } catch (error) {
-    res.status(400).send({ msg: error });
-  }
-});
-
-// Add Orderlines to the Cart - first order, then the orderlines----------------
-router.post("/:idUser/carrito", (req, res) => {
-  const { idUser } = req.params;
-  Order.findOrCreate({
-    where: { userId: idUser, state: "Cart" },
-  })
-    .then((respuesta) => res.status(200).send({ data: respuesta }))
-    .catch((e) => res.status(400).send({ data: e }));
-});
-
-router.post("/:idUser/carritoOrderline", async (req, res) => {
+/* router.post("/:idUser/carritoOrderline", async (req, res) => {
   try {
     const { idUser } = req.params;
     const { quantity, productId } = req.body;
@@ -629,6 +636,8 @@ router.post("/:idUser/carritoOrderline", async (req, res) => {
   } catch (error) {
     return res.status(400).send({ data: error });
   }
-});
+}); */
+
+
 
 module.exports = router;
