@@ -10,14 +10,13 @@ import style from './UpdateProduct.module.css'
 
 export default function UpdateProduct (props) {
 
-
     const dispatch = useDispatch()
     
     //el useEffect se dispara despues del renderizado. necesito que este en el componente que llama a este.
     useEffect(() => {
         dispatch(getAllCategories())
         dispatch(getProductById(props.props));
-    }, [dispatch]);
+    }, [props]);
 
     const productId = useSelector((state) => state.productById);
     const categories = useSelector((state) => state.allCategories)
@@ -45,6 +44,19 @@ export default function UpdateProduct (props) {
         newCategorie.categories.push({name: event.target.value})
         setProduct(newCategorie)
     }
+
+    const handleRemoveCategorie = event => {
+        event.preventDefault()
+        const newData = { ...product }
+        let allCategories = []
+        for(let i=0; i<product.categories.length; i++){
+            if(product.categories[i].name !== event.target.value){
+                allCategories.push(product.categories[i])
+            }
+        }
+        newData.categories = allCategories
+        setProduct(newData)
+    }
     console.log(product)
 
     const onSubmit = event => {
@@ -68,7 +80,7 @@ export default function UpdateProduct (props) {
                 </label>
 
                 <input 
-                    key= '1'
+                    //key= '1'
                     id= 'name'
                     name= 'name'
                     type= 'text'
@@ -83,7 +95,7 @@ export default function UpdateProduct (props) {
                     </b>
                 </label>
                 <input 
-                    key= '2'
+                    //key= '2'
                     id= 'image'
                     name= 'image'
                     type= 'file'
@@ -97,7 +109,7 @@ export default function UpdateProduct (props) {
                 </label>
 
                 <input 
-                    key= '3'
+                    //key= '3'
                     id= 'price'
                     name= 'price'
                     type= 'number'
@@ -114,7 +126,7 @@ export default function UpdateProduct (props) {
                 </label>
 
                 <input 
-                    key= '4'
+                    //key= '4'
                     id= 'stock'
                     name= 'stock'
                     type= 'number'
@@ -130,7 +142,7 @@ export default function UpdateProduct (props) {
                 </label>
 
                 <input 
-                    key= '5'
+                    //key= '5'
                     id= 'onStock'
                     name= 'onStock'
                     type= 'checkbox'
@@ -145,7 +157,7 @@ export default function UpdateProduct (props) {
                 </label>
 
                 <input
-                    key= '6'
+                    //key= '6'
                     id= 'onSale'
                     name= 'onSale'
                     type= 'checkbox'
@@ -160,7 +172,7 @@ export default function UpdateProduct (props) {
                 </label>
 
                 <textarea
-                    key= '7'
+                    //key= '7'
                     id= 'description'
                     name= 'description'
                     rows= '10'
@@ -179,6 +191,7 @@ export default function UpdateProduct (props) {
                 <select 
                     name="categories" 
                     id="Categorias"
+                    onClick={event => handleRemoveCategorie(event)}
                 >
                     {product.categories && productId.categories?
                         product.categories.map(cat => (
