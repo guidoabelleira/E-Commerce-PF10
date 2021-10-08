@@ -2,6 +2,9 @@
 
 export default function AboutUs (){
     return(
-        <h2>soy about</h2>
+        <div className={style.container}>
+<h2>soy about</h2>
+        </div>
+        
     )
 }

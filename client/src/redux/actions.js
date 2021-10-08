@@ -11,8 +11,7 @@ export function removeShopCart(products){
    }
    
 }
-//ver si el producto esta en elestado, si esta,solo sumarle +1, si no esta agregarlo, 
-//pienso en usar un findone
+
 export function addPCart(product, state){
              return async function(dispatch) {
             dispatch({
@@ -26,7 +25,7 @@ export function addPCart(product, state){
 export function getAllProducts() {
     return async function(dispatch) {
         const all = await axios.get(PRODUCTS_URL);
-        console.log(all)
+       
             dispatch({
                 type: 'GET_ALL_PRODUCTS',
                 payload: all.data

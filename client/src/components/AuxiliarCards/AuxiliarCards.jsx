@@ -19,6 +19,7 @@ export default function AuxiliarCards({state}){
                             </div>
                         )
                     }
+                    return
                 })}
             </div>
         ):(
