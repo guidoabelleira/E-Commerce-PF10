@@ -10,7 +10,7 @@ export default function AuxiliarCards({state}){
                         return(<div key={i} clasName={style.card}> <Card id={e.id} image={e.image} name={e.name} categories={e.categories} price={e.price} index={i} />
                             </div>)
                     }
-                    
+                    return
                 })}
             </div>
         );

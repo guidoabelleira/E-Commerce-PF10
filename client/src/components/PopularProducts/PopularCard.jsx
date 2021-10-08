@@ -16,7 +16,6 @@ export default function PopularCard ({image, name, categories,id,price, index}){
     name.push(duplicate[1])
     name.push(" ")
     name.push(duplicate[2])
-    console.log(name)
     name.join("")
     return(
         <div className={style.container} key={index}>
