@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router';
+import { Route } from 'react-router';
 import {useAuth0} from "@auth0/auth0-react"
 
 import HomePage from './components/HomePage/HomePage';
