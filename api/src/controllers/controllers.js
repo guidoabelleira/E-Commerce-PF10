@@ -58,10 +58,10 @@ const getLatests = async () => {
 const getPopulars = async () => {
   const allSales = await getAllSales();
   const populars = allSales.sort((a, b) => {
-    if (a.createdAt > b.createdAt) {
+    if (a.sales > b.sales) {
       return -1;
     }
-    if (a.createdAt < b.createdAt) {
+    if (a.sales < b.sales) {
       return 1;
     }
     return 0;
