@@ -5,7 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 //Hook localStore
-import {useLocalStorage} from '../Hooks/useLocalStorage';
+// import {useLocalStorage} from '../Hooks/useLocalStorage';
+import {useSessionStorage} from '../Hooks/useSessionStorage';
 
 import style from './Searchbar.module.css';
 
@@ -13,7 +14,7 @@ import style from './Searchbar.module.css';
 
 function Searchbar() {
     const dispatch = useDispatch()
-    const [input, setInput] = useLocalStorage('text', '')
+    const [input, setInput] = useSessionStorage('text', '')
 
     function handleInputChange(e) {
         setInput(e.target.value)
