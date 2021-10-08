@@ -1,23 +1,18 @@
 const router = require('express').Router();
 const { Product, Category } = require('../db');
-const { getAllInfo, getSales, getLatests } = require('../controllers/controllers');
+const { getAllInfo, getOnSales, getLatests, getPopulars } = require('../controllers/controllers');
 const data = require('../../data.json');
-//const { v4: uuidv4 } = require('uuid');
-
-
-router.get("/json", async (req, res, next) => {
-    res.json(data);
-});
 
 router.get("/getHome/sales", async (req, res, next) => {
     try {
-        const sale = await getSales();
+        const sale = await getOnSales();
         res.json(sale);
     }
     catch (error) {
         next(error);
     }
 })
+
 router.get("/getHome/latests", async (req, res, next) => {
     try {
         const last = await getLatests();
@@ -27,6 +22,16 @@ router.get("/getHome/latests", async (req, res, next) => {
         next(error);
     }
 })
+
+/* router.get("/getHome/populars", async (req, res, next) => {
+    try {
+        const pop = await getPopulars();
+        res.json(pop);
+    }
+    catch (error) {
+        next(error);
+    }
+}) */
 
 router.get("/", async (req, res, next) => { 
     const name  = req.query.name; 

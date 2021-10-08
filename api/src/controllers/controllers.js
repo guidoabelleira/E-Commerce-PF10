@@ -1,4 +1,4 @@
-const { Product, Category, category_product } = require('../db');
+const { Product, Category, category_product, Sale } = require('../db');
 
 
 const getAllInfo = async () => {
@@ -13,12 +13,23 @@ const getAllInfo = async () => {
   });
 };
 
+const getAllSales = async () => {
+  return await Sale.findAll({
+    include: {
+      model: Category,
+      attributes: ["name"],
+      through: {
+        attributes: [],
+      },
+    },
+  });
+};
 
 const getAllCategories = async () => {
   return Category.findAll({});
 }
 
-const getSales = async () => {
+const getOnSales = async () => {
   const sale = await Product.findAll({
     where: {
       onSale: true
@@ -44,9 +55,24 @@ const getLatests = async () => {
   return latest.slice(0, 12)
 }
 
+const getPopulars = async () => {
+  const allSales = await getAllSales();
+  const populars = allSales.sort((a, b) => {
+    if (a.createdAt > b.createdAt) {
+      return -1;
+    }
+    if (a.createdAt < b.createdAt) {
+      return 1;
+    }
+    return 0;
+  });
+  return populars.slice(0, 12)
+}
+
 module.exports = {
   getAllInfo,
   getAllCategories,
-  getSales,
-  getLatests
+  getOnSales,
+  getLatests,
+  getPopulars
 };
