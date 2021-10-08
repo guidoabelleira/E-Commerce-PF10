@@ -10,79 +10,39 @@ import style from './UpdateProduct.module.css'
 
 export default function UpdateProduct (props) {
 
-    const dispatch =  useDispatch()
+    const dispatch = useDispatch()
     
+    //el useEffect se dispara despues del renderizado. necesito que este en el componente que llama a este.
     useEffect(() => {
         dispatch(getAllCategories())
         dispatch(getProductById(props.props));
-    }, []);
+    }, [dispatch]);
 
     const productId = useSelector((state) => state.productById);
-    const CATEGORIAS = useSelector((state) => state.allCategories)
+    const categories = useSelector((state) => state.allCategories)
 
     const [product, setProduct] = useState(productId)
-    const [categories, setCategories] = useState(CATEGORIAS)
     const [showCategories, setShowCategories] = useState(false)
-    //console.log('CATEGORIAS', categories)
 
-    //1
-    const handleOnChangeName = event => {
+    const handleOnChange = event => {
         event.preventDefault()
         const newData = { ...product }
         newData[event.target.name] = event.target.value
         setProduct(newData)
-        console.log('productId/name', product.name)
     }
 
-    //3
-    const handleOnChangePrice = event => {
+    const handleOnCheck =  event => {
         event.preventDefault()
         const newData = { ...product }
-        newData[event.target.price] = event.target.value
+        newData[event.target.name] = event.target.checked
         setProduct(newData)
-        console.log('productId/price', product.price)
-    }
-
-    //4
-    const handleOnCheckStock = event => {
-        event.preventDefault()
-        const newData = { ...product }
-        newData[event.target.stock] = event.target.value
-        setProduct(newData)
-        console.log('productId/stock', product.stock)
-    }
-    //5
-    const handleOnCheckOnStock = event => {
-        event.preventDefault()
-        const newData = { ...product }
-        newData[event.target.onStock] = event.target.value
-        setProduct(newData)
-        console.log('productId/onStock', product.onStock)
-    }
-    //6
-    const handleOnCheckOnSale = evnet => {
-        evnet.preventDefault()
-        const newData = { ...product }
-        newData[evnet.target.onSale] = evnet.target.value
-        setProduct(newData)
-        console.log('productId/onSale', product.onSale)
-    }
-
-    //7
-    const handleOnChangeDescripción = event => {
-        event.preventDefault()
-        const newData = { ...product }
-        newData[event.target.Descripción] = event.target.value
-        setProduct(newData)
-        console.log('productId/onSale', product.onSale)
     }
 
     const handleNewCategorie = event => {
         event.preventDefault()
-        const newData = { ...product }
-        newData[event.target.categories] = event.target.value
-        setProduct(newData)
-        console.log('productId/onSale', product.categories)
+        const newCategorie = { ...product }
+        newCategorie.categories.push({name: event.target.value})
+        setProduct(newCategorie)
     }
     console.log(product)
 
@@ -100,24 +60,6 @@ export default function UpdateProduct (props) {
             <form 
                 className={style.FormStyle}
             >
-
-{/*
-                <label for='id'>
-                    <b>
-                        Id
-                    </b>   
-                </label>
-
-                <input 
-                    key= '0'
-                    id= 'id'
-                    name= 'id'
-                    type= 'number'
-                    placeholder= 'id'
-                    Value= {product.id}
-                />
-*/}
-
                 <label for='name'>
                     <b>
                         Nombre
@@ -130,7 +72,7 @@ export default function UpdateProduct (props) {
                     name= 'name'
                     type= 'text'
                     placeholder= 'name'
-                    onChange={event => handleOnChangeName(event)}
+                    onChange={event => handleOnChange(event)}
                     defaultValue= {product.name}
                 />
 
@@ -160,7 +102,7 @@ export default function UpdateProduct (props) {
                     type= 'number'
                     step= '0.01'
                     placeholder= 'price'
-                    onChange={event => handleOnChangePrice(event)}
+                    onChange={event => handleOnChange(event)}
                     defaultValue= {product.price}
                 />
 
@@ -177,7 +119,7 @@ export default function UpdateProduct (props) {
                     type= 'number'
                     placeholder= 'stock'
                     defaultValue= {product.stock}
-                    onChange={event => handleOnCheckStock(event)}
+                    onChange={event => handleOnChange(event)}
                 />
 
                 <label for='onStock'>
@@ -191,7 +133,8 @@ export default function UpdateProduct (props) {
                     id= 'onStock'
                     name= 'onStock'
                     type= 'checkbox'
-                    onChange={event => handleOnCheckOnStock(event)}
+                    checked= {product.onStock}
+                    onChange={event => handleOnCheck(event)}
                 />
 
                 <label for='onSale'>
@@ -205,7 +148,8 @@ export default function UpdateProduct (props) {
                     id= 'onSale'
                     name= 'onSale'
                     type= 'checkbox'
-                    onChange={event => handleOnCheckOnSale(event)}
+                    checked= {product.onSale}
+                    onChange={event => handleOnCheck(event)}
                 />
 
                 <label for='description'>
@@ -221,7 +165,7 @@ export default function UpdateProduct (props) {
                     rows= '10'
                     cols= '45'
                     placeholder= 'description'
-                    onChange={event => handleOnChangeDescripción(event)}
+                    onChange={event => handleOnChange(event)}
                     defaultValue= {product.description}
                 />
 
@@ -235,10 +179,11 @@ export default function UpdateProduct (props) {
                     name="categories" 
                     id="Categorias"
                 >
-                    {product.categories?
+                    {product.categories && productId.categories?
                         product.categories.map(cat => (
                             <option 
                                 key={product.categories.indexOf(cat.name)}
+                                name= {product.categories.name}
                                 value={cat.name}
                             >
                                 {cat.name}
@@ -279,6 +224,7 @@ export default function UpdateProduct (props) {
                                     cat => (
                                         <option
                                             key={cat.id}
+                                            name={categories.filter(cat => cat.name === cat.name)}
                                             value={cat.name}
                                         >
                                             {cat.name}
