@@ -11,6 +11,8 @@
     width: 182px;
    height: 220px;
    border-radius: 23px;
+   box-shadow:  -6px 6px 12px #c1c1c1,
+   6px -6px 12px #ffffff;
 }
 
 .container img{
@@ -19,6 +21,8 @@
      height:82px;
      width: 81px;
     transform: rotate(0deg);
+    box-shadow:  -5px 5px 10px #0c5849,
+    5px -5px 10px #10725e;
   }
 
 .bttn{
@@ -33,6 +37,8 @@ height: 33px;
    justify-content: center;
    text-align: center;
    margin-top:10%;
+   box-shadow:  -5px 5px 10px #0c5849,
+   5px -5px 10px #10725e;
 }
 
 .h4{
@@ -45,6 +51,7 @@ width: 99%;
 height: 22px;
 margin-bottom: 5%;
 padding:5%;
+
 }
 
 .bttn p{
@@ -54,4 +61,9 @@ font-weight: 500;
 font-size: 12.5px;
 line-height: 121.4%;
 padding:10px;
+}
+
+.h4 p {
+  box-shadow:  -5px 5px 10px #0c5849,
+  5px -5px 10px #10725e;
 }

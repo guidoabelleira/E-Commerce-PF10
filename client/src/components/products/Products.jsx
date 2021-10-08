@@ -17,9 +17,12 @@ function Products() {
    
     const dispatch = useDispatch();
     const state = useSelector(state => state.products)
-    useEffect(async() => {
+    useEffect(() => {
+        async function getters(){
             await dispatch(getAllProducts());
-    }, []);
+        }
+        getters();
+    }, [dispatch]);
     if(state){
         let cardsPerPage = 9;
         let pagesVisited = pageNumber * cardsPerPage

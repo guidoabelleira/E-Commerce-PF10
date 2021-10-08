@@ -11,18 +11,22 @@
     height:303px;
     width:225px;
    border-radius:23px;
+   box-shadow:  -5px 5px 10px #969696,
+   5px -5px 10px #ffffff;
 }
+
 
 .h4{
     font-family: Saira;
-font-style: normal;
-font-weight: 600;
-font-size: 20px;
-line-height: 35px;
-height:35px;
-width: 100%;
-margin-bottom: 10%;
-}
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 121.4%;
+  width: 99%;
+  height: 22px;
+  margin-bottom: 5%;
+  padding:5%;
+  }
 .p{
     font-family: Saira;
 font-style: normal;
@@ -36,7 +40,9 @@ border: 1px solid #0E6655;
     border-radius: 100px;
      height:80px;
      width: 80px;
-    transform: rotate(0deg);
+     box-shadow:  -5px 5px 10px #0c5849,
+     5px -5px 10px #10725e;
+     transform: rotate(0deg);
   }
 
 .price{
@@ -55,6 +61,8 @@ font-size: 22px;
 line-height: 35px;
 margin-left: 1%;
 border: 1px solid  white;
+box-shadow:  -5px 5px 10px #0c5849,
+5px -5px 10px #10725e;
 }
 
 .shop{
@@ -66,8 +74,8 @@ border: 1px solid  white;
     padding:10px;
    
 }
-.price:hoover{
-    background-color:black;
+.price:hover{
+    background-color: #f1efef
 }
 .circle{
     background-color:#0E6655;

@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProductById, addPCart } from '../../redux/actions';
 
 import ShopCartButton from "../ShopCartButton/ShopCartButton"
+import Loading from "../Loading/Loading";
 
 
 export default function DetailCard (props) {
@@ -14,7 +15,7 @@ export default function DetailCard (props) {
     const productId = useSelector((state) => state.productById);
     useEffect(() => {
         dispatch(getProductById(aux));
-    }, [dispatch]);
+    }, [dispatch, aux]);
 
     return productId ? (
         <div className={style.container}>
@@ -38,6 +39,6 @@ export default function DetailCard (props) {
             </div>
         </div>
     ) : (
-        <h1>Cargando...</h1>
+        <Loading />
     )
 }

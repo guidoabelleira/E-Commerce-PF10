@@ -10,6 +10,7 @@ import style from './UpdateProduct.module.css'
 
 export default function UpdateProduct (props) {
 
+
     const dispatch = useDispatch()
     
     //el useEffect se dispara despues del renderizado. necesito que este en el componente que llama a este.
