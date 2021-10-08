@@ -6,7 +6,7 @@ import LogoProvi from "../img/LogoProvi.png";
 
 // FONT AWEASOME
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faHouseUser, faUser, faAddressCard, faEnvelopeSquare, faBookmark, faBoxOpen, faPlusSquare} from '@fortawesome/free-solid-svg-icons';
+import {faHouseUser, faUser, faAddressCard, faBookmark, faBoxOpen, faPlusSquare} from '@fortawesome/free-solid-svg-icons';
 
 //auth0
 import {useAuth0} from "@auth0/auth0-react"

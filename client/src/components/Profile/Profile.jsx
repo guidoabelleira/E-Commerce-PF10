@@ -1,19 +1,32 @@
 import {useAuth0} from "@auth0/auth0-react"
 import style from "./Profile.module.css"
-
+import LogoutButton from "../LoginButton/LoginButton";
 export default function Profile(){
-    const {user,isAuthenticated, logout} = useAuth0();
-    let uwu = useAuth0();
+  const {user,isAuthenticated} = useAuth0();
+  try {
+    
   if(isAuthenticated){
     return(<div className={style.container}>
         <img src={user.picture} alt={user.name}/>
-        <h3>nombre: {user.name}</h3>
+        <div className={style.text}>
+        <h3> {user.name}</h3>
+        <p>Name: {user.given_name}</p>
+        <p>Last Name: {user.family_name}</p>
         <p>email: {user.email}</p>
-        <button type="button" onClick={e=> logout({returnTo: window.location.origin})}>Logout</button>
+        </div>
+        <div className={style.login}>
+                <LogoutButton/>
+            </div>
         </div> )
   } else {
-      <div className={style.container}>
+    return(  <div className={style.container}>
           <p>something is wrong</p>
       </div>
+    )
   }
+} catch {
+  return (<>
+    <p>something is wrong</p>
+  </>)
+}
 }

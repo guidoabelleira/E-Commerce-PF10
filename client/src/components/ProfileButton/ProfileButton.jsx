@@ -10,7 +10,7 @@ export default function ProfileButton() {
     const {loginWithRedirect, isAuthenticated,user,isLoading} = useAuth0()
      if(isLoading) {
         return(
-            <i className={style.iconProfile}>
+            <i className={style.iconLoading}>
             <Loading/> </i>)//debo ser una imagen de cargado
            
      }

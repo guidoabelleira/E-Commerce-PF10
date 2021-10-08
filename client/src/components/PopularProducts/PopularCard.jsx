@@ -4,9 +4,9 @@ import {addPCart} from "../../redux/actions"
 import {useSelector, useDispatch} from 'react-redux';
 
 export default function PopularCard ({image, name, categories,id,price, index}){
-    const products = useSelector(state => state.shopProduct)
+    let products = useSelector(state => state.shopProduct)
     const dispatch = useDispatch()
-    
+    products = products?.filter(Boolean)
     const product = {image, name, categories, id, price}
    let duplicate = name.split(" ")
    
@@ -23,7 +23,7 @@ export default function PopularCard ({image, name, categories,id,price, index}){
            <Link className={style.bttn}to={`/products/${id}`}>  <img className={style.img}src={image} alt={name} height="300px" width="350px" />
             </Link>
 
-            <p className={style.h4}>{name}</p>
+            <h4 className={style.h4}>{name}</h4>
             <div className={style.categories}>
             {categories.map((e, i)=> {
             return <p className={style.p} key={i}>{e.name}</p>

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { PRODUCTS_URL } from '../constantes';
+import verify from '../components/Hooks/shopCart'
 
 export function removeShopCart(products){
    return async function (dispatch) {
@@ -12,11 +13,11 @@ export function removeShopCart(products){
 }
 //ver si el producto esta en elestado, si esta,solo sumarle +1, si no esta agregarlo, 
 //pienso en usar un findone
-export function addPCart(product, state ){
+export function addPCart(product, state){
              return async function(dispatch) {
             dispatch({
                 type: "ADD_PCART",
-                payload: product
+                payload: verify(product, state)
             })
         }
  
