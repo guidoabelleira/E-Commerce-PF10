@@ -40,13 +40,13 @@ export default function ContactUs(){
                 <h3>Escríbenos y en breve los pondremos en contacto contigo</h3>
                 <form onSubmit={handleSubmit}>
                     <p>
-                        <lebel>
+                        <label>
                             Nombre
                             <span>*</span>
-                        </lebel>
+                        </label>
                         <input 
                             type="text" 
-                            name="name" 
+                            name="name_contacto" 
                             placeholder="Escribe tu nombre" 
                             required
                             onChange={handleInputChange}
@@ -54,13 +54,13 @@ export default function ContactUs(){
                             />
                     </p>
                     <p>
-                        <lebel>
+                        <label>
                             Email
                             <span>*</span>
-                        </lebel>
+                        </label>
                         <input 
                             type="email" 
-                            name="email" 
+                            name="email_contacto" 
                             placeholder="Escribe tu email"
                             required
                             onChange={handleInputChange}
@@ -68,9 +68,9 @@ export default function ContactUs(){
                             />
                     </p>
                     <p>
-                        <lebel>
+                        <label>
                             Telefono
-                        </lebel>
+                        </label>
                         <input 
                             type="tel" 
                             name="telephone" 
@@ -81,10 +81,10 @@ export default function ContactUs(){
                             />
                     </p>
                     <p>
-                        <lebel>
+                        <label>
                             Asunto
                             <span>*</span>
-                        </lebel>
+                        </label>
                         <input 
                             type="text" 
                             name="affair" 
@@ -95,10 +95,10 @@ export default function ContactUs(){
                             />
                     </p>
                     <p>
-                        <lebel>
+                        <label>
                             Mensaje
                             <span>*</span>
-                        </lebel>
+                        </label>
                         <textarea 
                             name="message" 
                             placeholder="Deja aqui tu comentario" 
