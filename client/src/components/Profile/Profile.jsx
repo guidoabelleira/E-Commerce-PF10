@@ -2,7 +2,7 @@ import {useAuth0} from "@auth0/auth0-react"
 import style from "./Profile.module.css"
 import LogoutButton from "../LoginButton/LoginButton";
 export default function Profile(){
-  const {user,isAuthenticated, logout} = useAuth0();
+  const {user,isAuthenticated} = useAuth0();
   try {
     
   if(isAuthenticated){
@@ -25,8 +25,8 @@ export default function Profile(){
     )
   }
 } catch {
-  return (<div>
+  return (<>
     <p>something is wrong</p>
-  </div>)
+  </>)
 }
 }
