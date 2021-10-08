@@ -1,8 +1,8 @@
-const { Users } = require("../db.js");
+const { User } = require("../db.js");
 
 const isAdmin = (req, res, next) => {
 
-    Users.findByPk(req.user.id).then(user => {
+    User.findByPk(req.user.id).then(user => {
         if(user.usertype === "admin") {
             next();
         } else {

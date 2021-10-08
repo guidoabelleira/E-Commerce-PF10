@@ -85,12 +85,12 @@ module.exports = (sequelize) => {
 
     password: {
       type: DataTypes.STRING,
-      allowNull: false,
-      validate:{
+      allowNull: true,
+      /* validate:{
         notNull: {
           msg: 'Password es requerida.'
         }, 
-      }
+      } */
     },
 
     image: {

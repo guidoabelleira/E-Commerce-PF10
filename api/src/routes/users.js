@@ -638,6 +638,44 @@ router.post("/forgotPassword/:id", (req, res) => {
   }
 }); */
 
+// Add Orderlines to the Cart With updated total
+/* router.post("/:idUser/cart", async (req, res) => {
+  try {
+    const { idUser } = req.params;
+    const { quantity, productId } = req.body;
+    let order = await Order.findOrCreate({
+      where: { userId: idUser, state: "Cart" },
+    });
+    //console.log('order:',order);
 
+    const product = await Product.findByPk(productId);
+    product.stock = product.stock - quantity;
+    const productSave = await product.save();
+
+    //console.log(product)
+
+    const orderLine = await Orderline.create({
+      price: product.price,
+      quantity: quantity,
+      orderId: order[0].dataValues.id,  // order es un array con primer elemento propiedad dataValues y alli esta el id
+      productId: productId,
+      userId: idUser,
+    });
+    const subTotal = product.price*quantity;
+    //console.log('subtotal:', subTotal);  calcula subtotal bien
+    let order2 = await Order.findOne({
+      where: { 
+        userId: idUser, 
+      },
+    });
+      order2.totalPrice = order2[0].dataValues.totalPrice + subTotal;
+      let orderSave = await order2.save();
+  //console.log('orderLine:', orderLine)
+    return res.status(200).send(orderLine);
+  } catch (error) {
+    return res.status(400).send({ data: error });
+  }
+});
+ */
 
 module.exports = router;
