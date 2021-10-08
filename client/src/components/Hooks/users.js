@@ -18,7 +18,7 @@ export function authenticatedUserDb(user){
         async function validate(values) {
             let response = await axios.post(USER_LOAD, values);
             let r = response.data
-            console.log("aca response: ", r);
+            console.log("response: ", r);
         }
         validate(values);
     }

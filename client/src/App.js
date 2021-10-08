@@ -21,7 +21,7 @@ function App() {
 
     if(user){
         authenticatedUserDb(user)
-        console.log("entro if app")
+        
     }
 
     return (
