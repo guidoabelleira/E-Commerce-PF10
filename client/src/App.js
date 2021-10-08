@@ -21,7 +21,7 @@ function App() {
 
     if(user){
         authenticatedUserDb(user)
-        console.log("entro if app")
+        
     }
 
     return (
@@ -41,7 +41,8 @@ function App() {
                             <Route exact path={"/about"} component={AboutUs} />
                             <Route exact path={"/addProduct"} component={AddProduct} />
                         </div>
-                        </>):(
+                        </>
+                        ):(
                         <>
                             <Route path={'/'} component={NavBar} />
                             <Route path= {"/home"} component={HomePage} />
@@ -50,7 +51,8 @@ function App() {
                             <Route exact path={"/shopcart"} component={ShopCart} />
                             <Route exact path={"/about"} component={AboutUs} />
                             <Route exact path={"/contact"} component={ContactUs} />
-                        </>)}
+                        </>
+                        )}
             </div>
         </React.Fragment>
     );

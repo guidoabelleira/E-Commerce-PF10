@@ -9,7 +9,7 @@ export default function ShopCartButton(){
     return(
         <div className={style.container}>
         <Link className={style.link} to="/shopCart">
-            <button type="button" ><img src={cart} height="20px" width="20px"/><p>{state.length} Añadidos</p></button>
+            <button type="button" ><img src={cart} alt="cart" height="20px" width="20px"/><p>{state.length} Añadidos</p></button>
             </Link>
         </div>
     )

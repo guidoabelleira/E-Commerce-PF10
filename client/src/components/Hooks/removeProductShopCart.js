@@ -6,12 +6,12 @@ if(state && product){
             if(e.count >  1){
                 e.count = e.count - 1;
                 return e;
-            }if(e.count = 1) {
+            }if(e.count === 1) {
                e = undefined
             }
-        } else {
-            return e
         }
+            return e
+        
     })
     return stateMap;
 } else {

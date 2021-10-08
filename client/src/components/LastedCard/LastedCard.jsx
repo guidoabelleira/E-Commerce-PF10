@@ -9,7 +9,6 @@ export default function LastedCard ({image, name, categories,id, index}){
      name.push(duplicate[1])
      name.push(" ")
      name.push(duplicate[2])
-     console.log(name)
      name.join("")
     return(
         <div className={style.container} key={index}>
