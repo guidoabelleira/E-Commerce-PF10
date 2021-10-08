@@ -1,13 +1,15 @@
 import { NavLink as Link } from 'react-router-dom';
 import style from './PopularCard.module.css'
 import {addPCart} from "../../redux/actions"
-import { useDispatch} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 
 export default function PopularCard ({image, name, categories,id,price, index}){
+    let products = useSelector(state => state.shopProduct)
     const dispatch = useDispatch()
+    products = products?.filter(Boolean)
     const product = {image, name, categories, id, price}
    let duplicate = name.split(" ")
-   console.log(name)
+   
    name = [];
     name.push(duplicate[0])
     name.push(" ")
@@ -21,14 +23,14 @@ export default function PopularCard ({image, name, categories,id,price, index}){
            <Link className={style.bttn}to={`/products/${id}`}>  <img className={style.img}src={image} alt={name} height="300px" width="350px" />
             </Link>
 
-            <p className={style.h4}>{name}</p>
+            <h4 className={style.h4}>{name}</h4>
             <div className={style.categories}>
             {categories.map((e, i)=> {
             return <p className={style.p} key={i}>{e.name}</p>
             })}
             </div>
             
-                <div onClick={e => dispatch(addPCart(product))} className={style.shop}>
+                <div onClick={e => dispatch(addPCart(product,products))} className={style.shop}>
                     <div className={style.circle}>
                         <p>+</p>
                     </div>

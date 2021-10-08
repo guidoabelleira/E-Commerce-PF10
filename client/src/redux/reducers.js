@@ -4,6 +4,8 @@ const initialState = {
     productById: [],
     categories: [],
     shopProduct : [],
+
+    allCategories: [],
 }
 
 function rootReducer(state = initialState, action) {
@@ -38,9 +40,11 @@ function rootReducer(state = initialState, action) {
                 ...state,
             }
         case "ADD_PCART":
+        
             return {
                 ...state,
-                shopProduct :[...state.shopProduct, action.payload]
+                shopProduct :action.payload
+                //[...state.shopProduct, action.payload]
         }
         case 'GET_CATEGORY_FILTERED' :
             return {
@@ -52,6 +56,14 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 shopProduct: action.payload
             }
+
+        case 'GET_ALL_CATEGORIES':{
+            return {
+                ...state,
+                allCategories: action.payload
+            }
+        }
+
         case "POST_CATEGORY": 
             return {
                 ...state

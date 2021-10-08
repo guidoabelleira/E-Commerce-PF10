@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { PRODUCTS_URL } from '../constantes';
+import verify from '../components/Hooks/shopCart'
 
 export function removeShopCart(products){
    return async function (dispatch) {
@@ -10,14 +11,16 @@ export function removeShopCart(products){
    }
    
 }
-
-export function addPCart(product){
-    return async function(dispatch) {
-    dispatch({
-        type: "ADD_PCART",
-        payload: product
-    })
-}
+//ver si el producto esta en elestado, si esta,solo sumarle +1, si no esta agregarlo, 
+//pienso en usar un findone
+export function addPCart(product, state){
+             return async function(dispatch) {
+            dispatch({
+                type: "ADD_PCART",
+                payload: verify(product, state)
+            })
+        }
+ 
 }
 //Guido
 export function getAllProducts() {
@@ -42,6 +45,7 @@ export function getProductById(id){
             })
         } catch (error){
             console.log(error)
+            alert("no encontrado")
         }
     }
 }
@@ -56,10 +60,7 @@ export function getProductByName(input) {
             })
         }
         catch(error) {
-            dispatch ({
-                type: 'GET_RECIPE_BY_NAME',
-                payload: {error: "Product not found"}
-            })
+            console.log(error)
         }
     }
 }
@@ -151,6 +152,37 @@ export function setAscDesc(orden, option) {
     }
 }
 
+export function getAllCategories () {
+    return async function (dispatch) {
+        try {
+            let json = await axios.get('http://localhost:3001/categories')
+            dispatch ({
+                type: 'GET_ALL_CATEGORIES',
+                payload: json.data
+            })
+        }
+        catch(error) {
+            dispatch ({
+                type: 'GET_ALL_CATEGORIES',
+                payload: {error: "ERROR on GET_ALL_CATEGORIES"}
+            })
+        }
+    }
+}
+
+export function putProduct (id) {
+    return async () => {
+        try {
+            await axios.put('',{}) //No esta completa la ruta
+            alert(`successful update of product id: ${id}`)
+        }
+        catch(error){
+            console.log(error)
+            alert(`Was failed the update of the product id: ${id}`)
+        }
+    }
+}
+
 export function postCategory(payload) {
     return async function(dispatch) {
         let json = await axios.post('http://localhost:3001/categories/', payload)
@@ -160,9 +192,6 @@ export function postCategory(payload) {
 
 export function deleteCategory(payload) {
     return async function(dispatch) {
-        let json = await axios.delete('http://localhost:3001/categories/' + payload)
-        return dispatch({
-            type: 'DELETE_CATEGORY',
             payload: json.data
         })
     }

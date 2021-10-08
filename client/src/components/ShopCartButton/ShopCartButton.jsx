@@ -4,8 +4,8 @@ import style from "./ShopCartButton.module.css"
 import cart from "../img/Car.png"
 
 export default function ShopCartButton(){
-    const state = useSelector(state => state.shopProduct)
-    
+    let state = useSelector(state => state.shopProduct)
+    state = state?.filter(Boolean)
     return(
         <div className={style.container}>
         <Link className={style.link} to="/shopCart">

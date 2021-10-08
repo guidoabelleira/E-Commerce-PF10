@@ -1,6 +1,9 @@
 .container{
-    margin-left:50%;
-    margin-top: 12%;
+
+    margin-left:30%;
+    margin-right: 15%;
+    margin-top: 1%;
+    margin-bottom: 1%;
     border: black solid;
     border-radius: 11px;
     padding: 1%;
@@ -8,16 +11,17 @@
 
 .Inputs {
     background-color:#0E6655 ;
-    padding:10px;
-    border: 1px;
+    padding: 1%;
+    border: 1%;
     border-radius: 10px;
     color: white;
     width: 32%;
     margin-left: 35%;
     margin-top: 11%;
+    text-align: center;
 }
 
 .img {
-    height: 400px;
-    width: 400px;
+    margin-left:25%;
+    width: 50%;
 }
