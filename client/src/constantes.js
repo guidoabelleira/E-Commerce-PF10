@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://localhost:3001/';
+export const BASE_URL = '/';
 export const PRODUCTS_URL = BASE_URL + 'products/';
 export const PRODUCTS_BY_NAME_URL = BASE_URL + 'products?name=';
 export const USER_LOAD = BASE_URL + 'users/';
