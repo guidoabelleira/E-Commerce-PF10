@@ -61,6 +61,11 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 categories: action.payload
             }
+        case 'GET_CATEGORY_TO_DELETE':
+            return {
+                ...state,
+                categories: action.payload
+            }
         default: {
             return state
         }
