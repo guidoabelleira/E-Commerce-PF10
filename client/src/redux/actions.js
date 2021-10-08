@@ -196,5 +196,6 @@ export function deleteCategory(payload) {
             type: 'DELETE_CATEGORY',
             payload: json.data
         })
+
     }
 }

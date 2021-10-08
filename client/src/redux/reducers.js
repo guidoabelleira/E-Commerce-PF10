@@ -56,12 +56,14 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 shopProduct: action.payload
             }
+
         case 'GET_ALL_CATEGORIES':{
             return {
                 ...state,
                 allCategories: action.payload
             }
         }
+
         case "POST_CATEGORY": 
             return {
                 ...state
@@ -71,6 +73,7 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 categories: action.payload
             }
+
         default: {
             return state
         }
