@@ -152,7 +152,6 @@ export function setAscDesc(orden, option) {
     }
 }
 
-
 export function getAllCategories () {
     return async function (dispatch) {
         try {
