@@ -20,8 +20,6 @@ export function authenticatedUserDb(user){
             let r = response.data
             console.log("aca response: ", r);
         }
-        validate(values)
-        
+        validate(values);
     }
-
 }

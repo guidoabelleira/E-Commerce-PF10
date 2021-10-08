@@ -7,11 +7,12 @@ import Loading from "../Loading/Loading";
 
 import style from "./ProfileButton.module.css"
 export default function ProfileButton() {
-    const {loginWithRedirect, isAuthenticated,user,isLoading} = useAuth0()
+    const {loginWithRedirect, user, isAuthenticated,isLoading} = useAuth0()
      if(isLoading) {
         return(
             <i className={style.iconLoading}>
-            <Loading/> </i>)//debo ser una imagen de cargado
+            <Loading/> </i>
+            )
            
      }
     if(isAuthenticated){
@@ -23,7 +24,7 @@ export default function ProfileButton() {
             </div>
            )
     } else {
-        return(//aqui va la imagen que haga alusion a un perfil
+        return(
         
                <i className={style.iconProfile}><FontAwesomeIcon  onClick={loginWithRedirect}  icon={faUserCircle}/></i> 
             
