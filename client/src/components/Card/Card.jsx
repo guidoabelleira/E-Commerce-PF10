@@ -8,7 +8,6 @@ export default function Card ({image, name, categories,id,price, index}){
     let products = useSelector(state => state.shopProduct)
     products = products?.filter(Boolean)
     const product = {image, name, categories, id, price}
-    console.log(products)
     let duplicate = name.split(" ")
     name = [];
      name.push(duplicate[0])
