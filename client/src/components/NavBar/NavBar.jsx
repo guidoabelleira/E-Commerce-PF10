@@ -38,7 +38,7 @@ export default function NavBar() {
                 </Link>
             </div>
             <div className={style.mainBttn}>
-                <Link className={style.mainBttn} to="/addProduct">
+                <Link className={style.mainBttn} to="/adminproducts">
                     <i><FontAwesomeIcon icon={faPlusSquare}/></i>
                     <p>Agregar <br/>
                     Productos</p>
