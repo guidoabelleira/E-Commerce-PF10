@@ -31,12 +31,18 @@ export default function HomePage() {
 
     const popular = state?.slice(10, 13);
 
+/*    function handleClick(e){ //esto resetea y trae todos los productos de nuevo
+   e.preventDefault(); 
+    dispatch(getAllProducts());
+   } */
+
     return lasted && discount && popular? (
         <div className={style.container}>
             <div className={style.margin}>
 
             <div className={style.searchbar}>
-                <ShowAdress/>
+           {/*  <button className={style.rechargeBtn} onClick={e=>{handleClick(e)}}>Recargar Productos</button> */}
+            <ShowAdress/>
             <SearchBar /> 
             <ShopCartButton/>
             <ProfileButton/>
