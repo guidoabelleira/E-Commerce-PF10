@@ -181,6 +181,7 @@ export function putProduct (id) {
         }
     }
 }
+
 export function postCategory(payload) {
     return async function(dispatch) {
         let json = await axios.post(CATEGORIES_URL , payload)
@@ -190,11 +191,27 @@ export function postCategory(payload) {
 
 export function deleteCategory(payload) {
     return async function(dispatch) {
-        let json = await axios.delete(CATEGORIES_URL , payload)
-        return dispatch({
             type: 'DELETE_CATEGORY',
             payload: json.data
         })
+    }
+}
 
+export function getCategoryToDelete(category) {
+    return async function(dispatch) {
+        let json = await axios.get('http://localhost:3001/categories') 
+        if(category){
+            json = json.data.filter(el => el.name.toLowerCase().includes(category.toLowerCase()))
+        } else {
+            return dispatch({
+                type: 'GET_CATEGORY_TO_DELETE',
+                payload: "Item no encontrado"
+            })
+        }
+        
+        return dispatch({
+            type: 'GET_CATEGORY_TO_DELETE',
+            payload: json
+        })
     }
 }
