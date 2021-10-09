@@ -12,7 +12,6 @@ const getAllInfo = async () => {
     },
   });
 };
-
 const getAllSales = async () => {
   return await Sale.findAll({
     include: {
@@ -55,6 +54,20 @@ const getLatests = async () => {
   return latest.slice(0, 12)
 }
 
+const alertStock = async () => {
+  const alert = await Product.findAll({
+    include: {
+      model: Category,
+      attributes: ["name"],
+      through: {
+        attributes: [],
+      },
+    },
+  });
+  const showStock = await alert.map((e) => e.stock < 10 ? e : null);
+  return showStock.filter((e) => e != null);
+};
+
 const getPopulars = async () => {
   const allSales = await getAllSales();
   const populars = allSales.sort((a, b) => {
@@ -74,5 +87,6 @@ module.exports = {
   getAllCategories,
   getOnSales,
   getLatests,
-  getPopulars
+  getPopulars,
+  alertStock
 };

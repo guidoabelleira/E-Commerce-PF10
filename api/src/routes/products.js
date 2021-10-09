@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Product, Category } = require('../db');
-const { getAllInfo, getOnSales, getLatests, getPopulars } = require('../controllers/controllers');
+const { getAllInfo, getOnSales, getLatests, getPopulars, alertStock } = require('../controllers/controllers');
 const data = require('../../data.json');
 
 router.get("/getHome/sales", async (req, res, next) => {
@@ -23,6 +23,15 @@ router.get("/getHome/latests", async (req, res, next) => {
     }
 })
 
+router.get("/alertStock", async (req, res, next) => {
+    try {
+        const stock = await alertStock();
+        res.json(stock);
+    }
+    catch (error) {
+        next(error);
+    }
+})
 /* router.get("/getHome/populars", async (req, res, next) => {
     try {
         const pop = await getPopulars();
