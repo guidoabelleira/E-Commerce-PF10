@@ -189,13 +189,12 @@ export function postCategory(payload) {
     }
 }
 
-export function deleteCategory(payload) {
+/* export function deleteCategory(payload) {
     return async function(dispatch) {
             type: 'DELETE_CATEGORY',
             payload: json.data
-        })
-    }
-}
+        }
+} */
 
 export function getCategoryToDelete(category) {
     return async function(dispatch) {
