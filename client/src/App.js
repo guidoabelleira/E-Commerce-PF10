@@ -30,8 +30,8 @@ function App() {
     const {isAuthenticate, user} = useAuth0();
 
     if(user){
-        const id = authenticatedUserDb(user);
-        localStorage.setItem('idUser', id);
+        authenticatedUserDb(user);
+
     }
 
     return (
