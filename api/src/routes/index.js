@@ -15,12 +15,14 @@ const categoriesRoute = require('./categories');
 const usersRoute = require('./users');
 const reviewsRoute = require('./reviews');
 const ordersRoute = require('./orders');
+const sendEmail = require("./sendEmail");
 
 router.use('/products', productsRoute);
 router.use('/categories', categoriesRoute );
 router.use('/users', usersRoute );
 router.use('/reviews', reviewsRoute );
 router.use('/orders', ordersRoute );
+router.use("/sendEmail", sendEmail);
 
 module.exports = router;
 
