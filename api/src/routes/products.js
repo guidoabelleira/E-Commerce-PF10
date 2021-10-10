@@ -53,7 +53,7 @@ router.get("/", async (req, res, next) => {
                 );       
                 nameProduct.length? 
                 res.status(200).send(nameProduct): 
-                res.status(404).send("No se encontro el producto buscado");
+                res.json({data: {error:"No se encontró el producto buscado"}});
             } else {      
                 const dataProducts = await getAllInfo();                
                 res.status(200).json(dataProducts);
