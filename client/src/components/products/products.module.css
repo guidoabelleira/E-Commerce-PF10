@@ -31,3 +31,15 @@
     margin-top: 3%;
     margin-left: -13vw;
 }
+
+.rechargeBtn {
+    background-color:#0E6655 ;
+    padding: 1%;
+    border: 1%;
+    border-radius: 10px;
+    color: white;
+    width: 160px;
+    position: absolute;
+    top: 130px;
+    right:10px;
+}
