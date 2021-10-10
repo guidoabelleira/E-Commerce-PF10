@@ -28,7 +28,7 @@ router.post("/", (req, res) => {
       html:
         `<div id="container" style="width: 100%; font-family: sans-serif; font-weight: normal;">
                 <div style="width: 100%; max-width: 700px; margin: auto;">
-                    <div style="background-color: #8e2de2; text-align: center; padding: 0.7rem 0;">
+                    <div style="background-color: #0E6655; text-align: center; padding: 0.7rem 0;">
                         <h1 style="color: white; font-family: sans-serif; font-weight: normal;">Henry Shop</h1>
                      </div>
             
@@ -44,12 +44,12 @@ router.post("/", (req, res) => {
     mailOptions = {
       from: "ecommercepf10@gmail.com",
       to: req.body.user.email,
-      subject: "Password Reset Link",
+      subject: "Link para restaurar contraseña",
       html:
         `<div id="container" style="width: 100%; font-family: sans-serif; font-weight: normal;">
                 <div style="width: 100%; max-width: 700px; margin: auto;">
-                    <div style="background-color: #8e2de2; text-align: center; padding: 0.7rem 0;">
-                        <h1 style="color: white; font-family: sans-serif; font-weight: normal;">CyberFitness</h1>
+                    <div style="background-color: #0E6655; text-align: center; padding: 0.7rem 0;">
+                        <h1 style="color: white; font-family: sans-serif; font-weight: normal;">Henry Shop</h1>
                      </div>
             
           <div style="text-align: center; padding: 0 0.72rem; padding-top: 2.5rem; background-color:white">
@@ -60,7 +60,7 @@ router.post("/", (req, res) => {
         req.body.user.lastname +
         `  !` +
         `Este es su enlace para la recuperación de contraseña, recuerde que es de un solo uso` +
-        `http://localhost:3000/user/forgotPassword/?` +
+        `http://localhost:3000/users/forgotPassword/?` +
         req.body.user.emailHashed +
         ` ` +
         `No compartir este link`,
@@ -73,7 +73,7 @@ router.post("/", (req, res) => {
       subject: "Detalle de compra",
       html: `<div id="container" style="width: 100%; font-family: sans-serif; font-weight: normal;">
                 <div style="width: 100%; max-width: 700px; margin: auto;">
-                    <div style="background-color: #8e2de2; text-align: center; padding: 0.7rem 0;">
+                    <div style="background-color: #0E6655; text-align: center; padding: 0.7rem 0;">
                         <h1 style="color: white; font-family: sans-serif; font-weight: normal;">Henry Shop</h1>
                      </div>
             
@@ -99,11 +99,11 @@ router.post("/", (req, res) => {
     if (err) {
       res.send(err.message);
     } else {
-      console.log('HOLA', mailOptions)
+      //console.log('HOLA', mailOptions)
       res.send("email has been send");
     }
   });
-  console.log('HOLA2', mailOptions)
+ // console.log('HOLA2', mailOptions)
   res.send("email has been send");
 });
 
