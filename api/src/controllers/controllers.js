@@ -54,7 +54,7 @@ const getLatests = async () => {
   return latest.slice(0, 12)
 }
 
-const alertStock = async () => {
+const alertStock = async (num) => {
   const alert = await Product.findAll({
     include: {
       model: Category,
@@ -64,8 +64,16 @@ const alertStock = async () => {
       },
     },
   });
-  const showStock = await alert.map((e) => e.stock < 10 ? e : null);
-  return showStock.filter((e) => e != null);
+  const showStock = await alert.map((e) => e.stock < num ? e : null);
+  return showStock.filter((e) => e != null).sort((a, b) => {
+    if (a.stock > b.stock) {
+      return 1;
+    }
+    if (a.stock < b.stock) {
+      return -1;
+    }
+    return 0;
+  });
 };
 
 const getPopulars = async () => {
