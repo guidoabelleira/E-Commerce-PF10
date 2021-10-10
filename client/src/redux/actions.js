@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { PRODUCTS_URL, CATEGORIES_URL, PRODUCTS_BY_NAME_URL, CATEGORIES_FILTER_URL, USER_LOAD } from '../constantes';
 import verify from '../components/Hooks/shopCart'
+import calculateTotalCart from '../components/Hooks/calculateTotalCart';
 
 export function removeShopCart(products){
    return async function (dispatch) {
@@ -13,13 +14,22 @@ export function removeShopCart(products){
 }
 
 export function addPCart(product, state){
-             return async function(dispatch) {
-            dispatch({
+            return async function(dispatch) {
+                dispatch({
                 type: "ADD_PCART",
                 payload: verify(product, state)
             })
         }
  
+}
+
+export function totalCart(state){
+    return async function(dispatch){
+        dispatch({
+            type: "TOTAL_CART",
+            payload: calculateTotalCart(state)
+        })
+    }
 }
 //Guido
 export function getAllProducts() {

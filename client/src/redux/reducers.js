@@ -4,6 +4,7 @@ const initialState = {
     productById: [],
     categories: [],
     shopProduct : [],
+    totalCart: 0,
     allCategories: [],
     allOrders: [],
     userOrderProcessing: [],
@@ -58,6 +59,11 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 shopProduct: action.payload
+            }
+        case "TOTAL_CART":
+            return {
+                ...state,
+                totalCart: action.payload
             }
 
         case 'GET_ALL_CATEGORIES':{
