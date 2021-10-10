@@ -17,6 +17,7 @@ import AddProduct from './components/CreateProductForm/Form';
 import AddCategories from './components/CreateCategoryForm/CategoryForm';
 import Stock from './components/StockProduct/StockProduct';
 import Orders from './components/Orders/Orders';
+import CheckOut from './components/CheckOut/CheckOut';
 
 
 import { authenticatedUserDb } from './components/Hooks/users';
@@ -48,6 +49,7 @@ function App() {
                             <Route exact path={"/addproduct"} component={AdminProducts} />
                             <Route exact path={"/products/:id"} component={DetailCard} />
                             <Route exact path={"/shopcart"} component={ShopCart} />
+                            <Route exact path={'/shopcart/checkout'} component={CheckOut} />
                             <Route exact path={"/about"} component={AboutUs} />
                             <Route path={'/adminproducts'} component={NavBarAdminProducts} />
                             <Route exact path={'/adminproducts'} component={AdminProducts} />
@@ -65,6 +67,7 @@ function App() {
                             <Route exact path={"/products"} component={Products} />
                             <Route exact path={"/products/:id"} component={DetailCard} />
                             <Route exact path={"/shopcart"} component={ShopCart} />
+                            <Route exact path={'/shopcart/checkout'} component={CheckOut} />
                             <Route exact path={"/about"} component={AboutUs} />
                             <Route exact path={"/contact"} component={ContactUs} />
                             <Route path={'/adminproducts'} component={NavBarAdminProducts} />
