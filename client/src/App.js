@@ -16,17 +16,21 @@ import AdminProducts from './components/AdminProducts/AdminProducts';
 import AddProduct from './components/CreateProductForm/Form';
 import AddCategories from './components/CreateCategoryForm/CategoryForm';
 import Stock from './components/StockProduct/StockProduct';
+import Orders from './components/Orders/Orders';
+
 
 import { authenticatedUserDb } from './components/Hooks/users';
 
+
 import './App.css';
+
 
 function App() {
     const {isAuthenticate, user} = useAuth0();
 
     if(user){
-        authenticatedUserDb(user)
-        
+        const id = authenticatedUserDb(user);
+        localStorage.setItem('idUser', id);
     }
 
     return (
@@ -50,6 +54,7 @@ function App() {
                             <Route exact path={'/adminproducts/addproduct'} component={AddProduct} />
                             <Route exact path={'/adminproducts/addcategories'} component={AddCategories} />
                             <Route exact path={'/adminproducts/stock'} component={Stock} />
+                            <Route exact path={'/order'} component={Orders} />
                             {/* <Route path={"*"} component={Error404} /> */}
                         </div>
                         </>
@@ -67,6 +72,7 @@ function App() {
                             <Route exact path={'/adminproducts/addproduct'} component={AddProduct} />
                             <Route exact path={'/adminproducts/addcategories'} component={AddCategories} />
                             <Route exact path={'/adminproducts/stock'} component={Stock} />
+                            <Route exact path={'/order'} component={Orders} />
                             {/* <Route path={"*"} component={Error404} /> */}
                         </>
                         )}

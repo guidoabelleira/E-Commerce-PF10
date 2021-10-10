@@ -40,8 +40,15 @@ export default function NavBar() {
             <div className={style.mainBttn}>
                 <Link className={style.mainBttn} to="/adminproducts">
                     <i><FontAwesomeIcon icon={faPlusSquare}/></i>
-                    <p>Agregar <br/>
+                    <p>Mis  <br/>
                     Productos</p>
+                </Link>
+            </div>
+            <div className={style.mainBttn}>
+                <Link className={style.mainBttn} to="/order">
+                    <i><FontAwesomeIcon icon={faPlusSquare}/></i>
+                    <p>Mis  <br/>
+                    Pedidos</p>
                 </Link>
             </div>
             <div className={style.mainBttn}>

@@ -4,3 +4,4 @@ export const PRODUCTS_BY_NAME_URL = BASE_URL + 'products?name=';
 export const USER_LOAD = BASE_URL + 'users/';
 export const CATEGORIES_URL = BASE_URL + 'categories/';
 export const CATEGORIES_FILTER_URL = PRODUCTS_URL + 'category/';
+export const ORDERS_URL = BASE_URL + 'orders/';
