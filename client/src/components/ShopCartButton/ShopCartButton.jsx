@@ -8,7 +8,7 @@ export default function ShopCartButton(){
     state = state?.filter(Boolean)
     return(
         <div className={style.container}>
-        <Link className={style.link} to="/shopCart">
+        <Link className={style.link} to="/shopcart">
             <button type="button" ><img src={cart} alt="cart" height="20px" width="20px"/><p>{state.length} Añadidos</p></button>
             </Link>
         </div>

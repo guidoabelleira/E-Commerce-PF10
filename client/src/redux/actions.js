@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { PRODUCTS_URL, CATEGORIES_URL, PRODUCTS_BY_NAME_URL, CATEGORIES_FILTER_URL } from '../constantes';
+import { PRODUCTS_URL, CATEGORIES_URL, PRODUCTS_BY_NAME_URL, CATEGORIES_FILTER_URL, USER_LOAD } from '../constantes';
 import verify from '../components/Hooks/shopCart'
 
 export function removeShopCart(products){
@@ -212,5 +212,64 @@ export function getCategoryToDelete(category) {
             type: 'GET_CATEGORY_TO_DELETE',
             payload: json
         })
+    }
+}
+
+
+// ACTIONS ORDERS
+// export function getOrdersAdmin(){
+//     return async function(dispatch){
+//         try {
+//             const allOrders = await axios.get(ORDERS_URL)
+//             dispatch({
+//                 type: 'GET_ORDERS',
+//                 payload: allOrders.data
+//             })
+//         } catch (error){
+//             console.log(error)
+//             alert("no encontrado")
+//         }
+//     }
+// }
+export function getUserOrderProcessing(idUser){
+    return async function(dispatch){
+        try {
+            const orderProcessing = await axios.get(USER_LOAD + idUser + '/orders?state=Processing');
+            dispatch({
+                type: 'GET_USER_ORDER_PROCESSING',
+                payload: orderProcessing.data
+            })
+        } catch (error){
+            console.log(error)
+            alert("no encontrado")
+        }
+    }
+}
+export function getUserOrderCompleted(idUser){
+    return async function(dispatch){
+        try {
+            const orderCompleted = await axios.get(USER_LOAD + idUser + '/orders?state=Completed')
+            dispatch({
+                type: 'GET_USER_ORDER_COMPLETED',
+                payload: orderCompleted.data
+            })
+        } catch (error){
+            console.log(error)
+            alert("no encontrado")
+        }
+    }
+}
+export function getUserOrderCanceled(idUser){
+    return async function(dispatch){
+        try {
+            const orderCanceled = await axios.get(USER_LOAD + idUser + '/orders?state=Canceled')
+            dispatch({
+                type: 'GET_USER_ORDER_CANCELED',
+                payload: orderCanceled.data
+            })
+        } catch (error){
+            console.log(error)
+            alert("no encontrado")
+        }
     }
 }
