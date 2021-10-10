@@ -1,7 +1,7 @@
 import axios from "axios";
 import { USER_LOAD } from "../../constantes";
 
-export function authenticatedUserDb(user){
+export async function authenticatedUserDb(user){
     console.log("console hook user: ", user)
     console.log("console hook user name: ", user.name)
     if(user){
@@ -22,7 +22,8 @@ export function authenticatedUserDb(user){
             console.log("response: ", r);
             return r.id
         }
-        const id = validate(values);
+        const id = await validate(values);
+        localStorage.setItem('idUser', id)
         return id;
     }
 }
