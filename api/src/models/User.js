@@ -59,12 +59,15 @@ module.exports = (sequelize) => {
     address:{
        type: DataTypes.STRING,
        allowNull: true,
-       validate: {
-         len: {
-         args: [5, 60],
-         msg: 'Este campo debe tener entre 5 y 60 caracteres.'
-         }
-       }
+       // Guido: Comente la linea ya que el validador me rechaza la direccion por que auth0 no me provee de una direccion
+       // pueden condicionar que si no se recibe no sea un campo requerido, al momento de hacer la compra, pedimos direccion
+       // o bien en perfil ponemos para que verifique y agrege direccion.
+      //  validate: {
+      //    len: {
+      //    args: [5, 60],
+      //    msg: 'Este campo debe tener entre 5 y 60 caracteres.'
+      //    }
+      //  }
     },
 
     userRole: {

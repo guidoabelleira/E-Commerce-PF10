@@ -42,7 +42,7 @@ router.get("/", (req, res, next) => {
            image: image,
          }).then(user => res.send(user))
        }
-       else     return res.send('Este usuario ya existe').status(100);
+       else     return res.send(user).status(100);
      })
        .catch((err) => {
         res.send({ data: err }).status(400); 
