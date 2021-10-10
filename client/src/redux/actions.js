@@ -63,10 +63,14 @@ export function getProductByName(input) {
     return async function(dispatch) {
         try {
             let json = await axios.get(PRODUCTS_BY_NAME_URL + input)
-            dispatch ({
+            if(json.data.data?.error){
+                alert ('No se encontró el producto buscado')
+            } else {
+                return dispatch ({
                 type: 'GET_RECIPE_BY_NAME',
                 payload: json.data
-            })
+                })
+            }
         }
         catch(error) {
             console.log(error)

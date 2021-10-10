@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Product, Category } = require('../db');
-const { getAllInfo, getOnSales, getLatests, getPopulars } = require('../controllers/controllers');
+const { getAllInfo, getOnSales, getLatests, getPopulars, alertStock } = require('../controllers/controllers');
 const data = require('../../data.json');
 
 router.get("/getHome/sales", async (req, res, next) => {
@@ -23,6 +23,16 @@ router.get("/getHome/latests", async (req, res, next) => {
     }
 })
 
+router.get("/alertStock/:num", async (req, res, next) => {
+    const {num} = req.params
+    try {
+        const stock = await alertStock(num);
+        res.json(stock);
+    }
+    catch (error) {
+        next(error);
+    }
+})
 /* router.get("/getHome/populars", async (req, res, next) => {
     try {
         const pop = await getPopulars();
@@ -43,7 +53,7 @@ router.get("/", async (req, res, next) => {
                 );       
                 nameProduct.length? 
                 res.status(200).send(nameProduct): 
-                res.status(404).send("No se encontro el producto buscado");
+                res.json({data: {error:"No se encontró el producto buscado"}});
             } else {      
                 const dataProducts = await getAllInfo();                
                 res.status(200).json(dataProducts);
