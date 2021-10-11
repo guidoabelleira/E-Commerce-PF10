@@ -8,7 +8,7 @@ export default function SettingsUserAdmin (){
 
     const [input, setInput] = useState({
         id: '',
-        isAdmin: false
+        isAdmin: ''
     })
 
     function handleInputChange(e) {
@@ -30,9 +30,17 @@ export default function SettingsUserAdmin (){
     async function putAdmin(input){
         console.log(input)
             try{
-                if(input.isAdmin === 'true') {
+                if(input.isAdmin === 'admin') {
                     let value = {
                         isAdmin: true
+                    }
+                    const response = await axios.put(USER_LOAD + input.id , value);
+                    console.log("respuesta put: " + response.data);
+                    return alert(response.data)
+                }
+                if(input.isAdmin === 'user') {
+                    let value = {
+                        isAdmin: false
                     }
                     const response = await axios.put(USER_LOAD + input.id , value);
                     console.log("respuesta put: " + response.data);
@@ -78,8 +86,9 @@ export default function SettingsUserAdmin (){
                             <span>*</span>
                         </label>
                         <select value={input.isAdmin} onChange={handleSelectChange}> 
-                            <option selected value={false}>user</option>
-                            <option value={true}>admin</option>
+                            <option value='null' selected>----</option>
+                            <option value='user'>user</option>
+                            <option value='admin'>admin</option>
                         </select>
                     </p> 
                     <button type='submit'><p>Cambiar!</p></button>

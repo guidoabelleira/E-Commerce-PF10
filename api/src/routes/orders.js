@@ -98,7 +98,7 @@ router.delete("/:id", /* auth, isAdmin, */ (req, res) => {
     })
     .catch((err) => res.send({ data: err }).status(400));
 });
-
+// get a ordenes por estado, utilizar en admin para ver ordenes
 router.post("/:state", async (req, res) => {
   try {
     const { state } = req.params;
