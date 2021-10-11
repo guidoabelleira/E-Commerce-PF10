@@ -13,7 +13,8 @@ export default function DetailCard (props) {
     let aux = props.match.params.id;
     const dispatch = useDispatch();
     
-    const productId = useSelector((state) => state.productById);
+    const productId = useSelector(state => state.productById);
+    const productsState = useSelector(state => state.products);
     useEffect(() => {
         dispatch(getProductById(aux));
     }, [dispatch, aux]);
@@ -35,7 +36,8 @@ export default function DetailCard (props) {
                     <button
                         className={style.Inputs}
                         onClick={event => dispatch(addPCart(
-                            productId
+                            productId, productsState
+
                         ))}
                     >
                         <h3>Agregar al carrito de compras</h3>
