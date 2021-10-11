@@ -231,9 +231,9 @@ export default function UpdateProduct () {
                     onClick={event => handleRemoveCategorie(event)}
                 >
                     {product.categories?
-                        product.categories.map(cat => (
+                        product.categories.map((cat, index )=> (
                             <option 
-                                key={product.categories.indexOf(cat.name).toString().concat('removeCat')}
+                                key={index}
                                 name= {product.categories.name}
                                 value={cat.name}
                             >
@@ -273,9 +273,9 @@ export default function UpdateProduct () {
                                 onClick={event => handleNewCategorie(event)}
                             >
                                 {categories.map(
-                                    cat => (
+                                    (cat, index) => (
                                         <option
-                                            key={cat.id.toString().concat('newCat')}
+                                            key={index}
                                             name={categories.filter(cat => cat.name === cat.name)}
                                             value={cat.name}
                                         >
