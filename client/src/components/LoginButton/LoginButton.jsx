@@ -6,11 +6,16 @@ import { faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import style from "./LoginButton.module.css"
 
 export default function LogoutButton (){
-    const {logout , loginWithRedirect , isAuthenticated} = useAuth0()
+    const {logout , loginWithRedirect , isAuthenticated} = useAuth0();
+
+    function logOut(){
+        logout({returnTo: window.location.origin});
+        localStorage.removeItem('idUser');
+    }
 
    if(isAuthenticated){
     return(
-        <button className={style.button} type="button" onClick={e=> logout({returnTo: window.location.origin})}>
+        <button className={style.button} type="button" onClick={e=> logOut()}>
         <i><FontAwesomeIcon icon={faSignOutAlt}/></i>
         Logout
         </button>
