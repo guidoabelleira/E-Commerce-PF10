@@ -1,27 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { 
-    getProductById, 
-    getAllCategories, 
+    //getProductById, 
+    getAllCategories,
+    getAllProducts,
     putProduct
 } from '../../redux/actions';
 
 import style from './UpdateProduct.module.css'
 
-export default function UpdateProduct (props) {
+export default function UpdateProduct () {
 
     const dispatch = useDispatch()
-    
-    //el useEffect se dispara despues del renderizado. necesito que este en el componente que llama a este.
-    useEffect(() => {
-        dispatch(getAllCategories())
-        dispatch(getProductById(props.props));
-    }, [props]);
+    //const productId = useSelector(state => state.productById);
+    const categories = useSelector(state => state.allCategories)
+    const allProducts = useSelector(state => state.products)
 
-    const productId = useSelector((state) => state.productById);
-    const categories = useSelector((state) => state.allCategories)
+    //console.log(allProducts[1].name)
 
-    const [product, setProduct] = useState(productId)
+    const [product, setProduct] = useState(allProducts[0])
     const [showCategories, setShowCategories] = useState(false)
 
     const handleOnChange = event => {
@@ -29,6 +26,13 @@ export default function UpdateProduct (props) {
         const newData = { ...product }
         newData[event.target.name] = event.target.value
         setProduct(newData)
+    }
+
+    const handleProduct = event => {
+        event.preventDefault()
+        const newProduct = allProducts[event.target.value]
+        console.log(newProduct)
+        setProduct(newProduct)
     }
 
     const handleOnCheck =  event => {
@@ -57,16 +61,45 @@ export default function UpdateProduct (props) {
         newData.categories = allCategories
         setProduct(newData)
     }
-    console.log(product)
 
     const onSubmit = event => {
         event.preventDefault()
         dispatch(putProduct)
     }
     
+    useEffect(() => {
+        try{
+            dispatch(getAllCategories())
+            dispatch(getAllProducts())
+            //dispatch(getProductById(id))
+        }
+        catch(error){
+            console.log(error)
+        }
+    }, []);
+
     return (
 
-        <div>
+        <div className={'Formulario'}>
+
+            <label htmlFor="targetProduct">Seleccione el producto que desea editar</label>
+            <select 
+                key="targetProduct"
+                id="targetProduct"
+                name="targetProduct"
+                onClick={event => handleProduct(event)}
+            >
+                {
+                    allProducts.map(product =>
+                        <option
+                            key={product.id.toString()}
+                            name={product.name}
+                            value={product.id}
+                        >
+                            {product.name}
+                        </option>)
+                }
+            </select>
 
             <h1>Actulización de productos - Id: {product.id}</h1>
 
@@ -189,14 +222,15 @@ export default function UpdateProduct (props) {
                 </label>
 
                 <select 
+                    key="ounedCategories"
                     name="categories" 
                     id="Categorias"
                     onClick={event => handleRemoveCategorie(event)}
                 >
-                    {product.categories && productId.categories?
+                    {product.categories?
                         product.categories.map(cat => (
                             <option 
-                                key={product.categories.indexOf(cat.name)}
+                                key={product.categories.indexOf(cat.name).toString()}
                                 name= {product.categories.name}
                                 value={cat.name}
                             >
@@ -208,50 +242,52 @@ export default function UpdateProduct (props) {
                     }
                 </select>
 
-                <button
-                    type='button'
-                    onClick={() => setShowCategories(!showCategories)}
-                >{
-                    showCategories?
-                        'No agregar Categoría'
-                        :
-                        'Agregar Categoria'
-                }</button>
-
-                <div>
-
-                    {showCategories &&
-                        <form>
-
-                            <label for="addCategorie">
-                                <b>
-                                    Agregar Categoria al producto
-                                </b>
-                            </label>
-
-                            <select 
-                                name="categories" 
-                                id="categories"
-                                onChange={event => handleNewCategorie(event)}
-                            >
-                                {categories.map(
-                                    cat => (
-                                        <option
-                                            key={cat.id}
-                                            name={categories.filter(cat => cat.name === cat.name)}
-                                            value={cat.name}
-                                        >
-                                            {cat.name}
-                                        </option>
-                                    )
-                                )}
-                            </select>
-
-                        </form>
-                    }
-                </div>
-
             </form>
+
+            <button
+                type='button'
+                onClick={() => setShowCategories(!showCategories)}
+            >{
+                showCategories?
+                    'No agregar Categoría'
+                    :
+                    'Agregar Categoria'
+            }</button>
+
+            <div>
+
+                {showCategories &&
+                    <form>
+
+                        <label for="addCategorie">
+                            <b>
+                                Agregar Categoria al producto
+                            </b>
+                        </label>
+
+                        <select 
+                            key="allCategories"
+                            name="categories" 
+                            id="categories"
+                            onClick={event => handleNewCategorie(event)}
+                        >
+                            {categories.map(
+                                cat => (
+                                    <option
+                                        key={cat.id.toString()}
+                                        name={categories.filter(cat => cat.name === cat.name)}
+                                        value={cat.name}
+                                    >
+                                        {cat.name}
+                                    </option>
+                                )
+                            )}
+                        </select>
+
+                    </form>
+                }
+            </div>
+
         </div>
     )
 }
