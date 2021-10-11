@@ -12,9 +12,6 @@ export default function SettingsUserAdmin (){
     })
 
     function handleInputChange(e) {
-        console.log("target: ", e.target.name)
-        console.log("value: ", e.target.value)
-        console.log(typeof(e.target.value))
         setInput({
             ...input,
             id: e.target.value
@@ -28,14 +25,12 @@ export default function SettingsUserAdmin (){
     }
 
     async function putAdmin(input){
-        console.log(input)
             try{
                 if(input.isAdmin === 'admin') {
                     let value = {
                         isAdmin: true
                     }
                     const response = await axios.put(USER_LOAD + input.id , value);
-                    console.log("respuesta put: " + response.data);
                     return alert(response.data)
                 }
                 if(input.isAdmin === 'user') {
@@ -43,12 +38,11 @@ export default function SettingsUserAdmin (){
                         isAdmin: false
                     }
                     const response = await axios.put(USER_LOAD + input.id , value);
-                    console.log("respuesta put: " + response.data);
                     return alert(response.data)
                 }
                 alert("Debe seleccionar valor admin")
             } catch (error){
-                console.log(error)
+                alert(error)
             }
     }
 
@@ -71,12 +65,12 @@ export default function SettingsUserAdmin (){
                             <span>*</span>
                         </label>
                         <input 
-                            type="text" 
+                            type="number" 
                             name="input_id" 
                             placeholder="id" 
                             required
                             onChange={handleInputChange}
-                            defaultValue
+                            defaultValue="0"
                             value={input.id} 
                             />
                     </p>

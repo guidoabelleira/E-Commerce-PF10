@@ -11,6 +11,7 @@ export default function LogoutButton (){
     function logOut(){
         logout({returnTo: window.location.origin});
         localStorage.removeItem('idUser');
+        localStorage.removeItem('shopCart');
     }
 
    if(isAuthenticated){
