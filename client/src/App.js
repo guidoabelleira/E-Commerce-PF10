@@ -24,6 +24,7 @@ import { authenticatedUserDb } from './components/Hooks/users';
 
 
 import './App.css';
+import LandingPage from './components/LandingPage/LandingPage';
 
 
 function App() {
@@ -31,7 +32,6 @@ function App() {
 
     if(user){
         authenticatedUserDb(user);
-
     }
 
     return (
@@ -44,6 +44,7 @@ function App() {
                             <Route path={'/'} component={NavBar} />
                         </div>
                         <div>
+                            <Route exact path={'/'} component={LandingPage} />
                             <Route path= {"/home"} component={HomePage} />
                             <Route exact path={"/products"} component={Products} />
                             <Route exact path={"/addproduct"} component={AdminProducts} />
@@ -63,6 +64,7 @@ function App() {
                         ):(
                         <>
                             <Route path={'/'} component={NavBar} />
+                            <Route exact path={'/'} component={LandingPage} />
                             <Route path= {"/home"} component={HomePage} />
                             <Route exact path={"/products"} component={Products} />
                             <Route exact path={"/products/:id"} component={DetailCard} />
