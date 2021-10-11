@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { PRODUCTS_URL, CATEGORIES_URL, PRODUCTS_BY_NAME_URL, CATEGORIES_FILTER_URL, USER_LOAD } from '../constantes';
 import verify from '../components/Hooks/shopCart'
+import calculateTotalCart from '../components/Hooks/calculateTotalCart';
 
 export function removeShopCart(products){
    return async function (dispatch) {
@@ -13,15 +14,24 @@ export function removeShopCart(products){
 }
 
 export function addPCart(product, state){
-             return async function(dispatch) {
-            dispatch({
+            return async function(dispatch) {
+                dispatch({
                 type: "ADD_PCART",
                 payload: verify(product, state)
             })
         }
  
 }
-//Guido
+
+export function totalCart(state){
+    return async function(dispatch){
+        dispatch({
+            type: "TOTAL_CART",
+            payload: calculateTotalCart(state)
+        })
+    }
+}
+// ACTIONS PRODUCTS
 export function getAllProducts() {
     return async function(dispatch) {
         const all = await axios.get(PRODUCTS_URL);
@@ -33,7 +43,49 @@ export function getAllProducts() {
     };
 };
 
-//Guido
+export function getSalesProducts() {
+    return async function(dispatch) {
+        try{
+            const res = await axios.get(PRODUCTS_URL + 'getHome/sales');
+            const all = res.data.slice(0,3)
+            dispatch({
+                type: 'GET_SALES_PRODUCTS',
+                payload: all
+            })   
+
+        } catch (error){
+            console.log(error)
+        }
+        
+    };
+};
+
+export function getLastestsProducts() {
+    return async function(dispatch) {
+        try {
+            const res = await axios.get(PRODUCTS_URL + 'getHome/latests');
+            const all = res.data.slice(0,3)
+            dispatch({
+                type: 'GET_LASTESTS_PRODUCTS',
+                payload: all
+            })   
+        } catch (error) {
+            console.log(error)
+        }
+    };
+};
+
+// export function getPopularsProducts() {
+//     return async function(dispatch) {
+//         const all = await axios.get(PRODUCTS_URL + '/getHome/populars');
+       
+//             dispatch({
+//                 type: 'GET_POPULARS_PRODUCTS',
+//                 payload: all.data
+//             })   
+//     };
+// };
+
 export function getProductById(id){
     return async function(dispatch){
         try {
@@ -274,6 +326,23 @@ export function getUserOrderCanceled(idUser){
         } catch (error){
             console.log(error)
             alert("no encontrado")
+        }
+    }
+}
+
+// ACTIONS USER_ROLE
+export function getUser (idUser){
+    return async function(dispatch){
+        try {
+            const user = await axios.get(USER_LOAD + 'oneUser/' + idUser)
+            dispatch({
+                type: 'GET_USER',
+                payload: user.data
+            })
+
+        } catch (error){
+            console.log(error)
+
         }
     }
 }

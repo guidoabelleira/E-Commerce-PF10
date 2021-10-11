@@ -1,4 +1,4 @@
-const { Product, Category, category_product, Sale } = require('../db');
+const { Product, Category, category_product, Sale, User } = require('../db');
 
 
 const getAllInfo = async () => {
@@ -90,11 +90,17 @@ const getPopulars = async () => {
   return populars.slice(0, 12)
 }
 
+const getAllUsers = async () => {
+  return User.findAll({});
+}
+
+
 module.exports = {
   getAllInfo,
   getAllCategories,
   getOnSales,
   getLatests,
   getPopulars,
-  alertStock
+  alertStock,
+  getAllUsers
 };
