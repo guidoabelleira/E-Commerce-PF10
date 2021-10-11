@@ -25,11 +25,12 @@ import { authenticatedUserDb } from './components/Hooks/users';
 
 import './App.css';
 import LandingPage from './components/LandingPage/LandingPage';
+// import { useSelector } from 'react-redux';
 
 
 function App() {
     const {isAuthenticate, user} = useAuth0();
-
+    // const userDB = useSelector(state => state.user[0])
     if(user){
         authenticatedUserDb(user);
     }
