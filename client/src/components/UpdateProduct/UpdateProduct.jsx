@@ -64,7 +64,7 @@ export default function UpdateProduct () {
 
     const onSubmit = event => {
         event.preventDefault()
-        dispatch(putProduct)
+        dispatch(putProduct(event.target.value))
     }
     
     useEffect(() => {
@@ -287,6 +287,13 @@ export default function UpdateProduct () {
                     </form>
                 }
             </div>
+
+            <button
+                name="Send"
+                value={product}
+            >
+                Enviar Cambios
+            </button>
 
         </div>
     )
