@@ -14,7 +14,7 @@ export default function DetailCard (props) {
     const dispatch = useDispatch();
     
     const productId = useSelector(state => state.productById);
-    const productsState = useSelector(state => state.products);
+    const productsState = useSelector(state => state.shopProduct);
     useEffect(() => {
         dispatch(getProductById(aux));
     }, [dispatch, aux]);
