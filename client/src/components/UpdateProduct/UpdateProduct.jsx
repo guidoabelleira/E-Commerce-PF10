@@ -70,13 +70,16 @@ export default function UpdateProduct () {
     }
     
     useEffect(() => {
-        try{
-            dispatch(getAllCategories())
-            dispatch(getAllProducts())
-            //dispatch(getProductById(id))
-        }
-        catch(error){
-            console.log(error)
+        async function getAll () {
+
+            try{
+                dispatch(getAllCategories())
+                dispatch(getAllProducts())
+                //dispatch(getProductById(id))
+            }
+            catch(error){
+                console.log(error)
+            }
         }
     }, []);
 
@@ -109,7 +112,7 @@ export default function UpdateProduct () {
                 className={style.FormStyle}
                 onSubmit={event => onSubmit(event)}
             >
-                <label for='name'>
+                <label htmlFOr='name'>
                     <b>
                         Nombre: {product.name}
                     </b>
@@ -125,7 +128,7 @@ export default function UpdateProduct () {
                     value= {product.name}
                 />
 
-                <label for='image'>
+                <label htmlFOr='image'>
                     <b>
                         Imagen
                     </b>
@@ -138,7 +141,7 @@ export default function UpdateProduct () {
                     placeholder= 'image'
                 />
 
-                <label for='price'>
+                <label htmlFOr='price'>
                     <b>
                         Precio: {product.price}
                     </b>
@@ -155,7 +158,7 @@ export default function UpdateProduct () {
                     value= {product.price}
                 />
 
-                <label for='stock'>
+                <label htmlFOr='stock'>
                     <b>
                         En Stock: {product.stock}
                     </b>
@@ -171,7 +174,7 @@ export default function UpdateProduct () {
                     onChange={event => handleOnChange(event)}
                 />
 
-                <label for='onStock'>
+                <label htmlFOr='onStock'>
                     <b>
                         En Inventario: {product.onStock.toString()}
                     </b>
@@ -186,7 +189,7 @@ export default function UpdateProduct () {
                     onChange={event => handleOnCheck(event)}
                 />
 
-                <label for='onSale'>
+                <label htmlFOr='onSale'>
                     <b>
                         En Oferta: {product.onSale.toString()}
                     </b>
@@ -201,7 +204,7 @@ export default function UpdateProduct () {
                     onChange={event => handleOnCheck(event)}
                 />
 
-                <label for='description'>
+                <label htmlFOr='description'>
                     <b>
                         {'Descripción'}
                     </b>
@@ -218,7 +221,7 @@ export default function UpdateProduct () {
                     value= {product.description}
                 />
 
-                <label for='Categorias'>
+                <label htmlFOr='Categorias'>
                     <b>
                         Categorias
                     </b>
@@ -231,7 +234,7 @@ export default function UpdateProduct () {
                     onClick={event => handleRemoveCategorie(event)}
                 >
                     {product.categories?
-                        product.categories.map((cat, index )=> (
+                        product.categories.map((cat, index)=> (
                             <option 
                                 key={index}
                                 name= {product.categories.name}
@@ -260,7 +263,7 @@ export default function UpdateProduct () {
                     {showCategories &&
                         <>
 
-                            <label for="addCategorie">
+                            <label htmlFOr="addCategorie">
                                 <b>
                                     Agregar Categoria al producto
                                 </b>
