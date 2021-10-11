@@ -63,9 +63,10 @@ export default function UpdateProduct () {
         setProduct(newData)
     }
 
-    const handleOnSend = event => {
+    const onSubmit = event => {
         event.preventDefault()
-        dispatch(putProduct(event.target.value))
+        alert("Producto Cambiado")
+        dispatch(putProduct(product))
     }
     
     useEffect(() => {
@@ -106,6 +107,7 @@ export default function UpdateProduct () {
 
             <form 
                 className={style.FormStyle}
+                onSubmit={event => onSubmit(event)}
             >
                 <label for='name'>
                     <b>
@@ -180,7 +182,7 @@ export default function UpdateProduct () {
                     id= 'onStock'
                     name= 'onStock'
                     type= 'checkbox'
-                    defaultChecked= {product.onStock}
+                    checked= {product.onStock}
                     onChange={event => handleOnCheck(event)}
                 />
 
@@ -195,7 +197,7 @@ export default function UpdateProduct () {
                     id= 'onSale'
                     name= 'onSale'
                     type= 'checkbox'
-                    defaultChecked= {product.onSale}
+                    checked= {product.onSale}
                     onChange={event => handleOnCheck(event)}
                 />
 
@@ -287,11 +289,7 @@ export default function UpdateProduct () {
                     }
                 </div>
 
-                <button
-                    name="Send"
-                    value={product}
-                    onSubmit={event => handleOnSend(event)}
-                >
+                <button>
                     Enviar Cambios
                 </button>
             </form>
