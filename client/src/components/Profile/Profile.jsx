@@ -20,6 +20,7 @@ export default function Profile(){
     },[dispatch, idLocal]);
     try {
         if(isAuthenticated){
+            console.log(user.picture)
             return(
             <div className={style.container}>
                 <img src={user.picture} alt={user.name}/>
