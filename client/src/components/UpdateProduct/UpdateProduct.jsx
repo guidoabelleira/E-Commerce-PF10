@@ -26,6 +26,7 @@ export default function UpdateProduct () {
         const newData = { ...product }
         newData[event.target.name] = event.target.value
         setProduct(newData)
+        console.log(product)
     }
 
     const handleProduct = event => {
@@ -62,7 +63,7 @@ export default function UpdateProduct () {
         setProduct(newData)
     }
 
-    const onSubmit = event => {
+    const handleOnSend = event => {
         event.preventDefault()
         dispatch(putProduct(event.target.value))
     }
@@ -108,18 +109,18 @@ export default function UpdateProduct () {
             >
                 <label for='name'>
                     <b>
-                        Nombre
+                        Nombre: {product.name}
                     </b>
                 </label>
 
                 <input 
-                    //key= '1'
+                    key= 'name'
                     id= 'name'
                     name= 'name'
                     type= 'text'
                     placeholder= 'name'
                     onChange={event => handleOnChange(event)}
-                    defaultValue= {product.name}
+                    value= {product.name}
                 />
 
                 <label for='image'>
@@ -128,7 +129,7 @@ export default function UpdateProduct () {
                     </b>
                 </label>
                 <input 
-                    //key= '2'
+                    key='image'
                     id= 'image'
                     name= 'image'
                     type= 'file'
@@ -137,64 +138,64 @@ export default function UpdateProduct () {
 
                 <label for='price'>
                     <b>
-                        Precio
+                        Precio: {product.price}
                     </b>
                 </label>
 
                 <input 
-                    //key= '3'
+                    key= 'price'
                     id= 'price'
                     name= 'price'
                     type= 'number'
                     step= '0.01'
                     placeholder= 'price'
                     onChange={event => handleOnChange(event)}
-                    defaultValue= {product.price}
+                    value= {product.price}
                 />
 
                 <label for='stock'>
                     <b>
-                        En Stock
+                        En Stock: {product.stock}
                     </b>
                 </label>
 
                 <input 
-                    //key= '4'
+                    key= 'stock'
                     id= 'stock'
                     name= 'stock'
                     type= 'number'
                     placeholder= 'stock'
-                    defaultValue= {product.stock}
+                    value= {product.stock}
                     onChange={event => handleOnChange(event)}
                 />
 
                 <label for='onStock'>
                     <b>
-                        En Inventario
+                        En Inventario: {product.onStock.toString()}
                     </b>
                 </label>
 
                 <input 
-                    //key= '5'
+                    key= 'onStock'
                     id= 'onStock'
                     name= 'onStock'
                     type= 'checkbox'
-                    checked= {product.onStock}
+                    defaultChecked= {product.onStock}
                     onChange={event => handleOnCheck(event)}
                 />
 
                 <label for='onSale'>
                     <b>
-                        En Oferta
+                        En Oferta: {product.onSale.toString()}
                     </b>
                 </label>
 
                 <input
-                    //key= '6'
+                    key= 'onSale'
                     id= 'onSale'
                     name= 'onSale'
                     type= 'checkbox'
-                    checked= {product.onSale}
+                    defaultChecked= {product.onSale}
                     onChange={event => handleOnCheck(event)}
                 />
 
@@ -205,14 +206,14 @@ export default function UpdateProduct () {
                 </label>
 
                 <textarea
-                    //key= '7'
+                    key= 'description'
                     id= 'description'
                     name= 'description'
                     rows= '10'
                     cols= '45'
                     placeholder= 'description'
                     onChange={event => handleOnChange(event)}
-                    defaultValue= {product.description}
+                    value= {product.description}
                 />
 
                 <label for='Categorias'>
@@ -230,7 +231,7 @@ export default function UpdateProduct () {
                     {product.categories?
                         product.categories.map(cat => (
                             <option 
-                                key={product.categories.indexOf(cat.name).toString()}
+                                key={product.categories.indexOf(cat.name).toString().concat('removeCat')}
                                 name= {product.categories.name}
                                 value={cat.name}
                             >
@@ -242,58 +243,59 @@ export default function UpdateProduct () {
                     }
                 </select>
 
+                <button
+                    type='button'
+                    onClick={() => setShowCategories(!showCategories)}
+                >{
+                    showCategories?
+                        'No agregar Categoría'
+                        :
+                        'Agregar Categoria'
+                }</button>
+
+                <div>
+
+                    {showCategories &&
+                        <>
+
+                            <label for="addCategorie">
+                                <b>
+                                    Agregar Categoria al producto
+                                </b>
+                            </label>
+
+                            <select 
+                                key="allCategories"
+                                name="categories" 
+                                id="categories"
+                                onClick={event => handleNewCategorie(event)}
+                            >
+                                {categories.map(
+                                    cat => (
+                                        <option
+                                            key={cat.id.toString().concat('newCat')}
+                                            name={categories.filter(cat => cat.name === cat.name)}
+                                            value={cat.name}
+                                        >
+                                            {cat.name}
+                                        </option>
+                                    )
+                                )}
+                            </select>
+
+                        </>
+                    }
+                </div>
+
+                <button
+                    name="Send"
+                    value={product}
+                    onSubmit={event => handleOnSend(event)}
+                >
+                    Enviar Cambios
+                </button>
             </form>
 
-            <button
-                type='button'
-                onClick={() => setShowCategories(!showCategories)}
-            >{
-                showCategories?
-                    'No agregar Categoría'
-                    :
-                    'Agregar Categoria'
-            }</button>
-
-            <div>
-
-                {showCategories &&
-                    <form>
-
-                        <label for="addCategorie">
-                            <b>
-                                Agregar Categoria al producto
-                            </b>
-                        </label>
-
-                        <select 
-                            key="allCategories"
-                            name="categories" 
-                            id="categories"
-                            onClick={event => handleNewCategorie(event)}
-                        >
-                            {categories.map(
-                                cat => (
-                                    <option
-                                        key={cat.id.toString()}
-                                        name={categories.filter(cat => cat.name === cat.name)}
-                                        value={cat.name}
-                                    >
-                                        {cat.name}
-                                    </option>
-                                )
-                            )}
-                        </select>
-
-                    </form>
-                }
-            </div>
-
-            <button
-                name="Send"
-                value={product}
-            >
-                Enviar Cambios
-            </button>
 
         </div>
     )
