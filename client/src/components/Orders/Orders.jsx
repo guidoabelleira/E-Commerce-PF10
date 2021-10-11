@@ -1,14 +1,15 @@
 import {useAuth0} from "@auth0/auth0-react"
-import {isAdmin} from '../Hooks/users';
+import { useSelector } from "react-redux";
 import OrderCards from "../OrderCards/OrderCards";
 
 import style from './orders.module.css';
 
 export default function Orders (){
     const {isAuthenticated, user} = useAuth0();
-    const verificationAdmin = isAdmin(user.email);
+    const state = useSelector(state => state.user[0])
+    const verificationAdmin = state.isAdmin;
     console.log("Aca orders autentic: ", isAuthenticated);
-    console.log("Aca orders autentic: ", user)
+    console.log("Aca orders state: ", state)
     console.log("Aca orders verification: ", verificationAdmin)
     const props = {
         verificationWest: isAuthenticated,

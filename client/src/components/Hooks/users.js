@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import { USER_LOAD } from "../../constantes";
 
 export async function authenticatedUserDb(user){
@@ -28,10 +29,5 @@ export async function authenticatedUserDb(user){
     }
 }
 
-export function isAdmin(address) {
-    //consulto por address si es admin y devuelvo un boolean
-    if(address === 'guidoabelleira@gmail.com'){
-        return true;
-    }
-    return false;
-}
+
+
