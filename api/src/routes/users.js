@@ -1,9 +1,8 @@
 const router = require('express').Router()
 const {Product, Category, Image, Review, User, Order, Orderline} = require("../db.js");
 const { Sequelize } = require("sequelize");
-const { getAllUsers } = require('../controllers/controllers');
-/* const { check, validationResult, body } = require("express-validator"); */
-/* const bcrypt = require("bcryptjs"); */
+const { check, validationResult, body } = require("express-validator");
+const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { DB_KEY } = process.env;
 
@@ -50,22 +49,6 @@ router.get("/", (req, res, next) => {
      });
  });
 
- // Get a un user por id
-router.get("/oneUser/:id", async (req, res, next) => {
-  const {id} = req.params;
-try {
-  const usersAll = await getAllUsers();
-  if (id){
-    let usersId = await usersAll.filter(el => el.id == id);
-    usersId.length ? 
-    res.status(200).json( usersId) : 
-    res.json({data: {error:'No se encontró el usuario buscado'}})             
-  }
- } catch(error) {
-     next(error);
- }
-})
-
 
 //register
 
@@ -86,15 +69,18 @@ try {
   async (req, res) => {
     //PRIMERO SE VALIDA SI SE QUIERE INGRESAR CON GOOGLE
 
-    const { whitGoogle } = req.body;
+   const { withGoogle } = req.body;
     let newGoogleUser;
 
-    if (whitGoogle === true) {
+    if (withGoogle === true) {
       newGoogleUser = {
         name: req.body.name,
         lastname: req.body.lastname,
         email: req.body.email,
+        address: req.body.address,
+        isAdmin: req.body.isAdmin,
         password: req.body.password,
+        userRole: req.body.userRole,
         image: req.body.image,
       };
 
@@ -103,6 +89,9 @@ try {
           name: newGoogleUser.name,
           lastname: newGoogleUser.lastname,
           email: newGoogleUser.email,
+          address: newGoogleUser.address,
+          isAdmin: newGoogleUser.isAdmin,
+          userRole: newGoogleUser.userRole,
           password: newGoogleUser.password,
           image: newGoogleUser.image,
           gRegister: true,
@@ -130,7 +119,7 @@ try {
     } else {
       //HASTA AQUI SE CREA UN NUEVO USUARIO EN LA DB CON LOS DATOS DE GOOGLE, O SE BUSCA Y SE RETORNA CON UN JWT
       try {
-        const { name, lastname, email, password, userRole } = req.body;
+        const { name, image, lastname, email, address, isAdmin, password, userRole } = req.body;
 
         const errors = validationResult(req); //valido todo el req body con la libreria express-validator
         if (!errors.isEmpty()) {
@@ -146,10 +135,13 @@ try {
           return res.status(400).json({ errors: ["User already exists!"] }); //chequeo si un usuario ya existe para
         } // enviarle el msj de que ya existe
 
-        const userCreate = await Users.create({
+        const userCreate = await User.create({
           name,
+          image,
           lastname,
           email, //creo el usuario con el req.body que me envian desde el front
+          address,
+          isAdmin,
           password,
           userRole,
         });
@@ -188,7 +180,7 @@ try {
 ); */
 
 //Modificar usuarios
-router.put("/:id", /* auth, */ (req, res) => {
+router.put("/:id", /* auth, isAdmin, */ (req, res) => {
   const { id } = req.params;
   const {name, lastname, email, address, userRole, isAdmin, password, image } = req.body; /* <--- THE ELEMENT OF THE BODY WE ARE GOING TO USE FOR THE UPDATE */
   User.update(
@@ -550,10 +542,11 @@ router.get("/:userId/completedOrderlines", async (req, res) => {
   }
 });
 
+
 //password Reset
-router.post("/passwordReset", auth, (req, res) => {
+router.post("/passwordReset", /* auth, */ (req, res) => { //Primero crear usuario, luego hacerle login y luego probar esta ruta.
   const { newPassword } = req.body;
-  const { id } = req.user;
+  const { id } = req.user; //Se debe colocar en el header el auth del usuario que quiere resetear la password
 
   const hashedPassword = bcrypt.hash(newPassword, 10).then((hashedPassword) => {
     User.update(
@@ -694,5 +687,6 @@ router.post("/forgotPassword/:id", (req, res) => {
   }
 });
  */
+
 
 module.exports = router;
