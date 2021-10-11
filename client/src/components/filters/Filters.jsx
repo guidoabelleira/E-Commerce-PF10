@@ -52,15 +52,15 @@ function Filter() {
             </select>
             <span>Filtrar por</span>
             <select onChange={handleSortChange}>
-                <option value={false}>---</option>
+                <option value={false} selected>---</option>
                 <option key={1} value="price">Precio</option>
                 <option key={2} value="name">Nombre</option>
             </select>
             <span>Orden</span>
             <select onChange={handleOrdChange}>
-                <option value={false}>---</option>
+                <option value={false} selected>---</option>
                 <option key={1} value="asc">Ascendente</option>
-                <option key={2}value="desc">Descendente</option>
+                <option key={2} value="desc">Descendente</option>
             </select>
 
             <button onClick={handleButton}>Quitar filtros</button>

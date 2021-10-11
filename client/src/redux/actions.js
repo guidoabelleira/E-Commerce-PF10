@@ -2,6 +2,7 @@ import axios from 'axios';
 import { PRODUCTS_URL, CATEGORIES_URL, PRODUCTS_BY_NAME_URL, CATEGORIES_FILTER_URL, USER_LOAD } from '../constantes';
 import verify from '../components/Hooks/shopCart'
 import calculateTotalCart from '../components/Hooks/calculateTotalCart';
+import shopLocalValidate from '../components/Hooks/shopLocalValidate';
 
 export function removeShopCart(products){
    return async function (dispatch) {
@@ -21,6 +22,15 @@ export function addPCart(product, state){
             })
         }
  
+}
+
+export function setCartLocalStorage(state){
+    return async function(dispatch){
+        dispatch({
+            type: 'SET_CART_LOCAL_STORAGE',
+            payload: shopLocalValidate(state)
+        })
+    }
 }
 
 export function totalCart(state){

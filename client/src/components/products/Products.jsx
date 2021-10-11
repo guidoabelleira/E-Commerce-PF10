@@ -11,6 +11,7 @@ import ProfileButton from '../ProfileButton/ProfileButton';
 import ShowAdress from '../ShowAdress/ShowAdress'
 
 import style from './products.module.css';
+import Filter from '../filters/Filters';
 
 function Products() {
     let [pageNumber, setPageNumber] = useState(0)
@@ -44,6 +45,9 @@ function Products() {
                     <SearchBar /> 
                     <ShopCartButton/>
                     <ProfileButton/>
+                </div>
+                <div>
+                    <Filter/>
                 </div>
                 <div className={style.cards}>
                     <AuxiliarCards state={displayCards} />

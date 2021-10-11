@@ -69,6 +69,11 @@ function rootReducer(state = initialState, action) {
                 shopProduct :action.payload
                 //[...state.shopProduct, action.payload]
         }
+        case 'SET_CART_LOCAL_STORAGE':
+            return {
+                ...state,
+                shopProduct: action.payload
+            }
         case 'GET_CATEGORY_FILTERED' :
             return {
                 ...state,

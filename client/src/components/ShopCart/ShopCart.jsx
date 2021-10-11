@@ -6,11 +6,11 @@ import {removeShopCart, totalCart} from "../../redux/actions"
 import removeProductShopCart from '../Hooks/removeProductShopCart';
 
 
+
 function ShopCart() {
     const dispatch = useDispatch()
     let products = useSelector(state => state.shopProduct)
     let total = useSelector(state => state.totalCart)
-    console.log("aca seria total: ",total);
 
     useEffect(() => {
         dispatch(totalCart(products))
