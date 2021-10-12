@@ -18,6 +18,11 @@ export default function CheckOut (){
         return state
     }
 
+    // primero router.post("/:idUser/carrito" genero carrito usuario.
+    // segundo router.post("/:idUser/cart" paso por item los productos
+    // tercero router.get("/:idUser/cart" traigo carrito
+    // router.put("/checkout/:id" cambio estado carrito
+    // cuarto router.get("/:idUser/checkout"
     async function checkOut(){
         alert("redirect mercado pago");
     }

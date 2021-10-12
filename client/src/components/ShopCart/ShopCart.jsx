@@ -6,11 +6,11 @@ import {removeShopCart, totalCart} from "../../redux/actions"
 import removeProductShopCart from '../Hooks/removeProductShopCart';
 
 
+
 function ShopCart() {
     const dispatch = useDispatch()
     let products = useSelector(state => state.shopProduct)
     let total = useSelector(state => state.totalCart)
-    console.log("aca seria total: ",total);
 
     useEffect(() => {
         dispatch(totalCart(products))
@@ -21,14 +21,16 @@ function ShopCart() {
         return (
             <div className={style.container}>
             {products.map((e, i)=> {
-                return <div key={i} >
+                return <div key={i} className={style.product} >
                     <Link to={`/products/${e.id}`}>
                         <img src={e.image} alt="img" width="50px"  height="50px"/>
                     </Link>
-                    <p>{e.name}</p>
-                    <p>$ {e.price}</p>
-                    <p> {e.count}</p>
-                    <button type="button" className={style.bttn} onClick={a => dispatch(removeShopCart(removeProductShopCart(products, e)))}>Remove</button>
+                    <p className={style.tittle}>{e.name}</p>
+                    <p className={style.price}>$ {e.price}</p>
+                    
+                    <button  type="button" className={style.bttn}> + </button>
+                    <p className={style.count}> {e.count}</p>
+                    <button type="button" className={style.bttn} onClick={a => dispatch(removeShopCart(removeProductShopCart(products, e)))}>-</button>
             </div>
             })}
             <div>

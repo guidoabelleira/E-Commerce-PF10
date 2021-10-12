@@ -15,14 +15,18 @@ const categoriesRoute = require('./categories');
 const usersRoute = require('./users');
 const reviewsRoute = require('./reviews');
 const ordersRoute = require('./orders');
-const sendEmail = require("./sendEmail");
+const sendEmailRoute = require("./sendEmail");
+const authRoute = require("./auth")
+const mercadoPago = require("./mercadopago")
 
 router.use('/products', productsRoute);
 router.use('/categories', categoriesRoute );
 router.use('/users', usersRoute );
 router.use('/reviews', reviewsRoute );
 router.use('/orders', ordersRoute );
-router.use("/sendEmail", sendEmail);
+router.use("/sendEmail", sendEmailRoute);
+router.use("/auth", authRoute);
+router.use("/mercadopago", mercadoPago);
 
 module.exports = router;
 
