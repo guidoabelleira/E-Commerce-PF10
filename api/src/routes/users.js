@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const {Product, Category, Image, Review, User, Order, Orderline} = require("../db.js");
+const { getAllUsers } = require('../controllers/controllers');
 const { Sequelize } = require("sequelize");
 const { check, validationResult, body } = require("express-validator");
 const bcrypt = require("bcryptjs");
@@ -49,6 +50,21 @@ router.get("/", (req, res, next) => {
      });
  });
 
+// Get a un user por id
+router.get("/oneUser/:id", async (req, res, next) => {
+  const {id} = req.params;
+try {
+  const usersAll = await getAllUsers();
+  if (id){
+    let usersId = await usersAll.filter(el => el.id == id);
+    usersId.length ? 
+    res.status(200).json( usersId) : 
+    res.json({data: {error:'No se encontró el usuario buscado'}})             
+  }
+ } catch(error) {
+     next(error);
+ }
+})
 
 //register
 
