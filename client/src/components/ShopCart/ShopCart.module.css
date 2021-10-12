@@ -34,6 +34,10 @@
     width: 390px;
 }
 
+.product:hover {
+    background-color: #0b443a;
+}
+
 .tittle {
     align-items: center;
     justify-content: center;
@@ -66,7 +70,7 @@
     justify-content: center;
     background-color: #0E6655;
     border: none;
-     margin-top:-14%;
+    margin-top: -14%;
 
     color: #ffffff;
     margin-right: 0.6%;
@@ -77,6 +81,10 @@
     font-style: bold;
 }
 
+.bttn:hover {
+    background-color: #0b443a;
+}
+
 .count {
     margin-right: 1.2%;
     margin-left: 1.2%;
@@ -85,21 +93,22 @@
 
 .comprar {
     margin-top: 2%;
-   background-color: #0E6655;
-        color:#ffffff;
-        width: 100px;
-        height: 35px; 
-        border:none;
-        border-radius: 25px; 
-        
-    
+    background-color: #0E6655;
+    color: #ffffff;
+    width: 100px;
+    height: 35px;
+    border: none;
+    border-radius: 25px;
+
+
 }
+
 .comprar:hover {
     background-color: #073a2f;
 }
 
 .total {
-    margin-top:2%;
+    margin-top: 2%;
     font-family: Saira;
     font-style: normal;
     font-weight: 500;
@@ -108,7 +117,7 @@
     color: #0E6655;
 }
 
-.agregar{
+.agregar {
     display: inline-flex;
     flex-direction: row;
 }
