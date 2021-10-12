@@ -27,19 +27,20 @@ function ShopCart() {
                     </Link>
                     <p className={style.tittle}>{e.name}</p>
                     <p className={style.price}>$ {e.price}</p>
-                    
+                    <div className={style.agregar}>
                     <button  type="button" className={style.bttn} onClick={a=> dispatch(addPCart(e, products))}> + </button>
                     <p className={style.count}> {e.count}</p>
                     <button type="button" className={style.bttn} onClick={a => dispatch(removeShopCart(removeProductShopCart(products, e)))}>-</button>
+                    </div>
             </div>
             })}
             <div>
-                <p>Total: $ {total}</p>
+                <p className={style.total}>Total: $ {total}</p>
             </div>
             <div>
                 <div className={style.container}>
                     <Link to="/shopcart/checkout">
-                        <button type="button" ><p>Comprar!</p></button>
+                        <button className={style.comprar} type="button" ><p>Comprar!</p></button>
                     </Link>
                 </div>
             </div>
