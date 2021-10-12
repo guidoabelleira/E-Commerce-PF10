@@ -70,24 +70,25 @@ export default function UpdateProduct () {
     }
     
     useEffect(() => {
-        async function getAll () {
-
-            try{
-                dispatch(getAllCategories())
-                dispatch(getAllProducts())
-                //dispatch(getProductById(id))
-            }
-            catch(error){
-                console.log(error)
-            }
+        try{
+            dispatch(getAllCategories())
+            dispatch(getAllProducts())
+            //dispatch(getProductById(id))
         }
-    }, []);
+        catch(error){
+            console.log(error)
+        }
+    }, [dispatch]);
 
     return (
 
         <div className={'Formulario'}>
 
-            <label htmlFor="targetProduct">Seleccione el producto que desea editar</label>
+            <label 
+                htmlFor="targetProduct"
+            >
+                Seleccione el producto que desea editar
+            </label>
             <select 
                 key="targetProduct"
                 id="targetProduct"
@@ -112,7 +113,7 @@ export default function UpdateProduct () {
                 className={style.FormStyle}
                 onSubmit={event => onSubmit(event)}
             >
-                <label htmlFOr='name'>
+                <label htmlFor='name'>
                     <b>
                         Nombre: {product.name}
                     </b>
@@ -128,7 +129,9 @@ export default function UpdateProduct () {
                     value= {product.name}
                 />
 
-                <label htmlFOr='image'>
+                <label 
+                    htmlFor='image'
+                >
                     <b>
                         Imagen
                     </b>
@@ -141,7 +144,7 @@ export default function UpdateProduct () {
                     placeholder= 'image'
                 />
 
-                <label htmlFOr='price'>
+                <label htmlFor='price'>
                     <b>
                         Precio: {product.price}
                     </b>
@@ -158,7 +161,9 @@ export default function UpdateProduct () {
                     value= {product.price}
                 />
 
-                <label htmlFOr='stock'>
+                <label 
+                    htmlFor='stock'
+                >
                     <b>
                         En Stock: {product.stock}
                     </b>
@@ -174,7 +179,9 @@ export default function UpdateProduct () {
                     onChange={event => handleOnChange(event)}
                 />
 
-                <label htmlFOr='onStock'>
+                <label 
+                    htmlFor='onStock'
+                >
                     <b>
                         En Inventario: {product.onStock.toString()}
                     </b>
@@ -189,7 +196,9 @@ export default function UpdateProduct () {
                     onChange={event => handleOnCheck(event)}
                 />
 
-                <label htmlFOr='onSale'>
+                <label 
+                    htmlFor='onSale'
+                >
                     <b>
                         En Oferta: {product.onSale.toString()}
                     </b>
@@ -204,7 +213,9 @@ export default function UpdateProduct () {
                     onChange={event => handleOnCheck(event)}
                 />
 
-                <label htmlFOr='description'>
+                <label 
+                    htmlFor='description'
+                >
                     <b>
                         {'Descripción'}
                     </b>
@@ -221,7 +232,9 @@ export default function UpdateProduct () {
                     value= {product.description}
                 />
 
-                <label htmlFOr='Categorias'>
+                <label 
+                    htmlFor='Categorias'
+                >
                     <b>
                         Categorias
                     </b>
@@ -263,7 +276,7 @@ export default function UpdateProduct () {
                     {showCategories &&
                         <>
 
-                            <label htmlFOr="addCategorie">
+                            <label htmlFor="addCategorie">
                                 <b>
                                     Agregar Categoria al producto
                                 </b>
