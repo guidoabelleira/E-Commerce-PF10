@@ -1,27 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { 
-    getProductById, 
-    getAllCategories, 
+    //getProductById, 
+    getAllCategories,
+    getAllProducts,
     putProduct
 } from '../../redux/actions';
 
 import style from './UpdateProduct.module.css'
 
-export default function UpdateProduct (props) {
+export default function UpdateProduct () {
 
     const dispatch = useDispatch()
-    
-    //el useEffect se dispara despues del renderizado. necesito que este en el componente que llama a este.
-    useEffect(() => {
-        dispatch(getAllCategories())
-        dispatch(getProductById(props.props));
-    }, [props]);
+    //const productId = useSelector(state => state.productById);
+    const categories = useSelector(state => state.allCategories)
+    const allProducts = useSelector(state => state.products)
 
-    const productId = useSelector((state) => state.productById);
-    const categories = useSelector((state) => state.allCategories)
+    //console.log(allProducts[1].name)
 
-    const [product, setProduct] = useState(productId)
+    const [product, setProduct] = useState(allProducts[0])
     const [showCategories, setShowCategories] = useState(false)
 
     const handleOnChange = event => {
@@ -29,6 +26,14 @@ export default function UpdateProduct (props) {
         const newData = { ...product }
         newData[event.target.name] = event.target.value
         setProduct(newData)
+        console.log(product)
+    }
+
+    const handleProduct = event => {
+        event.preventDefault()
+        const newProduct = allProducts[event.target.value]
+        console.log(newProduct)
+        setProduct(newProduct)
     }
 
     const handleOnCheck =  event => {
@@ -57,92 +62,126 @@ export default function UpdateProduct (props) {
         newData.categories = allCategories
         setProduct(newData)
     }
-    console.log(product)
 
     const onSubmit = event => {
         event.preventDefault()
-        dispatch(putProduct)
+        alert("Producto Cambiado")
+        dispatch(putProduct(product))
     }
     
+    useEffect(() => {
+        async function getAll () {
+
+            try{
+                dispatch(getAllCategories())
+                dispatch(getAllProducts())
+                //dispatch(getProductById(id))
+            }
+            catch(error){
+                console.log(error)
+            }
+        }
+    }, []);
+
     return (
 
-        <div>
+        <div className={'Formulario'}>
+
+            <label htmlFor="targetProduct">Seleccione el producto que desea editar</label>
+            <select 
+                key="targetProduct"
+                id="targetProduct"
+                name="targetProduct"
+                onClick={event => handleProduct(event)}
+            >
+                {
+                    allProducts.map(product =>
+                        <option
+                            key={product.id.toString()}
+                            name={product.name}
+                            value={product.id}
+                        >
+                            {product.name}
+                        </option>)
+                }
+            </select>
 
             <h1>Actulización de productos - Id: {product.id}</h1>
 
             <form 
                 className={style.FormStyle}
+                onSubmit={event => onSubmit(event)}
             >
-                <label for='name'>
+                <label htmlFOr='name'>
                     <b>
-                        Nombre
+                        Nombre: {product.name}
                     </b>
                 </label>
 
                 <input 
-                    //key= '1'
+                    key= 'name'
                     id= 'name'
                     name= 'name'
                     type= 'text'
                     placeholder= 'name'
                     onChange={event => handleOnChange(event)}
-                    defaultValue= {product.name}
+                    value= {product.name}
                 />
 
-                <label for='image'>
+                <label htmlFOr='image'>
                     <b>
                         Imagen
                     </b>
                 </label>
                 <input 
-                    //key= '2'
+                    key='image'
                     id= 'image'
                     name= 'image'
                     type= 'file'
                     placeholder= 'image'
                 />
 
-                <label for='price'>
+                <label htmlFOr='price'>
                     <b>
-                        Precio
+                        Precio: {product.price}
                     </b>
                 </label>
 
                 <input 
-                    //key= '3'
+                    key= 'price'
                     id= 'price'
                     name= 'price'
                     type= 'number'
                     step= '0.01'
                     placeholder= 'price'
                     onChange={event => handleOnChange(event)}
-                    defaultValue= {product.price}
+                    value= {product.price}
                 />
 
-                <label for='stock'>
+                <label htmlFOr='stock'>
                     <b>
-                        En Stock
+                        En Stock: {product.stock}
                     </b>
                 </label>
 
                 <input 
-                    //key= '4'
+                    key= 'stock'
                     id= 'stock'
                     name= 'stock'
                     type= 'number'
                     placeholder= 'stock'
-                    defaultValue= {product.stock}
+                    value= {product.stock}
                     onChange={event => handleOnChange(event)}
                 />
 
-                <label for='onStock'>
+                <label htmlFOr='onStock'>
                     <b>
-                        En Inventario
+                        En Inventario: {product.onStock.toString()}
                     </b>
                 </label>
 
                 <input 
-                    //key= '5'
+                    key= 'onStock'
                     id= 'onStock'
                     name= 'onStock'
                     type= 'checkbox'
@@ -150,14 +189,14 @@ export default function UpdateProduct (props) {
                     onChange={event => handleOnCheck(event)}
                 />
 
-                <label for='onSale'>
+                <label htmlFOr='onSale'>
                     <b>
-                        En Oferta
+                        En Oferta: {product.onSale.toString()}
                     </b>
                 </label>
 
                 <input
-                    //key= '6'
+                    key= 'onSale'
                     id= 'onSale'
                     name= 'onSale'
                     type= 'checkbox'
@@ -165,38 +204,39 @@ export default function UpdateProduct (props) {
                     onChange={event => handleOnCheck(event)}
                 />
 
-                <label for='description'>
+                <label htmlFOr='description'>
                     <b>
                         {'Descripción'}
                     </b>
                 </label>
 
                 <textarea
-                    //key= '7'
+                    key= 'description'
                     id= 'description'
                     name= 'description'
                     rows= '10'
                     cols= '45'
                     placeholder= 'description'
                     onChange={event => handleOnChange(event)}
-                    defaultValue= {product.description}
+                    value= {product.description}
                 />
 
-                <label for='Categorias'>
+                <label htmlFOr='Categorias'>
                     <b>
                         Categorias
                     </b>
                 </label>
 
                 <select 
+                    key="ounedCategories"
                     name="categories" 
                     id="Categorias"
                     onClick={event => handleRemoveCategorie(event)}
                 >
-                    {product.categories && productId.categories?
-                        product.categories.map(cat => (
+                    {product.categories?
+                        product.categories.map((cat, index)=> (
                             <option 
-                                key={product.categories.indexOf(cat.name)}
+                                key={index}
                                 name= {product.categories.name}
                                 value={cat.name}
                             >
@@ -221,23 +261,24 @@ export default function UpdateProduct (props) {
                 <div>
 
                     {showCategories &&
-                        <form>
+                        <>
 
-                            <label for="addCategorie">
+                            <label htmlFOr="addCategorie">
                                 <b>
                                     Agregar Categoria al producto
                                 </b>
                             </label>
 
                             <select 
+                                key="allCategories"
                                 name="categories" 
                                 id="categories"
-                                onChange={event => handleNewCategorie(event)}
+                                onClick={event => handleNewCategorie(event)}
                             >
                                 {categories.map(
-                                    cat => (
+                                    (cat, index) => (
                                         <option
-                                            key={cat.id}
+                                            key={index}
                                             name={categories.filter(cat => cat.name === cat.name)}
                                             value={cat.name}
                                         >
@@ -247,11 +288,16 @@ export default function UpdateProduct (props) {
                                 )}
                             </select>
 
-                        </form>
+                        </>
                     }
                 </div>
 
+                <button>
+                    Enviar Cambios
+                </button>
             </form>
+
+
         </div>
     )
 }
