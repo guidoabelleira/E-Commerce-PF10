@@ -1,7 +1,6 @@
-import { useState } from 'react';
+import React, { useEffect, useState, } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import store from '../../redux/store'
-//import Style from './Valuation.module.css'
+import { getReviewById, } from '../../redux/actions';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
@@ -9,52 +8,73 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 export default function Valuation (props) {
     const dispatch = useDispatch()
-    const products = store.getState()
-    console.log('-->',props) // no tengo el dato del back
-    const [valuation, setValuation] = useState(0)
-    
-    const handleOnCHeck = event =>{
-       setValuation(event.target.value)
-       console.log(valuation)
-    }
+    const id = props.props
 
-    const handleOnSubmit = event =>{
-        
-
-    }
-
+    const reviews = useSelector(state => state.reviews)
     let stars = []
-    for(let s=0; s<valuation; s++){
-        stars.push(0)
+    let score = 0
+
+    for(let r=0; r<reviews.count; r++){
+        score = score + parseInt(reviews.rows[r].rating)
     }
+    score = Math.floor(score / reviews.count)
+    //const [score, setScore] = useState([4])
+    for(let s=0; s<score; s++){
+        stars.push('*')
+    }
+
+    const [showReviewText, setShowReviewText] = useState(false)
+
+    useEffect(() => {
+        try{
+            dispatch(getReviewById(id))
+        }
+        catch(error){
+            alert('eror',error)
+            console.log('no se puedo encontrar el producto id:', id)
+        }
+    }, [dispatch, id])
 
     return (
         <div>
-            <label for="addValuation">Valuation</label>
-            <form>
-                <input
-                    id="addValuation"
-                    name="valuation"
-                    placeholder={valuation}
-                    type='range'
-                    min="0"
-                    max="5"
-                    onChange={event => handleOnCHeck(event)}
-                />
 
-                <input
-                    onSubmit={event => handleOnSubmit(valuation)}
-                    type="submit"
-                />
-
-            </form>
+            <p>
+                <b>
+                    valor:
+                </b>
+            </p>
 
             <div >
-                {stars.map(stars =>(
-                    <i>
+                {stars.map((star, index) =>(
+                    <i
+                        key={index}
+                    >
                         <FontAwesomeIcon icon={ faStar }/>
                     </i>
                 ))}
+            </div>
+
+            <button
+                type='button'
+                onClick={()=> setShowReviewText(!showReviewText)}
+            >
+                {
+                    showReviewText?
+                    "Ocultar Reseña"
+                    :
+                    "Mostrar Reseña"
+                }
+            </button>
+
+            <div>
+                {showReviewText &&
+
+                    <>
+                        {reviews.rows.map((review, index)=>
+                            <p key={index}>{review.description}</p>
+                        )}
+                    </>
+                }
             </div>
 
         </div>
