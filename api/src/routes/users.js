@@ -276,7 +276,56 @@ router.post("/:idUser/carrito", (req, res) => {
     .catch((e) => res.status(400).send({ data: e }));
 });
 
-// Agregar Orderlines a la orden PASO 2 (una orderline por producto) PASO 3 Y 4 están en routes/orders
+/* Agregar Orderlines a la orden PASO 2
+{"orderBody":[
+  { 
+  "quantity":"1", 
+  "productId":"3" 
+  },
+  { 
+  "quantity":"3", 
+  "productId":"4" 
+  }
+]}
+--PASO 3 Y 4 están en routes/orders */
+router.post("/:idUser/cart", async (req, res, next) => {
+  try {
+    const { idUser } = req.params;
+    const {orderBody}= req.body;
+    //console.log(orderBody);
+    const order = await Order.findOrCreate({
+      where: { userId: idUser, state: "Cart" },
+    });
+    //console.log(order)
+    orderBody.forEach(async obj => {
+      //console.log(obj)
+    //for (let i = 0; orderline.length > i; i++) {
+      var productId = obj.productId;
+      //console.log(id)
+      var quantity = obj.quantity;
+      //console.log(quantity)
+      var product = await Product.findByPk(productId);
+      product.stock = product.stock - quantity;
+      const productSave = await product.save();
+      //console.log(productSave);
+      const orderLine = await Orderline.create({
+            subtotal: product.price*quantity,
+            quantity: quantity,
+            orderId: order[0].dataValues.id,
+            productId: productId,
+            userId: idUser,
+          });
+          //console.log('OrderLine:',orderLine);
+    }) 
+    
+    return res.status(200).send('order creada con exito');
+  } catch (error) {
+    next(error);
+    //return res.status(400).send({ data: error });
+  }
+});
+
+/* Agregar Orderlines a la orden PASO 2 (una orderline por producto) PASO 3 Y 4 están en routes/orders
 router.post("/:idUser/cart", async (req, res) => {
   try {
     const { idUser } = req.params;
@@ -300,7 +349,7 @@ router.post("/:idUser/cart", async (req, res) => {
   } catch (error) {
     return res.status(400).send({ data: error });
   }
-});
+}); */
 
 // Modificar cantidades de los productos en una orderline
 router.put("/:userId/cart", async (req, res) => {
