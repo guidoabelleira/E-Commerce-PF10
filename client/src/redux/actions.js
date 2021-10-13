@@ -1,5 +1,12 @@
 import axios from 'axios';
-import { PRODUCTS_URL, CATEGORIES_URL, PRODUCTS_BY_NAME_URL, CATEGORIES_FILTER_URL, USER_LOAD } from '../constantes';
+import { 
+    PRODUCTS_URL, 
+    CATEGORIES_URL, 
+    PRODUCTS_BY_NAME_URL, 
+    CATEGORIES_FILTER_URL, 
+    USER_LOAD, REVIEWS_URL, 
+    REVIEWS_URL_GET
+} from '../constantes';
 import verify from '../components/Hooks/shopCart'
 import calculateTotalCart from '../components/Hooks/calculateTotalCart';
 import shopLocalValidate from '../components/Hooks/shopLocalValidate';
@@ -353,6 +360,22 @@ export function getUser (idUser){
         } catch (error){
             console.log(error)
 
+        }
+    }
+}
+
+export function getReviewById(idProduct){
+    return async function(dispatch){
+        try {
+            //const reviews = await axios.get(REVIEWS_URL_GET + idProduct + '/reviews')
+            const reviews = await axios.get(REVIEWS_URL_GET + idProduct + '/reviews')
+            dispatch({
+                type: 'GET_REVIEW_BY_ID',
+                payload: reviews.data
+            })
+        } catch (error){
+            console.log(error)
+            alert("no encontrado")
         }
     }
 }

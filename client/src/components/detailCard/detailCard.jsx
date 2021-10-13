@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProductById, addPCart } from '../../redux/actions';
 
 import ShopCartButton from "../ShopCartButton/ShopCartButton"
+import Valuation from "../Valuation/Valuation";
 import Loading from "../Loading/Loading";
 import { Link } from "react-router-dom";
 
@@ -31,8 +32,18 @@ export default function DetailCard (props) {
                     <ShopCartButton />
 
                     <img className={style.img} src={productId.image} alt="Err img" width="400px" height="250px"/>
-                    <p> <b>Precio:</b> {productId.price}</p>
-                    <p> <b>Descripción:</b> {productId.description}</p>
+                    <p> 
+                        <b>Precio:</b> {productId.price}
+                    </p>
+
+                    <p> 
+                        <b>Descripción:</b> {productId.description}
+                    </p>
+
+                    <p>
+                        <Valuation props={aux} />
+                    </p>
+                    
                     <button
                         className={style.Inputs}
                         onClick={event => dispatch(addPCart(
