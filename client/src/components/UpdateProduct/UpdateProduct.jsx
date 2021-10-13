@@ -63,12 +63,44 @@ export default function UpdateProduct () {
         setProduct(newData)
     }
 
-    const onSubmit = event => {
+    const onSubmit = async event => {
         event.preventDefault()
-        alert("Producto Cambiado")
-        dispatch(putProduct(product))
+        alert("Peticion de cambio enviada")
+        const sendProduct = {
+            "id": product.id,
+            "name": product.name,
+            "image": product.image,
+            "price": product.price,
+            "stock": product.stock,
+            "onStock": product.onStock,
+            "onSale": product.onSale,
+            "description": product.description,
+            "category": product.category
+        }
+        dispatch(putProduct(sendProduct))
     }
+
+    /*
     
+    {
+        "name": "PEPINAZO",
+        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210802100821845.jpg",
+        "price": 340.50,
+        "stock": 50,
+        "onStock": true,
+        "onSale": false,
+        "description": "Description pia 2!!!",
+        "category": [
+            {
+                "name": "Oyito"
+            },
+            {
+                "name": "Yerberas"
+            }
+        ]
+}
+
+    */
     useEffect(() => {
         try{
             dispatch(getAllCategories())

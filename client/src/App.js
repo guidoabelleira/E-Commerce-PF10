@@ -18,6 +18,7 @@ import AddCategories from './components/CreateCategoryForm/CategoryForm';
 import Stock from './components/StockProduct/StockProduct';
 import Orders from './components/Orders/Orders';
 import CheckOut from './components/CheckOut/CheckOut';
+import UpdateProduct from './components/UpdateProduct/UpdateProduct';
 
 
 import { authenticatedUserDb } from './components/Hooks/users';
@@ -59,6 +60,7 @@ function App() {
                             <Route exact path={'/adminproducts/addcategories'} component={AddCategories} />
                             <Route exact path={'/adminproducts/stock'} component={Stock} />
                             <Route exact path={'/order'} component={Orders} />
+                            <Route exact path={'/adminproducts/editProduct'} component={UpdateProduct} />
                             {/* <Route path={"*"} component={Error404} /> */}
                         </div>
                         </>
@@ -79,6 +81,7 @@ function App() {
                             <Route exact path={'/adminproducts/addcategories'} component={AddCategories} />
                             <Route exact path={'/adminproducts/stock'} component={Stock} />
                             <Route exact path={'/order'} component={Orders} />
+                            <Route exact path={'/adminproducts/editProduct'} component={UpdateProduct} />
                             {/* <Route path={"*"} component={Error404} /> */}
                         </>
                         )}

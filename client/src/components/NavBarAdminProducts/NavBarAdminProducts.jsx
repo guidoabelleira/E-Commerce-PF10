@@ -11,22 +11,31 @@ export default function NavBarAdminProducts (){
     return isAuthenticated ? (
             <div className={style.container}>
                 <div className={style.column}>
+
                     <div>
                         <Link className={style.mainBttn} to="/adminproducts/addproduct">
                             {/* <i><FontAwesomeIcon icon={faHouseUser}/></i> */}
                             <p>Añadir Producto</p>
                         </Link>
                     </div>
+
                     <div>
                         <Link className={style.mainBttn} to="/adminproducts/addcategories">
                             {/* <i><FontAwesomeIcon icon={faHouseUser}/></i> */}
                             <p>Añadir Categorias</p>
                         </Link>
                     </div>
+
                     <div>
                         <Link className={style.mainBttn} to="/adminproducts/stock">
                             {/* <i><FontAwesomeIcon icon={faHouseUser}/></i> */}
                             <p>Ver Stock</p>
+                        </Link>
+                    </div>
+
+                    <div>
+                        <Link className={style.mainBttn} to="/adminproducts/editProduct">
+                            <p>Editar Producto</p>
                         </Link>
                     </div>
                 </div>
