@@ -29,19 +29,20 @@ export default function ContactUs(){
 
     return (
         <div className={style.container}>
-            <div>
-                <h2>Contactenos!</h2>
-                <a href="https://api.whatsapp.com/send?phone=34123456789">
+            <div className={style.tittle}>
+            <a href="https://api.whatsapp.com/send?phone=34123456789">
                 <FontAwesomeIcon icon={faWhatsapp}/>
                 </a> 
+                <h2>Contactenos!</h2>
+               
             </div>
-            <div>
+            <div clasName={style.form}>
                 <h1>Formulario de contato:</h1>
                 <h3>Escríbenos y en breve los pondremos en contacto contigo</h3>
                 <form onSubmit={handleSubmit}>
                     <p>
                         <label>
-                            Nombre
+                            Nombre:
                             <span>*</span>
                         </label>
                         <input 
@@ -55,7 +56,7 @@ export default function ContactUs(){
                     </p>
                     <p>
                         <label>
-                            Email
+                            Email:
                             <span>*</span>
                         </label>
                         <input 
@@ -69,7 +70,7 @@ export default function ContactUs(){
                     </p>
                     <p>
                         <label>
-                            Telefono
+                            Telefono:
                         </label>
                         <input 
                             type="tel" 
@@ -82,7 +83,7 @@ export default function ContactUs(){
                     </p>
                     <p>
                         <label>
-                            Asunto
+                            Asunto:
                             <span>*</span>
                         </label>
                         <input 
@@ -96,7 +97,7 @@ export default function ContactUs(){
                     </p>
                     <p>
                         <label>
-                            Mensaje
+                            Mensaje:
                             <span>*</span>
                         </label>
                         <textarea 
@@ -107,7 +108,7 @@ export default function ContactUs(){
                             value={input.message} 
                             />
                     </p>
-                    <button type='submit'><p>Enviar</p></button>
+                    <button className={style.bttn}type='submit'><p>Enviar</p></button>
                     <p>
                         <span> * </span>
                         los campos son obligatorios.

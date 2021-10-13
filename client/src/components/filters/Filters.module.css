@@ -1,0 +1,52 @@
+.selects {
+    width: 128px;
+    height: 40px;
+  
+  
+  
+    cursor: pointer;
+    padding: 7px 10px;
+  margin-right: 2%;
+    outline: 0;
+    border: none;
+    border-radius: 10px;
+    background: #0E6655;
+    color: #ffffff;
+    font-size: 1em;
+    color: rgb(255, 255, 255);
+    font-family: inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    transition: all 0.25s ease;
+  }
+
+  .container{
+      display:flex;
+      flex-direction: row;
+  }
+
+  .p {
+    font-family: Saira;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 35px;
+    height:35px;
+    width: 100%;
+    color:#0E6655;
+  }
+
+  .bttn{
+    background-color: #0E6655;
+    color:white;
+    width: 100px;
+    height: 35px; 
+    border:none;
+    border-radius: 5px; 
+    margin-top: 0%;
+    padding:6px;
+  }
+
+  
