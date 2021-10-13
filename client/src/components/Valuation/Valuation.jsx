@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState, } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getReviewById, } from '../../redux/actions';
 
@@ -15,7 +15,6 @@ export default function Valuation (props) {
     let score = 0
 
     for(let r=0; r<reviews.count; r++){
-        console.log(reviews.rows[r].rating)
         score = score + parseInt(reviews.rows[r].rating)
     }
     score = Math.floor(score / reviews.count)
@@ -23,6 +22,8 @@ export default function Valuation (props) {
     for(let s=0; s<score; s++){
         stars.push('*')
     }
+
+    const [showReviewText, setShowReviewText] = useState(false)
 
     useEffect(() => {
         try{
@@ -32,10 +33,17 @@ export default function Valuation (props) {
             alert('eror',error)
             console.log('no se puedo encontrar el producto id:', id)
         }
-    }, [dispatch])
+    }, [dispatch, id])
 
     return (
         <div>
+
+            <p>
+                <b>
+                    valor:
+                </b>
+            </p>
+
             <div >
                 {stars.map((star, index) =>(
                     <i
@@ -44,6 +52,29 @@ export default function Valuation (props) {
                         <FontAwesomeIcon icon={ faStar }/>
                     </i>
                 ))}
+            </div>
+
+            <button
+                type='button'
+                onClick={()=> setShowReviewText(!showReviewText)}
+            >
+                {
+                    showReviewText?
+                    "Ocultar Reseña"
+                    :
+                    "Mostrar Reseña"
+                }
+            </button>
+
+            <div>
+                {showReviewText &&
+
+                    <>
+                        {reviews.rows.map((review, index)=>
+                            <p key={index}>{review.description}</p>
+                        )}
+                    </>
+                }
             </div>
 
         </div>

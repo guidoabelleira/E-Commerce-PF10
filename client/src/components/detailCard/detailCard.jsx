@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 
 export default function DetailCard (props) {
     let aux = props.match.params.id;
+    console.log(aux)
     const dispatch = useDispatch();
     
     const productId = useSelector(state => state.productById);

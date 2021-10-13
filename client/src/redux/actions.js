@@ -4,8 +4,9 @@ import {
     CATEGORIES_URL, 
     PRODUCTS_BY_NAME_URL, 
     CATEGORIES_FILTER_URL, 
-    USER_LOAD, REVIEWS_URL, 
-    REVIEWS_URL_GET
+    USER_LOAD, 
+    //REVIEWS_URL, 
+    REVIEWS_URL_GET,
 } from '../constantes';
 import verify from '../components/Hooks/shopCart'
 import calculateTotalCart from '../components/Hooks/calculateTotalCart';
