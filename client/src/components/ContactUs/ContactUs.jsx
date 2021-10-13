@@ -36,7 +36,7 @@ export default function ContactUs(){
                 <h2>Contactenos!</h2>
                
             </div>
-            <div clasName={style.form}>
+            <div className={style.form}>
                 <h1>Formulario de contato:</h1>
                 <h3>Escríbenos y en breve los pondremos en contacto contigo</h3>
                 <form onSubmit={handleSubmit}>
