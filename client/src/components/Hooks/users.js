@@ -10,7 +10,7 @@ export async function authenticatedUserDb(user){
             name: user.given_name,
             lastname: user.family_name,
             email: user.email,
-            address: user.locale,
+            
             userRole: 'client',
             isAdmin: false,
             password: user.nickname,

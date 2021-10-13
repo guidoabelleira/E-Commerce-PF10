@@ -5,6 +5,7 @@ import LogoutButton from "../LoginButton/LoginButton";
 import SettingsUserAdmin from "../SettingsUserAdmin/SettingsUserAdmin";
 import { useDispatch, useSelector } from "react-redux";
 import {getUser} from '../../redux/actions';
+import ProfileUserSettings from "../ProfileUserSettings/ProfileUserSettings";
 
 
 export default function Profile(){
@@ -20,7 +21,6 @@ export default function Profile(){
     },[dispatch, idLocal]);
     try {
         if(isAuthenticated){
-            console.log(user.picture)
             return(
             <div className={style.container}>
                 <img src={user.picture} alt={user.name}/>
@@ -38,6 +38,11 @@ export default function Profile(){
                 </div>
                 <div>
                     <SettingsUserAdmin/>
+                </div>
+                <div>
+                    <p>settings user</p>
+                    <ProfileUserSettings props={idLocal}/>
+                    <p></p>
                 </div>
             </div> )
         } else {

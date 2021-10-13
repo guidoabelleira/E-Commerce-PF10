@@ -17,7 +17,7 @@ export default function PopularCard ({image, name, categories,id,price, index}){
     name.push(" ")
     name.push(duplicate[2])
     name.join("")
-    return(
+    return categories ? (
         <div className={style.container} key={index}>
            <Link className={style.bttn}to={`/products/${id}`}>  <img className={style.img}src={image} alt={name} height="300px" width="350px" />
             </Link>
@@ -37,5 +37,7 @@ export default function PopularCard ({image, name, categories,id,price, index}){
                 </div>
                 
         </div>
+) : (
+    <p>No hay productos.</p>
 )
 }
