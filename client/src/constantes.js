@@ -5,3 +5,5 @@ export const USER_LOAD = BASE_URL + 'users/';
 export const CATEGORIES_URL = BASE_URL + 'categories/';
 export const CATEGORIES_FILTER_URL = PRODUCTS_URL + 'category/';
 export const ORDERS_URL = BASE_URL + 'orders/';
+export const REVIEWS_URL = BASE_URL + 'reviews/';
+export const REVIEWS_URL_GET = REVIEWS_URL + 'product/'; 
