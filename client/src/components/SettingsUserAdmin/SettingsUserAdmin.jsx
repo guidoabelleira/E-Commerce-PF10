@@ -70,7 +70,6 @@ export default function SettingsUserAdmin (){
                             placeholder="id" 
                             required
                             onChange={handleInputChange}
-                            defaultValue="0"
                             value={input.id} 
                             />
                     </p>

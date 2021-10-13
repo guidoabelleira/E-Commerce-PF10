@@ -235,15 +235,15 @@ export function getAllCategories () {
     }
 }
 
-export function putProduct (id) {
+export function putProduct (product) {
     return async () => {
         try {
-            await axios.put('',{}) //No esta completa la ruta
-            alert(`successful update of product id: ${id}`)
+            await axios.put(PRODUCTS_URL + product.id) //No esta completa la ruta
+            alert(`successful update of product id: ${product.name}`)
         }
         catch(error){
             console.log(error)
-            alert(`Was failed the update of the product id: ${id}`)
+            alert(`Was failed the update of the product id: ${product.name}`)
         }
     }
 }
@@ -297,6 +297,22 @@ export function getCategoryToDelete(category) {
 //         }
 //     }
 // }
+
+export function getUserOrderAll(idUser){
+    return async function(dispatch){
+        try {
+            const orderAll = await axios.get(USER_LOAD + idUser + '/orders');
+            dispatch({
+                type: 'GET_USER_ORDER_ALL',
+                payload: orderAll.data
+            })
+        } catch (error){
+            console.log(error)
+            alert("no encontrado")
+        }
+    }
+}
+
 export function getUserOrderProcessing(idUser){
     return async function(dispatch){
         try {

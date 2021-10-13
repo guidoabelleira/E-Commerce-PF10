@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getCategories, getCategoryFiltered, getAllProducts, setAscDesc } from '../../redux/actions'
-
+import style from "./Filters.module.css"
 function Filter() {
     const dispatch = useDispatch()
     const categories = useSelector(state => state.categories)
@@ -39,9 +39,10 @@ function Filter() {
     },[dispatch])
 
     return (
-        <div>
-            <select onChange={handleCategoryFilter}>
-                <option value={false}>Categorias</option>
+        <div className={style.container}>
+            <p className={style.p}>Categorias: </p>
+            <select className={style.selects} onChange={handleCategoryFilter}>
+                <option value={false} selected>----- </option>
                 {
                     categories.map(el => {
                         return (
@@ -50,20 +51,20 @@ function Filter() {
                     })
                 }
             </select>
-            <span>Filtrar por</span>
-            <select onChange={handleSortChange}>
+            <span className={style.p}> Filtrar por: </span>
+            <select className={style.selects} onChange={handleSortChange}>
                 <option value={false} selected>---</option>
                 <option key={1} value="price">Precio</option>
                 <option key={2} value="name">Nombre</option>
             </select>
-            <span>Orden</span>
-            <select onChange={handleOrdChange}>
+            <span className={style.p}>Orden: </span>
+            <select className={style.selects} onChange={handleOrdChange}>
                 <option value={false} selected>---</option>
                 <option key={1} value="asc">Ascendente</option>
                 <option key={2} value="desc">Descendente</option>
             </select>
 
-            <button onClick={handleButton}>Quitar filtros</button>
+            <button className={style.bttn} onClick={handleButton}>Quitar</button>
         </div>
     )
 }
