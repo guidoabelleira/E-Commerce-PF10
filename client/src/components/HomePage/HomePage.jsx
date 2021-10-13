@@ -14,14 +14,28 @@ import style from './homePage.module.css'
 
 
 
+// quiero que en la homepage me muestre productos destacados relacionados con 
+// mis preferencias (basadas en compras previas, o favoritos). 
+
+
 export default function HomePage() {
     const dispatch = useDispatch();
 
+    const user = useSelector(state => state.user[0]);
     const lasted = useSelector(state => state.productsLastests);
     const sales = useSelector(state => state.productsSales);
     // const popular = useSelector(state => state.productsLastests);
     
+    function checkAddress(user){
+        if(user){
+            if(user.address.length < 10){
+                return false;
+            } 
+            return true;
+        }
+    }
 
+    let address = checkAddress(user);
 
     useEffect(() => {
         async function getters(){
@@ -31,25 +45,19 @@ export default function HomePage() {
         }
         getters();
     },[dispatch]);
-
-    // Busco 3.
-    // popular forzado a recibir lasted, cuando back tenga ruta hay que cambiar. y agregar verificacion en return
-    // const lastedCard = lasted.slice(0, 3);
-    // const popularCard = lasted.slice(0, 3); 
-    // const salesCard = sales.slice(0, 3);
     
 
-/*    function handleClick(e){ //esto resetea y trae todos los productos de nuevo
-   e.preventDefault(); 
-    dispatch(getAllProducts());
-   } */
+    // function handleClick(e){ //esto resetea y trae todos los productos de nuevo
+    //     e.preventDefault(); 
+    //     dispatch(getAllProducts());
+    // } 
 
     return lasted ? (
         <div className={style.container}>
             <div className={style.margin}>
 
             <div className={style.searchbar}>
-           {/*  <button className={style.rechargeBtn} onClick={e=>{handleClick(e)}}>Recargar Productos</button> */}
+                {/* <button className={style.rechargeBtn} onClick={e=>{handleClick(e)}}>Recargar Productos</button> */}
                 <ShowAdress/>
                 <SearchBar /> 
                 <ShopCartButton/>
@@ -57,6 +65,10 @@ export default function HomePage() {
             </div>
 
              <div className={style.cards}>
+                {address === false ? (<div>
+                    <p>no address</p>
+                    <Link to="/Profile">Ir</Link>
+                </div>) : (<></>)}
                 <div className={style.seeAll}>
                     <p  className={style.h3Primario}>Los mas vendidos:</p>
                     <Link className={style.Link}to="/products">
@@ -76,7 +88,7 @@ export default function HomePage() {
                     </Link>
                 </div>
                 <div className={style.render}>
-                    <Cards state={lasted} discountCard={true}/>
+                    <Cards state={sales} discountCard={true}/>
                 </div>
             </div>
             
