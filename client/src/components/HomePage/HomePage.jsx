@@ -76,7 +76,7 @@ export default function HomePage() {
                     </Link>
                 </div>
                 <div className={style.render}>
-                    <Cards state={lasted} discountCard={true}/>
+                    <Cards state={sales} discountCard={true}/>
                 </div>
             </div>
             

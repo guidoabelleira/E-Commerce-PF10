@@ -297,6 +297,22 @@ export function getCategoryToDelete(category) {
 //         }
 //     }
 // }
+
+export function getUserOrderAll(idUser){
+    return async function(dispatch){
+        try {
+            const orderAll = await axios.get(USER_LOAD + idUser + '/orders');
+            dispatch({
+                type: 'GET_USER_ORDER_ALL',
+                payload: orderAll.data
+            })
+        } catch (error){
+            console.log(error)
+            alert("no encontrado")
+        }
+    }
+}
+
 export function getUserOrderProcessing(idUser){
     return async function(dispatch){
         try {

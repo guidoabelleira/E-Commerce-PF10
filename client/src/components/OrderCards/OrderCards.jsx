@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import {getUserOrderProcessing, getUserOrderCompleted, getUserOrderCanceled} from '../../redux/actions';
+import {getUserOrderProcessing, getUserOrderCompleted, getUserOrderCanceled, getUserOrderAll} from '../../redux/actions';
 import { useEffect } from 'react';
 import OrderCard from '../OrderCard/OrderCard';
 
@@ -9,6 +9,7 @@ export default function OrderCards (props){
     // por las props hago llamada de ordenes a la api (redux) y envio a OrderCard los 3 estados distintos
     // en props recibo 
     const dispatch = useDispatch();
+    const allOrderUser = useSelector(state => state.allOrderUser);
     const processing = useSelector(state => state.userOrderProcessing);
     const completed = useSelector(state => state.userOrderComplete);
     const canceled = useSelector(state => state.userOrderCanceled);
@@ -16,6 +17,7 @@ export default function OrderCards (props){
 
     useEffect(() => {
         async function getters(){
+            await dispatch(getUserOrderAll(idUser))
             await dispatch(getUserOrderProcessing(idUser));
             await dispatch(getUserOrderCompleted(idUser));
             await dispatch(getUserOrderCanceled(idUser));
@@ -26,17 +28,17 @@ export default function OrderCards (props){
     return (
         <div className={style.container}>
             <div>
-                <OrderCard props={processing} />
+                <OrderCard props={allOrderUser} />
                 <h2>Soy los pedidos en pendientes</h2>
             </div>
-            <div >
+            {/* <div >
                 <OrderCard props={completed} />
                 <h2>Soy los pedidos completados</h2>
             </div>
             <div>
                 <OrderCard props={canceled} />
                 <h2>Soy los pedidos cancelados</h2>
-            </div>
+            </div> */}
         </div>
         
         

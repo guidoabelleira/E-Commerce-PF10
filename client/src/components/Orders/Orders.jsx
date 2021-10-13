@@ -6,7 +6,7 @@ import style from './orders.module.css';
 
 export default function Orders (){
     const {isAuthenticated, user} = useAuth0();
-    const state = useSelector(state => state.user[0])
+    const state = useSelector(state => state.user)
     const verificationAdmin = state.isAdmin;
     console.log("Aca orders autentic: ", isAuthenticated);
     console.log("Aca orders state: ", state)
