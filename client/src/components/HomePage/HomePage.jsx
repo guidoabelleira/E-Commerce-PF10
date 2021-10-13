@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { getLastestsProducts, getSalesProducts} from '../../redux/actions';
+import { getLastestsProducts, getSalesProducts, getUser} from '../../redux/actions';
 import { useEffect } from 'react';
 import { NavLink as Link} from 'react-router-dom';
 
@@ -28,7 +28,7 @@ export default function HomePage() {
     
     function checkAddress(user){
         if(user){
-            if(user.address.length < 10){
+            if(user.address.length < 10 || user.address.length === null){
                 return false;
             } 
             return true;
@@ -39,6 +39,7 @@ export default function HomePage() {
 
     useEffect(() => {
         async function getters(){
+            await dispatch(getUser())
             await dispatch(getLastestsProducts());
             await dispatch(getSalesProducts());
             // await dispatch(getPopularsProducts()); Falta back

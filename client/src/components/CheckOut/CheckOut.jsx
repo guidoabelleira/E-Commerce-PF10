@@ -41,7 +41,7 @@ export default function CheckOut (){
         if(id){
             // destructuro el estado
             let created = await axios.post(USER_LOAD + id + '/carrito');
-            console.log("respuesta creacion carrito: ", created.data);
+            console.log("respuesta creacion carrito: ", created.data[1]);
             let pushProduct = await axios.post(USER_LOAD + id + '/cart', product);
             console.log("respuesta producto: ", pushProduct.data);
         } else {
