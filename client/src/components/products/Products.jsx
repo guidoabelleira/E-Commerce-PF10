@@ -33,14 +33,15 @@ function Products() {
             setPageNumber(selected)
         }
     
-/*  function handleClick(e){ //esto resetea y trae todos los productos de nuevo
-  e.preventDefault(); 
-  dispatch(getAllProducts());
-  } */
+    function handleClick(e){ //esto resetea y trae todos los productos de nuevo
+        e.preventDefault(); 
+        dispatch(getAllProducts());
+    } 
+
         return (
             <div className={style.container}>
             <div className={style.searchbar}>
-                   {/*  <button className={style.rechargeBtn} onClick={e=>{handleClick(e)}}>Recargar Productos</button> */}
+                    <button className={style.rechargeBtn} onClick={e=>{handleClick(e)}}>Recargar Productos</button>
                     <ShowAdress/>
                     <SearchBar /> 
                     <ShopCartButton/>

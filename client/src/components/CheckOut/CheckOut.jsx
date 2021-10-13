@@ -9,7 +9,6 @@ import { USER_LOAD } from "../../constantes";
 
 export default function CheckOut (){
     const {isAuthenticated} = useAuth0();
-    const userCheckOut = useSelector(state => state.user[0]);
     const cartCheckOut = useSelector(state => state.shopProduct);
     const totalCheckOut = useSelector(state => state.totalCart);
     console.log("carrito previo checkout: ", cartCheckOut);
@@ -44,7 +43,7 @@ export default function CheckOut (){
             let created = await axios.post(USER_LOAD + id + '/carrito');
             console.log("respuesta creacion carrito: ", created.data);
             let pushProduct = await axios.post(USER_LOAD + id + '/cart', product);
-            console.log("respuesta producto: ", pushProduct.data)
+            console.log("respuesta producto: ", pushProduct.data);
         } else {
             alert("algo salio mal!")
         }

@@ -8,15 +8,15 @@ export default function Orders (){
     const {isAuthenticated, user} = useAuth0();
     const state = useSelector(state => state.user)
     const verificationAdmin = state.isAdmin;
-    console.log("Aca orders autentic: ", isAuthenticated);
-    console.log("Aca orders state: ", state)
-    console.log("Aca orders verification: ", verificationAdmin)
+    // console.log("Aca orders autentic: ", isAuthenticated);
+    // console.log("Aca orders state: ", state)
+    // console.log("Aca orders verification: ", verificationAdmin)
     const props = {
         verificationWest: isAuthenticated,
         verificationAdmin: verificationAdmin,
         user: user.email
     }
-    console.log("Aca orders props: ", props)
+    // console.log("Aca orders props: ", props)
     return verificationAdmin === true ? (
         <div className={style.container}>
             <h2>Soy pedidos admin</h2>

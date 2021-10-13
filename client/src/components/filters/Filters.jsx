@@ -42,7 +42,7 @@ function Filter() {
         <div className={style.container}>
             <p className={style.p}>Categorias: </p>
             <select className={style.selects} onChange={handleCategoryFilter}>
-                <option value={false}>----- </option>
+                <option value={false} selected>----- </option>
                 {
                     categories.map(el => {
                         return (

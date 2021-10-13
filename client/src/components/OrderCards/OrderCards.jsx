@@ -9,7 +9,7 @@ export default function OrderCards (props){
     // por las props hago llamada de ordenes a la api (redux) y envio a OrderCard los 3 estados distintos
     // en props recibo 
     const dispatch = useDispatch();
-    const allOrderUser = useSelector(state => state.allOrderUser);
+    // const allOrderUser = useSelector(state => state.allOrderUser);
     const processing = useSelector(state => state.userOrderProcessing);
     const completed = useSelector(state => state.userOrderComplete);
     const canceled = useSelector(state => state.userOrderCanceled);
@@ -27,18 +27,22 @@ export default function OrderCards (props){
 
     return (
         <div className={style.container}>
-            <div>
+            {/* <div>
                 <OrderCard props={allOrderUser} />
+                <h2>Soy todos los pedidos</h2>
+            </div> */}
+            <div>
+                <OrderCard props={processing} />
                 <h2>Soy los pedidos en pendientes</h2>
             </div>
-            {/* <div >
+            <div >
                 <OrderCard props={completed} />
                 <h2>Soy los pedidos completados</h2>
             </div>
             <div>
                 <OrderCard props={canceled} />
                 <h2>Soy los pedidos cancelados</h2>
-            </div> */}
+            </div>
         </div>
         
         

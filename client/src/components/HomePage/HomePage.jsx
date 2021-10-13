@@ -12,6 +12,8 @@ import ProfileButton from '../ProfileButton/ProfileButton';
 
 import style from './homePage.module.css'
 
+// quiero que en la homepage me muestre productos destacados relacionados con 
+// mis preferencias (basadas en compras previas, o favoritos). 
 
 
 export default function HomePage() {
@@ -31,25 +33,19 @@ export default function HomePage() {
         }
         getters();
     },[dispatch]);
-
-    // Busco 3.
-    // popular forzado a recibir lasted, cuando back tenga ruta hay que cambiar. y agregar verificacion en return
-    // const lastedCard = lasted.slice(0, 3);
-    // const popularCard = lasted.slice(0, 3); 
-    // const salesCard = sales.slice(0, 3);
     
 
-/*    function handleClick(e){ //esto resetea y trae todos los productos de nuevo
-   e.preventDefault(); 
-    dispatch(getAllProducts());
-   } */
+    // function handleClick(e){ //esto resetea y trae todos los productos de nuevo
+    //     e.preventDefault(); 
+    //     dispatch(getAllProducts());
+    // } 
 
     return lasted ? (
         <div className={style.container}>
             <div className={style.margin}>
 
             <div className={style.searchbar}>
-           {/*  <button className={style.rechargeBtn} onClick={e=>{handleClick(e)}}>Recargar Productos</button> */}
+                {/* <button className={style.rechargeBtn} onClick={e=>{handleClick(e)}}>Recargar Productos</button> */}
                 <ShowAdress/>
                 <SearchBar /> 
                 <ShopCartButton/>
