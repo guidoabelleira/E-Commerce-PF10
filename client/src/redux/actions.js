@@ -246,7 +246,10 @@ export function getAllCategories () {
 export function putProduct (product) {
     return async () => {
         try {
-            await axios.put(PRODUCTS_URL + product.id) //No esta completa la ruta
+            await axios.put(
+                PRODUCTS_URL + product.id,
+                product
+            )
             alert(`successful update of product id: ${product.name}`)
         }
         catch(error){
