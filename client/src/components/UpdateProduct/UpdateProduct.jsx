@@ -1,18 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { 
-    //getProductById, 
-    getAllCategories,
-    getAllProducts,
-    putProduct
-} from '../../redux/actions';
+import { putProduct } from '../../redux/actions';
 
 import style from './UpdateProduct.module.css'
+//import Loading from '../Loading/Loading'
 
 export default function UpdateProduct () {
 
     const dispatch = useDispatch()
-    //const productId = useSelector(state => state.productById);
     const categories = useSelector(state => state.allCategories)
     const allProducts = useSelector(state => state.products)
 
@@ -63,31 +58,31 @@ export default function UpdateProduct () {
         setProduct(newData)
     }
 
-    const onSubmit = event => {
+    const onSubmit = async event => {
         event.preventDefault()
-        alert("Producto Cambiado")
-        dispatch(putProduct(product))
-    }
-    
-    useEffect(() => {
-        async function getAll () {
-
-            try{
-                dispatch(getAllCategories())
-                dispatch(getAllProducts())
-                //dispatch(getProductById(id))
-            }
-            catch(error){
-                console.log(error)
-            }
+        alert("Peticion de cambio enviada")
+        const sendProduct = {
+            "id": product.id,
+            "name": product.name,
+            "image": product.image,
+            "price": product.price,
+            "stock": product.stock,
+            "onStock": product.onStock,
+            "onSale": product.onSale,
+            "description": product.description,
+            "category": product.category
         }
-    }, []);
+        dispatch(putProduct(sendProduct))
+    }
 
     return (
 
         <div className={'Formulario'}>
-
-            <label htmlFor="targetProduct">Seleccione el producto que desea editar</label>
+            <label 
+                htmlFor="targetProduct"
+            >
+                Seleccione el producto que desea editar
+            </label>
             <select 
                 key="targetProduct"
                 id="targetProduct"
@@ -112,7 +107,7 @@ export default function UpdateProduct () {
                 className={style.FormStyle}
                 onSubmit={event => onSubmit(event)}
             >
-                <label htmlFOr='name'>
+                <label htmlFor='name'>
                     <b>
                         Nombre: {product.name}
                     </b>
@@ -128,7 +123,9 @@ export default function UpdateProduct () {
                     value= {product.name}
                 />
 
-                <label htmlFOr='image'>
+                <label 
+                    htmlFor='image'
+                >
                     <b>
                         Imagen
                     </b>
@@ -141,7 +138,7 @@ export default function UpdateProduct () {
                     placeholder= 'image'
                 />
 
-                <label htmlFOr='price'>
+                <label htmlFor='price'>
                     <b>
                         Precio: {product.price}
                     </b>
@@ -158,7 +155,9 @@ export default function UpdateProduct () {
                     value= {product.price}
                 />
 
-                <label htmlFOr='stock'>
+                <label 
+                    htmlFor='stock'
+                >
                     <b>
                         En Stock: {product.stock}
                     </b>
@@ -174,7 +173,9 @@ export default function UpdateProduct () {
                     onChange={event => handleOnChange(event)}
                 />
 
-                <label htmlFOr='onStock'>
+                <label 
+                    htmlFor='onStock'
+                >
                     <b>
                         En Inventario: {product.onStock.toString()}
                     </b>
@@ -189,7 +190,9 @@ export default function UpdateProduct () {
                     onChange={event => handleOnCheck(event)}
                 />
 
-                <label htmlFOr='onSale'>
+                <label 
+                    htmlFor='onSale'
+                >
                     <b>
                         En Oferta: {product.onSale.toString()}
                     </b>
@@ -204,7 +207,9 @@ export default function UpdateProduct () {
                     onChange={event => handleOnCheck(event)}
                 />
 
-                <label htmlFOr='description'>
+                <label 
+                    htmlFor='description'
+                >
                     <b>
                         {'Descripción'}
                     </b>
@@ -221,7 +226,9 @@ export default function UpdateProduct () {
                     value= {product.description}
                 />
 
-                <label htmlFOr='Categorias'>
+                <label 
+                    htmlFor='Categorias'
+                >
                     <b>
                         Categorias
                     </b>
@@ -263,7 +270,7 @@ export default function UpdateProduct () {
                     {showCategories &&
                         <>
 
-                            <label htmlFOr="addCategorie">
+                            <label htmlFor="addCategorie">
                                 <b>
                                     Agregar Categoria al producto
                                 </b>
@@ -279,7 +286,7 @@ export default function UpdateProduct () {
                                     (cat, index) => (
                                         <option
                                             key={index}
-                                            name={categories.filter(cat => cat.name === cat.name)}
+                                            name={categories.filter(c => c.name === cat.name)}
                                             value={cat.name}
                                         >
                                             {cat.name}
@@ -296,8 +303,6 @@ export default function UpdateProduct () {
                     Enviar Cambios
                 </button>
             </form>
-
-
         </div>
     )
 }
