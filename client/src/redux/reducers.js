@@ -76,6 +76,11 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 shopProduct: action.payload
             }
+        case 'CLEAR_CART':
+            return {
+                ...state,
+                shopProduct: action.payload
+            }
         case 'GET_CATEGORY_FILTERED' :
             return {
                 ...state,

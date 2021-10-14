@@ -26,17 +26,17 @@ export default function HomePage() {
     const sales = useSelector(state => state.productsSales);
     // const popular = useSelector(state => state.productsLastests);
     
-    function checkAddress(user){
-        if(user){
-            if(user.address.length < 10 || user.address.length === null){
-                return false;
-            } 
-            return true;
-        }
-    }
+    // function checkAddress(user){
+    //     if(user){
+    //         if(user.address.length < 10 || user.address.length === null){
+    //             return false;
+    //         } 
+    //         return true;
+    //     }
+    // }
 
-    let address = checkAddress(user);
-
+    // let address = checkAddress(user);
+    console.log("user en home: ", user)
     useEffect(() => {
         async function getters(){
             await dispatch(getUser())
@@ -66,10 +66,10 @@ export default function HomePage() {
             </div>
 
              <div className={style.cards}>
-                {address === false ? (<div>
+                {/* {user.address === null ? (<div>
                     <p>no address</p>
                     <Link to="/Profile">Ir</Link>
-                </div>) : (<></>)}
+                </div>) : (<></>)} */}
                 <div className={style.seeAll}>
                     <p  className={style.h3Primario}>Los mas vendidos:</p>
                     <Link className={style.Link}to="/products">

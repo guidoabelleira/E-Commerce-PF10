@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {useAuth0} from "@auth0/auth0-react"
 //importar action postOrder
 import LogoutButton from '../LoginButton/LoginButton';
@@ -6,18 +6,18 @@ import style from './checkOut.module.css';
 // import Loading from "../Loading/Loading";
 import axios from "axios";
 import { USER_LOAD } from "../../constantes";
+import { clearCart, totalCart } from "../../redux/actions";
 
 export default function CheckOut (){
+    const dispatch = useDispatch();
     const {isAuthenticated} = useAuth0();
     const cartCheckOut = useSelector(state => state.shopProduct);
     const totalCheckOut = useSelector(state => state.totalCart);
     console.log("carrito previo checkout: ", cartCheckOut);
 
-    const product = {
-        quantity: cartCheckOut[0].count,
-        productId: cartCheckOut[0].id
-    }
-    console.log("produt unitario: ", product)
+    const products = {orderBody: cartCheckOut};
+    
+    console.log("products: ", products)
     // let id = localStorage.getItem('idUser');
     // const checkOutState = preCheckOut(cartCheckOut);
 
@@ -34,16 +34,28 @@ export default function CheckOut (){
     // router.put("/checkout/:id" cambio estado carrito
     // cuarto router.get("/:idUser/checkout"
     // console.log(id)
-    async function checkOut(cartCheckOut, product){
-        console.log("carrito checkout: ", cartCheckOut)
+    async function checkOut(products){
+        console.log("checkout products: ", products)
         let id = localStorage.getItem('idUser');
         console.log("aca id checkout: ",id)
         if(id){
             // destructuro el estado
-            let created = await axios.post(USER_LOAD + id + '/carrito');
-            console.log("respuesta creacion carrito: ", created.data[1]);
-            let pushProduct = await axios.post(USER_LOAD + id + '/cart', product);
-            console.log("respuesta producto: ", pushProduct.data);
+            // let created = await axios.post(USER_LOAD + id + '/carrito');
+            // console.log("respuesta creacion carrito: ", created.data);
+            
+            let pushProduct = await axios.post(USER_LOAD + id + '/cart', products);
+            console.log("respuesta envio de carrito: ", pushProduct.data);
+            alert(pushProduct.data);
+
+            let check = {state:'Processing', totalPrice: totalCheckOut}
+            let orderLine = await axios.put('/orders/checkout/' + id, check);
+            alert(orderLine.data)
+            
+            localStorage.removeItem('shopCart')
+            dispatch(clearCart());
+            dispatch(totalCart(0))
+            
+
         } else {
             alert("algo salio mal!")
         }
@@ -53,7 +65,7 @@ export default function CheckOut (){
         <div className={style.container}>
             <h2>soy checkout</h2>
             <p>Total a pagar: ${totalCheckOut}</p>
-            <button onClick={e => checkOut(cartCheckOut, product)}>MercadoPago</button>
+            <button onClick={e => checkOut(products,totalCheckOut)}>MercadoPago</button>
         </div>
     ) : (
         <div className={style.container}>
