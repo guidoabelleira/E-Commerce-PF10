@@ -286,7 +286,7 @@ export default function UpdateProduct () {
                                     (cat, index) => (
                                         <option
                                             key={index}
-                                            name={categories.filter(cat => cat.name === cat.name)}
+                                            name={categories.filter(c => c.name === cat.name)}
                                             value={cat.name}
                                         >
                                             {cat.name}
