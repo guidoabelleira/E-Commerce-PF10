@@ -73,7 +73,7 @@
         "price": 402.9,
         "stock": 50,
         "onStock": true,
-        "onSale": false,
+        "onSale": true,
         "description": "Bowl/cuenco de algarrobo blanco, producto artesanal. Medidas: 8x12cm (pueden existir diferencias de tamaño entre uno y otro articulo del mismo modelo). ",
         "category": [
             {
@@ -374,7 +374,7 @@
         "price": 210.00,
         "stock": 50,
         "onStock": true,
-        "onSale": false,
+        "onSale": true,
         "description": "Mate de calden inclinado, producto artesanal. Medidas: 7x7cm (pueden existir diferencias de tamaño entre uno y otro mate del mismo modelo). Producto sin acabado final, en algunos casos será necesario lijarlo y/o rellenarlo con masilla para madera.",
         "category": [
             {
@@ -540,7 +540,7 @@
         "price": 247.50,
         "stock": 50,
         "onStock": true,
-        "onSale": false,
+        "onSale": true,
         "description": "Organizador rectangular de pino con 3 cavidades Multiuso. Medidas: 24x10x9cm (Largo-Ancho-Alto)",
         "category": [
             {

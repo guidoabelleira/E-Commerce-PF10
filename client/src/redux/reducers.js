@@ -14,7 +14,8 @@ const initialState = {
     userOrderProcessing: [],
     userOrderComplete: [],
     userOrderCanceled: [],
-    user: []
+    user: [],
+    reviews: {}
 }
 
 function rootReducer(state = initialState, action) {
@@ -137,6 +138,14 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 user: action.payload
             }
+
+        case 'GET_REVIEW_BY_ID': {
+            return {
+                ...state,
+                reviews: action.payload
+            }
+        }
+        
         default: {
             return state
         }

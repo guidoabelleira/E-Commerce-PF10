@@ -1,5 +1,25 @@
-const { Product, Category } = require('../db');
+const { Product, Category, User } = require('../db');
 const data = require('../../data.json')
+const admin = require('../../admin.json')
+
+const loaderAdmin = async () => {
+    try {
+        User.create({
+            name: admin.name,
+            lastname: admin.lastname,
+            email: admin.email,
+            address: admin.address,
+            userRole: admin.userRole,
+            isAdmin: admin.isAdmin,
+            password: admin.password,
+            image: admin.image,
+        })
+        console.log("Admin creado con éxito! 😁✨")
+    }
+    catch (error) {
+        console.log("Error en la carga del admin 😓😱")
+    }
+}
 
 const loaderProducts = async () => {
     try {
@@ -68,4 +88,5 @@ const loaderCategory = async () => {
     }
 }
 
-module.exports = { loaderProducts, loaderCategory }
+
+module.exports = { loaderProducts, loaderCategory, loaderAdmin }
