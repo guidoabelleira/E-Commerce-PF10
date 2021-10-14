@@ -34,7 +34,7 @@ export default function NavBarAdminProducts (){
                     </div>
 
                     <div>
-                        <Link className={style.mainBttn} to="/adminproducts/editProduct">
+                        <Link className={style.mainBttn} to="/adminproducts/PreLoadUpdateProduct">
                             <p>Editar Producto</p>
                         </Link>
                     </div>

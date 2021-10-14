@@ -1,18 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { 
-    //getProductById, 
-    getAllCategories,
-    getAllProducts,
-    putProduct
-} from '../../redux/actions';
+import { putProduct } from '../../redux/actions';
 
 import style from './UpdateProduct.module.css'
+//import Loading from '../Loading/Loading'
 
 export default function UpdateProduct () {
 
     const dispatch = useDispatch()
-    //const productId = useSelector(state => state.productById);
     const categories = useSelector(state => state.allCategories)
     const allProducts = useSelector(state => state.products)
 
@@ -80,42 +75,9 @@ export default function UpdateProduct () {
         dispatch(putProduct(sendProduct))
     }
 
-    /*
-    
-    {
-        "name": "PEPINAZO",
-        "image": "https://www.kositaspami.com.ar/uploads/kositaspami.com.ar_20210802100821845.jpg",
-        "price": 340.50,
-        "stock": 50,
-        "onStock": true,
-        "onSale": false,
-        "description": "Description pia 2!!!",
-        "category": [
-            {
-                "name": "Oyito"
-            },
-            {
-                "name": "Yerberas"
-            }
-        ]
-}
-
-    */
-    useEffect(() => {
-        try{
-            dispatch(getAllCategories())
-            dispatch(getAllProducts())
-            //dispatch(getProductById(id))
-        }
-        catch(error){
-            console.log(error)
-        }
-    }, [dispatch]);
-
     return (
 
         <div className={'Formulario'}>
-
             <label 
                 htmlFor="targetProduct"
             >
@@ -341,8 +303,6 @@ export default function UpdateProduct () {
                     Enviar Cambios
                 </button>
             </form>
-
-
         </div>
     )
 }
