@@ -44,11 +44,21 @@ export function setCartLocalStorage(state){
 export function totalCart(state){
     return async function(dispatch){
         dispatch({
-            type: "TOTAL_CART",
+            type: 'TOTAL_CART',
             payload: calculateTotalCart(state)
         })
     }
 }
+
+export function clearCart(){
+    return function(dispatch){
+        dispatch({
+            type: 'CLEAR_CART',
+            payload: []
+        })
+    }
+}
+
 // ACTIONS PRODUCTS
 export function getAllProducts() {
     return async function(dispatch) {
@@ -310,6 +320,7 @@ export function getUserOrderAll(idUser){
     return async function(dispatch){
         try {
             const orderAll = await axios.get(USER_LOAD + idUser + '/orders');
+            console.log("respuesta orderAll: ", orderAll)
             dispatch({
                 type: 'GET_USER_ORDER_ALL',
                 payload: orderAll.data

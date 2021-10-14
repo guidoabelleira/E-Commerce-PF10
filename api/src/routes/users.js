@@ -292,7 +292,7 @@ router.post("/:idUser/cart", async (req, res, next) => {
   try {
     const { idUser } = req.params;
     const {orderBody}= req.body;
-    //console.log(orderBody);
+    // console.log(orderBody);
     const order = await Order.findOrCreate({
       where: { userId: idUser, state: "Cart" },
     });
@@ -300,9 +300,9 @@ router.post("/:idUser/cart", async (req, res, next) => {
     orderBody.forEach(async obj => {
       //console.log(obj)
     //for (let i = 0; orderline.length > i; i++) {
-      var productId = obj.productId;
+      var productId = obj.id;
       //console.log(id)
-      var quantity = obj.quantity;
+      var quantity = obj.count;
       //console.log(quantity)
       var product = await Product.findByPk(productId);
       product.stock = product.stock - quantity;
@@ -554,7 +554,8 @@ router.get("/:id/orders", (req, res) => {
     .then((orders) => {
       const ordersAll = orders;
       if (ordersAll) {
-        return res.status(200).json(orders);
+        // return res.status(200).json(orders);
+        return res.send(ordersAll).status(200);
       }
       return res.status(400).send("Not Orders");
     })
