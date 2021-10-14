@@ -13,7 +13,7 @@ dotenv.config();
 require('dotenv').config()
 
 axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3001";
-// axios.defaults.baseURL = "http://localhost:3001" || "https://ecommerce-pf-10.herokuapp.com";
+//axios.defaults.baseURL =  "https://ecommerce-pf-10.herokuapp.com";
 
 // AUTH0_DOMAIN=dev-s40eclcq.us.auth0.com
 // AUTH0_CLIENT_ID=TgAyzRWUfdI2TzdahNvTSQ2xoFTHra2u
