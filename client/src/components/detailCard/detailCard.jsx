@@ -28,13 +28,13 @@ export default function DetailCard (props) {
         </Link>
         <div className={style.container}>
             <div >
-                <h2> Artículo: "{productId.name}"</h2>
+                <h2 className={style.title}> {productId.name}</h2>
                 <div >
                     <ShopCartButton />
 
                     <img className={style.img} src={productId.image} alt="Err img" width="400px" height="250px"/>
                     <p> 
-                        <b>Precio:</b> {productId.price}
+                        <b>Precio:$</b>{productId.price}
                     </p>
 
                     <p> 
@@ -52,7 +52,7 @@ export default function DetailCard (props) {
 
                         ))}
                     >
-                        <h3>Agregar al carrito de compras</h3>
+                        <h3>Comprar</h3>
                     </button> 
 
                 </div>
