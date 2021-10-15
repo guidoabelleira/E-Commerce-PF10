@@ -13,24 +13,14 @@ dotenv.config();
 require('dotenv').config()
 
 axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3001";
-//axios.defaults.baseURL =  "https://ecommerce-pf-10.herokuapp.com";
 
-// AUTH0_DOMAIN=dev-s40eclcq.us.auth0.com
-// AUTH0_CLIENT_ID=TgAyzRWUfdI2TzdahNvTSQ2xoFTHra2u
-
-  // domain="dev-816d1gr2.us.auth0.com"
-  // clientId="gscsxHy6KDgoEaQe9yFDB9rnGmMHMDi0" 
-// const {AUTH0_DOMAIN } = process.env
-// const domain = process.env.AUTH0_DOMAIN;
-// const clientId = process.env.AUTH0_CLIENT_ID;
-
-// console.log(AUTH0_DOMAIN)
-// console.log(process.env.DB_USER)
+const domain = process.env.REACT_APP_AUTH0_DOMAIN;
+const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 
 ReactDOM.render(
   <Auth0Provider
-  domain="dev-s40eclcq.us.auth0.com"
-  clientId="TgAyzRWUfdI2TzdahNvTSQ2xoFTHra2u"
+  domain={domain}
+  clientId={clientId}
   redirectUri={window.location.origin}
 >
   <Provider store={store}>

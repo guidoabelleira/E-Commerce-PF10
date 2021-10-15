@@ -42,7 +42,7 @@ function Filter() {
         <div className={style.container}>
             <p className={style.p}>Categorias: </p>
             <select className={style.selects} onChange={handleCategoryFilter}>
-                <option value={false} selected>----- </option>
+                <option defaultValue={false} selected>----- </option>
                 {
                     categories.map(el => {
                         return (
@@ -53,7 +53,7 @@ function Filter() {
             </select>
             <span className={style.p}> Filtrar por: </span>
             <select className={style.selects} onChange={handleSortChange}>
-                <option value={false} selected>---</option>
+                <option key={0} value={false} selected>---</option>
                 <option key={1} value="price">Precio</option>
                 <option key={2} value="name">Nombre</option>
             </select>
