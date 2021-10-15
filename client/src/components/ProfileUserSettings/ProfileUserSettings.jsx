@@ -71,11 +71,6 @@ export default function ProfileUserSettings (idUser){
         <div className={style.container}>
             <h2>Settings User</h2>
             <div className={style.container}>
-                <p>Seccion newsletter</p>
-                <button onClick={e => changeSuscribeNewsLetter(true, id)}><p>Suscribirme</p></button>
-                <button onClick={e => changeSuscribeNewsLetter(false, id)}><p>No recibir</p></button>
-            </div>
-            <div className={style.container}>
                 <h2>Direccion de envio</h2>
                 <form onSubmit={handleSubmit}>
                     <p>
@@ -194,13 +189,18 @@ export default function ProfileUserSettings (idUser){
                             <option value='admin'>admin</option>
                         </select>
                     </p>  */}
-                    <button type='submit'><p>Cambiar!</p></button>
+                    <button className={style.bttn} type='submit'><p>Cambiar!</p></button>
                     <p>
                         <span> * </span>
                         los campos son obligatorios.
                     </p>
                 </form>
         </div>
+        <div className={style.container}>
+                <h3>Seccion newsletter</h3>
+                <button className={style.bttn} onClick={e => changeSuscribeNewsLetter(true, id)}><p>Suscribirme</p></button>
+                <button className={style.bttn} onClick={e => changeSuscribeNewsLetter(false, id)}><p>No recibir</p></button>
+            </div>
         </div>
         
     )
