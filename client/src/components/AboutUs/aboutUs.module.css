@@ -1,3 +1,11 @@
 .container {
-    margin: 50vh
+    margin: 5vh;
+    /* float:inline-end; */
+    margin-left:20%;
+    /* margin:auto; */
+    height: auto;
+    background-color:#0E6655 ;
+    border-radius: 10px;
+    padding-top: 20px;
+    padding:10px
 }
