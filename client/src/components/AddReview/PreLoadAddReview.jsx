@@ -26,12 +26,10 @@ export default function PreLoadAddReview (){
 
 
     return (
-        <div
-            className={sytle.FormStyle}
-        >
+        <div >
             {
                 <Link 
-                    to='/adminproducts/editProduct'
+                    to='/adminproducts/addReview'
                 >
                     <button 
                         disabled={loading}
