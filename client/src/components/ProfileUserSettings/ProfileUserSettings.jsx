@@ -76,7 +76,7 @@ export default function ProfileUserSettings (idUser){
                 <button onClick={e => changeSuscribeNewsLetter(false, id)}><p>No recibir</p></button>
             </div>
             <div className={style.container}>
-                <h2>poder editar y ver mi direccion de envio</h2>
+                <h2>Direccion de envio</h2>
                 <form onSubmit={handleSubmit}>
                     <p>
                         <label>
