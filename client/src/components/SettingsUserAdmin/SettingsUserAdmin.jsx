@@ -78,7 +78,7 @@ export default function SettingsUserAdmin (){
                             Privilegios
                             <span>*</span>
                         </label>
-                        <select value={input.isAdmin} onChange={handleSelectChange}> 
+                        <select defaultValue={input.isAdmin} onChange={handleSelectChange}> 
                             <option value='null' selected>----</option>
                             <option value='user'>user</option>
                             <option value='admin'>admin</option>

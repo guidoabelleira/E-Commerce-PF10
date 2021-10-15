@@ -5,7 +5,7 @@ import LogoutButton from '../LoginButton/LoginButton';
 import style from './checkOut.module.css';
 // import Loading from "../Loading/Loading";
 import axios from "axios";
-import { USER_LOAD } from "../../constantes";
+import { POST_MERCADOPAGO, USER_LOAD } from "../../constantes";
 import { clearCart, totalCart } from "../../redux/actions";
 
 export default function CheckOut (){
@@ -49,11 +49,14 @@ export default function CheckOut (){
 
             let check = {state:'Processing', totalPrice: totalCheckOut}
             let orderLine = await axios.put('/orders/checkout/' + id, check);
-            alert(orderLine.data)
-            
+            alert(orderLine.data);
+
+            let cartMercadoPago = products.orderBody;
+            let mercadoPagoRes = await axios.post(POST_MERCADOPAGO , cartMercadoPago)
+            alert("Mercadopago: ", mercadoPagoRes)
             localStorage.removeItem('shopCart')
             dispatch(clearCart());
-            dispatch(totalCart(0))
+            dispatch(totalCart(0));
             
 
         } else {
