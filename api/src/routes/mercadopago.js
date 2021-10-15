@@ -21,8 +21,8 @@ router.post("/", (req, res, next) => {
   const addPreference = products.forEach((el) => {
     preference.items.push({
       title: el.name,
-      unit_price: el.price,
-      quantity: el.quantity
+      unit_price: parseInt(el.price),
+      quantity: parseInt(el.count)
     })
   })
 
