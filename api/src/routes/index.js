@@ -18,6 +18,7 @@ const ordersRoute = require('./orders');
 const sendEmailRoute = require("./sendEmail");
 const authRoute = require("./auth")
 const mercadoPago = require("./mercadopago")
+const wishlist = require("./wishlist")
 
 router.use('/products', productsRoute);
 router.use('/categories', categoriesRoute );
@@ -27,6 +28,7 @@ router.use('/orders', ordersRoute );
 router.use("/sendEmail", sendEmailRoute);
 router.use("/auth", authRoute);
 router.use("/mercadopago", mercadoPago);
+router.use("/wishlist", wishlist);
 
 module.exports = router;
 
