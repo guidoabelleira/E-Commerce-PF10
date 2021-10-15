@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { Product, Categories, Review, User, Order, Orderline} = require("../db.js");
 const nodemailer = require("nodemailer");
 const hbs = require("nodemailer-express-handlebars");
-
+const {USER_MAIL, USER_PASS} = process.env;
 
 //Primer paso es tener al usuario creado!
 router.post("/", (req, res) => {
@@ -12,8 +12,8 @@ router.post("/", (req, res) => {
     secure: true, //true for 465, false for other ports */
     service: "gmail",
     auth: {
-      user: "ecommercepf10@gmail.com", //ecommercepf10@gmail.com
-      pass: "gzepkcvrxwaelkal", //OJO ESTOS DATOS DEBEN IR EN .ENV COMO DATOS OCULTOS PORQUE SON SENSIBLES
+      user: USER_MAIL, //
+      pass: USER_PASS, //OJO ESTOS DATOS DEBEN IR EN .ENV COMO DATOS OCULTOS PORQUE SON SENSIBLES
     },
   });
 
@@ -22,7 +22,7 @@ router.post("/", (req, res) => {
 
   if (emailType === "welcome") {
     mailOptions = {
-      from: "ecommercepf10@gmail.com",
+      from: USER_MAIL,
       to: req.body.user.email,
       subject: "Bienvenid@",
       html:
@@ -38,11 +38,16 @@ router.post("/", (req, res) => {
         req.body.user.name +
         `  ` +
         req.body.user.lastname +
-        `  !`,
+        `  !
+        <hr>
+        <p>
+        Gracias por confiar en nosotr@s!</p>
+        <hr>
+        <small>En caso de cualquier inquietud, por favor contáctenos en: ecommercepf10@gmail.com</small>`,
     };
   } else if (emailType === "forgotPassword") {
     mailOptions = {
-      from: "ecommercepf10@gmail.com",
+      from: USER_MAIL,
       to: req.body.user.email,
       subject: "Link para restaurar contraseña",
       html:
@@ -63,36 +68,64 @@ router.post("/", (req, res) => {
         `http://localhost:3000/users/forgotPassword/?` +
         req.body.user.emailHashed +
         ` ` +
-        `No compartir este link`,
+        `No compartir este link
+        <hr>
+        <p>
+        Gracias por confiar en nosotr@s!</p>
+        <hr>
+        <small>En caso de cualquier inquietud, por favor contáctenos en: ecommercepf10@gmail.com</small>`,
     };
   } else if (emailType === "sendPurchase") {
     const { user, info } = req.body;
     mailOptions = {
-      from: "ecommercepf10@gmail.com",
+      from: USER_MAIL,
       to: user.email,
       subject: "Detalle de compra",
       html: `<div id="container" style="width: 100%; font-family: sans-serif; font-weight: normal;">
-                <div style="width: 100%; max-width: 700px; margin: auto;">
-                    <div style="background-color: #0E6655; text-align: center; padding: 0.7rem 0;">
-                        <h1 style="color: white; font-family: sans-serif; font-weight: normal;">Henry Shop</h1>
-                     </div>
-            
-          <div style="text-align: center; padding: 0 0.72rem; padding-top: 2.5rem; background-color:white">
-          <p style="color: #4f5154; margin-bottom: 1.4rem; font-size: 1rem;">&iexcl;
-                                    Hi ${user.name}  ${user.lastname}  !
-             <h3>Tu compra: </h3>
-             Order N° ${info.orderId}
-             <hr>
+      <div style="width: 100%; max-width: 700px; margin: auto;">
+      <div style="background-color: #0E6655; text-align: center; padding: 0.7rem 0;">
+      <h1 style="color: white; font-family: sans-serif; font-weight: normal;">Henry Shop</h1>
+      </div>
+      
+      <div style="text-align: center; padding: 0 0.72rem; padding-top: 2.5rem; background-color:white">
+      <p style="color: #4f5154; margin-bottom: 1.4rem; font-size: 1rem;">&iexcl;
+      Hi ${user.name}  ${user.lastname}  !
+      <h3>Tu compra: </h3>
+      Order N° ${info.orderId}
+      <hr>
              
-                <h3>Precio total: ${info.totalPrice}</h3>
-                <hr>
-                <p> Si deseas ver los detalles de tu orden, por favor regrese a nuestra página!! </p>
-             <p>
-             Gracias por tu compra!!</p>
-             <hr>
-             <small>En caso de cualquier inconveniente favor contáctenos en : ecommercepf10@gmail.com</small>
-             `,
+      <h3>Precio total: ${info.totalPrice}</h3>
+      <hr>
+      <p> Si deseas ver los detalles de tu orden, por favor regrese a nuestra página!! </p>
+      <p>
+      Gracias por tu compra!!</p>
+      <hr>
+      <small>En caso de cualquier inquietud, por favor contáctenos en: ecommercepf10@gmail.com</small>
+      `,
     };
+  } else if(emailType === "newsletter"){
+    const {user, info} = req.body;
+    mailOptions = {
+      from: USER_MAIL,
+      to: user.email,
+      subject: info.title,
+      html: `<div id="container" style="width: 100%; font-family: sans-serif; font-weight: normal;">
+      <div style="width: 100%; max-width: 700px; margin: auto;">
+      <div style="background-color: #0E6655; text-align: center; padding: 0.7rem 0;">
+      <h1 style="color: white; font-family: sans-serif; font-weight: normal;">Henry Shop</h1>
+      </div>
+      
+      <div style="text-align: center; padding: 0 0.72rem; padding-top: 2.5rem; background-color:white">
+      <p style="color: #4f5154; margin-bottom: 1.4rem; font-size: 1rem;">&iexcl;
+      Hi ${user.name}  ${user.lastname}  !
+      <h3>Estas son las nuevas noticias: </h3>
+      ${info.body}
+      <hr>
+      <p>
+      Gracias por suscribirte!</p>
+      <hr>
+      <small>En caso de cualquier inquietud, por favor contáctenos en: ecommercepf10@gmail.com</small>`
+    }
   }
 
   transporter.sendMail(mailOptions, (err, data) => {

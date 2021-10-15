@@ -7,3 +7,4 @@ export const CATEGORIES_FILTER_URL = PRODUCTS_URL + 'category/';
 export const ORDERS_URL = BASE_URL + 'orders/';
 export const REVIEWS_URL = BASE_URL + 'reviews/';
 export const REVIEWS_URL_GET = REVIEWS_URL + 'product/'; 
+export const POST_MERCADOPAGO = BASE_URL + 'mercadopago/'

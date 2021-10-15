@@ -4,16 +4,20 @@
     align-items:center;
     justify-content:center;
     flex-direction: column;
+    text-align: center;
 }
 .paginationContainer{
     display:flex;
     flex-direction:row;
     margin-top:25%;
+    align-items:center;
+    justify-content:center;
 }
 
 .paginationContainer li{
    margin-left:8%;
    text-decoration: none;
+   
 }
 
 .searchbar {
@@ -42,4 +46,16 @@
     position: absolute;
     top: 130px;
     right:10px;
+}
+
+.activePagination {
+  color: #0E6655;
+}
+
+@media (max-width: 700px) { 
+    .container{
+        margin-left: 0vw;
+    }
+
+
 }
