@@ -1,3 +1,64 @@
-.container {
-    margin: 50vh
+.container{
+    display: flex;
+    height:100%;
+    width:100%;
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.margin{
+    margin-left:16vw;
+}
+.cards{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2%;
+
+    
+}
+
+.h3Primario{
+    margin-top: 1%;
+   
+    margin-bottom: 3%;
+    font-family: Saira;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 121.4%;
+    color:#0E6655;
+}
+
+.h3Secundario{
+    margin-top: 3%;
+    margin-bottom: 1.5%;
+    font-family: Saira;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 121.4%;
+    color:#0E6655;
+}
+
+.h3Terceario{
+    margin-top: 1.5%;
+    margin-bottom: 1.5%;
+    font-family: Saira;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 121.4%;
+    color:#0E6655;
+}
+
+.seeAll{
+    display: flex;
+    flex-direction: row;
+   
+}
+
+.render{
+    margin-left: -5%;
 }

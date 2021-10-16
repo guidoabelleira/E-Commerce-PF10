@@ -46,7 +46,7 @@ export default function CheckOut (){
             let pushProduct = await axios.post(USER_LOAD + id + '/cart', products);
             console.log("respuesta envio de carrito: ", pushProduct.data);
             alert(pushProduct.data);
-            let idCart = 2;
+            let idCart = 4;
             let getCart = await axios.get(USER_LOAD + idCart + '/cart');
             console.log("respuesta get carrito: ", getCart.data)
 

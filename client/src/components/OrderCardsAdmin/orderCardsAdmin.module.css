@@ -1,0 +1,19 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    margin-left: 5%;
+}
+
+.parent{
+    display: flex;
+    flex-direction: row;
+    
+}
+.cards{
+    margin-left: 3%;
+}
+
+.principal{
+    display: flex;
+    flex-direction: column;
+}
