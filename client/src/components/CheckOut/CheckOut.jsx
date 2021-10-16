@@ -40,20 +40,25 @@ export default function CheckOut (){
         console.log("aca id checkout: ",id)
         if(id){
             // destructuro el estado
-            // let created = await axios.post(USER_LOAD + id + '/carrito');
-            // console.log("respuesta creacion carrito: ", created.data);
+            let created = await axios.post(USER_LOAD + id + '/carrito');
+            console.log("respuesta creacion carrito: ", created.data);
             
-            // let pushProduct = await axios.post(USER_LOAD + id + '/cart', products);
-            // console.log("respuesta envio de carrito: ", pushProduct.data);
-            // alert(pushProduct.data);
+            let pushProduct = await axios.post(USER_LOAD + id + '/cart', products);
+            console.log("respuesta envio de carrito: ", pushProduct.data);
+            alert(pushProduct.data);
+            let idCart = 2;
+            let getCart = await axios.get(USER_LOAD + idCart + '/cart');
+            console.log("respuesta get carrito: ", getCart.data)
 
-            // let check = {state:'Processing', totalPrice: totalCheckOut}
-            // let orderLine = await axios.put('/orders/checkout/' + id, check);
-            // alert(orderLine.data);
+            
+            let check = {state:'Processing', totalPrice: totalCheckOut}
+            let orderLine = await axios.put('/orders/checkout/' + idCart, check);
+            alert(orderLine.data);
 
             let cartMercadoPago = products.orderBody;
             let mercadoPagoRes = await axios.post(POST_MERCADOPAGO , cartMercadoPago)
-            console.log("Mercadopago: ", mercadoPagoRes)
+            // console.log("Mercadopago: ", mercadoPagoRes.data)
+            window.open(mercadoPagoRes.data, '_blank')
             localStorage.removeItem('shopCart')
             dispatch(clearCart());
             dispatch(totalCart(0));

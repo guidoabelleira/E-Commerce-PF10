@@ -318,6 +318,48 @@ export function getCategoryToDelete(category) {
 //         }
 //     }
 // }
+export function getAdminOrdersProcessing(){
+    return async function(dispatch){
+        try {
+            const orderProcessing = await axios.get(USER_LOAD + '/orders?state=Processing');
+            dispatch({
+                type: 'GET_ALL_ORDER_PROCESSING',
+                payload: orderProcessing.data
+            })
+        } catch (error){
+            console.log(error)
+            alert("no encontrado")
+        }
+    }
+}
+export function getAdminOrdersComplete(){
+    return async function(dispatch){
+        try {
+            const orderCompleted = await axios.get(USER_LOAD + '/orders?state=Completed');
+            dispatch({
+                type: 'GET_ALL_ORDER_COMPLETE',
+                payload: orderCompleted.data
+            })
+        } catch (error){
+            console.log(error)
+            alert("no encontrado")
+        }
+    }
+}
+export function getAdminOrdersCanceled(){
+    return async function(dispatch){
+        try {
+            const orderCanceled = await axios.get(USER_LOAD + '/orders?state=Canceled');
+            dispatch({
+                type: 'GET_ALL_ORDER_CANCELED',
+                payload: orderCanceled.data
+            })
+        } catch (error){
+            console.log(error)
+            alert("no encontrado")
+        }
+    }
+}
 
 export function getUserOrderAll(idUser){
     return async function(dispatch){
