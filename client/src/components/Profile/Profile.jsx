@@ -22,13 +22,14 @@ export default function Profile(){
     try {
         if(isAuthenticated){
             return(
+                <div className={style.mainContainer}>
             <div className={style.container}>
                 <img src={user.picture} alt={user.name}/>
                 <div className={style.text}>
                     <h3> {user.name}</h3>
                     <p>Name: {user.given_name}</p>
                     <p>Last Name: {user.family_name}</p>
-                    <p>email: {user.email}</p>
+                    <p>Email: {user.email}</p>
                     {stateUser.isAdmin === true ? (
                         <p>Usuario: Admin</p>
                     ):(<p></p>)}
@@ -36,14 +37,22 @@ export default function Profile(){
                 <div className={style.login}>
                     <LogoutButton/>
                 </div>
-                <div>
+                </div>
+                <div className={style.secondContainer}>
+                 
+                <div className={style.settings}>
+                
+                    <ProfileUserSettings props={idLocal}/>
+                  
+                </div>
+               
+                </div>
+                <div className={style.thirdContainer}>
+                <div className={style.settings}>
+                    <h2>Admin</h2>
                     <SettingsUserAdmin/>
                 </div>
-                <div>
-                    <p>settings user</p>
-                    <ProfileUserSettings props={idLocal}/>
-                    <p></p>
-                </div>
+                    </div>
             </div> )
         } else {
             return(  

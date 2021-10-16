@@ -57,7 +57,7 @@ export default function SettingsUserAdmin (){
 
     return(
         <div className={style.container}>
-            <h2>Aca podras editar los usuarios</h2>
+            <h2>Editar Usuarios</h2>
             <form onSubmit={handleSubmit}>
                     <p>
                         <label>
