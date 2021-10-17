@@ -40,20 +40,23 @@ export default function CheckOut (){
         console.log("aca id checkout: ",id)
         if(id){
             // destructuro el estado
-            let created = await axios.post(USER_LOAD + id + '/carrito');
-            console.log("respuesta creacion carrito: ", created.data);
+            // let created = await axios.post(USER_LOAD + id + '/carrito');
+            // console.log("respuesta creacion carrito: ", created.data[0]);
             
             let pushProduct = await axios.post(USER_LOAD + id + '/cart', products);
-            console.log("respuesta envio de carrito: ", pushProduct.data);
-            alert(pushProduct.data);
-            let idCart = 4;
-            let getCart = await axios.get(USER_LOAD + idCart + '/cart');
-            console.log("respuesta get carrito: ", getCart.data)
+            // console.log("respuesta envio de carrito: ", pushProduct.data);
+            // alert(pushProduct.data);
+            
+            let idCart = pushProduct.data[0];
+            // console.log("idCart: ", idCart.id);
+
+            await axios.get(USER_LOAD + idCart.id + '/cart');
+            // console.log("respuesta get carrito: ", getCart.data)
 
             
             let check = {state:'Processing', totalPrice: totalCheckOut}
-            let orderLine = await axios.put('/orders/checkout/' + idCart, check);
-            alert(orderLine.data);
+            await axios.put('/orders/checkout/' + idCart.id, check);
+            // alert(orderLine.data);
 
             let cartMercadoPago = products.orderBody;
             let mercadoPagoRes = await axios.post(POST_MERCADOPAGO , cartMercadoPago)
