@@ -75,3 +75,7 @@
     height: 200px;
     width: 550px;
 }
+
+.warning {
+    color: red
+}

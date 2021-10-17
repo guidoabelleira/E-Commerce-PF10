@@ -328,7 +328,7 @@ export function getAdminOrdersProcessing(){
             })
         } catch (error){
             console.log(error)
-            alert("no encontrado")
+            
         }
     }
 }
@@ -342,7 +342,7 @@ export function getAdminOrdersComplete(){
             })
         } catch (error){
             console.log(error)
-            alert("no encontrado")
+            
         }
     }
 }
@@ -356,7 +356,7 @@ export function getAdminOrdersCanceled(){
             })
         } catch (error){
             console.log(error)
-            alert("no encontrado")
+            
         }
     }
 }
@@ -372,7 +372,7 @@ export function getUserOrderAll(idUser){
             })
         } catch (error){
             console.log(error)
-            alert("no encontrado")
+            
         }
     }
 }
@@ -387,7 +387,7 @@ export function getUserOrderProcessing(idUser){
             })
         } catch (error){
             console.log(error)
-            alert("no encontrado")
+            
         }
     }
 }
@@ -401,7 +401,7 @@ export function getUserOrderCompleted(idUser){
             })
         } catch (error){
             console.log(error)
-            alert("no encontrado")
+            
         }
     }
 }
@@ -415,7 +415,7 @@ export function getUserOrderCanceled(idUser){
             })
         } catch (error){
             console.log(error)
-            alert("no encontrado")
+            
         }
     }
 }

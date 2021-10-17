@@ -24,6 +24,7 @@ export default function HomePage() {
     const user = useSelector(state => state.user[0]);
     const lasted = useSelector(state => state.productsLastests);
     const sales = useSelector(state => state.productsSales);
+    const id = localStorage.getItem('idUser')
     // const popular = useSelector(state => state.productsLastests);
     
     // function checkAddress(user){
@@ -39,13 +40,13 @@ export default function HomePage() {
     console.log("user en home: ", user)
     useEffect(() => {
         async function getters(){
-            await dispatch(getUser())
+            await dispatch(getUser(id))
             await dispatch(getLastestsProducts());
             await dispatch(getSalesProducts());
             // await dispatch(getPopularsProducts()); Falta back
         }
         getters();
-    },[dispatch]);
+    },[dispatch, id]);
     
 
     // function handleClick(e){ //esto resetea y trae todos los productos de nuevo
@@ -59,7 +60,9 @@ export default function HomePage() {
 
             <div className={style.searchbar}>
                 {/* <button className={style.rechargeBtn} onClick={e=>{handleClick(e)}}>Recargar Productos</button> */}
-                <ShowAdress/>
+                {user?.address ? (<ShowAdress state={user.address}/>
+                ) : (
+                    <></>)}
                 <SearchBar /> 
                 <ShopCartButton/>
                 <ProfileButton/>
