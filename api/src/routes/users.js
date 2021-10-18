@@ -318,7 +318,7 @@ router.post("/:idUser/cart", async (req, res, next) => {
           //console.log('OrderLine:',orderLine);
     }) 
     
-    return res.status(200).send('order creada con exito');
+    return res.status(200).send(order);
   } catch (error) {
     next(error);
     //return res.status(400).send({ data: error });
@@ -540,6 +540,51 @@ router.delete("/:idUser/cart", async (req, res) => {
   }
 });
 
+
+// Obtener todas las ordenes de un usuario
+router.get("/orders/id", (req, res) => {  // ..users/orders?id=....o ..users/orders?state=....
+  const userId = req.query.id;
+  /* const state=req.query.state; */
+  
+  Order.findAll({
+    where: {
+      userId: userId,
+      /* state: state, */ 
+    },
+  })
+    .then((orders) => {
+      const ordersAll = orders;
+      if (ordersAll) {
+        return res.status(200).json(orders);
+      }
+      return res.status(400).send("Not Orders");
+    })
+    .catch((err) => {
+      return res.send({ data: err }).status(400);
+    });
+});
+
+
+// Obtener todas las ordenes de con el state...'Cart', 'Created', 'Processing', 'Canceled', 'Complete'
+router.get("/orders/state", (req, res) => {  // ..users/orders?state=....
+  const state=req.query.state;
+  
+  Order.findAll({
+    where: {
+      state: state, 
+    },
+  })
+    .then((orders) => {
+      const ordersAll = orders;
+      if (ordersAll) {
+        return res.status(200).json(orders);
+      }
+      return res.status(400).send("Not Orders");
+    })
+    .catch((err) => {
+      return res.send({ data: err }).status(400);
+    });
+});
 
 // Obtener todas las ordenes de un usuario
 router.get("/:id/orders", (req, res) => {

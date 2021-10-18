@@ -64,16 +64,30 @@ const alertStock = async (num) => {
       },
     },
   });
-  const showStock = await alert.map((e) => e.stock < num ? e : null);
-  return showStock.filter((e) => e != null).sort((a, b) => {
-    if (a.stock > b.stock) {
-      return 1;
-    }
-    if (a.stock < b.stock) {
-      return -1;
-    }
-    return 0;
-  });
+  if (num) {
+    const showStock = await alert.filter((e) => e.stock < num);
+    return showStock.sort((a, b) => {
+      if (a.stock > b.stock) {
+        return 1;
+      }
+      if (a.stock < b.stock) {
+        return -1;
+      }
+      return 0;
+    });
+  }
+  else {
+    const showStock = await alert.filter((e) => e.stock < 10);
+    return showStock.sort((a, b) => {
+      if (a.stock > b.stock) {
+        return 1;
+      }
+      if (a.stock < b.stock) {
+        return -1;
+      }
+      return 0;
+    });
+  }
 };
 
 const getPopulars = async () => {
