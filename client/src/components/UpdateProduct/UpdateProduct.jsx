@@ -1,15 +1,15 @@
 import React, { useState, } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { putProduct } from '../../redux/actions';
+import { useDispatch, } from 'react-redux'; //useSelector
+import { putProduct, } from '../../redux/actions';
 
 import style from './UpdateProduct.module.css'
 //import Loading from '../Loading/Loading'
 
-export default function UpdateProduct () {
+export default function UpdateProduct (props) {
 
     const dispatch = useDispatch()
-    const categories = useSelector(state => state.allCategories)
-    const allProducts = useSelector(state => state.products)
+    const categories = props.props.categories //useSelector(state => state.allCategories)
+    const allProducts = props.props.allProducts //useSelector(state => state.products)
 
     //console.log(allProducts[1].name)
 
@@ -94,7 +94,7 @@ export default function UpdateProduct () {
                         <option
                             key={product.id.toString()}
                             name={product.name}
-                            value={product.id}
+                            value={product.id -1}
                         >
                             {product.name}
                         </option>)
