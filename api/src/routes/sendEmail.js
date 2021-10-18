@@ -5,7 +5,7 @@ const hbs = require("nodemailer-express-handlebars");
 const {USER_MAIL, USER_PASS} = process.env;
 
 //Primer paso es tener al usuario creado!
-router.post("/", (req, res) => {
+router.post("/:emailType", (req, res) => {
   let transporter = nodemailer.createTransport({
 /*     host: "smtp.gmail.com",         //Descomentar si no funciona como está
     port: 465,
@@ -152,6 +152,33 @@ router.post("/", (req, res) => {
       Gracias por suscribirte!</p>
       <hr>
       <small>En caso de cualquier inquietud, por favor contactanos en: ecommercepf10@gmail.com</small>`
+    }
+  } else if(emailType === "contactUs"){
+    const {user} = req.body;
+    mailOptions = {
+      from: user.email,
+      to: USER_MAIL,
+      subject: user.affair,
+      html: `<div id="container" style="width: 100%; font-family: sans-serif; font-weight: normal;">
+      <div style="width: 100%; max-width: 700px; margin: auto;">
+      <div style="background-color: #0E6655; text-align: center; padding: 0.7rem 0;">
+      <h1 style="color: white; font-family: sans-serif; font-weight: normal;">Mates-Mati</h1>
+      </div>
+      
+      <div style="text-align: center; padding: 0 0.72rem; padding-top: 2.5rem; background-color:white">
+      <p style="color: #4f5154; margin-bottom: 1.4rem; font-size: 1rem;">&iexcl;
+      Hola, soy ${user.name}  
+      <h3>Y esta es mi inquietud: </h3>
+      ${user.message}
+      <hr>
+      <p>
+      Mis datos de usuario son:
+      <ul>
+      <li>Email: ${user.email}</li>
+      <li>Teléfono: ${user.telephone}</li>
+      </ul></p>
+      <hr>
+      <small>REVISAR PERIÓDICAMENTE LA BANDEJA DE ENTRADA! RESPONDER A CADA USUARIO A LA BREVEDAD.</small>`
     }
   }
 

@@ -99,9 +99,9 @@ router.delete("/:id", /* auth, isAdmin, */ (req, res) => {
     .catch((err) => res.send({ data: err }).status(400));
 });
 // get a ordenes por estado, utilizar en admin para ver ordenes
-router.post("/:state", async (req, res) => {
+router.get("/find/state", async (req, res) => {   //example: http://localhost:3001/orders/find/state?state=Complete
   try {
-    const { state } = req.params;
+    const state=req.query.state;
     const orders = await Order.findAll({
       where: {
         state: state,
@@ -112,7 +112,7 @@ router.post("/:state", async (req, res) => {
         },
       ],
     });
-    if (orders) res.send(orders);
+    if (orders) return res.json(orders);
   } catch (err) {
     return res.send({ data: err }).status(400);
   }

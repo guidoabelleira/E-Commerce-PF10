@@ -41,19 +41,27 @@ export default function CheckOut (){
         if(id){
             // destructuro el estado
             // let created = await axios.post(USER_LOAD + id + '/carrito');
-            // console.log("respuesta creacion carrito: ", created.data);
+            // console.log("respuesta creacion carrito: ", created.data[0]);
             
             let pushProduct = await axios.post(USER_LOAD + id + '/cart', products);
-            console.log("respuesta envio de carrito: ", pushProduct.data);
-            alert(pushProduct.data);
+            // console.log("respuesta envio de carrito: ", pushProduct.data);
+            // alert(pushProduct.data);
+            
+            let idCart = pushProduct.data[0];
+            // console.log("idCart: ", idCart.id);
 
+            await axios.get(USER_LOAD + idCart.id + '/cart');
+            // console.log("respuesta get carrito: ", getCart.data)
+
+            
             let check = {state:'Processing', totalPrice: totalCheckOut}
-            let orderLine = await axios.put('/orders/checkout/' + id, check);
-            alert(orderLine.data);
+            await axios.put('/orders/checkout/' + idCart.id, check);
+            // alert(orderLine.data);
 
             let cartMercadoPago = products.orderBody;
             let mercadoPagoRes = await axios.post(POST_MERCADOPAGO , cartMercadoPago)
-            alert("Mercadopago: ", mercadoPagoRes)
+            // console.log("Mercadopago: ", mercadoPagoRes.data)
+            window.open(mercadoPagoRes.data, '_blank')
             localStorage.removeItem('shopCart')
             dispatch(clearCart());
             dispatch(totalCart(0));

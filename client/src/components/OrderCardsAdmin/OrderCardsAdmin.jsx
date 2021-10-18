@@ -1,10 +1,10 @@
-import OrderCard from '../OrderCard/OrderCard';
+import OrderCardAdmin from '../OrderCardAdmin/OrderCardAdmin';
 import OrderSetState from '../OrderSetState/OrderSetState';
 
 
-import style from './orderCards.module.css';
+import style from './orderCardsAdmin.module.css';
 
-export default function OrderCards ({state}){
+export default function OrderCardsAdmin ({state}){
     
     console.log("state OrdCards: ", state);
     
@@ -16,7 +16,7 @@ export default function OrderCards ({state}){
                 {state.map((e, i) => {
                     return (
                         <div className={style.cards} key={i}>
-                            <OrderCard id={e.id} totalPrice={e.totalPrice} createdAt={e.createdAt} index={i}/>
+                            <OrderCardAdmin id={e.id} totalPrice={e.totalPrice} createdAt={e.createdAt} index={i}/>
                             <OrderSetState id={e.id}/>
                         </div>
                     )

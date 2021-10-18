@@ -58,7 +58,7 @@ export default function NavBar() {
             <div className={style.mainBttn}>
                 <Link className={style.mainBttn} to="/about">
                     <i><FontAwesomeIcon icon={faBookmark}/></i>
-                    <p>Sobre <br/>Nosotros</p>
+                    <p>Sobre Nosotros</p>
                 </Link>
             </div>
             </div>

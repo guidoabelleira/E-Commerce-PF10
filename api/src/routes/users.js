@@ -23,7 +23,7 @@ router.get("/", (req, res, next) => {
 
 // Agregar un usuario
  router.post("/", (req, res) => {
-   const { name, lastname, email, address, userRole, isAdmin, password, image  } = req.body;
+   const { name, lastname, email, address, userRole, isAdmin, password, image, newsletter  } = req.body;
 
    User.findOne({
      where: {
@@ -41,6 +41,7 @@ router.get("/", (req, res, next) => {
            isAdmin: isAdmin,  
            password: password,        
            image: image,
+           newsletter: newsletter
          }).then(user => res.send(user))
        }
        else     return res.send(user).status(100);
@@ -198,7 +199,7 @@ try {
 //Modificar usuarios
 router.put("/:id", /* auth, isAdmin, */ (req, res) => {
   const { id } = req.params;
-  const {name, lastname, email, address, userRole, isAdmin, password, image } = req.body; /* <--- THE ELEMENT OF THE BODY WE ARE GOING TO USE FOR THE UPDATE */
+  const {name, lastname, email, address, userRole, isAdmin, password, image, newsletter } = req.body; /* <--- THE ELEMENT OF THE BODY WE ARE GOING TO USE FOR THE UPDATE */
   User.update(
     {
       name: name,
@@ -209,6 +210,7 @@ router.put("/:id", /* auth, isAdmin, */ (req, res) => {
       userRole: userRole,
       isAdmin: isAdmin,
       image: image,
+      newsletter: newsletter
     },
     { where: { id: id } }
   )

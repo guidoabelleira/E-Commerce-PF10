@@ -10,6 +10,9 @@ const initialState = {
     totalCart: 0,
     allCategories: [],
     allOrders: [],
+    allOrdersProcessing: [],
+    allOrdersComplete: [],
+    allOrdersCanceled: [],
     userOrderAll: [],
     userOrderProcessing: [],
     userOrderComplete: [],
@@ -117,6 +120,22 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 categories: action.payload
+            }
+        // ACTIONS ORDERS
+        case 'GET_ALL_ORDER_PROCESSING':
+            return {
+                ...state,
+                allOrdersProcessing: action.payload
+            }
+        case 'GET_ALL_ORDER_COMPLETE':
+            return {
+                ...state,
+                userOrderComplete: action.payload
+            }
+        case 'GET_ALL_ORDER_CANCELED':
+            return {
+                ...state,
+                userOrderCanceled: action.payload
             }
         case 'GET_USER_ORDER_ALL':
             return {
