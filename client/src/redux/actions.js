@@ -208,10 +208,10 @@ function sort(jsonFinal, json, orden, option) {
         } else if(option.asc === "desc") {
             json = json.sort(function(a,b){
                 if(parseInt(a.price) > parseInt(b.price)) {
-                    return 1
+                    return -1
                 }
                 if(parseInt(b.price) > parseInt(a.price)) {
-                    return -1
+                    return 1
                 }
                 return 0
             })
