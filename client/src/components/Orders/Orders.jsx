@@ -13,7 +13,7 @@ export default function Orders (){
 
     const state = useSelector(state => state.user[0])
     const verificationAdmin = state?.isAdmin;
-    // console.log("verification admin order: ", verificationAdmin)
+    console.log("verification admin order: ", verificationAdmin)
     const allProcessing = useSelector(state => state.allOrdersProcessing);
     const allCompleted = useSelector(state => state.allOrdersComplete);
     const allCanceled = useSelector(state => state.allOrdersCanceled);

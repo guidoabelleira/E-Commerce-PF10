@@ -1,4 +1,5 @@
 import OrderCardAdmin from '../OrderCardAdmin/OrderCardAdmin';
+import OrderSetState from '../OrderSetState/OrderSetState';
 
 
 import style from './orderCardsAdmin.module.css';
@@ -16,6 +17,7 @@ export default function OrderCardsAdmin ({state}){
                     return (
                         <div className={style.cards} key={i}>
                             <OrderCardAdmin id={e.id} totalPrice={e.totalPrice} createdAt={e.createdAt} index={i}/>
+                            <OrderSetState id={e.id}/>
                         </div>
                     )
                 }

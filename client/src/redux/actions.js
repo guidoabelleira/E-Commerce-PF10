@@ -321,7 +321,8 @@ export function getCategoryToDelete(category) {
 export function getAdminOrdersProcessing(){
     return async function(dispatch){
         try {
-            const orderProcessing = await axios.get(USER_LOAD + '/orders?state=Processing');
+            let state = 'Processing';
+            const orderProcessing = await axios.get('/orders', state);
             dispatch({
                 type: 'GET_ALL_ORDER_PROCESSING',
                 payload: orderProcessing.data
@@ -335,7 +336,8 @@ export function getAdminOrdersProcessing(){
 export function getAdminOrdersComplete(){
     return async function(dispatch){
         try {
-            const orderCompleted = await axios.get(USER_LOAD + '/orders?state=Completed');
+            let state = 'Complete';
+            const orderCompleted = await axios.get('/orders', state);
             dispatch({
                 type: 'GET_ALL_ORDER_COMPLETE',
                 payload: orderCompleted.data
@@ -349,7 +351,8 @@ export function getAdminOrdersComplete(){
 export function getAdminOrdersCanceled(){
     return async function(dispatch){
         try {
-            const orderCanceled = await axios.get(USER_LOAD + '/orders?state=Canceled');
+            let state = 'Canceled';
+            const orderCanceled = await axios.get('/orders', state);
             dispatch({
                 type: 'GET_ALL_ORDER_CANCELED',
                 payload: orderCanceled.data
@@ -394,7 +397,7 @@ export function getUserOrderProcessing(idUser){
 export function getUserOrderCompleted(idUser){
     return async function(dispatch){
         try {
-            const orderCompleted = await axios.get(USER_LOAD + idUser + '/orders?state=Completed')
+            const orderCompleted = await axios.get(USER_LOAD + idUser + '/orders?state=Complete')
             dispatch({
                 type: 'GET_USER_ORDER_COMPLETED',
                 payload: orderCompleted.data
