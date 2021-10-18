@@ -118,4 +118,37 @@ router.get("/find/state", async (req, res) => {   //example: http://localhost:30
   }
 });
 
+// Get a todas las ordenes por id Order para el checkout
+router.get("/:idOrder/ticket", (req, res) => { // http://localhost:3001/orders/:idOrder/ticket
+  const { idOrder } = req.params;
+    Order.findOne({
+      where: {
+        id: idOrder,
+      },
+      include: [
+        {
+          model: Product,
+        },
+      ],
+    })
+      .then((order) => {
+        Orderline.findAll({
+          where: {
+            orderId: order.id,
+          },
+        }).then((orderlines) => {
+          const orderLinePlusProduct = {
+            product: order.products,
+            orderlines: orderlines,
+            orderId: order.id,
+            totalPrice: order.totalPrice,
+          };
+          res.send(orderLinePlusProduct);
+        });
+      })
+      .catch((err) => {
+        res.send({ data: err }).status(400);
+      });
+  });
+  
 module.exports = router;
