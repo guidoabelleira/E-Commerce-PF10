@@ -86,6 +86,11 @@ module.exports = (sequelize) => {
       allowNull: false
     },
 
+    isActive: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
+    },
+
     password: {
       type: DataTypes.STRING,
       allowNull: true,
