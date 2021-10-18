@@ -11,3 +11,12 @@
 .button i{
     margin-right: 4%;
 }
+
+@media (max-width: 700px) { 
+    .button{
+        width: 50px;
+    }
+    .button p{
+        display: none;
+    }
+}

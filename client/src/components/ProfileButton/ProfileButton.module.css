@@ -15,3 +15,9 @@
     width: 56px;
     height: 56px;
 }
+
+@media (max-width: 700px) { 
+    .profile img {
+        margin-left: 45%;
+    }
+}
