@@ -52,10 +52,22 @@
   color: #0E6655;
 }
 
+.bttn{
+    background-color: none;
+}
+
 @media (max-width: 700px) { 
     .container{
         margin-left: 0vw;
     }
 
-
+   .rechargeBtn{
+       display: none;
+   }
+  .paginationContainer{
+      margin-left:60%;
+  }
+  .paginationContainer li{
+      margin-left:5vw;
+  }
 }

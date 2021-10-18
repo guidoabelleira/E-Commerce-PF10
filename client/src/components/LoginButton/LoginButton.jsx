@@ -18,14 +18,18 @@ export default function LogoutButton (){
     return(
         <button className={style.button} type="button" onClick={e=> logOut()}>
         <i><FontAwesomeIcon icon={faSignOutAlt}/></i>
+        <p>
         Logout
+        </p>
         </button>
     )
    }else {
     return(
         <button className={style.button}  type="button" onClick={e=> loginWithRedirect()}>
         <i><FontAwesomeIcon icon={faSignInAlt}/></i>
+        <p>
           Login
+          </p>
         </button>
     )
    }

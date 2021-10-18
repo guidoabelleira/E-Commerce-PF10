@@ -42,3 +42,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+@media (max-width: 700px) { 
+  .search{
+    width:150px;
+    margin-left:70% ;
+  }
+}
