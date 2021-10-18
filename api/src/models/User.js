@@ -27,17 +27,17 @@ module.exports = (sequelize) => {
 
     lastname: {
       type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notNull: {
-          msg: 'Este campo es requerido'
-        },
-        len: {
-          args: [3, 50],
-          msg: 'Este campo debe tener entre 3 y 30 caracteres'
-        },
+      // allowNull: false,
+      // validate: {
+      //   notNull: {
+      //     msg: 'Este campo es requerido'
+      //   },
+      //   len: {
+      //     args: [3, 50],
+      //     msg: 'Este campo debe tener entre 3 y 30 caracteres'
+      //   },
      //   isAlpha: true,
-      },
+      // },
     },
 
     email: {

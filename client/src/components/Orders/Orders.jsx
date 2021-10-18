@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {getUserOrderProcessing, getUserOrderCompleted, getUserOrderCanceled} from '../../redux/actions';
+import {getUserOrderProcessing, getUserOrderCompleted, getUserOrderCanceled, getAdminOrdersProcessing, getAdminOrdersComplete, getAdminOrdersCanceled} from '../../redux/actions';
 
+import OrderCardsAdmin from '../OrderCardsAdmin/OrderCardsAdmin';
 import OrderCards from "../OrderCards/OrderCards";
 import Loading from '../Loading/Loading';
 
@@ -10,8 +11,12 @@ import style from './orders.module.css';
 export default function Orders (){
     const dispatch = useDispatch();
 
-    const state = useSelector(state => state.user)
-    const verificationAdmin = state.isAdmin;
+    const state = useSelector(state => state.user[0])
+    const verificationAdmin = state?.isAdmin;
+    console.log("verification admin order: ", verificationAdmin)
+    const allProcessing = useSelector(state => state.allOrdersProcessing);
+    const allCompleted = useSelector(state => state.allOrdersComplete);
+    const allCanceled = useSelector(state => state.allOrdersCanceled);
 
     const processing = useSelector(state => state.userOrderProcessing);
     const completed = useSelector(state => state.userOrderComplete);
@@ -20,6 +25,9 @@ export default function Orders (){
     
     useEffect(() => {
         async function getters(){
+            await dispatch(getAdminOrdersProcessing());
+            await dispatch(getAdminOrdersComplete());
+            await dispatch(getAdminOrdersCanceled());
             await dispatch(getUserOrderProcessing(idUser));
             await dispatch(getUserOrderCompleted(idUser));
             await dispatch(getUserOrderCanceled(idUser));
@@ -37,7 +45,7 @@ export default function Orders (){
                             <p  className={style.h3Primario}>Pendientes: </p>
                         </div>
                         <div className={style.render}>
-                            <OrderCards state={processing} />
+                            <OrderCardsAdmin state={allProcessing} />
                         </div>
                     </div>
 
@@ -52,7 +60,7 @@ export default function Orders (){
                             <p  className={style.h3Primario}>Completadas: </p>
                         </div>
                         <div className={style.render}>
-                            <OrderCards state={completed} />
+                            <OrderCardsAdmin state={allCompleted} />
                         </div>
                     </div>
                 ) : (
@@ -66,7 +74,7 @@ export default function Orders (){
                         <p  className={style.h3Primario}>Canceladas: </p>
                     </div>
                     <div className={style.render}>
-                        <OrderCards state={canceled} />
+                        <OrderCardsAdmin state={allCanceled} />
                     </div>
                 </div>
                 ) : (

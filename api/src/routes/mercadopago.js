@@ -29,7 +29,7 @@ router.post("/", (req, res, next) => {
   mercadopago.preferences.create(preference)
     .then(addPreference)
     .then((response) => {
-      res.redirect(response.body.init_point)
+      res.send(response.body.init_point)
 
     }).catch((error) => {
       next(error);

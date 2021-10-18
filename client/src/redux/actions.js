@@ -318,6 +318,51 @@ export function getCategoryToDelete(category) {
 //         }
 //     }
 // }
+export function getAdminOrdersProcessing(){
+    return async function(dispatch){
+        try {
+            let state = 'Processing';
+            const orderProcessing = await axios.get('/orders', state);
+            dispatch({
+                type: 'GET_ALL_ORDER_PROCESSING',
+                payload: orderProcessing.data
+            })
+        } catch (error){
+            console.log(error)
+            
+        }
+    }
+}
+export function getAdminOrdersComplete(){
+    return async function(dispatch){
+        try {
+            let state = 'Complete';
+            const orderCompleted = await axios.get('/orders', state);
+            dispatch({
+                type: 'GET_ALL_ORDER_COMPLETE',
+                payload: orderCompleted.data
+            })
+        } catch (error){
+            console.log(error)
+            
+        }
+    }
+}
+export function getAdminOrdersCanceled(){
+    return async function(dispatch){
+        try {
+            let state = 'Canceled';
+            const orderCanceled = await axios.get('/orders', state);
+            dispatch({
+                type: 'GET_ALL_ORDER_CANCELED',
+                payload: orderCanceled.data
+            })
+        } catch (error){
+            console.log(error)
+            
+        }
+    }
+}
 
 export function getUserOrderAll(idUser){
     return async function(dispatch){
@@ -330,7 +375,7 @@ export function getUserOrderAll(idUser){
             })
         } catch (error){
             console.log(error)
-            alert("no encontrado")
+            
         }
     }
 }
@@ -345,21 +390,21 @@ export function getUserOrderProcessing(idUser){
             })
         } catch (error){
             console.log(error)
-            alert("no encontrado")
+            
         }
     }
 }
 export function getUserOrderCompleted(idUser){
     return async function(dispatch){
         try {
-            const orderCompleted = await axios.get(USER_LOAD + idUser + '/orders?state=Completed')
+            const orderCompleted = await axios.get(USER_LOAD + idUser + '/orders?state=Complete')
             dispatch({
                 type: 'GET_USER_ORDER_COMPLETED',
                 payload: orderCompleted.data
             })
         } catch (error){
             console.log(error)
-            alert("no encontrado")
+            
         }
     }
 }
@@ -373,7 +418,7 @@ export function getUserOrderCanceled(idUser){
             })
         } catch (error){
             console.log(error)
-            alert("no encontrado")
+            
         }
     }
 }

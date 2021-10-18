@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 import { USER_LOAD } from "../../constantes";
 
 export async function authenticatedUserDb(user){
@@ -20,11 +21,13 @@ export async function authenticatedUserDb(user){
         async function validate(values) {
             let response = await axios.post(USER_LOAD, values);
             const r = response.data
-            // console.log("response: ", r);
+            console.log("response: ", r);
+            
             return r.id
         }
         const id = await validate(values);
-        localStorage.setItem('idUser', id)
+        localStorage.setItem('idUser', id);
+        
         return id;
     }
 }
