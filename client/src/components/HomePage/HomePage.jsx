@@ -74,7 +74,7 @@ export default function HomePage() {
                     <Link to="/Profile">Ir</Link>
                 </div>) : (<></>)} */}
                 <div className={style.seeAll}>
-                    <p  className={style.h3Primario}>Los mas vendidos:</p>
+                    <p  className={style.h3Primario}>Los más vendidos:</p>
                     <Link className={style.Link}to="/products">
                         <p  className={style.verTodos}>Ver Todos:</p>
                     </Link>
@@ -98,7 +98,7 @@ export default function HomePage() {
             
             <div className={style.cards}>
                 <div className={style.seeAll}>
-                    <h3 className={style.h3Terceario}>Nuestros ultimos productos:</h3>
+                    <h3 className={style.h3Terceario}>Nuestros últimos productos:</h3>
                 </div>
                 <div className={style.render}>
                     <Cards state={lasted} lastedCard={true}/>

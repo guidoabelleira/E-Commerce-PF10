@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const {Product, Category, Image, Review, User, Order, Orderline} = require("../db.js");
-const { getAllUsers } = require('../controllers/controllers');
+const { getAllUsers, getAllUsersOrder } = require('../controllers/controllers');
 const { Sequelize } = require("sequelize");
 const { check, validationResult, body } = require("express-validator");
 const bcrypt = require("bcryptjs");
@@ -50,6 +50,18 @@ router.get("/", (req, res, next) => {
         res.send({ data: err }).status(400); 
      });
  });
+
+// Get users ordenados por email
+
+router.get("/byMail", async (req, res, next) => {
+  try {
+    const allUsersOrder = await getAllUsersOrder();
+    return res.status(200).json(allUsersOrder);
+  }
+  catch(error) {
+    next(error);
+  }
+})
 
 // Get a un user por id
 router.get("/oneUser/:id", async (req, res, next) => {

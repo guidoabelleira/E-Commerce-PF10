@@ -1,71 +1,72 @@
 .container {
-   margin-left:28vw;
-   margin-top: 2%;
-   background-color:#0E6655;
-   color: white;
-   display: flex;
-   flex-direction: column;
-   justify-items: center;
-   align-items: center;
-   justify-content: center;
-   text-align: center;
-   padding: 5%;
-   border-radius: 50px;
-   background: #0E6655;
-   box-shadow:  4px 4px 6px #0d5c4d,
-                -4px -4px 6px #0f705e;
-}
-
-.tittle {
-    display:flex;
-    flex-direction: row;
-}
-
-.tittle a{
-    font-size: 25px;
-    color:#ffffff;
-    margin-right: 3%;
-}
-
-.container input{
-    margin-top: 3%;
-}
-
-.form{
+    margin-left:28vw;
+    margin-top: 2%;
+    background-color:#0E6655;
+    color: white;
     display: flex;
     flex-direction: column;
+    justify-items: center;
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 5%;
+    border-radius: 50px;
+    background: #0E6655;
+    box-shadow:  4px 4px 6px #0d5c4d,
+                 -4px -4px 6px #0f705e;
+ }
+ 
+ .tittle {
+     display:flex;
+     flex-direction: row;
+ }
+ 
+ .tittle a{
+     font-size: 25px;
+     color:#ffffff;
+     margin-right: 3%;
+ }
+ 
+ .container input{
+     margin-top: 3%;
+ }
+ 
+ .form{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     text-align: center;
 
-}
-
-.bttn{
-    background-color: white;
-    color:#0E6655;
-    width: 100px;
-    height: 35px; 
-    border:none;
-    border-radius: 25px; 
-    margin-top: 2%;
-}
-
-.bttn:hover{
-    background-color:rgb(202, 199, 199);
-}
-.bttn p{
-    font-size: 16px;
-}
-.input {
-    width: 250px;
-position: relative;
-align-items: center;
-background: white;
-padding: 10px;
-border-radius: 10px;
-margin-bottom: 7px; 
-border: 2px solid black;
-font-family: 'calibri';
-font-size: 15px;  
-color:black;
-}
+ }
+ 
+ .bttn{
+     background-color: white;
+     color:#0E6655;
+     width: 100px;
+     height: 35px; 
+     border:none;
+     border-radius: 25px; 
+     margin-top: 2%;
+ }
+ 
+ .bttn:hover{
+     background-color:rgb(202, 199, 199);
+ }
+ .bttn p{
+     font-size: 16px;
+ }
+ .input {
+     width: 250px;
+    position: relative;
+    align-items: center;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 7px; 
+    border: 2px solid black;
+    font-family: 'calibri';
+    font-size: 15px;  
+    color:black;
+    resize: vertical;
+ }
