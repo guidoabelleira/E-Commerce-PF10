@@ -178,17 +178,6 @@ export default function ProfileUserSettings (idUser){
                             value={inputDir.input_comentarios} 
                             />
                     </p>
-                    {/* <p>
-                        <label>
-                            Privilegios
-                            <span>*</span>
-                        </label>
-                        <select value={input.isAdmin} onChange={handleSelectChange}> 
-                            <option value='null' selected>----</option>
-                            <option value='user'>user</option>
-                            <option value='admin'>admin</option>
-                        </select>
-                    </p>  */}
                     <button className={style.bttn} type='submit'><p>Cambiar!</p></button>
                     <p>
                         <span> * </span>
@@ -200,7 +189,8 @@ export default function ProfileUserSettings (idUser){
                 <h3>Seccion newsletter</h3>
                 <button className={style.bttn} onClick={e => changeSuscribeNewsLetter(true, id)}><p>Suscribirme</p></button>
                 <button className={style.bttn} onClick={e => changeSuscribeNewsLetter(false, id)}><p>No recibir</p></button>
-            </div>
+        </div>
+        
         </div>
         
     )

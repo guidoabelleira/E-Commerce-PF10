@@ -440,6 +440,23 @@ export function getUser (idUser){
     }
 }
 
+export function getAllUser(dispatch){
+    return async function(dispatch){
+        try {
+            const userAll = await axios.get(USER_LOAD)
+            dispatch({
+                type: 'GET_USER_ALL',
+                payload: userAll.data
+            })
+
+        } catch (error){
+            console.log(error)
+
+        }
+    }
+}
+
+
 export function getReviewById(idProduct){
     return async function(dispatch){
         try {
