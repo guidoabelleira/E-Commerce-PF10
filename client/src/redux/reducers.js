@@ -18,6 +18,7 @@ const initialState = {
     userOrderComplete: [],
     userOrderCanceled: [],
     user: [],
+    userAll: [],
     reviews: {}
 }
 
@@ -157,10 +158,16 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 userOrderCanceled: action.payload
             }
+        // ACTIONS USER
         case 'GET_USER':
             return {
                 ...state,
                 user: action.payload
+            }
+        case 'GET_USER_ALL':
+            return {
+                ...state,
+                userAll: action.payload
             }
 
         case 'GET_REVIEW_BY_ID': {

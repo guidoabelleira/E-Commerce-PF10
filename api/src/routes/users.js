@@ -199,7 +199,7 @@ try {
 //Modificar usuarios
 router.put("/:id", /* auth, isAdmin, */ (req, res) => {
   const { id } = req.params;
-  const {name, lastname, email, address, userRole, isAdmin, password, image, newsletter } = req.body; /* <--- THE ELEMENT OF THE BODY WE ARE GOING TO USE FOR THE UPDATE */
+  const {name, lastname, email, address, userRole, isAdmin, password, image, newsletter, isActive } = req.body; /* <--- THE ELEMENT OF THE BODY WE ARE GOING TO USE FOR THE UPDATE */
   User.update(
     {
       name: name,
@@ -210,7 +210,8 @@ router.put("/:id", /* auth, isAdmin, */ (req, res) => {
       userRole: userRole,
       isAdmin: isAdmin,
       image: image,
-      newsletter: newsletter
+      newsletter: newsletter,
+      isActive: isActive
     },
     { where: { id: id } }
   )

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import {getUserOrderProcessing, getUserOrderCompleted, getUserOrderCanceled, getAdminOrdersProcessing, getAdminOrdersComplete, getAdminOrdersCanceled} from '../../redux/actions';
 
 import OrderCardsAdmin from '../OrderCardsAdmin/OrderCardsAdmin';
@@ -14,13 +14,13 @@ export default function Orders (){
     const state = useSelector(state => state.user[0])
     const verificationAdmin = state?.isAdmin;
     console.log("verification admin order: ", verificationAdmin)
-    const allProcessing = useSelector(state => state.allOrdersProcessing);
-    const allCompleted = useSelector(state => state.allOrdersComplete);
-    const allCanceled = useSelector(state => state.allOrdersCanceled);
+    const allProcessing = useSelector(state => state.allOrdersProcessing, shallowEqual);
+    const allCompleted = useSelector(state => state.allOrdersComplete, shallowEqual);
+    const allCanceled = useSelector(state => state.allOrdersCanceled, shallowEqual);
 
-    const processing = useSelector(state => state.userOrderProcessing);
-    const completed = useSelector(state => state.userOrderComplete);
-    const canceled = useSelector(state => state.userOrderCanceled);
+    const processing = useSelector(state => state.userOrderProcessing, shallowEqual);
+    const completed = useSelector(state => state.userOrderComplete, shallowEqual);
+    const canceled = useSelector(state => state.userOrderCanceled, shallowEqual);
     const idUser = localStorage.getItem('idUser');
     
     useEffect(() => {

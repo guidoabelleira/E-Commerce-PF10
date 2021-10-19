@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {getUser} from '../../redux/actions';
 import ProfileUserSettings from "../ProfileUserSettings/ProfileUserSettings";
 import Loading from '../Loading/Loading';
+import SettingsIsActiveAdmin from '../SettingsIsActiveAdmin/SettingsIsActiveAdmin';
 
 
 export default function Profile(){
@@ -41,21 +42,29 @@ export default function Profile(){
                         {stateUser.address}</p>
                     ):(<p className={style.warning}>Direccion de envio no aclarada!</p>)}
                 </div>
-            <div className={style.login}>
-                <LogoutButton/>
+                <div className={style.login}>
+                    <LogoutButton/>
+                </div>
             </div>
-        </div>
-        <div className={style.secondContainer}>
-            <div className={style.settings}>
-                <ProfileUserSettings props={idLocal}/>
+            
+            <div className={style.secondContainer}>
+                <div className={style.settings}>
+                    <ProfileUserSettings props={idLocal}/>
+                </div>
             </div>
-        </div>
-        <div className={style.thirdContainer}>
-            <div className={style.settings}>
-                <h2>Admin</h2>
-                <SettingsUserAdmin/>
+        
+            <div className={style.thirdContainer}>
+                <div className={style.settings}>
+                    <h2>Configurar cuenta Admin</h2>
+                    <SettingsUserAdmin/>
+                </div>
+                <div className={style.settings}>
+                    <h2>Bloquear cuentas</h2>
+                    <SettingsIsActiveAdmin />
+                </div>
             </div>
-        </div>
-    </div> ) : (<Loading/>)
+        </div> ) : (
+                    <Loading/>
+                )
         
 }
