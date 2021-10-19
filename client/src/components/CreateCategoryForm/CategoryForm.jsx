@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { postCategory } from "../../redux/actions"
+import style from "./CategoryForm.module.css"
 
 function FormCategory() {
     const [input, setInput] = useState({
@@ -25,17 +26,20 @@ function FormCategory() {
     }
 
     return (
-        <div>
+        <div className={style.container}>
             <form onSubmit={handleForm}>
                 <input
                     value={input.name}
-                    placeholder="Categoria"
+                    placeholder="Categoría"
                     name="name"
                     required
                     onChange={handleInputChange}
+                    className={style.input}
                 />
                 <button
-                    type="submit">
+                    type="submit"
+                    className={style.bttn}
+                    >
                     Crear
                 </button>
             </form>

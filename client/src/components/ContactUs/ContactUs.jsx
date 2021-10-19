@@ -38,80 +38,85 @@ export default function ContactUs(){
             </div>
             <div className={style.form}>
                 <h1>Formulario de contato:</h1>
-                <h3>Escríbenos y en breve los pondremos en contacto contigo</h3>
+                <h3>Escríbenos y en breve nos contactaremos.</h3>
                 <form onSubmit={handleSubmit}>
                     <p>
-                        <label>
+                        {/* <label>
                             Nombre:
                             <span>*</span>
-                        </label>
+                        </label> */}
                         <input 
                             type="text" 
                             name="name_contacto" 
-                            placeholder="Escribe tu nombre" 
+                            placeholder="Nombre *" 
                             required
                             onChange={handleInputChange}
                             value={input.name} 
+                            className={style.input}
                             />
                     </p>
                     <p>
-                        <label>
+                        {/* <label>
                             Email:
                             <span>*</span>
-                        </label>
+                        </label> */}
                         <input 
                             type="email" 
                             name="email_contacto" 
-                            placeholder="Escribe tu email"
+                            placeholder="email *"
                             required
                             onChange={handleInputChange}
                             value={input.email} 
+                            className={style.input}
                             />
                     </p>
                     <p>
-                        <label>
+                        {/* <label>
                             Telefono:
-                        </label>
+                        </label> */}
                         <input 
                             type="tel" 
                             name="telephone" 
-                            placeholder="Escribe tu telefono" 
+                            placeholder="Número de teléfono *" 
                             required
                             onChange={handleInputChange}
                             value={input.telephone}
+                            className={style.input}
                             />
                     </p>
                     <p>
-                        <label>
+                        {/* <label>
                             Asunto:
                             <span>*</span>
-                        </label>
+                        </label> */}
                         <input 
                             type="text" 
                             name="affair" 
-                            placeholder="Escribe un asunto" 
+                            placeholder="Asunto *" 
                             required
                             onChange={handleInputChange}
                             value={input.affair}
+                            className={style.input}
                             />
                     </p>
                     <p>
-                        <label>
+                        {/* <label>
                             Mensaje:
                             <span>*</span>
-                        </label>
+                        </label> */}
                         <textarea 
                             name="message" 
-                            placeholder="Deja aqui tu comentario" 
+                            placeholder="Comentario *" 
                             required
                             onChange={handleInputChange}
                             value={input.message} 
+                            className={style.input}
                             />
                     </p>
                     <button className={style.bttn}type='submit'><p>Enviar</p></button>
                     <p>
                         <span> * </span>
-                        los campos son obligatorios.
+                        Los campos son obligatorios.
                     </p>
                 </form>
             </div>
