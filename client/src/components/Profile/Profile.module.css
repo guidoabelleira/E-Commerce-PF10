@@ -1,7 +1,7 @@
 .mainContainer {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    
     margin-top: 20px;
     margin-bottom: 2%;
 }
@@ -19,7 +19,7 @@
     display: flex;
     flex-direction: column;
     margin-top: 1%;
-    height: 500px;
+    height: 530px;
     width: 335px;
 }
 
@@ -57,7 +57,7 @@
     display: flex;
     flex-direction: column;
     margin-top: 1%;
-    height: 500px;
+    height: 530px;
     width: 550px;
 }
 

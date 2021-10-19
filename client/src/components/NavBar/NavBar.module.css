@@ -67,6 +67,10 @@ height: 380.25px;
 .login{
     margin-top:60%;
 }
+
+.active p{
+    color:#17856f;
+}
 @media (max-width: 700px) { 
     .container{
         height: 100%;

@@ -67,3 +67,11 @@ padding:10px;
   box-shadow:  -5px 5px 10px #0c5849,
   5px -5px 10px #10725e;
 }
+
+@media (max-width: 700px) { 
+  .container{
+      display: flex;
+  flex-direction: column;
+
+  }
+}

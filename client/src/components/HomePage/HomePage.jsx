@@ -86,7 +86,7 @@ export default function HomePage() {
 
             <div className={style.cards}>
                 <div className={style.seeAll}>
-                    <h3 className={style.h3Secundario}>Productos en descuento!!!</h3>
+                    <p className={style.h3Secundario}>Productos en descuento!!!</p>
                     <Link className={style.Link}to="/products">
                         <p  className={style.verTodos}>Ver Todos:</p>
                     </Link>
@@ -98,7 +98,7 @@ export default function HomePage() {
             
             <div className={style.cards}>
                 <div className={style.seeAll}>
-                    <h3 className={style.h3Terceario}>Nuestros ultimos productos:</h3>
+                    <p className={style.h3Terceario}>Nuestros ultimos productos:</p>
                 </div>
                 <div className={style.render}>
                     <Cards state={lasted} lastedCard={true}/>
