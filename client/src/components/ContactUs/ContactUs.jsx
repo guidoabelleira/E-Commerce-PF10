@@ -20,7 +20,7 @@ export default function ContactUs(){
     function handleSubmit(e){
         e.preventDefault();
         // dispatch a ruta de back
-        alert("Mensaje enviado! A la brevedad lo contactaremos...")
+        alert("Mensaje enviado! A la brevedad te contactaremos...")
     }
 
     function handleInputChange(e) {
@@ -33,45 +33,36 @@ export default function ContactUs(){
             <a href="https://api.whatsapp.com/send?phone=34123456789">
                 <FontAwesomeIcon icon={faWhatsapp}/>
                 </a> 
-                <h2>Contactenos!</h2>
+                <h2>Contactanos!</h2>
                
             </div>
             <div className={style.form}>
-                <h1>Formulario de contato:</h1>
-                <h3>Escríbenos y en breve los pondremos en contacto contigo</h3>
+                <h1>Formulario de contacto:</h1>
+                <h3>Escribinos y en breve nos pondremos en contacto contigo</h3>
                 <form onSubmit={handleSubmit}>
                     <p>
-                        <label>
-                            Nombre:
-                            <span>*</span>
-                        </label>
                         <input 
                             type="text" 
                             name="name_contacto" 
-                            placeholder="Escribe tu nombre" 
+                            placeholder="Escribe tu nombre *" 
                             required
                             onChange={handleInputChange}
                             value={input.name} 
                             />
                     </p>
                     <p>
-                        <label>
-                            Email:
-                            <span>*</span>
-                        </label>
+
                         <input 
                             type="email" 
                             name="email_contacto" 
-                            placeholder="Escribe tu email"
+                            placeholder="Escribe tu email *"
                             required
                             onChange={handleInputChange}
                             value={input.email} 
                             />
                     </p>
                     <p>
-                        <label>
-                            Telefono:
-                        </label>
+
                         <input 
                             type="tel" 
                             name="telephone" 
@@ -82,27 +73,21 @@ export default function ContactUs(){
                             />
                     </p>
                     <p>
-                        <label>
-                            Asunto:
-                            <span>*</span>
-                        </label>
+
                         <input 
                             type="text" 
                             name="affair" 
-                            placeholder="Escribe un asunto" 
+                            placeholder="Escribe un asunto *" 
                             required
                             onChange={handleInputChange}
                             value={input.affair}
                             />
                     </p>
                     <p>
-                        <label>
-                            Mensaje:
-                            <span>*</span>
-                        </label>
-                        <textarea 
+
+                        <textarea className={style.textarea}
                             name="message" 
-                            placeholder="Deja aqui tu comentario" 
+                            placeholder="Deja aquí tu comentario *" 
                             required
                             onChange={handleInputChange}
                             value={input.message} 
