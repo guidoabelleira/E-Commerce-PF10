@@ -1,39 +1,40 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
-import {getUserOrderProcessing, getUserOrderCompleted, getUserOrderCanceled} from '../../redux/actions';
+import {getAdminOrdersProcessing, getAdminOrdersComplete, getAdminOrdersCanceled} from '../../redux/actions';
 
-import OrderCards from "../OrderCards/OrderCards";
+import OrderCardsAdmin from '../OrderCardsAdmin/OrderCardsAdmin';
 
-import style from './orders.module.css';
+import Loading from '../Loading/Loading';
+
+import style from './ordersAdmin.module.css';
 
 export default function Orders (){
     const dispatch = useDispatch();
-    
-    const processing = useSelector(state => state.userOrderProcessing, shallowEqual);
-    const completed = useSelector(state => state.userOrderComplete, shallowEqual);
-    const canceled = useSelector(state => state.userOrderCanceled, shallowEqual);
-    const idUser = localStorage.getItem('idUser');
+
+    const allProcessing = useSelector(state => state.allOrdersProcessing, shallowEqual);
+    const allCompleted = useSelector(state => state.allOrdersComplete, shallowEqual);
+    const allCanceled = useSelector(state => state.allOrdersCanceled, shallowEqual);
     
     useEffect(() => {
         async function getters(){
-            await dispatch(getUserOrderProcessing(idUser));
-            await dispatch(getUserOrderCompleted(idUser));
-            await dispatch(getUserOrderCanceled(idUser));
+            await dispatch(getAdminOrdersProcessing());
+            await dispatch(getAdminOrdersComplete());
+            await dispatch(getAdminOrdersCanceled());
         }
         getters();
-    }, [dispatch, idUser]);
+    }, [dispatch]);
     
     return (
         <div className={style.container}> 
             <div className={style.margin}>
-                <h2>User</h2>
-                {processing ? (
+                <h2>Admin</h2>
+                {allProcessing ? (
                     <div className={style.cards}>
                         <div className={style.seeAll}>
                             <p  className={style.h3Primario}>Pendientes: </p>
                         </div>
                         <div className={style.render}>
-                            <OrderCards state={processing} />
+                            <OrderCardsAdmin state={allProcessing} />
                         </div>
                     </div>
 
@@ -42,35 +43,36 @@ export default function Orders (){
                 )}
                 
 
-                {completed ? (
+                {allCompleted ? (
                     <div className={style.cards}>
                         <div className={style.seeAll}>
                             <p  className={style.h3Primario}>Completadas: </p>
                         </div>
                         <div className={style.render}>
-                            <OrderCards state={completed} />
+                            <OrderCardsAdmin state={allCompleted} />
                         </div>
                     </div>
                 ) : (
-                    <p>No hay completadas</p>
+                    <Loading/>
                 )}
                 
 
-                {canceled ? (
+                {allCanceled ? (
                     <div className={style.cards}>
                     <div className={style.seeAll}>
                         <p  className={style.h3Primario}>Canceladas: </p>
                     </div>
                     <div className={style.render}>
-                        <OrderCards state={canceled} />
+                        <OrderCardsAdmin state={allCanceled} />
                     </div>
                 </div>
                 ) : (
-                    <p>No hay canceladas</p>
+                    <Loading/>
                 )}
 
             </div>
-   
+            
         </div>
-    )  
+        
+    )
 }
