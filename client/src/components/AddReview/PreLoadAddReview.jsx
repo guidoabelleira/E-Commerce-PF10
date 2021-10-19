@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, } from 'react-redux';
-import { Link } from "react-router-dom";
+import { 
+    useDispatch, 
+    //useSelector, 
+} from 'react-redux';
+//import { Link } from "react-router-dom";
+import Loading from '../Loading/Loading';
 import { 
     getAllCategories,
 } from '../../redux/actions';
+import AddReview from './AddReview';
 
 
 export default function PreLoadAddReview (){
@@ -11,11 +16,15 @@ export default function PreLoadAddReview (){
     const dispatch = useDispatch()
     const [loading, setLoading] = useState(true)
 
+    //const categories = useSelector(state => state.allCategories)
+
     useEffect(() => {
         const data = async ()=>{
             try{
                 dispatch(getAllCategories())
-                setLoading(false)
+                setTimeout(()=>{
+                    setLoading(false)
+                }, 2000)
             }
             catch(error){
                 console.log(error)
@@ -28,20 +37,14 @@ export default function PreLoadAddReview (){
     return (
         <div >
             {
-                <Link 
-                    to='/adminproducts/addReview'
-                >
-                    <button 
-                        disabled={loading}
-                    > 
-                        {
-                            loading? 
-                                "Cargando..."
-                                :
-                                "Editar"
-                        } 
-                    </button>
-                </Link>
+                loading?
+                (
+                    <Loading />
+                ) 
+                :
+                (
+                    <AddReview />
+                )
             }
         </div>
     )

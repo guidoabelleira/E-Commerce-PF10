@@ -472,3 +472,18 @@ export function getReviewById(idProduct){
         }
     }
 }
+
+export function postReviewById(idProduct){
+    return async function(dispatch){
+        try {
+            const reviews = await axios.post(REVIEWS_URL_GET + idProduct + '/reviews')
+            dispatch({
+                type: 'POST_REVIEW_BY_ID',
+                payload: reviews.data
+            })
+        } catch (error){
+            console.log(error)
+            alert("NO SE PUDO ENVIAR LA REVIEW")
+        }
+    }
+}
