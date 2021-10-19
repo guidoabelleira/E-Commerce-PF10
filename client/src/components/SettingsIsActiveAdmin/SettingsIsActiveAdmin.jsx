@@ -12,7 +12,6 @@ export default function SettingsIsActiveAdmin (){
     const dispatch = useDispatch();
 
     const allUser = useSelector(state => state.userAllByMail);
-    console.log("AllUsers: ", allUser)
 
     const allUserInactive = allUser?.filter(e => e.isActive === false)
 
@@ -87,7 +86,7 @@ export default function SettingsIsActiveAdmin (){
                             })
                         }
                 </select>
-                <select defaultValue={input.isActive} onChange={handleSelectActive}> 
+                <select defaultValue={false} onChange={handleSelectActive}> 
                             <option value='null' selected>----</option>
                             <option value='true'>active</option>
                             <option value='false'>bloquear</option>
