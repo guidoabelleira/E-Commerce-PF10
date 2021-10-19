@@ -14,10 +14,8 @@
     background: #0E6655;
     box-shadow:  4px 4px 6px #0d5c4d,
                  -4px -4px 6px #0f705e;
- }
+} 
  
- 
-
 .input {
     width: 250px;
     position: relative;
@@ -25,23 +23,27 @@
     background: white;
     padding: 10px;
     border-radius: 10px;
-    margin-bottom: 7px; 
+    margin-bottom: 7px;
     border: 2px solid black;
     font-family: 'calibri';
     font-size: 15px;  
     color:black;
 }
-.bttn{
+
+.bttn {
     background-color: white;
     color:#0E6655;
     width: 100px;
-    height: 35px; 
+    height: 35px;
     border:none;
-    border-radius: 25px; 
+    border-radius: 25px;
     margin-top: 2%;
 }
-
-.bttn:hover{
+ 
+.bttn:hover {
     background-color:rgb(202, 199, 199);
 }
 
+.label {
+    text-align: left;
+}
