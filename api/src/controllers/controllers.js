@@ -110,7 +110,7 @@ const getAllUsers = async () => {
 
 const getAllUsersOrder = async () =>{
   const users = await User.findAll({});
-  const order = users.sort((a, b) => {
+  const sort = users.sort((a, b) => {
     if (a.email > b.email) {
       return 1;
     }
@@ -119,7 +119,7 @@ const getAllUsersOrder = async () =>{
     }
     return 0;
   });
-  return order
+  return sort
 }
 
 
