@@ -40,9 +40,9 @@ function Filter() {
 
     return (
         <div className={style.container}>
-            <p className={style.p}>Categorias: </p>
+            <p className={style.p}>Filtrar: </p>
             <select className={style.selects} onChange={handleCategoryFilter}>
-                <option defaultValue={false} selected>----- </option>
+                <option defaultValue={false} selecte>Categorías:</option>
                 {
                     categories.map(el => {
                         return (
@@ -51,15 +51,15 @@ function Filter() {
                     })
                 }
             </select>
-            <span className={style.p}> Filtrar por: </span>
+            <span className={style.p}> Ordenar: </span>
             <select className={style.selects} onChange={handleSortChange}>
-                <option key={0} value={false} selected>---</option>
+                <option key={0} value={false} selected>Tipo de Orden</option>
                 <option key={1} value="price">Precio</option>
                 <option key={2} value="name">Nombre</option>
             </select>
-            <span className={style.p}>Orden: </span>
+            {/* <span className={style.p}>Orden: </span> */}
             <select className={style.selects} onChange={handleOrdChange}>
-                <option value={false} selected>---</option>
+                <option value={false} selected>Modo de Orden</option>
                 <option key={1} value="asc">Ascendente</option>
                 <option key={2} value="desc">Descendente</option>
             </select>
