@@ -1,15 +1,15 @@
 import React, { useState, } from 'react';
-import { useDispatch, } from 'react-redux'; //useSelector
+import { useDispatch, useSelector } from 'react-redux'; //useSelector
 import { putProduct, } from '../../redux/actions';
 
 import style from './UpdateProduct.module.css'
 //import Loading from '../Loading/Loading'
 
-export default function UpdateProduct (props) {
+export default function UpdateProduct () {
 
     const dispatch = useDispatch()
-    const categories = props.props.categories //useSelector(state => state.allCategories)
-    const allProducts = props.props.allProducts //useSelector(state => state.products)
+    const categories = useSelector(state => state.allCategories)
+    const allProducts = useSelector(state => state.products)
 
     //console.log(allProducts[1].name)
 
@@ -306,3 +306,15 @@ export default function UpdateProduct (props) {
         </div>
     )
 }
+
+/*
+            "id": 0,
+            "name": "no Name",
+            "image": "no Imagen",
+            "price": 0,
+            "stock": 0,
+            "onStock": false,
+            "onSale": false,
+            "description": "no Descripcion",
+            "category": [],
+*/
