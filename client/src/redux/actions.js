@@ -128,7 +128,22 @@ export function getProductById(id){
         }
     }
 }
-
+export function getProductByStock(id){
+    let value = {num: id}
+    return async function(dispatch){
+        try {
+            const productByStock = await axios.get(PRODUCTS_URL + 'alertStock/', value)
+            console.log("productByStock: ", productByStock)
+            dispatch({
+                type: 'GET_PRODUCT_BY_STOCK',
+                payload: productByStock.data
+            })
+        } catch (error){
+            console.log(error)
+            alert("no encontrado")
+        }
+    }
+}
 export function getProductByName(input) {
     return async function(dispatch) {
         try {
@@ -147,6 +162,7 @@ export function getProductByName(input) {
         }
     }
 }
+
 
 export function getCategories() {
     return async function(dispatch) {
@@ -455,7 +471,21 @@ export function getAllUser(dispatch){
         }
     }
 }
+export function getAllUserByMail(dispatch){
+    return async function(dispatch){
+        try {
+            const userAllByMail = await axios.get(USER_LOAD + 'byMail/')
+            dispatch({
+                type: 'GET_USER_ALL_BY_MAIL',
+                payload: userAllByMail.data
+            })
 
+        } catch (error){
+            console.log(error)
+
+        }
+    }
+}
 
 export function getReviewById(idProduct){
     return async function(dispatch){
