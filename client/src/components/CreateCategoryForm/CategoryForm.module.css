@@ -16,48 +16,10 @@
                  -4px -4px 6px #0f705e;
  }
  
- .tittle {
-     display:flex;
-     flex-direction: row;
- }
  
- .tittle a{
-     font-size: 25px;
-     color:#ffffff;
-     margin-right: 3%;
- }
- 
- .container input{
-     margin-top: 3%;
- }
- 
- .form{
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     justify-content: center;
-     text-align: center;
 
- }
- 
- .bttn{
-     background-color: white;
-     color:#0E6655;
-     width: 100px;
-     height: 35px; 
-     border:none;
-     border-radius: 25px; 
-     margin-top: 2%;
- }
- 
- .bttn:hover{
-     background-color:rgb(202, 199, 199);
- }
- .bttn p{
-     font-size: 16px;
- }
- .input {
-     width: 250px;
+.input {
+    width: 250px;
     position: relative;
     align-items: center;
     background: white;
@@ -68,5 +30,18 @@
     font-family: 'calibri';
     font-size: 15px;  
     color:black;
-    resize: vertical;
- }
+}
+.bttn{
+    background-color: white;
+    color:#0E6655;
+    width: 100px;
+    height: 35px; 
+    border:none;
+    border-radius: 25px; 
+    margin-top: 2%;
+}
+
+.bttn:hover{
+    background-color:rgb(202, 199, 199);
+}
+

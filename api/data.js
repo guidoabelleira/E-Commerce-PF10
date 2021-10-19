@@ -160,7 +160,8 @@ function userDb() {
         "address": "Valle Escondido 1450",
         "userRole": "superadmin",
         "isAdmin":  true,
-        "password": "holapia1"
+        "isActive": true,
+        "password": "Holapia1#"
     },
  {
         "name": "Julieta",
@@ -170,7 +171,8 @@ function userDb() {
         "address": "Valle Escondido 1450",
         "userRole": "admin",
         "isAdmin":  false,
-        "password": "holajulieta1"
+        "isActive": true,
+        "password": "holaJulieta#1"
     },
   {
         "name": "Jenny",
@@ -180,8 +182,20 @@ function userDb() {
         "address": "Libertad 1290, Valle Escondido, Cordoba",
         "userRole": "client",
         "isAdmin":  false,
-        "password": "holayeya1"
-    }  
+        "isActive" :false,
+        "password": "Holayeya#1"
+    }  ,
+    {
+      "name": "Cecilia",
+      "image": "https://github.com/CePersico",
+      "lastname": "Persico",
+      "email": "ceciliapersico@hotmail.com",
+      "address": "Manuel Grande S/N",
+      "userRole": "admin",
+      "isAdmin":  false,
+      "isActive": true,
+      "password": "Carpediem#3"
+  }
 ]);
 }
 function reviewsDb() {

@@ -69,124 +69,132 @@ export default function ProfileUserSettings (idUser){
     
     return(
         <div className={style.container}>
-            <h2>Settings User</h2>
+            <h2>Datos de Usuario</h2>
             <div className={style.container}>
-                <h2>Direccion de envio</h2>
-                <form onSubmit={handleSubmit}>
+                <h3 className={style.hdir}>Dirección de envío:</h3>
+                <form onSubmit={handleSubmit} >
                     <p>
-                        <label>
-                            Direccion
+                        {/* <label>
+                            Dirección
                             <span>*</span>
-                        </label>
+                        </label> */}
                         <input 
                             type="text" 
                             name="input_direccion" 
-                            placeholder="Direccion" 
+                            placeholder="Dirección *" 
                             required
                             onChange={handleInputChange}
                             value={inputDir.input_direccion} 
+                            className={style.input}
                             />
                     </p>
                     <p>
-                        <label>
+                        {/* <label>
                             N°
                             <span>*</span>
-                        </label>
+                        </label> */}
                         <input 
                             type="number" 
                             name="input_numero" 
-                            placeholder="Numero" 
+                            placeholder="Número *" 
                             required
                             onChange={handleInputChange}
                             value={inputDir.input_numero} 
+                            className={style.input}
                             />
                     </p>
                     <p>
-                        <label>
+{/*                         <label>
                             Piso
-                        </label>
+                        </label> */}
                         <input 
                             type="text" 
                             name="input_piso" 
-                            placeholder="Piso" 
+                            placeholder="Piso " 
                             onChange={handleInputChange}
                             value={inputDir.input_piso} 
+                            className={style.input}
                             />
                     </p>
                     <p>
-                        <label>
+                        {/* <label>
                             Dpto.
-                        </label>
+                        </label> */}
                         <input 
                             type="text" 
                             name="input_dpto" 
                             placeholder="Depto" 
                             onChange={handleInputChange}
                             value={inputDir.input_dpto} 
+                            className={style.input}
                             />
                     </p>
                     <p>
-                        <label>
+                        {/* <label>
                             Codigo Postal:
                             <span>*</span>
-                        </label>
+                        </label> */}
                         <input 
                             type="text" 
                             name="input_cp" 
-                            placeholder="CP" 
+                            placeholder="Código Postal *" 
                             required
                             onChange={handleInputChange}
                             value={inputDir.input_cp} 
+                            className={style.input}
                             />
                     </p>
                     <p>
-                        <label>
+                        {/* <label>
                             Ciudad
                             <span>*</span>
-                        </label>
+                        </label> */}
                         <input 
                             type="text" 
                             name="input_ciudad" 
-                            placeholder="Ciudad" 
+                            placeholder="Ciudad *" 
                             required
                             onChange={handleInputChange}
                             value={inputDir.input_ciudad} 
+                            className={style.input}
                             />
                     </p>
                     <p>
-                        <label>
+                        {/* <label>
                             Provincia
                             <span>*</span>
-                        </label>
+                        </label> */}
                         <input 
                             type="text" 
                             name="input_provincia" 
-                            placeholder="Provincia" 
+                            placeholder="Provincia *" 
                             required
                             onChange={handleInputChange}
                             value={inputDir.input_provincia} 
+                            className={style.input}
                             />
                     </p>
                     <p>
-                        <label>
+                        {/* <label>
                             Comentarios:
-                        </label>
+                        </label> */}
                         <textarea 
                             name="input_comentarios"
                             placeholder="Comentarios, referencias, intersecciones, horarios." 
                             onChange={handleInputChange}
                             value={inputDir.input_comentarios} 
+                            className={style.input}
                             />
                     </p>
                     <button className={style.bttn} type='submit'><p>Cambiar!</p></button>
                     <p>
                         <span> * </span>
-                        los campos son obligatorios.
+                        Los campos son obligatorios.
                     </p>
                 </form>
         </div>
         <div className={style.container}>
-                <h3>Seccion newsletter</h3>
+                <h3>Sección newsletter</h3>
                 <button className={style.bttn} onClick={e => changeSuscribeNewsLetter(true, id)}><p>Suscribirme</p></button>
                 <button className={style.bttn} onClick={e => changeSuscribeNewsLetter(false, id)}><p>No recibir</p></button>
         </div>
