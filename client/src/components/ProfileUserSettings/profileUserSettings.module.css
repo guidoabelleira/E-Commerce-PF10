@@ -12,3 +12,21 @@
 .bttn p{
  font-size: 14px;
 }
+
+.input {
+        width: 250px;
+    position: relative;
+    align-items: center;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 7px; 
+    border: 2px solid black;
+    font-family: 'calibri';
+    font-size: 15px;  
+    color:black;
+}
+
+.hdir {
+        margin-bottom: 12px;
+}
