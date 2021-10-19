@@ -37,7 +37,7 @@ export default function HomePage() {
     // }
 
     // let address = checkAddress(user);
-    console.log("user en home: ", user)
+    // console.log("user en home: ", user)
     useEffect(() => {
         async function getters(){
             await dispatch(getUser(id))

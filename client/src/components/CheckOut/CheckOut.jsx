@@ -7,12 +7,14 @@ import style from './checkOut.module.css';
 import axios from "axios";
 import { POST_MERCADOPAGO, USER_LOAD } from "../../constantes";
 import { clearCart, totalCart } from "../../redux/actions";
+import { Link } from "react-router-dom";
 
 export default function CheckOut (){
     const dispatch = useDispatch();
     const {isAuthenticated} = useAuth0();
     const cartCheckOut = useSelector(state => state.shopProduct);
     const totalCheckOut = useSelector(state => state.totalCart);
+    const userState = useSelector(state => state.user[0])
     console.log("carrito previo checkout: ", cartCheckOut);
 
     const products = {orderBody: cartCheckOut};
@@ -74,9 +76,33 @@ export default function CheckOut (){
 
     return isAuthenticated ? (
         <div className={style.container}>
-            <h2>soy checkout</h2>
-            <p>Total a pagar: ${totalCheckOut}</p>
-            <button onClick={e => checkOut(products,totalCheckOut)}>MercadoPago</button>
+            <div>
+                <h2>Su pedido: </h2>
+            </div>
+            <div>
+                <h3>Direccion de envio</h3>
+                {userState.address ? (
+                    
+                    <p>
+                        <p>{userState.address}</p>
+                        <Link to="/Profile">
+                            Cambiar
+                        </Link>
+                    </p>
+                ) : (
+                    <Link to="/Profile">
+                        <button type="button">
+                            Confirmar direccion de envio
+                        </button>
+                    </Link>
+                )}
+                
+            </div>
+            <div>
+                <p>Total a pagar: ${totalCheckOut}</p>
+                <button onClick={e => checkOut(products,totalCheckOut)}>MercadoPago</button>
+            </div>
+            
         </div>
     ) : (
         <div className={style.container}>
