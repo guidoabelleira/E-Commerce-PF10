@@ -33,12 +33,12 @@ export default function ContactUs(){
             <a href="https://api.whatsapp.com/send?phone=34123456789">
                 <FontAwesomeIcon icon={faWhatsapp}/>
                 </a> 
-                <h2>Contactenos!</h2>
+                <h2>Contactanos!</h2>
                
             </div>
             <div className={style.form}>
-                <h1>Formulario de contato:</h1>
-                <h3>Escríbenos y en breve nos contactaremos.</h3>
+                <h1>Formulario de contacto:</h1>
+                <h3>Escribinos y en breve nos contactaremos.</h3>
                 <form onSubmit={handleSubmit}>
                     <p>
                         {/* <label>
@@ -63,7 +63,7 @@ export default function ContactUs(){
                         <input 
                             type="email" 
                             name="email_contacto" 
-                            placeholder="email *"
+                            placeholder="Email *"
                             required
                             onChange={handleInputChange}
                             value={input.email} 
