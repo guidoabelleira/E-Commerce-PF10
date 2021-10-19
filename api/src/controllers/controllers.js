@@ -108,6 +108,20 @@ const getAllUsers = async () => {
   return User.findAll({});
 }
 
+const getAllUsersOrder = async () =>{
+  const users = await User.findAll({});
+  const order = users.sort((a, b) => {
+    if (a.email > b.email) {
+      return 1;
+    }
+    if (a.email < b.email) {
+      return -1;
+    }
+    return 0;
+  });
+  return order
+}
+
 
 module.exports = {
   getAllInfo,
@@ -116,5 +130,6 @@ module.exports = {
   getLatests,
   getPopulars,
   alertStock,
-  getAllUsers
+  getAllUsers,
+  getAllUsersOrder
 };

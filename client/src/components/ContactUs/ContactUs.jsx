@@ -20,7 +20,7 @@ export default function ContactUs(){
     function handleSubmit(e){
         e.preventDefault();
         // dispatch a ruta de back
-        alert("Mensaje enviado! A la brevedad te contactaremos...")
+        alert("Mensaje enviado! A la brevedad lo contactaremos...")
     }
 
     function handleInputChange(e) {
@@ -38,65 +38,85 @@ export default function ContactUs(){
             </div>
             <div className={style.form}>
                 <h1>Formulario de contacto:</h1>
-                <h3>Escribinos y en breve nos pondremos en contacto contigo</h3>
+                <h3>Escribinos y en breve nos contactaremos.</h3>
                 <form onSubmit={handleSubmit}>
                     <p>
+                        {/* <label>
+                            Nombre:
+                            <span>*</span>
+                        </label> */}
                         <input 
                             type="text" 
                             name="name_contacto" 
-                            placeholder="Escribe tu nombre *" 
+                            placeholder="Nombre *" 
                             required
                             onChange={handleInputChange}
                             value={input.name} 
+                            className={style.input}
                             />
                     </p>
                     <p>
-
+                        {/* <label>
+                            Email:
+                            <span>*</span>
+                        </label> */}
                         <input 
                             type="email" 
                             name="email_contacto" 
-                            placeholder="Escribe tu email *"
+                            placeholder="Email *"
                             required
                             onChange={handleInputChange}
                             value={input.email} 
+                            className={style.input}
                             />
                     </p>
                     <p>
-
+                        {/* <label>
+                            Telefono:
+                        </label> */}
                         <input 
                             type="tel" 
                             name="telephone" 
-                            placeholder="Escribe tu telefono" 
+                            placeholder="Número de teléfono *" 
                             required
                             onChange={handleInputChange}
                             value={input.telephone}
+                            className={style.input}
                             />
                     </p>
                     <p>
-
+                        {/* <label>
+                            Asunto:
+                            <span>*</span>
+                        </label> */}
                         <input 
                             type="text" 
                             name="affair" 
-                            placeholder="Escribe un asunto *" 
+                            placeholder="Asunto *" 
                             required
                             onChange={handleInputChange}
                             value={input.affair}
+                            className={style.input}
                             />
                     </p>
                     <p>
-
-                        <textarea className={style.textarea}
+                        {/* <label>
+                            Mensaje:
+                            <span>*</span>
+                        </label> */}
+                        <textarea 
                             name="message" 
-                            placeholder="Deja aquí tu comentario *" 
+                            placeholder="Comentario *" 
                             required
                             onChange={handleInputChange}
                             value={input.message} 
+                            className={style.input}
                             />
                     </p>
                     <button className={style.bttn}type='submit'><p>Enviar</p></button>
                     <p>
                         <span> * </span>
-                        los campos son obligatorios.
+                        Los campos son obligatorios.
                     </p>
                 </form>
             </div>
