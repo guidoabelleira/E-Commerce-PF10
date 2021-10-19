@@ -1,7 +1,7 @@
 .mainContainer {
     display: flex;
     flex-direction: row;
-    
+    flex-wrap: wrap;
     margin-top: 20px;
     margin-bottom: 2%;
 }
@@ -62,7 +62,7 @@
 }
 
 .thirdContainer{
-    margin-left: 6vw;
+    margin-left: 40%;
     background: #0E6655;
     color: white;
     padding: 4% 0%;
@@ -73,9 +73,10 @@
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    margin-top: 1%;
-    height: 200px;
+   
+    height: 500px;
     width: 550px;
+    margin-top: 10%;
 }
 
 .warning {
