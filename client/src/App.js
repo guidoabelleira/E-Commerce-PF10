@@ -22,6 +22,7 @@ import UpdateProduct from './components/UpdateProduct/UpdateProduct';
 import PreLoadUpdateProduct from './components/UpdateProduct/PreLoadUpdateProduct';
 import AddReview from './components/AddReview/AddReview';
 import PreLoadAddReview from './components/AddReview/PreLoadAddReview'
+import AdminOrders from './components/OrdersAdmin/OrdersAdmin';
 
 
 import { authenticatedUserDb } from './components/Hooks/users';
@@ -63,6 +64,7 @@ function App() {
                             <Route exact path={'/adminproducts/addcategories'} component={AddCategories} />
                             <Route exact path={'/adminproducts/stock'} component={Stock} />
                             <Route exact path={'/order'} component={Orders} />
+                            <Route exact path={'/orderadmin'} component={AdminOrders} />
                             <Route exact path={'/adminproducts/editProduct'} component={UpdateProduct} />
                             <Route exact path={'/adminproducts/PreLoadUpdateProduct'} component={PreLoadUpdateProduct} />
                             <Route exact path={'/adminproducts/addReview'} component={AddReview} />
@@ -87,6 +89,7 @@ function App() {
                             <Route exact path={'/adminproducts/addcategories'} component={AddCategories} />
                             <Route exact path={'/adminproducts/stock'} component={Stock} />
                             <Route exact path={'/order'} component={Orders} />
+                            <Route exact path={'/orderadmin'} component={AdminOrders} />
                             <Route exact path={'/adminproducts/editProduct'} component={UpdateProduct} />
                             <Route exact path={'/adminproducts/PreLoadUpdateProduct'} component={PreLoadUpdateProduct} />
                             <Route exact path={'/adminproducts/addReview'} component={AddReview} />

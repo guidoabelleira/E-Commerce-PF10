@@ -22,7 +22,7 @@ export default function NavBarAdminProducts (){
                     <div>
                         <Link className={style.mainBttn} to="/adminproducts/addcategories">
                             {/* <i><FontAwesomeIcon icon={faHouseUser}/></i> */}
-                            <p>Añadir Categorias</p>
+                            <p>Añadir Categorías</p>
                         </Link>
                     </div>
 

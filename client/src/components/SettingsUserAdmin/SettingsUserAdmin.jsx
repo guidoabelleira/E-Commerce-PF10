@@ -94,7 +94,7 @@ export default function SettingsUserAdmin (){
                             <option value='admin'>admin</option>
                         </select>
                     </p> 
-                    <button type='submit'><p>Cambiar!</p></button>
+                    <button className={style.bttn}  type='submit'><p>Cambiar!</p></button>
                     <p>
                         <span> * </span>
                         los campos son obligatorios.

@@ -92,7 +92,7 @@ export default function SettingsIsActiveAdmin (){
                             <option value='true'>active</option>
                             <option value='false'>bloquear</option>
                         </select>
-                <button type='submit'><p>Cambiar!</p></button>
+                <button className={style.bttn} type='submit'><p>Cambiar!</p></button>
             </form>
             </div>
             

@@ -5,7 +5,10 @@
     height: 35px; 
     border:none;
     border-radius: 25px; 
-    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .button i{

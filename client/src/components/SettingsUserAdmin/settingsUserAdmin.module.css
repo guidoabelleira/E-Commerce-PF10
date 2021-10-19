@@ -1,0 +1,12 @@
+.bttn{
+    background-color: white;
+    color:#0E6655;
+    width: 80px;
+    height: 25px; 
+    border:none;
+    border-radius: 25px; 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
