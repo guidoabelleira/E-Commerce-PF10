@@ -1,12 +1,13 @@
 .selects {
-    width: 128px;
+    width: 155px;
     height: 40px;
   
   
   
     cursor: pointer;
     padding: 7px 10px;
-  margin-right: 2%;
+    margin-right: 2%;
+    margin-left: 2%;
     outline: 0;
     border: none;
     border-radius: 10px;
@@ -42,11 +43,12 @@
     background-color: #0E6655;
     color:white;
     width: 100px;
-    height: 35px; 
+    height: 40px; 
     border:none;
     border-radius: 5px; 
     margin-top: 0%;
     padding:6px;
+    margin-left: 7%;
   }
 
 

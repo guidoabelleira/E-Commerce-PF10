@@ -1,48 +1,51 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios'
-import {useDispatch, useSelector} from 'react-redux'
+import React, {useState, useEffect}from "react"
+import {useDispatch, useSelector} from 'react-redux';
+import axios from "axios";
+import {USER_LOAD} from '../../constantes'
+
 import {getAllUser} from '../../redux/actions';
 
-import { USER_LOAD } from '../../constantes';
-import style from './settingsUserAdmin.module.css';
+import style from '../SettingsIsActiveAdmin/settingsIsActiveAdmin.module.css';
 
 
-export default function SettingsUserAdmin (){
-    
+export default function SettingsIsActiveAdmin (){
     const dispatch = useDispatch();
 
     const allUser = useSelector(state => state.userAll);
+    // console.log("AllUsers: ", allUser.rows)
+
+    const allUserInactive = allUser?.rows?.filter(e => e.isActive === false)
 
     const [input, setInput] = useState({
         id: '',
-        isAdmin: ''
+        isActive: ''
     })
 
+    function handleSelectActive(e) {
+        setInput({
+            ...input,
+            isActive: e.target.value
+        })
+    }
     function handleSelectChange(e){
         setInput({
             ...input,
             id: e.target.value
         })
     }
-    function handleSelectIsAdmin(e){
-        setInput({
-            ...input,
-            isAdmin: e.target.value
-        })
-    }
 
-    async function putAdmin(input){
+    async function putActive(input){
             try{
-                if(input.isAdmin === 'admin') {
+                if(input.isActive === 'true') {
                     let value = {
-                        isAdmin: true
+                        isActive: true
                     }
                     const response = await axios.put(USER_LOAD + input.id , value);
                     return alert(response.data)
                 }
-                if(input.isAdmin === 'user') {
+                if(input.isActive === 'false') {
                     let value = {
-                        isAdmin: false
+                        isActive: false
                     }
                     const response = await axios.put(USER_LOAD + input.id , value);
                     return alert(response.data)
@@ -55,10 +58,10 @@ export default function SettingsUserAdmin (){
 
     function handleSubmit(e) {
         e.preventDefault();
-        putAdmin(input);
+        putActive(input);
         setInput({
             id: '',
-            isAdmin: false
+            isActive: ''
         })
     }
 
@@ -69,9 +72,10 @@ export default function SettingsUserAdmin (){
         getters();
     },[dispatch]);
 
-    return(
-        <div className={style.container}>
-            <h2>Editar Usuarios</h2>
+
+    return allUser ?(
+        <div>
+            <div>
             <form onSubmit={handleSubmit}>
                 <select className={style.selects} onChange={handleSelectChange}>
                     <option defaultValue={false} selected>----- </option>
@@ -83,23 +87,32 @@ export default function SettingsUserAdmin (){
                             })
                         }
                 </select>
-                    <p>
-                        <label>
-                            Privilegios
-                            <span>*</span>
-                        </label>
-                        <select defaultValue={null} onChange={handleSelectIsAdmin}> 
+                <select defaultValue={input.isActive} onChange={handleSelectActive}> 
                             <option value='null' selected>----</option>
-                            <option value='user'>user</option>
-                            <option value='admin'>admin</option>
+                            <option value='true'>active</option>
+                            <option value='false'>bloquear</option>
                         </select>
-                    </p> 
-                    <button type='submit'><p>Cambiar!</p></button>
-                    <p>
-                        <span> * </span>
-                        los campos son obligatorios.
-                    </p>
-                </form>
+                <button type='submit'><p>Cambiar!</p></button>
+            </form>
+            </div>
+            
+            <div>
+                <h3>Usuarios Bloqueados:</h3>
+                {allUserInactive ? (
+                    <ul>
+                    {allUserInactive.map(e => {
+                        return (
+                            <li key={e.id}>
+                                <p>{e.email}</p>
+                            </li>
+                        )
+                    })}
+                </ul>
+                ) : (<></>)}
+                
+            </div>
         </div>
+    ) : (
+        <p>loading...</p>
     )
 }
