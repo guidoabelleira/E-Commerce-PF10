@@ -131,12 +131,12 @@ function rootReducer(state = initialState, action) {
         case 'GET_ALL_ORDER_COMPLETE':
             return {
                 ...state,
-                userOrderComplete: action.payload
+                allOrdersComplete: action.payload
             }
         case 'GET_ALL_ORDER_CANCELED':
             return {
                 ...state,
-                userOrderCanceled: action.payload
+                allOrdersCanceled: action.payload
             }
         case 'GET_USER_ORDER_ALL':
             return {
