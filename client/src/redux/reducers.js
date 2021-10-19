@@ -19,7 +19,9 @@ const initialState = {
     userOrderCanceled: [],
     user: [],
     userAll: [],
-    reviews: {}
+    userAllByMail: [],
+    reviews: {},
+    stock: []
 }
 
 function rootReducer(state = initialState, action) {
@@ -33,6 +35,11 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 productById: action.payload
+            }
+        case 'GET_PRODUCT_BY_STOCK':
+            return {
+                ...state,
+                stock: action.payload
             }
         case 'GET_SALES_PRODUCTS':
             return {
@@ -168,6 +175,11 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 userAll: action.payload
+            }
+        case 'GET_USER_ALL_BY_MAIL':
+            return {
+                ...state,
+                userAllByMail: action.payload
             }
 
         case 'GET_REVIEW_BY_ID': {

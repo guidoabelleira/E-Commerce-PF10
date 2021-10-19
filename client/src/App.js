@@ -34,6 +34,7 @@ import LandingPage from './components/LandingPage/LandingPage';
 function App() {
     const {isAuthenticate, user} = useAuth0();
     // const userDB = useSelector(state => state.user[0])
+    
     if(user){
         authenticatedUserDb(user);
     }

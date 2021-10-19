@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios'
 import {useDispatch, useSelector} from 'react-redux'
-import {getAllUser} from '../../redux/actions';
+import {getAllUserByMail} from '../../redux/actions';
 
 import { USER_LOAD } from '../../constantes';
 import style from './settingsUserAdmin.module.css';
@@ -11,7 +11,7 @@ export default function SettingsUserAdmin (){
     
     const dispatch = useDispatch();
 
-    const allUser = useSelector(state => state.userAll);
+    const allUser = useSelector(state => state.userAllByMail);
 
     const [input, setInput] = useState({
         id: '',
@@ -64,7 +64,7 @@ export default function SettingsUserAdmin (){
 
     useEffect(() => {
         async function getters(){
-            await dispatch(getAllUser());
+            await dispatch(getAllUserByMail());
         }
         getters();
     },[dispatch]);
@@ -76,7 +76,7 @@ export default function SettingsUserAdmin (){
                 <select className={style.selects} onChange={handleSelectChange}>
                     <option defaultValue={false} selected>----- </option>
                         {
-                            allUser?.rows?.map(e => {
+                            allUser?.map(e => {
                                 return (
                                 <option key={e.id} value={e.id}>{e.email}</option>
                                 )

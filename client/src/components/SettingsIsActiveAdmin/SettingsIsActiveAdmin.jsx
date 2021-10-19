@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import axios from "axios";
 import {USER_LOAD} from '../../constantes'
 
-import {getAllUser} from '../../redux/actions';
+import {getAllUserByMail} from '../../redux/actions';
 
 import style from '../SettingsIsActiveAdmin/settingsIsActiveAdmin.module.css';
 
@@ -11,10 +11,10 @@ import style from '../SettingsIsActiveAdmin/settingsIsActiveAdmin.module.css';
 export default function SettingsIsActiveAdmin (){
     const dispatch = useDispatch();
 
-    const allUser = useSelector(state => state.userAll);
-    // console.log("AllUsers: ", allUser.rows)
+    const allUser = useSelector(state => state.userAllByMail);
+    console.log("AllUsers: ", allUser)
 
-    const allUserInactive = allUser?.rows?.filter(e => e.isActive === false)
+    const allUserInactive = allUser?.filter(e => e.isActive === false)
 
     const [input, setInput] = useState({
         id: '',
@@ -67,7 +67,7 @@ export default function SettingsIsActiveAdmin (){
 
     useEffect(() => {
         async function getters(){
-            await dispatch(getAllUser());
+            await dispatch(getAllUserByMail());
         }
         getters();
     },[dispatch]);
@@ -80,7 +80,7 @@ export default function SettingsIsActiveAdmin (){
                 <select className={style.selects} onChange={handleSelectChange}>
                     <option defaultValue={false} selected>----- </option>
                         {
-                            allUser?.rows?.map(e => {
+                            allUser?.map(e => {
                                 return (
                                 <option key={e.id} value={e.id}>{e.email}</option>
                                 )
