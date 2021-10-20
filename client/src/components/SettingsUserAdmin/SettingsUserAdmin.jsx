@@ -88,7 +88,7 @@ export default function SettingsUserAdmin (){
                             Privilegios
                             <span>*</span>
                         </label>
-                        <select defaultValue={null} onChange={handleSelectIsAdmin}> 
+                        <select onChange={handleSelectIsAdmin}> 
                             <option value='null' selected>----</option>
                             <option value='user'>user</option>
                             <option value='admin'>admin</option>

@@ -21,14 +21,13 @@ import CheckOut from './components/CheckOut/CheckOut';
 import UpdateProduct from './components/UpdateProduct/UpdateProduct';
 import PreLoadUpdateProduct from './components/UpdateProduct/PreLoadUpdateProduct';
 import AdminOrders from './components/OrdersAdmin/OrdersAdmin';
-
+import LandingPage from './components/LandingPage/LandingPage';
+import Tiket from './components/Tiket/Tiket';
 
 import { authenticatedUserDb } from './components/Hooks/users';
 
 
 import './App.css';
-import LandingPage from './components/LandingPage/LandingPage';
-// import { useSelector } from 'react-redux';
 
 
 function App() {
@@ -63,6 +62,7 @@ function App() {
                             <Route exact path={'/adminproducts/addcategories'} component={AddCategories} />
                             <Route exact path={'/adminproducts/stock'} component={Stock} />
                             <Route exact path={'/order'} component={Orders} />
+                            <Route exact path={'/tiket/:id'} component={Tiket} />
                             <Route exact path={'/orderadmin'} component={AdminOrders} />
                             <Route exact path={'/adminproducts/editProduct'} component={UpdateProduct} />
                             <Route exact path={'/adminproducts/PreLoadUpdateProduct'} component={PreLoadUpdateProduct} />
@@ -86,6 +86,7 @@ function App() {
                             <Route exact path={'/adminproducts/addcategories'} component={AddCategories} />
                             <Route exact path={'/adminproducts/stock'} component={Stock} />
                             <Route exact path={'/order'} component={Orders} />
+                            <Route exact path={'/tiket/:id'} component={Tiket} />
                             <Route exact path={'/orderadmin'} component={AdminOrders} />
                             <Route exact path={'/adminproducts/editProduct'} component={UpdateProduct} />
                             <Route exact path={'/adminproducts/PreLoadUpdateProduct'} component={PreLoadUpdateProduct} />
