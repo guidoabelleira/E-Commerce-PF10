@@ -504,10 +504,20 @@ export function getReviewById(idProduct){
     }
 }
 
-export function postReviewById(idProduct){
+export function postReviewById(review){
+    const {
+        userId, 
+        productId, 
+        description,
+        rating
+    } = review
     return async function(dispatch){
         try {
-            const reviews = await axios.post(REVIEWS_URL_GET + idProduct + '/reviews')
+            const reviews = await axios.post(REVIEWS_URL_GET + productId + '/review', {
+                description,
+                rating,
+                userId
+            })
             dispatch({
                 type: 'POST_REVIEW_BY_ID',
                 payload: reviews.data

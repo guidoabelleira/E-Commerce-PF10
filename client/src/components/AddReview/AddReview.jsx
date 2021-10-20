@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { 
     useDispatch, 
-    //useSelector 
+    useSelector 
 } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
@@ -15,18 +15,22 @@ import {
 export default function AddReview (){
 
     const dispatch = useDispatch()
-    /*
-    const [product, setProduct] = useState(
-        useSelector(state => state.reviews)
-    )
-    */
+    const allProducts = useSelector(state => state.products)
+    const [product, setProduct] = useState(allProducts[0])
+
+    const handleProduct = event => {
+        event.preventDefault()
+        const newProduct = allProducts[event.target.value]
+        setProduct(newProduct)
+        //console.log(newProduct)
+    }
 
     const [comment, setComment] = useState('')
     const handleReviewComment = event => {
         const newComment = { ...comment }
         newComment[event.target.name] = event.target.value
         setComment(newComment)
-        console.log(comment)
+        //console.log(comment)
     }
 
     const [score, setScore] = useState(3)
@@ -35,13 +39,19 @@ export default function AddReview (){
         const newScore = { ...score }
         newScore[event.target.name] = event.target.value
         setScore(newScore.rating)
-        console.log(score)
+        //console.log(score)
     }
 
     const onSubmit = async event => {
         event.preventDefault()
+        const sendReview = {
+            "userId": Number(localStorage.getItem('idUser')),
+            "productId": product.id,
+            "description": comment.description,
+            "rating": score
+        }
+        dispatch(postReviewById(sendReview))
         alert("muchas gracias por su reseña")
-        dispatch(postReviewById())
     }
 
     let stars = []
@@ -51,10 +61,33 @@ export default function AddReview (){
 
 
 
-    return (
+    return product ? (
         <div >
 
-            <Valuation props={3}/>
+            <Valuation props={product.id}/>
+
+            <label 
+                htmlFor="targetProduct"
+            >
+                Seleccione el producto que desea editar
+            </label>
+            <select 
+                key="targetProduct"
+                id="targetProduct"
+                name="targetProduct"
+                onClick={event => handleProduct(event)}
+            >
+                {
+                    allProducts.map(product =>
+                        <option
+                            key={product.id.toString()}
+                            name={product.name}
+                            value={product.id -1}
+                        >
+                            {product.name}
+                        </option>)
+                }
+            </select>
 
             <h2>
                 Calificar Producto
@@ -110,4 +143,6 @@ export default function AddReview (){
             </form>
         </div>
     )
+    :
+    <></>
 }

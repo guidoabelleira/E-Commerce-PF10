@@ -7,6 +7,8 @@ import {
 import Loading from '../Loading/Loading';
 import { 
     getAllCategories,
+    getAllProducts,
+
 } from '../../redux/actions';
 import AddReview from './AddReview';
 
@@ -22,6 +24,7 @@ export default function PreLoadAddReview (){
         const data = async ()=>{
             try{
                 dispatch(getAllCategories())
+                dispatch(getAllProducts())
                 setTimeout(()=>{
                     setLoading(false)
                 }, 2000)
@@ -32,7 +35,6 @@ export default function PreLoadAddReview (){
         }
         data()
     }, [dispatch,]);
-
 
     return (
         <div >
