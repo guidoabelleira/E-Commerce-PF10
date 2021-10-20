@@ -17,12 +17,17 @@ function Products() {
     let [pageNumber, setPageNumber] = useState(0)
     const dispatch = useDispatch();
     const state = useSelector(state => state.products)
-
+    console.log("soy state product: ", state)
     useEffect(() => {
-        if(!state){
+        if(state.length === 0){
             dispatch(getAllProducts());
         }
     },[dispatch, state]);
+
+    function handleClick(e){ //esto resetea y trae todos los productos de nuevo
+        e.preventDefault(); 
+        dispatch(getAllProducts());
+    } 
     
     if(state){
         let cardsPerPage = 9;
@@ -33,16 +38,13 @@ function Products() {
             setPageNumber(selected)
         }
     
-    /* function handleClick(e){ //esto resetea y trae todos los productos de nuevo
-        e.preventDefault(); 
-        dispatch(getAllProducts());
-    } */ 
+    
 
 
         return (
             <div className={style.container}>
             <div className={style.searchbar}>
-                    {/* <button className={style.rechargeBtn} onClick={e=>{handleClick(e)}}>Recargar Productos</button> */}
+                    <button className={style.rechargeBtn} onClick={e=>{handleClick(e)}}>Recargar Productos</button>
                     {/* <ShowAdress/> */}
                     <SearchBar /> 
                     <ShopCartButton/>

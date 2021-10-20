@@ -28,9 +28,10 @@ export async function authenticatedUserDb(user){
         }
         const id = await validate(values);
         console.log("id en user: ", id)
-        if(id === 'number'){
+        if(id){
             console.log("es objeto")
             localStorage.setItem('idUser', id);
+            return id
         }
         return window.location="http://localhost:3000/error404";
     }

@@ -48,7 +48,6 @@ function App() {
                     {isAuthenticate? (
                         <>
                         <div className="row">
-                            <Route exact path={'/error404'} component={Error404} />
                             <Route path={'/'} component={NavBar} />
                         </div>
                         <div>
@@ -72,12 +71,12 @@ function App() {
                             <Route exact path={'/adminproducts/PreLoadUpdateProduct'} component={PreLoadUpdateProduct} />
                             <Route exact path={'/adminproducts/addReview'} component={AddReview} />
                             <Route exact path={'/adminproducts/PreLoadAddReview'} component={PreLoadAddReview} />
-                            
+                            <Route exact path={'/error404'} component={Error404} />
                         </div>
                         </>
                         ):(
                         <>
-                            <Route exact path={'/error404'} component={Error404} />
+                            
                             <Route path={'/'} component={NavBar} />
                             <Route exact path={'/'} component={LandingPage} />
                             <Route path= {"/home"} component={HomePage} />
@@ -99,7 +98,7 @@ function App() {
                             <Route exact path={'/adminproducts/PreLoadUpdateProduct'} component={PreLoadUpdateProduct} />
                             <Route exact path={'/adminproducts/addReview'} component={AddReview} />
                             <Route exact path={'/adminproducts/PreLoadAddReview'} component={PreLoadAddReview} />
-                            
+                            <Route exact path={'/error404'} component={Error404} />
                         </>
                         )}
             </div>

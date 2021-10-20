@@ -64,6 +64,7 @@ export default function SettingsIsActiveAdmin (){
             id: '',
             isActive: ''
         })
+        window.location.reload()
     }
 
     useEffect(() => {
