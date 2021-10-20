@@ -4,6 +4,10 @@
     height: 56px;
     margin-left: 25%;
 }
+.profile :hover{
+    transform: scale(1.1);
+    transition-duration: 0.5s;
+}
 .iconProfile{
    font-size: 56px;
    margin-left: 2%;

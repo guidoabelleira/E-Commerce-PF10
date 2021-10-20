@@ -77,7 +77,7 @@ export default function SettingsIsActiveAdmin (){
             <div>
             <form onSubmit={handleSubmit}>
                 <select className={style.selects} onChange={handleSelectChange}>
-                    <option defaultValue={false} selected>----- </option>
+                    <option defaultValue={false} selected> Buscar por email </option>
                         {
                             allUser?.map(e => {
                                 return (
@@ -86,10 +86,10 @@ export default function SettingsIsActiveAdmin (){
                             })
                         }
                 </select>
-                <select defaultValue={false} onChange={handleSelectActive}> 
+                <select className={style.selects} defaultValue={false} onChange={handleSelectActive}> 
                             <option value='null' selected>----</option>
-                            <option value='true'>active</option>
-                            <option value='false'>bloquear</option>
+                            <option value='true'>Activar</option>
+                            <option value='false'>Bloquear</option>
                         </select>
                 <button className={style.bttn} type='submit'><p>Cambiar!</p></button>
             </form>

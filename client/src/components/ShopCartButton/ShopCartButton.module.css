@@ -32,7 +32,8 @@
 
 
 .link button:hover {
-    background-color: #065344
+    background-color: #065344;
+    transition-duration: 0.5s;
 }
 
 .link {

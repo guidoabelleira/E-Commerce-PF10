@@ -9,7 +9,8 @@
 .paginationContainer{
     display:flex;
     flex-direction:row;
-    margin-top:25%;
+    margin-top:20%;
+    margin-left: 130px;
     align-items:center;
     justify-content:center;
     cursor: pointer;

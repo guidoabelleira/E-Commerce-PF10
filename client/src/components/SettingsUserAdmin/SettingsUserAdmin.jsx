@@ -74,7 +74,7 @@ export default function SettingsUserAdmin (){
             <h2>Editar Usuarios</h2>
             <form onSubmit={handleSubmit}>
                 <select className={style.selects} onChange={handleSelectChange}>
-                    <option defaultValue={false} selected>----- </option>
+                    <option defaultValue={false} selected> Buscar por email * </option>
                         {
                             allUser?.map(e => {
                                 return (
@@ -84,14 +84,10 @@ export default function SettingsUserAdmin (){
                         }
                 </select>
                     <p>
-                        <label>
-                            Privilegios
-                            <span>*</span>
-                        </label>
-                        <select onChange={handleSelectIsAdmin}> 
-                            <option value='null' selected>----</option>
-                            <option value='user'>user</option>
-                            <option value='admin'>admin</option>
+                        <select className={style.selects} onChange={handleSelectIsAdmin}> 
+                            <option value='null' selected>Privilegios *</option>
+                            <option value='user'>User</option>
+                            <option value='admin'>Admin</option>
                         </select>
                     </p> 
                     <button className={style.bttn}  type='submit'><p>Cambiar!</p></button>

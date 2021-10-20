@@ -28,6 +28,7 @@ function FormCategory() {
     return (
         <div className={style.container}>
             <h2 className={style.label}>Nueva Categoría:</h2>
+            <br></br>
             <form onSubmit={handleForm}>
                 <input
                     value={input.name}
