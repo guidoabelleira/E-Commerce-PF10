@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { Order, User } = require("../db.js");
+const { Order, User, Product, Orderline } = require("../db.js");
 const isAdmin = require("../middleware/isAdmin");
 const auth = require("../middleware/auth");
 
@@ -139,7 +139,7 @@ router.get("/:idOrder/ticket", (req, res) => { // http://localhost:3001/orders/:
         }).then((orderlines) => {
           const orderLinePlusProduct = {
             product: order.products,
-            orderlines: orderlines,
+            /* orderlines: orderlines, */
             orderId: order.id,
             totalPrice: order.totalPrice,
           };

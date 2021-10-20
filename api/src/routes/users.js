@@ -814,5 +814,45 @@ router.post("/forgotPassword/:id", (req, res) => {
 });
  */
 
+//Get de todas las orderlines en la orden del Cart + Products
+router.get("/:idUser/reviews", (req, res) => {
+  const { idUser } = req.params;
+  Order.findOne({
+    where: {
+      userId: idUser,
+      /* state: "Cart", */
+    },
+    include: [
+      {
+        model: Product,
+
+/*         include: [
+          {
+            model: Image,
+          },
+        ], */
+      },
+    ],
+  })
+    .then((order) => {
+      Orderline.findAll({
+        where: {
+          orderId: order.id,
+        },
+      }).then((orderlines) => {
+        const orderLinePlusProduct = {
+          product: order.products,
+          /* orderlines: orderlines, */
+          orderId: order.id,
+        };
+        res.send(orderLinePlusProduct);
+      });
+    })
+    .catch((err) => {
+      res.send({ data: err }).status(400);
+    });
+});
+
+
 
 module.exports = router;
