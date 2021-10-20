@@ -50,6 +50,7 @@ export default function Valuation (props) {
             </div>
 
             <button
+                className={style.bttn}
                 type='button'
                 onClick={()=> setShowReviewText(!showReviewText)}
             >

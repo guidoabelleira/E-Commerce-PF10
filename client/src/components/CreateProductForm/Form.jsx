@@ -71,6 +71,7 @@ function Form() {
     return (
         <div className={style.container}>
             <h2 className={style.label}>Nuevo Producto:</h2>  
+            <br></br>
             <form onSubmit={handleSubmit} >
                 {/* <span>Nombre</span> */}
                     <input
@@ -87,11 +88,13 @@ function Form() {
                         placeholder="Imagen"
                         value={input.image}
                         type="text"
+/*                         type="file" */
                         name="image"
                         required
                         onChange={handleInputChange}
                         className={style.input}
                     />
+                    
                 {/* <span>Precio</span> */}
                     <input
                         placeholder="Precio"
@@ -113,7 +116,7 @@ function Form() {
                         className={style.input}
                     />
                     {/* <span>Descripción</span> */}
-                    <input
+                    <textarea
                         placeholder="Descripción"
                         value={input.description}
                         name="description"
@@ -123,12 +126,13 @@ function Form() {
                         type="text"
                     />
                      <br></br>
-                    <span>Categorias:</span>
+
                     <select
                         onChange={handleSelectCategory}
                         className={style.select}
                     >
-                        <option value={null}></option>
+                        <br></br>
+                        <option value={null}>Seleccionar categoría</option>
                         {
                             categories.map((el) => {
                                 return (
@@ -138,23 +142,20 @@ function Form() {
                         }
                     </select>
                         <p>{input.category.map(el => el.toString()+ " ")}</p>
-                 <br></br>  
-                <span>En stock?</span>
                     <select
                         onChange={handleSelectOnStock}
                         className={style.select}
                     >
-                        <option value={null}>Seleccionar</option>
+                        <option value={null}>En stock?</option>
                         <option value={true}>Si</option>
                         <option value={false}>No</option>
                     </select>
                 <br></br>
-                <span>En oferta?</span>
                     <select
                         onChange={handleSelectOnSale}
                         className={style.select}
                     >
-                        <option value={null}>Seleccionar</option>
+                        <option value={null}>En oferta?</option>
                         <option value={true}>Si</option>
                         <option value={false}>No</option>
                     </select>

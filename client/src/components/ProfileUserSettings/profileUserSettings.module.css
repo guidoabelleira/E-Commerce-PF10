@@ -10,6 +10,11 @@
         cursor: pointer;
 }
 
+.bttn:hover{
+        background-color:rgb(202, 199, 199);
+        transition-duration: 0.5s;
+}
+
 .bttn p{
  font-size: 14px;
 }

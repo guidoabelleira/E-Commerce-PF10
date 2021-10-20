@@ -12,6 +12,11 @@
     cursor: pointer;
 }
 
+.button:hover{
+    transition-duration: 0.5s;
+    background-color:rgb(202, 199, 199);
+}
+
 .button i{
     margin-right: 4%;
 }
