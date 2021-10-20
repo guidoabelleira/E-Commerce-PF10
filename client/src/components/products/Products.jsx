@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import {getAllProducts} from '../../redux/actions';
 
 import ReactPaginate from 'react-paginate'
 
-// import Filters from '../filters/Filters';
 import SearchBar from '../Searchbar/Searchbar';
 import AuxiliarCards from '../AuxiliarCards/AuxiliarCards';
 import ShopCartButton from '../ShopCartButton/ShopCartButton';
@@ -15,8 +15,14 @@ import Filter from '../filters/Filters';
 
 function Products() {
     let [pageNumber, setPageNumber] = useState(0)
-   
+    const dispatch = useDispatch();
     const state = useSelector(state => state.products)
+
+    useEffect(() => {
+        if(!state){
+            dispatch(getAllProducts());
+        }
+    },[dispatch, state]);
     
     if(state){
         let cardsPerPage = 9;
@@ -31,6 +37,7 @@ function Products() {
         e.preventDefault(); 
         dispatch(getAllProducts());
     } */ 
+
 
         return (
             <div className={style.container}>
