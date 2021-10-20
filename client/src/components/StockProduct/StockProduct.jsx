@@ -11,7 +11,6 @@ export default function StockProducts() {
     const dispatch = useDispatch();
     const stock = useSelector(state => state.stock);
     console.log(stock)
-    let id = 5;
 
     const [input, setInput] = useState({
         quantity: ''
@@ -37,7 +36,7 @@ export default function StockProducts() {
             await dispatch(getProductByStock(input.quantity))
         }
         getters();
-    }, [dispatch]);
+    }, [dispatch, input.quantity]);
 
     return (
         <div className={style.container}>

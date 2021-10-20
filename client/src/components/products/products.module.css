@@ -12,6 +12,7 @@
     margin-top:25%;
     align-items:center;
     justify-content:center;
+    cursor: pointer;
 }
 
 .paginationContainer li{
@@ -54,6 +55,7 @@
 
 .bttn{
     background-color: none;
+    cursor: pointer;
 }
 
 @media (max-width: 700px) { 
