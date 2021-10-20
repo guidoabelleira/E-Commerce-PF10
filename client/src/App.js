@@ -10,7 +10,7 @@ import ShopCart from './components/ShopCart/ShopCart';
 import AboutUs from './components/AboutUs/AboutUs';
 import Profile from "./components/Profile/Profile"
 import ContactUs from './components/ContactUs/ContactUs';
-// import Error404 from './components/Error404/Error404';
+import Error404 from './components/Error404/Error404';
 import NavBarAdminProducts from './components/NavBarAdminProducts/NavBarAdminProducts';
 import AdminProducts from './components/AdminProducts/AdminProducts';
 import AddProduct from './components/CreateProductForm/Form';
@@ -44,9 +44,11 @@ function App() {
         <React.Fragment>
             <div className="container">
                 <Route exact path={"/profile"} component={Profile}/>
+                
                     {isAuthenticate? (
                         <>
                         <div className="row">
+                            <Route exact path={'/error404'} component={Error404} />
                             <Route path={'/'} component={NavBar} />
                         </div>
                         <div>
@@ -70,11 +72,12 @@ function App() {
                             <Route exact path={'/adminproducts/PreLoadUpdateProduct'} component={PreLoadUpdateProduct} />
                             <Route exact path={'/adminproducts/addReview'} component={AddReview} />
                             <Route exact path={'/adminproducts/PreLoadAddReview'} component={PreLoadAddReview} />
-                            {/* <Route path={"*"} component={Error404} /> */}
+                            
                         </div>
                         </>
                         ):(
                         <>
+                            <Route exact path={'/error404'} component={Error404} />
                             <Route path={'/'} component={NavBar} />
                             <Route exact path={'/'} component={LandingPage} />
                             <Route path= {"/home"} component={HomePage} />
@@ -96,7 +99,7 @@ function App() {
                             <Route exact path={'/adminproducts/PreLoadUpdateProduct'} component={PreLoadUpdateProduct} />
                             <Route exact path={'/adminproducts/addReview'} component={AddReview} />
                             <Route exact path={'/adminproducts/PreLoadAddReview'} component={PreLoadAddReview} />
-                            {/* <Route path={"*"} component={Error404} /> */}
+                            
                         </>
                         )}
             </div>

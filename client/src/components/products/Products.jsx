@@ -8,7 +8,7 @@ import SearchBar from '../Searchbar/Searchbar';
 import AuxiliarCards from '../AuxiliarCards/AuxiliarCards';
 import ShopCartButton from '../ShopCartButton/ShopCartButton';
 import ProfileButton from '../ProfileButton/ProfileButton';
-import ShowAdress from '../ShowAdress/ShowAdress'
+// import ShowAdress from '../ShowAdress/ShowAdress'
 
 import style from './products.module.css';
 import Filter from '../filters/Filters';
@@ -43,7 +43,7 @@ function Products() {
             <div className={style.container}>
             <div className={style.searchbar}>
                     {/* <button className={style.rechargeBtn} onClick={e=>{handleClick(e)}}>Recargar Productos</button> */}
-                    <ShowAdress/>
+                    {/* <ShowAdress/> */}
                     <SearchBar /> 
                     <ShopCartButton/>
                     <ProfileButton/>
