@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUser } from '../../redux/actions';
+import { getUser, getAllProducts, getAllCategories } from '../../redux/actions';
 
 
 
@@ -14,6 +14,8 @@ export default function LandingPage (){
     useEffect(() => {
         async function getters(){
             await dispatch(getUser(idLocal));
+            await dispatch(getAllProducts());
+            await dispatch(getAllCategories());
         }
         getters();
     },[dispatch, idLocal]);

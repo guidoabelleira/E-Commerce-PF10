@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { getCategories, postProduct } from "../../redux/actions"
+import { getAllCategories, postProduct } from "../../redux/actions"
 import style from "./Form.module.css"
 function Form() {
 
     const dispatch = useDispatch()
-    const categories = useSelector((state) => state.categories)
+    const categories = useSelector((state) => state.allCategories)
     
     useEffect(() => {
-        dispatch(getCategories())
+        dispatch(getAllCategories())
     }, [dispatch])
 
     const [input, setInput] = useState({

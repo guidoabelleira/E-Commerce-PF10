@@ -163,17 +163,6 @@ export function getProductByName(input) {
     }
 }
 
-
-export function getCategories() {
-    return async function(dispatch) {
-        let json = await axios.get(CATEGORIES_URL)
-        return dispatch({
-            type: 'GET_CATEGORIES',
-            payload: json.data,
-        })
-    }
-}
-
 export function postProduct(payload) {
     return async function(dispatch) {
         try {
@@ -337,8 +326,7 @@ export function getCategoryToDelete(category) {
 export function getAdminOrdersProcessing(){
     return async function(dispatch){
         try {
-            let state = 'Processing';
-            const orderProcessing = await axios.get('/orders', state);
+            const orderProcessing = await axios.get('orders/find/state?state=Processing');
             dispatch({
                 type: 'GET_ALL_ORDER_PROCESSING',
                 payload: orderProcessing.data
@@ -352,8 +340,7 @@ export function getAdminOrdersProcessing(){
 export function getAdminOrdersComplete(){
     return async function(dispatch){
         try {
-            let state = 'Complete';
-            const orderCompleted = await axios.get('/orders', state);
+            const orderCompleted = await axios.get('orders/find/state?state=Complete');
             dispatch({
                 type: 'GET_ALL_ORDER_COMPLETE',
                 payload: orderCompleted.data
@@ -367,8 +354,7 @@ export function getAdminOrdersComplete(){
 export function getAdminOrdersCanceled(){
     return async function(dispatch){
         try {
-            let state = 'Canceled';
-            const orderCanceled = await axios.get('/orders', state);
+            const orderCanceled = await axios.get('orders/find/state?state=Canceled');
             dispatch({
                 type: 'GET_ALL_ORDER_CANCELED',
                 payload: orderCanceled.data
@@ -388,6 +374,21 @@ export function getUserOrderAll(idUser){
             dispatch({
                 type: 'GET_USER_ORDER_ALL',
                 payload: orderAll.data
+            })
+        } catch (error){
+            console.log(error)
+            
+        }
+    }
+}
+export function getOrderById(idOrder){
+    return async function(dispatch){
+        try {
+            const order = await axios.get('orders/' + idOrder + '/ticket');
+            console.log("respuesta orderbyID: ", order)
+            dispatch({
+                type: 'GET_ORDER_BY_ID',
+                payload: order.data
             })
         } catch (error){
             console.log(error)

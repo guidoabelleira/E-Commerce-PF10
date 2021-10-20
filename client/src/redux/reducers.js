@@ -5,7 +5,6 @@ const initialState = {
     productsSales: [],
     productsLastests: [],
     productsPopular: [],
-    categories: [],
     shopProduct : [],
     totalCart: 0,
     allCategories: [],
@@ -17,6 +16,7 @@ const initialState = {
     userOrderProcessing: [],
     userOrderComplete: [],
     userOrderCanceled: [],
+    orderById: [],
     user: [],
     userAll: [],
     userAllByMail: [],
@@ -65,11 +65,6 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 products: action.payload,
-            }
-        case 'GET_CATEGORIES' :
-            return {
-                ...state,
-                categories: action.payload
             }
         case 'POST_PRODUCT' :
             return {
@@ -129,7 +124,12 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 categories: action.payload
             }
-        // ACTIONS ORDERS
+        // ACTIONS ORDERS 
+        case 'GET_ORDER_BY_ID':
+            return {
+                ...state,
+                orderById: action.payload
+            }
         case 'GET_ALL_ORDER_PROCESSING':
             return {
                 ...state,

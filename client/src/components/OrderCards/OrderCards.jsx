@@ -5,7 +5,7 @@ import style from './orderCards.module.css';
 
 export default function OrderCards ({state}){
     
-    console.log("state OrdCards: ", state);
+    // console.log("state OrdCards: ", state);
     
 
     return state[0] ? (
