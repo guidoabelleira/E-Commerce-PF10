@@ -1,6 +1,6 @@
 import React, { useState, } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { putProduct } from '../../redux/actions';
+import { useDispatch, useSelector } from 'react-redux'; //useSelector
+import { putProduct, } from '../../redux/actions';
 
 import style from './UpdateProduct.module.css'
 //import Loading from '../Loading/Loading'
@@ -94,7 +94,7 @@ export default function UpdateProduct () {
                         <option
                             key={product.id.toString()}
                             name={product.name}
-                            value={product.id}
+                            value={product.id -1}
                         >
                             {product.name}
                         </option>)
@@ -306,3 +306,15 @@ export default function UpdateProduct () {
         </div>
     )
 }
+
+/*
+            "id": 0,
+            "name": "no Name",
+            "image": "no Imagen",
+            "price": 0,
+            "stock": 0,
+            "onStock": false,
+            "onSale": false,
+            "description": "no Descripcion",
+            "category": [],
+*/

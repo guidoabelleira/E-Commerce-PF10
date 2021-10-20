@@ -1,12 +1,11 @@
 import OrderCard from '../OrderCard/OrderCard';
-import OrderSetState from '../OrderSetState/OrderSetState';
 
 
 import style from './orderCards.module.css';
 
 export default function OrderCards ({state}){
     
-    console.log("state OrdCards: ", state);
+    // console.log("state OrdCards: ", state);
     
 
     return state[0] ? (
@@ -17,7 +16,6 @@ export default function OrderCards ({state}){
                     return (
                         <div className={style.cards} key={i}>
                             <OrderCard id={e.id} totalPrice={e.totalPrice} createdAt={e.createdAt} index={i}/>
-                            <OrderSetState id={e.id}/>
                         </div>
                     )
                 }

@@ -38,6 +38,7 @@
     margin-left: 5%;
   }
   .buttons button{
+    cursor: pointer;
     background-color:white;
     color:#0E6655;
     text-decoration: none;

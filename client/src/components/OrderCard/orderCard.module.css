@@ -50,6 +50,19 @@
     margin-left: 1%;
 }
 
+.bttn{
+    background-color: #138b73;
+    color:white;
+    width: 100px;
+    height: 40px; 
+    border:none;
+    border-radius: 5px; 
+    margin-top: 0%;
+    padding:6px;
+    margin-left: 7%;
+    cursor: pointer;
+  }
+
 .price:hover{
     background-color: #f1efef
 }

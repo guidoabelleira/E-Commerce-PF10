@@ -2,20 +2,20 @@ import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { postCategory } from "../../redux/actions"
 import style from "./CategoryForm.module.css"
-
+ 
 function FormCategory() {
     const [input, setInput] = useState({
         name: ""
     })
     const dispatch = useDispatch()
-
+ 
     function handleInputChange(e) {
         setInput({
             ...input,
             [e.target.name] : e.target.value
         })
     }
-
+ 
     function handleForm(e) {
         e.preventDefault()
         dispatch(postCategory(input))
@@ -24,9 +24,11 @@ function FormCategory() {
             name: ""
         })
     }
-
+ 
     return (
         <div className={style.container}>
+            <h2 className={style.label}>Nueva Categoría:</h2>
+            <br></br>
             <form onSubmit={handleForm}>
                 <input
                     value={input.name}
@@ -46,5 +48,5 @@ function FormCategory() {
         </div>
     )
 }
-
+ 
 export default FormCategory

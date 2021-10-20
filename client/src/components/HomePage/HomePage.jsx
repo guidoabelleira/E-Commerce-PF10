@@ -74,7 +74,7 @@ export default function HomePage() {
                     <Link to="/Profile">Ir</Link>
                 </div>) : (<></>)} */}
                 <div className={style.seeAll}>
-                    <p  className={style.h3Primario}>Los mas vendidos:</p>
+                    <p  className={style.h3Primario}>Los más vendidos:</p>
                     <Link className={style.Link}to="/products">
                         <p  className={style.verTodos}>Ver Todos:</p>
                     </Link>

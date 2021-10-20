@@ -22,7 +22,7 @@ export default function NavBarAdminProducts (){
                     <div>
                         <Link className={style.mainBttn} to="/adminproducts/addcategories">
                             {/* <i><FontAwesomeIcon icon={faHouseUser}/></i> */}
-                            <p>Añadir Categorias</p>
+                            <p>Añadir Categorías</p>
                         </Link>
                     </div>
 
@@ -36,6 +36,12 @@ export default function NavBarAdminProducts (){
                     <div>
                         <Link className={style.mainBttn} to="/adminproducts/PreLoadUpdateProduct">
                             <p>Editar Producto</p>
+                        </Link>
+                    </div>
+
+                    <div>
+                        <Link className={style.mainBttn} to="/adminproducts/PreLoadAddReview">
+                            <p>Agregar una Review</p>
                         </Link>
                     </div>
                 </div>

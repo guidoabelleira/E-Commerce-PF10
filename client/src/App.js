@@ -20,19 +20,22 @@ import Orders from './components/Orders/Orders';
 import CheckOut from './components/CheckOut/CheckOut';
 import UpdateProduct from './components/UpdateProduct/UpdateProduct';
 import PreLoadUpdateProduct from './components/UpdateProduct/PreLoadUpdateProduct';
-
+import AddReview from './components/AddReview/AddReview';
+import PreLoadAddReview from './components/AddReview/PreLoadAddReview'
+import AdminOrders from './components/OrdersAdmin/OrdersAdmin';
+import LandingPage from './components/LandingPage/LandingPage';
+import Tiket from './components/Tiket/Tiket';
 
 import { authenticatedUserDb } from './components/Hooks/users';
 
 
 import './App.css';
-import LandingPage from './components/LandingPage/LandingPage';
-// import { useSelector } from 'react-redux';
 
 
 function App() {
     const {isAuthenticate, user} = useAuth0();
     // const userDB = useSelector(state => state.user[0])
+    
     if(user){
         authenticatedUserDb(user);
     }
@@ -61,8 +64,12 @@ function App() {
                             <Route exact path={'/adminproducts/addcategories'} component={AddCategories} />
                             <Route exact path={'/adminproducts/stock'} component={Stock} />
                             <Route exact path={'/order'} component={Orders} />
+                            <Route exact path={'/tiket/:id'} component={Tiket} />
+                            <Route exact path={'/orderadmin'} component={AdminOrders} />
                             <Route exact path={'/adminproducts/editProduct'} component={UpdateProduct} />
                             <Route exact path={'/adminproducts/PreLoadUpdateProduct'} component={PreLoadUpdateProduct} />
+                            <Route exact path={'/adminproducts/addReview'} component={AddReview} />
+                            <Route exact path={'/adminproducts/PreLoadAddReview'} component={PreLoadAddReview} />
                             {/* <Route path={"*"} component={Error404} /> */}
                         </div>
                         </>
@@ -83,8 +90,12 @@ function App() {
                             <Route exact path={'/adminproducts/addcategories'} component={AddCategories} />
                             <Route exact path={'/adminproducts/stock'} component={Stock} />
                             <Route exact path={'/order'} component={Orders} />
+                            <Route exact path={'/tiket/:id'} component={Tiket} />
+                            <Route exact path={'/orderadmin'} component={AdminOrders} />
                             <Route exact path={'/adminproducts/editProduct'} component={UpdateProduct} />
                             <Route exact path={'/adminproducts/PreLoadUpdateProduct'} component={PreLoadUpdateProduct} />
+                            <Route exact path={'/adminproducts/addReview'} component={AddReview} />
+                            <Route exact path={'/adminproducts/PreLoadAddReview'} component={PreLoadAddReview} />
                             {/* <Route path={"*"} component={Error404} /> */}
                         </>
                         )}

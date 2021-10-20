@@ -15,7 +15,7 @@ function AboutUs() {
     },
     {
       image: "https://avatars.githubusercontent.com/u/80963808?v=4",
-      caption: "Pia Correa"
+      caption: "Pía Correa"
     },
     {
       image: "https://avatars.githubusercontent.com/u/72405393?v=4",
@@ -32,7 +32,7 @@ function AboutUs() {
     },
     {
       image: "https://avatars.githubusercontent.com/u/77363778?v=4",
-      caption: "Facundo Sanchez"
+      caption: "Facundo Sánchez"
     }
   ];
 
@@ -46,19 +46,19 @@ function AboutUs() {
   }
   return (
     <div className={style.container}>
-      <div style={{ textAlign: "center" }}>
-        <h2>Proyecto:</h2>
-        <p>Mates-Mati es un E-commerce dedicado a la venta de productos de madera y accesorios, siendo el producto estrella</p>
-        <p>el "MATE".</p>
-<h2>Sobre nosotros...detrás del Código:</h2>
+      <div >
+        <h1 style={{ textAlign: "center" }}>Staff de MATES-MATI</h1>
+        <p style={{marginTop: "20px"}}>Somos un E-commerce dedicado a la venta de productos de </p>
+        <p>madera y accesorios, siendo el producto estrella el "MATE".</p>
+
         <div style={{
           padding: "0 5px"
         }}>
-          <Carousel
+          <Carousel 
             data={data}
             time={3000}
             width="600px"
-            height="450px"
+            height="550px"
             captionStyle={captionStyle}
             radius="15px"
             slideNumber={true}
@@ -74,9 +74,10 @@ function AboutUs() {
             thumbnailWidth="80px"
             style={{
               textAlign: "center",
-              maxWidth: "650px",
-              maxHeight: "400px",
-              margin: "20px auto",
+/*               maxWidth: "650px",
+              maxHeight: "400px", */
+              margin: "25px auto",
+              cursor: "pointer"
             }}
           />
 

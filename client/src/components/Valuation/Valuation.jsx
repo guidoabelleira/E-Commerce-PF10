@@ -1,6 +1,7 @@
 import React, { useEffect, useState, } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getReviewById, } from '../../redux/actions';
+import style from './Valuation.module.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
@@ -38,13 +39,7 @@ export default function Valuation (props) {
     return (
         <div>
 
-            <p>
-                <b>
-                    valor:
-                </b>
-            </p>
-
-            <div >
+            <div className={style.Star}>
                 {stars.map((star, index) =>(
                     <i
                         key={index}
@@ -55,6 +50,7 @@ export default function Valuation (props) {
             </div>
 
             <button
+                className={style.bttn}
                 type='button'
                 onClick={()=> setShowReviewText(!showReviewText)}
             >

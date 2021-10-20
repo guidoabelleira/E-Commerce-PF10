@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import {getAllProducts} from '../../redux/actions';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
+
 import ReactPaginate from 'react-paginate'
 
 // import Filters from '../filters/Filters';
@@ -16,14 +16,8 @@ import Filter from '../filters/Filters';
 function Products() {
     let [pageNumber, setPageNumber] = useState(0)
    
-    const dispatch = useDispatch();
     const state = useSelector(state => state.products)
-    useEffect(() => {
-        async function getters(){
-            await dispatch(getAllProducts());
-        }
-        getters();
-    }, [dispatch]);
+    
     if(state){
         let cardsPerPage = 9;
         let pagesVisited = pageNumber * cardsPerPage
@@ -53,13 +47,13 @@ function Products() {
                 <div className={style.cards}>
                     <AuxiliarCards state={displayCards} />
                     <ReactPaginate 
-                        previousLabel={"previus"}
-                        nextLabel={"next"}
+                        previousLabel={"Anterior"}
+                        nextLabel={"Siguiente"}
                         pageCount={pageCount}
                         onPageChange={changePage}
                         containerClassName={style.paginationContainer}
                         previousClassName= {style.bttn}
-                        nextLinkClassName={style.bttn}
+                        nextClassName={style.bttn}
                         disabledClassName={style.disablePagination}
                         activeClassName={style.activePagination}/>
                 </div>

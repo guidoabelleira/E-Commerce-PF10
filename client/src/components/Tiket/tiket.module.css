@@ -19,12 +19,6 @@
     margin-left: 35%;
     margin-top: 11%;
     text-align: center;
-    cursor: pointer;
-}
-
-.Inputs:hover{
-    background-color: #073a2f;
-    transition-duration: 0.5s;
 }
 
 .Inputs2 {
@@ -37,11 +31,6 @@
     position: absolute;
     top: 20px;
     right:10px;
-    cursor: pointer;
-}
-.Inputs2:hover{
-    background-color: #073a2f;
-    transition-duration: 0.5s;
 }
 
 .img {

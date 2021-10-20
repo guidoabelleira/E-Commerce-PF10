@@ -27,7 +27,7 @@ router.get("/alertStock/", async (req, res, next) => {
     const {num} = req.body
     try {
         const stock = await alertStock(num);
-        res.json(stock);
+        res.send(stock);
     }
     catch (error) {
         next(error);

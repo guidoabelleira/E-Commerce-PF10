@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import axios from "axios";
 import {USER_LOAD} from '../../constantes'
 
-import {getAllUser} from '../../redux/actions';
+import {getAllUserByMail} from '../../redux/actions';
 
 import style from '../SettingsIsActiveAdmin/settingsIsActiveAdmin.module.css';
 
@@ -11,10 +11,9 @@ import style from '../SettingsIsActiveAdmin/settingsIsActiveAdmin.module.css';
 export default function SettingsIsActiveAdmin (){
     const dispatch = useDispatch();
 
-    const allUser = useSelector(state => state.userAll);
-    // console.log("AllUsers: ", allUser.rows)
+    const allUser = useSelector(state => state.userAllByMail);
 
-    const allUserInactive = allUser?.rows?.filter(e => e.isActive === false)
+    const allUserInactive = allUser?.filter(e => e.isActive === false)
 
     const [input, setInput] = useState({
         id: '',
@@ -67,7 +66,7 @@ export default function SettingsIsActiveAdmin (){
 
     useEffect(() => {
         async function getters(){
-            await dispatch(getAllUser());
+            await dispatch(getAllUserByMail());
         }
         getters();
     },[dispatch]);
@@ -78,19 +77,19 @@ export default function SettingsIsActiveAdmin (){
             <div>
             <form onSubmit={handleSubmit}>
                 <select className={style.selects} onChange={handleSelectChange}>
-                    <option defaultValue={false} selected>----- </option>
+                    <option defaultValue={false} selected> Buscar por email </option>
                         {
-                            allUser?.rows?.map(e => {
+                            allUser?.map(e => {
                                 return (
                                 <option key={e.id} value={e.id}>{e.email}</option>
                                 )
                             })
                         }
                 </select>
-                <select defaultValue={input.isActive} onChange={handleSelectActive}> 
+                <select className={style.selects} defaultValue={false} onChange={handleSelectActive}> 
                             <option value='null' selected>----</option>
-                            <option value='true'>active</option>
-                            <option value='false'>bloquear</option>
+                            <option value='true'>Activar</option>
+                            <option value='false'>Bloquear</option>
                         </select>
                 <button className={style.bttn} type='submit'><p>Cambiar!</p></button>
             </form>

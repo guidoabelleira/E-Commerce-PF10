@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios'
 import {useDispatch, useSelector} from 'react-redux'
-import {getAllUser} from '../../redux/actions';
+import {getAllUserByMail} from '../../redux/actions';
 
 import { USER_LOAD } from '../../constantes';
 import style from './settingsUserAdmin.module.css';
@@ -11,7 +11,7 @@ export default function SettingsUserAdmin (){
     
     const dispatch = useDispatch();
 
-    const allUser = useSelector(state => state.userAll);
+    const allUser = useSelector(state => state.userAllByMail);
 
     const [input, setInput] = useState({
         id: '',
@@ -64,7 +64,7 @@ export default function SettingsUserAdmin (){
 
     useEffect(() => {
         async function getters(){
-            await dispatch(getAllUser());
+            await dispatch(getAllUserByMail());
         }
         getters();
     },[dispatch]);
@@ -74,9 +74,9 @@ export default function SettingsUserAdmin (){
             <h2>Editar Usuarios</h2>
             <form onSubmit={handleSubmit}>
                 <select className={style.selects} onChange={handleSelectChange}>
-                    <option defaultValue={false} selected>----- </option>
+                    <option defaultValue={false} selected> Buscar por email * </option>
                         {
-                            allUser?.rows?.map(e => {
+                            allUser?.map(e => {
                                 return (
                                 <option key={e.id} value={e.id}>{e.email}</option>
                                 )
@@ -84,14 +84,10 @@ export default function SettingsUserAdmin (){
                         }
                 </select>
                     <p>
-                        <label>
-                            Privilegios
-                            <span>*</span>
-                        </label>
-                        <select defaultValue={null} onChange={handleSelectIsAdmin}> 
-                            <option value='null' selected>----</option>
-                            <option value='user'>user</option>
-                            <option value='admin'>admin</option>
+                        <select className={style.selects} onChange={handleSelectIsAdmin}> 
+                            <option value='null' selected>Privilegios *</option>
+                            <option value='user'>User</option>
+                            <option value='admin'>Admin</option>
                         </select>
                     </p> 
                     <button className={style.bttn}  type='submit'><p>Cambiar!</p></button>

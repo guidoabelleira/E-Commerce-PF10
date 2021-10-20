@@ -1,8 +1,22 @@
 .Star{
+    align-items: center;
     padding: auto;
     size: 1%;
     border: white solid;
     border-radius: 1%;
     background-color: #0E6655;
     color: white;
+}
+.bttn {
+    background-color:#0E6655 ;
+    padding: 1%;
+    border: 1%;
+    border-radius: 10px;
+    color: white;
+    width: 20%;
+    cursor: pointer;
+}
+.bttn:hover{
+    background-color: #073a2f;
+    transition-duration: 0.5s;
 }
