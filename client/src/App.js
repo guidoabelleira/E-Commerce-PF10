@@ -20,6 +20,8 @@ import Orders from './components/Orders/Orders';
 import CheckOut from './components/CheckOut/CheckOut';
 import UpdateProduct from './components/UpdateProduct/UpdateProduct';
 import PreLoadUpdateProduct from './components/UpdateProduct/PreLoadUpdateProduct';
+import AddReview from './components/AddReview/AddReview';
+import PreLoadAddReview from './components/AddReview/PreLoadAddReview'
 import AdminOrders from './components/OrdersAdmin/OrdersAdmin';
 import LandingPage from './components/LandingPage/LandingPage';
 import Tiket from './components/Tiket/Tiket';
@@ -66,6 +68,8 @@ function App() {
                             <Route exact path={'/orderadmin'} component={AdminOrders} />
                             <Route exact path={'/adminproducts/editProduct'} component={UpdateProduct} />
                             <Route exact path={'/adminproducts/PreLoadUpdateProduct'} component={PreLoadUpdateProduct} />
+                            <Route exact path={'/adminproducts/addReview'} component={AddReview} />
+                            <Route exact path={'/adminproducts/PreLoadAddReview'} component={PreLoadAddReview} />
                             {/* <Route path={"*"} component={Error404} /> */}
                         </div>
                         </>
@@ -90,6 +94,8 @@ function App() {
                             <Route exact path={'/orderadmin'} component={AdminOrders} />
                             <Route exact path={'/adminproducts/editProduct'} component={UpdateProduct} />
                             <Route exact path={'/adminproducts/PreLoadUpdateProduct'} component={PreLoadUpdateProduct} />
+                            <Route exact path={'/adminproducts/addReview'} component={AddReview} />
+                            <Route exact path={'/adminproducts/PreLoadAddReview'} component={PreLoadAddReview} />
                             {/* <Route path={"*"} component={Error404} /> */}
                         </>
                         )}

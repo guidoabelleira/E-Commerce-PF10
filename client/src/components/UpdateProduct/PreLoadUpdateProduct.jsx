@@ -1,51 +1,53 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, } from 'react-redux';
-import { Link } from "react-router-dom";
-import { 
+import { useDispatch, useSelector} from 'react-redux';
+//import { Link } from "react-router-dom";
+import Loading from '../Loading/Loading'
+import {
     getAllCategories,
     getAllProducts,
 } from '../../redux/actions';
+import UpdateProduct from './UpdateProduct';
 import sytle from './UpdateProduct.module.css'
 
-export default function PreLoadUpdateProduct (){
+export default function PreLoadUpdateProduct() {
 
     const dispatch = useDispatch()
     const [loading, setLoading] = useState(true)
 
+    const categories = useSelector(state => state.allCategories)
+    const allProducts = useSelector(state => state.products)
+
     useEffect(() => {
-        const data = async ()=>{
-            try{
+        const data = async () => {
+            try {
                 dispatch(getAllCategories())
                 dispatch(getAllProducts())
-                setLoading(false)
+                setTimeout(()=> {
+                    setLoading(false)
+                }, 2000)
             }
-            catch(error){
+            catch (error) {
                 console.log(error)
             }
         }
         data()
-    }, [dispatch,]);
+    }, [dispatch, loading]);
 
+    const state = {categories, allProducts}
 
     return (
         <div
             className={sytle.FormStyle}
         >
             {
-                <Link 
-                    to='/adminproducts/editProduct'
-                >
-                    <button 
-                        disabled={loading}
-                    > 
-                        {
-                            loading? 
-                                "Cargando..."
-                                :
-                                "Editar"
-                        } 
-                    </button>
-                </Link>
+                loading ?
+                    (
+                        <Loading />
+                    )
+                    :
+                    (
+                        <UpdateProduct peops={ state } />
+                    )
             }
         </div>
     )

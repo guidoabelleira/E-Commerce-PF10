@@ -38,6 +38,12 @@ export default function NavBarAdminProducts (){
                             <p>Editar Producto</p>
                         </Link>
                     </div>
+
+                    <div>
+                        <Link className={style.mainBttn} to="/adminproducts/PreLoadAddReview">
+                            <p>Agregar una Review</p>
+                        </Link>
+                    </div>
                 </div>
             </div>
         ) : (
