@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getCategories, getCategoryFiltered, getAllProducts, setAscDesc } from '../../redux/actions'
+import { getCategoryFiltered, getAllProducts, setAscDesc } from '../../redux/actions'
 import style from "./Filters.module.css"
 function Filter() {
     const dispatch = useDispatch()
@@ -32,11 +32,6 @@ function Filter() {
         }
     }
 
-    useEffect(() => {
-        dispatch(getCategories())
-        dispatch(getAllProducts())
-
-    },[dispatch])
 
     return (
         <div className={style.container}>

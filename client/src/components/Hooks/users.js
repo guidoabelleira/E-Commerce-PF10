@@ -21,7 +21,7 @@ export async function authenticatedUserDb(user){
         async function validate(values) {
             let response = await axios.post(USER_LOAD, values);
             const r = response.data
-            console.log("response: ", r);
+            // console.log("response: ", r);
             
             return r.id
         }
