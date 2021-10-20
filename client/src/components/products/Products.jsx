@@ -52,8 +52,8 @@ function Products() {
                         pageCount={pageCount}
                         onPageChange={changePage}
                         containerClassName={style.paginationContainer}
-                        previousClassName= {style.bttn}
-                        nextClassName={style.bttn}
+                        previousClassName= {style.bttnLi}
+                        nextClassName={style.bttnLi}
                         disabledClassName={style.disablePagination}
                         activeClassName={style.activePagination}/>
                 </div>

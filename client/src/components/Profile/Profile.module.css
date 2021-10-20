@@ -1,7 +1,7 @@
 .mainContainer {
     display: flex;
     flex-direction: row;
-    
+    flex-wrap: wrap;
     margin-top: 20px;
     margin-bottom: 2%;
 }
@@ -62,7 +62,7 @@
 }
 
 .thirdContainer{
-    margin-left: 6vw;
+    margin-left: 40%;
     background: #0E6655;
     color: white;
     padding: 4% 0%;
@@ -72,12 +72,90 @@
                  -4px -4px 6px #0f705e;
     border-radius: 20px;
     display: flex;
-    flex-direction: column;
-    margin-top: 1%;
-    height: 350px;
+    flex-direction: column; 
+    height: 500px;
     width: 550px;
+    margin-top: 10%;
 }
 
 .warning {
     color: red
+}
+
+@media (max-width: 700px) { 
+    .container{
+        width: 200px;
+        height:220px;
+        margin-left: 20%;
+        padding:5%;
+    }
+    .container img {
+        width:40px;
+        height:40px;
+    }
+    .text{
+        margin-left: -40%;
+        font-size: 13px;
+        width:90px;
+        padding:2px;
+    }
+    .secondContainer{
+        align-items: center;
+        justify-content: center;
+        width: 200px;
+        height:700px;
+        margin-left: 20%;
+        margin-top: 10%;
+        padding:5%;
+    }
+
+    .secondContainer input{
+        width:50%;
+        
+    }
+    .secondContainer textarea {
+        width:50%;
+    }
+    .secondContainer p{
+        font-size: 12px;
+        
+    }
+    .secondContainer h3{
+        font-size: 20px;
+    }
+    .secondContainer h2{
+        font-size: 24px;
+    }
+    .secondContainer button{
+        margin-bottom:4%;
+    }
+
+    .thirdContainer{
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+            height:700px;
+            margin-left: 20%;
+            margin-top: 10%;
+            padding:5%;
+        
+    }
+    .thirdContainer  p{
+        font-size: 12px;
+        
+    }
+    .thirdContainer h3{
+        font-size: 20px;
+    }
+
+    .thirdContainer h2{
+        font-size: 24px;
+    }
+    .thirdContainer select{
+        width:50%;
+        
+    }
+    .settings{
+        margin-top: 5%;
+    }
 }

@@ -40,3 +40,11 @@
     margin-left: -45px;
     margin-top: 20px;
 }
+
+@media (max-width: 700px) { 
+    .container{
+        display: flexbox;
+        margin-left:0;
+        margin-top: 20px;
+    }
+}
