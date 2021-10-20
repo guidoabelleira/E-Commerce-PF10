@@ -50,7 +50,7 @@ export default function NavBar() {
                     <div className={style.mainBttn}>
                         <Link className={style.mainBttn}to="/products">
                             <i><FontAwesomeIcon icon={faBoxOpen}/></i>
-                            <p>Catalogo</p>
+                            <p>Catálogo</p>
                         </Link>
                     </div>
                     
@@ -83,7 +83,7 @@ export default function NavBar() {
                     <div className={style.mainBttn}>
                         <Link className={style.mainBttn} to="/contact">
                             <i><FontAwesomeIcon icon={faAddressCard}/></i>
-                            <p>Contactenos</p>
+                            <p>Contactanos</p>
                         </Link>
                     </div>
 

@@ -91,7 +91,7 @@ export default function CheckOut (){
                     </p>
                 ) : (
                     <Link to="/Profile">
-                        <button type="button">
+                        <button type="button" className={style.bttn}>
                             Confirmar direccion de envio
                         </button>
                     </Link>
@@ -100,7 +100,7 @@ export default function CheckOut (){
             </div>
             <div>
                 <p>Total a pagar: ${totalCheckOut}</p>
-                <button onClick={e => checkOut(products,totalCheckOut)}>MercadoPago</button>
+                <button onClick={e => checkOut(products,totalCheckOut)} className={style.mp}>MercadoPago</button>
             </div>
             
         </div>

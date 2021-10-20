@@ -1,3 +1,21 @@
 .container {
     margin: 50vh
+    
+}
+
+.bttn{
+    background-color: #0E6655;
+    color:white;
+    width: 100px;
+    height: 40px; 
+    border:none;
+    border-radius: 5px; 
+    margin-top: 0%;
+    padding:6px;
+    margin-left: 7%;
+    cursor: pointer;
+  }
+
+.mp{
+    cursor: pointer;
 }

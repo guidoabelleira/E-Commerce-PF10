@@ -34,10 +34,6 @@
     width: 390px;
 }
 
-.product:hover {
-    background-color: #0b443a;
-}
-
 .tittle {
     align-items: center;
     justify-content: center;
@@ -79,10 +75,7 @@
     font-size: 19px;
     font-family: Saira;
     font-style: bold;
-}
-
-.bttn:hover {
-    background-color: #0b443a;
+    cursor: pointer;
 }
 
 .count {
@@ -99,7 +92,7 @@
     height: 35px;
     border: none;
     border-radius: 25px;
-
+    cursor: pointer;
 
 }
 

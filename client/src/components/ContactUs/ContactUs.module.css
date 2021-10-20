@@ -48,6 +48,7 @@
      border:none;
      border-radius: 25px; 
      margin-top: 2%;
+     cursor: pointer;
  }
  
  .bttn:hover{

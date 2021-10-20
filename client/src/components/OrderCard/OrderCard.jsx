@@ -17,7 +17,7 @@ export default function OrderCard({id, totalPrice, createdAt, index}){
             </div>
             <div className={style.buttons}>
             </div>
-            <Link to={`/tiket/${id}`}><button>Ver Ticket</button></Link>
+            <Link to={`/tiket/${id}`}><button className={style.bttn}>Ver Ticket</button></Link>
             {/* ver ruta tiket, crear componente tiketdetail */}
 
         </div>

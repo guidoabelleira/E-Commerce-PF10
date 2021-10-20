@@ -77,6 +77,7 @@ function AboutUs() {
 /*               maxWidth: "650px",
               maxHeight: "400px", */
               margin: "25px auto",
+              cursor: "pointer"
             }}
           />
 
