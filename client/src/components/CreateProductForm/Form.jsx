@@ -67,8 +67,11 @@ function Form() {
             onStock: e.target.value
         })
     }
- 
-    return (
+    function handleDeleteCategories(el){  
+        setInput({...input, category: input.category.filter(cat => cat !== el)})
+       }
+
+       return (
         <div className={style.container}>
             <h2 className={style.label}>Nuevo Producto:</h2>  
             <br></br>
@@ -84,18 +87,18 @@ function Form() {
                         className={style.input}
                     />
                 {/* <span>Imagen</span> */}
+                <br></br>
                     <input
                         placeholder="Imagen"
                         value={input.image}
                         type="text"
-/*                         type="file" */
                         name="image"
                         required
                         onChange={handleInputChange}
                         className={style.input}
                     />
-                    
                 {/* <span>Precio</span> */}
+                <br></br>
                     <input
                         placeholder="Precio"
                         value={input.price}
@@ -106,6 +109,7 @@ function Form() {
                         className={style.input}
                     />
                 {/* <span>Stock</span> */}
+                <br></br>
                     <input
                         value={input.stock}
                         type="number"
@@ -116,7 +120,8 @@ function Form() {
                         className={style.input}
                     />
                     {/* <span>Descripción</span> */}
-                    <textarea
+                    <br></br>
+                    <input
                         placeholder="Descripción"
                         value={input.description}
                         name="description"
@@ -126,13 +131,12 @@ function Form() {
                         type="text"
                     />
                      <br></br>
-
+                    <label className={style.divs}>Categorias:</label>
                     <select
                         onChange={handleSelectCategory}
                         className={style.select}
                     >
-                        <br></br>
-                        <option value={null}>Seleccionar categoría</option>
+                        <option value={null}></option>
                         {
                             categories.map((el) => {
                                 return (
@@ -142,30 +146,44 @@ function Form() {
                         }
                     </select>
                         <p>{input.category.map(el => el.toString()+ " ")}</p>
+                 <br></br>  
+ 
+                    <label className={style.divs}>¿En stock?</label>
                     <select
                         onChange={handleSelectOnStock}
                         className={style.select}
                     >
-                        <option value={null}>En stock?</option>
-                        <option value={true}>Si</option>
-                        <option value={false}>No</option>
-                    </select>
-                <br></br>
-                    <select
-                        onChange={handleSelectOnSale}
-                        className={style.select}
-                    >
-                        <option value={null}>En oferta?</option>
+                        <option value={null}>Seleccionar</option>
                         <option value={true}>Si</option>
                         <option value={false}>No</option>
                     </select>
                     <br></br>
-               
-                    <button className={style.bttn} type='submit'>Crear producto</button>
-            </form>
+                    <label className={style.divs}>¿En oferta?</label>
+                    <select
+                        onChange={handleSelectOnSale}
+                        className={style.select}
+                    >
+                        <option value={null}>Seleccionar</option>
+                        <option value={true}>Si</option>
+                        <option value={false}>No</option>
+                    </select>
+                    <br></br>  
+                    <br></br>        
+                        <button className={style.bttn} type='submit'>Crear producto</button>
+            </form>    
+                 <div className={style.delete}>
+                      {input.category.map(el =>  
+                         <button
+                              className={style.deleteBtn}
+                              onClick={()=>handleDeleteCategories(el)}>{el} X
+                         </button>
+                       )}
+                 </div>      
         </div>
     )
 }
  
 export default Form
+ 
+
  
