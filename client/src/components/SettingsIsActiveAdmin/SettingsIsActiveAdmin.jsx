@@ -73,7 +73,7 @@ export default function SettingsIsActiveAdmin (){
 
 
     return allUser ?(
-        <div>
+        <div className={style.container}>
             <div>
             <form onSubmit={handleSubmit}>
                 <select className={style.selects} onChange={handleSelectChange}>
@@ -95,7 +95,7 @@ export default function SettingsIsActiveAdmin (){
             </form>
             </div>
             
-            <div>
+            <div className={style.subContainer}>
                 <h3>Usuarios Bloqueados:</h3>
                 {allUserInactive ? (
                     <ul>

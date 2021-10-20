@@ -54,16 +54,21 @@
   color: #0E6655;
 }
 
-.bttn{
+.bttnLi{
     background-color: none;
     cursor: pointer;
+    display: none;
 }
 
 @media (max-width: 700px) { 
     .container{
         margin-left: 0vw;
     }
-
+    .bttnLi{
+        background-color: none;
+        cursor: pointer;
+        display:none;
+    }
    .rechargeBtn{
        display: none;
    }
