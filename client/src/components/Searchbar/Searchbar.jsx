@@ -1,8 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux'
 import { getProductByName } from "../../redux/actions";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import {useHistory} from 'react-router-dom'
 
 //Hook localStore
 // import {useLocalStorage} from '../Hooks/useLocalStorage';
@@ -16,20 +17,25 @@ function Searchbar() {
     const dispatch = useDispatch()
     const [input, setInput] = useSessionStorage('text', '')
 
+    const [isHome, setIsHome] = useState(false);
+    const history = useHistory()
+
     function handleInputChange(e) {
         setInput(e.target.value)
     }
 
     function handleSubmit(e) {
         e.preventDefault()
+        if(isHome){
+            history.push('/products')
+        }
         dispatch(getProductByName(input))
     }
     useEffect(() => {
-        async function getters(){
-            await getProductByName(input)
+        if(history.location.pathname === '/home'){
+            setIsHome(true)
         }
-        getters()
-    }, [input]);
+    }, [history.location.pathname]);
     
     return (
         <div className={style.container}>

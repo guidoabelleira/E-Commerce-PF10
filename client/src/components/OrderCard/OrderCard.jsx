@@ -4,7 +4,7 @@ import style from "./orderCard.module.css"
 
 export default function OrderCard({id, totalPrice, createdAt, index}){
     // voy a recibir order
-    console.log("id: ", id, " Total: ", totalPrice)
+    // console.log("id: ", id, " Total: ", totalPrice)
 
 
     return (
