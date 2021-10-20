@@ -9,4 +9,34 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+}
+
+.bttn:hover{
+    background-color:rgb(202, 199, 199);
+    transition-duration: 0.5s;
+}
+
+.selects {
+    margin-bottom: 10px;
+    cursor: pointer;
+    padding: 7px 10px;
+    outline: 0;
+    border: none;
+    border-radius: 10px;
+    color: #0E6655;
+    background-color: #ffffff;
+    font-size: 1em;
+    font-family: inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    transition: all 0.25s ease;
+  }
+
+.container{
+    display: flexbox;
+    margin-left: -45px;
+    margin-top: 20px;
 }
