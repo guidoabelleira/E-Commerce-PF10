@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getCategories, getCategoryFiltered, getAllProducts, setAscDesc } from '../../redux/actions'
+import { getCategoryFiltered, getAllProducts, setAscDesc } from '../../redux/actions'
 import style from "./Filters.module.css"
 function Filter() {
     const dispatch = useDispatch()
-    const categories = useSelector(state => state.categories)
+    const categories = useSelector(state => state.allCategories)
     const [orden, setOrden] = useState({
         ord: ""
     })
@@ -32,17 +32,12 @@ function Filter() {
         }
     }
 
-    useEffect(() => {
-        dispatch(getCategories())
-        dispatch(getAllProducts())
-
-    },[dispatch])
 
     return (
         <div className={style.container}>
             <p className={style.p}>Filtrar: </p>
             <select className={style.selects} onChange={handleCategoryFilter}>
-                <option defaultValue={false} selecte>Categorías:</option>
+                <option defaultValue={false} selected >Categorías:</option>
                 {
                     categories.map(el => {
                         return (
