@@ -33,7 +33,7 @@ export default function Tiket (props) {
                 <h3>Estado: </h3>
                 <div>
                     <ul>
-                        {orderId.product.map(e => {
+                        {orderId?.product?.map(e => {
                             return (
                                 <li key={e.id}>
                                     <p>Articulo: {e.name}</p>
