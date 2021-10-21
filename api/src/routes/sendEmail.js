@@ -75,12 +75,12 @@ router.post("/:emailType", (req, res) => {
         <hr>
         <small>En caso de cualquier inquietud, por favor contactanos en: ecommercepf10@gmail.com</small>`,
     };
-  } else if (emailType === "sendPurchase") {
+  } else if (emailType === "orderCreated") {
     const { user, info } = req.body;
     mailOptions = {
       from: USER_MAIL,
       to: user.email,
-      subject: "Detalle y confirmación de compra",
+      subject: "Estado de orden",
       html: `<div id="container" style="width: 100%; font-family: sans-serif; font-weight: normal;">
       <div style="width: 100%; max-width: 700px; margin: auto;">
       <div style="background-color: #0E6655; text-align: center; padding: 0.7rem 0;">
@@ -90,7 +90,35 @@ router.post("/:emailType", (req, res) => {
       <div style="text-align: center; padding: 0 0.72rem; padding-top: 2.5rem; background-color:white">
       <p style="color: #4f5154; margin-bottom: 1.4rem; font-size: 1rem;">&iexcl;
       Hola ${user.name}  ${user.lastname}  !
-      <h3>Tu compra: </h3>
+      <h3>Tu orden fue creada con éxito </h3>
+      Order N° ${info.orderId}
+      <hr>
+             
+      <h3>Precio total: ${info.totalPrice}</h3>
+      <hr>
+      <p> Si deseas ver los detalles de tu orden, por favor regrese a nuestra página!! </p>
+      <p>
+      Gracias por confiar en nosotr@s</p>
+      <hr>
+      <small>En caso de cualquier inquietud, por favor contactanos en: ecommercepf10@gmail.com</small>
+      `,
+    };
+  } else if (emailType === "orderComplete") {
+    const { user, info } = req.body;
+    mailOptions = {
+      from: USER_MAIL,
+      to: user.email,
+      subject: "Confirmación de compra",
+      html: `<div id="container" style="width: 100%; font-family: sans-serif; font-weight: normal;">
+      <div style="width: 100%; max-width: 700px; margin: auto;">
+      <div style="background-color: #0E6655; text-align: center; padding: 0.7rem 0;">
+      <h1 style="color: white; font-family: sans-serif; font-weight: normal;">Mates-Mati</h1>
+      </div>
+      
+      <div style="text-align: center; padding: 0 0.72rem; padding-top: 2.5rem; background-color:white">
+      <p style="color: #4f5154; margin-bottom: 1.4rem; font-size: 1rem;">&iexcl;
+      Hola ${user.name}  ${user.lastname}  !
+      <h3>Tu orden fue pagada con éxito </h3>
       Order N° ${info.orderId}
       <hr>
              

@@ -6,7 +6,7 @@ import {
 } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import Valuation from '../Valuation/Valuation'
+/* import Valuation from '../Valuation/Valuation' */
 import style from './AddReview.module.css'
 import {
     postReviewById,
