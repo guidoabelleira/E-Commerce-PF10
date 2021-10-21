@@ -3,17 +3,17 @@
 //Endpoint ---> http://localhost:3001/sendEmail/orderCreated
 
 // Por BODY necesito:
-let body ={
-    user:{
-        name,
-        lastname,
-        email
-    },
-    info:{
-        orderId,
-        totalPrice
-    }
-}
+// let body ={
+//     user:{
+//         name,
+//         lastname,
+//         email
+//     },
+//     info:{
+//         orderId,
+//         totalPrice
+//     }
+// }
 
 // INFO viene de orders. Si la palabra no te queda cómoda,
 // la cambio por la que quieras, no hay problema.
@@ -66,15 +66,15 @@ let body ={
 //Endpoint ---> http://localhost:3001/sendEmail/contactUs
 
 // Por BODY necesito:
-let body ={
-    user:{
-        name,
-        email,
-        affair,
-        message,
-        telephone
-    }
-}
+// let body ={
+//     user:{
+//         name,
+//         email,
+//         affair,
+//         message,
+//         telephone
+//     }
+// }
 
 //------------------------------------------------------------------------------------------------------//
 

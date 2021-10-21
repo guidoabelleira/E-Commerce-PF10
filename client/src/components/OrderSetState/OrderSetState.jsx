@@ -2,8 +2,11 @@ import React, {useState} from 'react';
 import axios from 'axios'
 
 import style from './orderSetState.module.css';
+import { useSelector } from 'react-redux';
 
 export default function OrderSetState (id){
+
+    const userState = useSelector(state => state.user[0])
 
     const [input, setInput] = useState({
         idOrder: id.id,
@@ -31,6 +34,21 @@ export default function OrderSetState (id){
                 if(input.state === 'completed') {
                     let check = {state:'Complete'}
                     await axios.put('/orders/checkout/' + input.idOrder, check);
+
+                    let body ={
+                        user:{
+                            name: userState?.name,
+                            lastname: userState?.lastname,
+                            email: userState?.email
+                        },
+                        info:{
+                            orderId: input.idOrder,
+                            totalPrice: 0
+                        }
+                    }
+                    let resEmail = await axios.post('sendEmail/orderComplete', body)
+                    console.log(resEmail)
+                    //Endpoint ---> http://localhost:3001/sendEmail/orderComplete
                     return alert("Pedido: " + input.idOrder +" Completada!")
                 }
                 if(input.state === 'canceled') {

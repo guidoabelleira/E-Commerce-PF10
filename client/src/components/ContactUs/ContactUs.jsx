@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faWhatsapp} from '@fortawesome/free-brands-svg-icons';
-
+import axios from 'axios';
 
 import style from './ContactUs.module.css';
 
@@ -15,16 +15,43 @@ export default function ContactUs(){
         message: "",
     })
 
+    async function sendContact (input){
+        //Endpoint ---> http://localhost:3001/sendEmail/contactUs
 
+        // Por BODY necesito:
+        let body ={
+            user:{
+                name: input.name,
+                email: input.email,
+                affair: input.affair,
+                message: input.message,
+                telephone: input.telephone
+            }
+        }
+        let resEmail = await axios.post('sendEmail/contactUs', body)
+        console.log(resEmail)
+        console.log("soy body: ", body)
+        return
+    }
 
     function handleSubmit(e){
         e.preventDefault();
         // dispatch a ruta de back
+        sendContact(input);
         alert("Mensaje enviado! A la brevedad lo contactaremos...")
+        setInput({
+            name: "",
+            email: "", 
+            telephone: "",
+            affair: "",
+            message: "",
+        })
     }
 
     function handleInputChange(e) {
-        setInput(e.target.value)
+        setInput({
+            ...input,
+            [e.target.name]: e.target.value})
     }
 
     return (
@@ -47,7 +74,7 @@ export default function ContactUs(){
                         </label> */}
                         <input 
                             type="text" 
-                            name="name_contacto" 
+                            name="name" 
                             placeholder="Nombre *" 
                             required
                             onChange={handleInputChange}
@@ -62,7 +89,7 @@ export default function ContactUs(){
                         </label> */}
                         <input 
                             type="email" 
-                            name="email_contacto" 
+                            name="email" 
                             placeholder="Email *"
                             required
                             onChange={handleInputChange}

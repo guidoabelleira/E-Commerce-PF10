@@ -15,11 +15,11 @@ export default function CheckOut (){
     const cartCheckOut = useSelector(state => state.shopProduct);
     const totalCheckOut = useSelector(state => state.totalCart);
     const userState = useSelector(state => state.user[0])
-    console.log("carrito previo checkout: ", cartCheckOut);
+    // console.log("carrito previo checkout: ", cartCheckOut);
 
     const products = {orderBody: cartCheckOut};
     
-    console.log("products: ", products)
+    // console.log("products: ", products)
     // let id = localStorage.getItem('idUser');
     // const checkOutState = preCheckOut(cartCheckOut);
 
@@ -30,16 +30,10 @@ export default function CheckOut (){
     //     return state
     // }
 
-    // primero router.post("/:idUser/carrito" genero carrito usuario. solo mando id
-    // segundo router.post("/:idUser/cart" paso por item los productos
-    // tercero router.get("/:idUser/cart" traigo carrito
-    // router.put("/checkout/:id" cambio estado carrito
-    // cuarto router.get("/:idUser/checkout"
-    // console.log(id)
     async function checkOut(products){
-        console.log("checkout products: ", products)
+        // console.log("checkout products: ", products)
         let id = localStorage.getItem('idUser');
-        console.log("aca id checkout: ",id)
+        // console.log("aca id checkout: ",id)
         if(id){
             // destructuro el estado
             // let created = await axios.post(USER_LOAD + id + '/carrito');
@@ -59,6 +53,23 @@ export default function CheckOut (){
             let check = {state:'Processing', totalPrice: totalCheckOut}
             await axios.put('/orders/checkout/' + idCart.id, check);
             // alert(orderLine.data);
+
+            
+            let email = {
+                user: {
+                    name: userState?.name,
+                    lastname: userState?.lastname,
+                    email: userState?.email
+                },
+                info: {
+                    orderId: idCart,
+                    totalPrice: totalCheckOut
+                }
+            }
+            let resEmail = await axios.post('sendEmail/orderCreated', email)
+            console.log(resEmail)
+            //Endpoint ---> http://localhost:3001/sendEmail/orderCreated
+
 
             let cartMercadoPago = products.orderBody;
             let mercadoPagoRes = await axios.post(POST_MERCADOPAGO , cartMercadoPago)

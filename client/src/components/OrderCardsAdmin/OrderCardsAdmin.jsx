@@ -6,7 +6,7 @@ import style from './orderCardsAdmin.module.css';
 
 export default function OrderCardsAdmin ({state}){
     
-    console.log("state OrdCards: ", state);
+    // console.log("state OrdCards: ", state);
     
 
     return state[0] ? (
