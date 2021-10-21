@@ -22,8 +22,14 @@ export default function LandingPage (){
     
     return (
         <div className={style.container}>
-            <h2>Bienvenido!!! </h2>
-            {state ? (<h3>{state.name}</h3>) : (<h3> Registrate para una mejor experiencia!</h3>)}
+            <h1>Hola  </h1>
+            {state ? (<h2>{state.name}</h2>) : (<h3> Registrate para una mejor experiencia!</h3>)}
+            <br></br>
+            <h3>Bienvenid@ a Mates-Mati </h3>
+            <br></br>
+            <br></br>
+            Estamos a su disposición!
+            
         </div>
     ) 
 }

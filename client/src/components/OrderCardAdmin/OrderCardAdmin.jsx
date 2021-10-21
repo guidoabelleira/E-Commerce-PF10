@@ -9,8 +9,8 @@ export default function OrderCardAdmin({id, totalPrice, createdAt, index}){
         
         <div className={style.container} key={index}>
             <div className={style.subContainer}>
-                <h4>Pedido: {createdAt.split("T")[0]}</h4>
-                <p>id: {id}</p>
+                <h4>Número de pedido: {id}</h4>
+                <p>Fecha: {createdAt.split("T")[0]}</p>
                 <p>Precio total: {totalPrice}</p>
             </div>
             <div className={style.buttons}>

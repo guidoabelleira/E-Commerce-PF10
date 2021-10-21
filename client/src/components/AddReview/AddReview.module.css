@@ -5,19 +5,16 @@
 }
 
 .container{
-    width: 500px;
-        margin-left:10vw;
-        margin-top: 2%;
+    width: 350px;
+        margin-top: 20px;
         background-color:#0E6655;
         color: white;
         display: flex;
         flex-direction: column;
 
-        padding: 5%;
+        padding: 7%;
         border-radius: 50px;
         background: #0E6655;
-        box-shadow:  4px 4px 6px #0d5c4d,
-                     -4px -4px 6px #0f705e;
 }
 
 .inputs {

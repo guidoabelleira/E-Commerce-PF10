@@ -14,9 +14,9 @@ export default function OrderCard({id, totalPrice, createdAt, index}){
                 <p className={style.price}> Total: $ {totalPrice}</p>
             </div>
             <div className={style.buttons}>
-            </div>
             <Link to={`/tiket/${id}`}><button className={style.bttn}>Ver Ticket</button></Link>
             {/* ver ruta tiket, crear componente tiketdetail */}
+            </div>
 
         </div>
         

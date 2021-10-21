@@ -4,8 +4,8 @@
     flex-direction: column;
 }
 .container {
-    margin-left:10vw;
-    margin-top: 2%;
+    margin-left:26vw;
+    margin-top: 13%;
     background-color:#0E6655;
     color: white;
     display: flex;
@@ -60,7 +60,7 @@
     height: 40px;
     padding: 7px 10px;
     margin-right: 2%;
-    margin-left: 2%;
+    margin-left: 0%;
     outline: 0;
     border: none;
     border-radius: 10px;

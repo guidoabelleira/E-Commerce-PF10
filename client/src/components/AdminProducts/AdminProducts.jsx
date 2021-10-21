@@ -5,7 +5,7 @@ import style from './adminProducts.module.css';
 export default function AdminProducts (){
     return(
         <div className={style.container}>
-            <div>
+{/*             <div>
                 <h2>Administrador de Productos</h2>
             </div>
             <div>
@@ -16,7 +16,7 @@ export default function AdminProducts (){
             </div>
             <div>
                 <h3>Aviso de ultimos reviews</h3>
-            </div>
+            </div> */}
         </div>
         
     )

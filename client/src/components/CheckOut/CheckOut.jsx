@@ -91,26 +91,28 @@ export default function CheckOut (){
                 <h2>Su pedido: </h2>
             </div>
             <div>
-                <h3>Direccion de envio</h3>
+                <h3>Dirección de envío</h3>
                 {userState?.address ? (
                     <div>
                         <p>
                             <p>{userState.address}</p>
                             <Link to="/Profile">
+                            <button className={style.cambiar}>
                                 Cambiar
+                                </button>
                             </Link>
                         </p>
                         <br/>
                         <p>Total a pagar: ${totalCheckOut}</p>
-                        <button onClick={e => checkOut(products,totalCheckOut)} className={style.mp}>MercadoPago</button>
+                        <button onClick={e => checkOut(products,totalCheckOut)} className={style.bttn}>Pagar</button>
                     </div>
                 ) : (
                     <div>
-                        <p>Aun no registro su direccion de envio</p>
+                        <p>Aún no registró su dirección de envío</p>
                         <br/>
                         <Link to="/Profile">
                             <button type="button" className={style.bttn}>
-                                Confirmar direccion de envio
+                                Confirmar dirección de envío
                             </button>
                         </Link>
                     </div>

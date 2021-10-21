@@ -78,28 +78,22 @@ export default function OrderSetState (id){
             <form onSubmit={handleSubmit}>
                     
                     <p>
-                        <label>
-                            Estado
-                            <span>*</span>
-                        </label>
-                        <select defaultValue={input.state} onChange={handleSelectChange}> 
-                            <option value='null' selected>----</option>
+                        <select className={style.selects} defaultValue={input.state} onChange={handleSelectChange}> 
+                            <option value='null' selected>Estado</option>
                             <option value='completed'>Completada</option>
                             <option value='canceled'>Cancelar</option>
                         </select>
                     </p> 
-
+<br></br>
                     <p>
-                    <label>
-                            Mensaje:
-                            <span>*</span>
-                        </label>
+
                         <textarea 
                             name="message" 
                             placeholder="Deja aqui tu comentario" 
                             required
                             onChange={handleInputChange}
                             value={input.message} 
+                            className={style.input}
                             />
                     </p>
 
@@ -108,7 +102,7 @@ export default function OrderSetState (id){
                         los campos son obligatorios.
                     </p>
 
-                    <button type='submit'><p>Enviar</p></button>
+                    <button type='submit' className={style.bttn}><p>Enviar</p></button>
 
                 </form>
         </div>

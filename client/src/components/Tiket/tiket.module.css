@@ -1,13 +1,20 @@
-.container{
+.container {
+    margin-left:20%;
+    margin-top: 2%;
+    background-color:#0E6655;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
 
-    margin-left:30%;
-    margin-right: 15%;
-    margin-top: 1%;
-    margin-bottom: 1%;
-    border: black solid;
-    border-radius: 11px;
-    padding: 1%;
-}
+    padding: 5%;
+    border-radius: 50px;
+    background: #0E6655;
+    box-shadow:  4px 4px 6px #0d5c4d,
+                 -4px -4px 6px #0f705e;
+} 
 
 .Inputs2 {
     background-color:#0E6655 ;
@@ -19,9 +26,10 @@
     position: absolute;
     top: 20px;
     right:10px;
+    cursor: pointer;
 }
 
 .title {
     text-align: center;
-    color: red;
+    color: white;
 }
