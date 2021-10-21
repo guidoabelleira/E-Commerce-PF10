@@ -1,35 +1,29 @@
 import OrderCard from '../OrderCard/OrderCard';
 
-
 import style from './orderCards.module.css';
 
-export default function OrderCards ({state}){
-    
+export default function OrderCards({ state }) {
+
     // console.log("state OrdCards: ", state);
-    
+
 
     return state[0] ? (
         <div className={style.container}>
-            <div className={style.parent}>
 
+            <div className={style.parent}>
                 {state.map((e, i) => {
                     return (
                         <div className={style.cards} key={i}>
-                            <OrderCard id={e.id} totalPrice={e.totalPrice} createdAt={e.createdAt} index={i}/>
+                            <OrderCard id={e.id} totalPrice={e.totalPrice} createdAt={e.createdAt} index={i} />
                         </div>
                     )
-                }
-
-                )}
-
+                })}
             </div>
-
-
-
         </div>
-        
-        
-    ) : (
-        <p>Aun no hay datos</p>
+
     )
+        :
+        (
+            <p>Aun no hay datos</p>
+        )
 }

@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { 
     useDispatch, 
-    useSelector 
 } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
@@ -12,17 +11,18 @@ import {
     postReviewById,
 } from '../../redux/actions'
 
-export default function AddReview (){
+export default function AddReview (props){
 
     const dispatch = useDispatch()
-    const allProducts = useSelector(state => state.products)
-    const [product, setProduct] = useState(allProducts[0])
+    const allProducts = props.props
+    //const oldProducts = useSelector(state => state.products)
+    const [product, setProduct] = useState(allProducts)
 
     const handleProduct = event => {
         event.preventDefault()
         const newProduct = allProducts[event.target.value]
         setProduct(newProduct)
-        //console.log(newProduct)
+        console.log('estado de product', newProduct)
     }
 
     const [comment, setComment] = useState('')
@@ -79,11 +79,11 @@ export default function AddReview (){
                 onClick={event => handleProduct(event)}
                 >
                 {
-                    allProducts.map(product =>
+                    allProducts.map((product, index) =>
                         <option
                             key={product.id.toString()}
                             name={product.name}
-                            value={product.id -1}
+                            value={index}
                             >
                             {product.name}
                         </option>)
