@@ -62,28 +62,29 @@ export default function AddReview (){
 
 
     return product ? (
-        <div >
+        <div className={style.container} >
 
-            <Valuation props={product.id}/>
+            {/* <Valuation props={product.id}/> */}
 
             <label 
                 htmlFor="targetProduct"
             >
                 Seleccione el producto que desea editar
             </label>
-            <select 
+            <select
+                className={style.selects} 
                 key="targetProduct"
                 id="targetProduct"
                 name="targetProduct"
                 onClick={event => handleProduct(event)}
-            >
+                >
                 {
                     allProducts.map(product =>
                         <option
                             key={product.id.toString()}
                             name={product.name}
                             value={product.id -1}
-                        >
+                            >
                             {product.name}
                         </option>)
                 }
@@ -96,11 +97,11 @@ export default function AddReview (){
             <form 
                 className={style.FormStyle}
                 onSubmit={event => onSubmit(event)}
-            > 
+                > 
                 
                 <label 
                     htmlFor="description"
-                >
+                    >
                     <b>
                         Descripción: 
                     </b>
@@ -111,6 +112,7 @@ export default function AddReview (){
                     rows='10'
                     cols='80'
                     placeholder="description"
+                    className={style.inputs} 
                     onChange={event => handleReviewComment(event)}
                 />
 
@@ -137,7 +139,7 @@ export default function AddReview (){
                     onChange={event => handleReviewScore(event)}
                 />
 
-                <button>
+                <button className={style.bttn}>
                     Enviar Reseña
                 </button>
             </form>

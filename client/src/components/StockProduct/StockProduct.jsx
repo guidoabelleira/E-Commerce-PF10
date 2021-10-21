@@ -24,16 +24,16 @@ export default function StockProducts() {
 
     function handleSubmit(e){
         e.preventDefault();
-        console.log('quantity: ', input.quantity)
+        console.log('SUBMIT ', input.quantity)
         dispatch(getProductByStock(input.quantity))
-        setInput({
+/*         setInput({
             quantity: ''
-        })
+        }) */
     }
 
     useEffect(() => {
         async function getters() {
-            await dispatch(getProductByStock(input.quantity))
+            await dispatch(getProductByStock())
         }
         getters();
     }, [dispatch, input.quantity]);
@@ -49,13 +49,14 @@ export default function StockProducts() {
                         placeholder='Cantidad'
                         onChange={handleInputChange}
                         value={input.quantity}
-                        className={style.input}                    
+                        className={style.input}    
+                        required                
                     />
                 <button type='submit' className={style.bttn}>Ver stock</button>
                 </p>
             </form>
             <ul className={style.products}>
-                {stock?.map(e => {
+                {stock ? (stock?.map(e => {
                     return (
                         <li key={e.id}>
                             <p>{e.name}</p>
@@ -64,7 +65,7 @@ export default function StockProducts() {
                             <br />
                         </li>
                     )
-                })}
+                })) : (<p>NULL</p>)}
             </ul>
         </div>
 

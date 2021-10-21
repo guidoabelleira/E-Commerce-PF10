@@ -129,10 +129,11 @@ export function getProductById(id){
     }
 }
 export function getProductByStock(id){
-    let value = {num: id}
+/*     const value = {num: id} */
     return async function(dispatch){
         try {
-            const productByStock = await axios.get(PRODUCTS_URL + 'alertStock/', value)
+            console.log("CONSOLE", id)
+            const productByStock = await axios.get(PRODUCTS_URL + 'alertStock/' + id)
             console.log("productByStock: ", productByStock)
             dispatch({
                 type: 'GET_PRODUCT_BY_STOCK',
