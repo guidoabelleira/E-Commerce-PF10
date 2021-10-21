@@ -66,11 +66,9 @@ export default function AddReview (props){
 
             {/* <Valuation props={product.id}/> */}
 
-            <label 
-                htmlFor="targetProduct"
-            >
-                Seleccione el producto que desea editar
-            </label>
+            <h2>
+                Calificar Producto
+            </h2>
             <select
                 className={style.selects} 
                 key="targetProduct"
@@ -90,9 +88,6 @@ export default function AddReview (props){
                 }
             </select>
 
-            <h2>
-                Calificar Producto
-            </h2>
 
             <form 
                 className={style.FormStyle}
@@ -111,7 +106,7 @@ export default function AddReview (props){
                     name='description'
                     rows='10'
                     cols='80'
-                    placeholder="description"
+                    placeholder="Deja tu reseña sobre este producto"
                     className={style.inputs} 
                     onChange={event => handleReviewComment(event)}
                 />

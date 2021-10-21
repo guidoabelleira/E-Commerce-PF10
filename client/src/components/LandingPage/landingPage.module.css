@@ -1,3 +1,17 @@
-.container{
-    margin: 50vh
-}
+.container {
+    margin-left:25%;
+    margin-top: 2%;
+    background-color:#0E6655;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+
+    padding: 13%;
+    border-radius: 50px;
+    background: #0E6655;
+    box-shadow:  4px 4px 6px #0d5c4d,
+                 -4px -4px 6px #0f705e;
+} 

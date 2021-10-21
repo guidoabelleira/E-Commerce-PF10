@@ -30,17 +30,17 @@ export default function Tiket (props) {
         <div className={style.container}>
             <div >
                 <h2 className={style.title}> N° de orden: {orderId.orderId}</h2>
-                <h3>Fecha: </h3>
+                <h3>Fecha: {orderId.createdAt}</h3>
                 <h3>Estado: </h3>
                 <div>
                     <ul>
                         {orderId?.product?.map(e => {
                             return (
                                 <li key={e.id}>
-                                    <p>Articulo: {e.name}</p>
+                                    <p>Artículo: {e.name}</p>
                                     <p>Cantidad: {e.orderline.quantity}u.</p>
                                     <p>Precio unitario: ${e.price}</p>
-                                    <p>Sub Total: {e.orderline.subtotal}</p>
+                                    <p>Subtotal: ${e.orderline.subtotal}</p>
                                 </li>
                             )
                         })}
@@ -49,7 +49,7 @@ export default function Tiket (props) {
                 <br/>
                 <div >
                     <p> 
-                        <b>Precio Total:$</b>{orderId.totalPrice}
+                        <b>Precio Total: $</b>{orderId.totalPrice}
                     </p>
                 </div>
             </div>

@@ -51,17 +51,22 @@
 }
 
 .bttn{
-    background-color: #138b73;
-    color:white;
-    width: 100px;
+    color:#0E6655;
+    background-color:white;
+    width: 200px;
     height: 40px; 
-    border:none;
     border-radius: 5px; 
-    margin-top: 0%;
+    margin-top: 7%;
     padding:6px;
-    margin-left: 7%;
+    margin-left: 0%;
     cursor: pointer;
+    border-color: lightgray;
   }
+
+.bttn:hover{
+    transition-duration: 0.5s;
+    background-color: lightgray;
+}
 
 .price:hover{
     background-color: #f1efef
