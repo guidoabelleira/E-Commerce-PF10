@@ -81,27 +81,32 @@ export default function CheckOut (){
             </div>
             <div>
                 <h3>Direccion de envio</h3>
-                {userState.address ? (
-                    
-                    <p>
-                        <p>{userState.address}</p>
-                        <Link to="/Profile">
-                            Cambiar
-                        </Link>
-                    </p>
+                {userState?.address ? (
+                    <div>
+                        <p>
+                            <p>{userState.address}</p>
+                            <Link to="/Profile">
+                                Cambiar
+                            </Link>
+                        </p>
+                        <br/>
+                        <p>Total a pagar: ${totalCheckOut}</p>
+                        <button onClick={e => checkOut(products,totalCheckOut)} className={style.mp}>MercadoPago</button>
+                    </div>
                 ) : (
-                    <Link to="/Profile">
-                        <button type="button" className={style.bttn}>
-                            Confirmar direccion de envio
-                        </button>
-                    </Link>
+                    <div>
+                        <p>Aun no registro su direccion de envio</p>
+                        <br/>
+                        <Link to="/Profile">
+                            <button type="button" className={style.bttn}>
+                                Confirmar direccion de envio
+                            </button>
+                        </Link>
+                    </div>
                 )}
                 
             </div>
-            <div>
-                <p>Total a pagar: ${totalCheckOut}</p>
-                <button onClick={e => checkOut(products,totalCheckOut)} className={style.mp}>MercadoPago</button>
-            </div>
+            
             
         </div>
     ) : (

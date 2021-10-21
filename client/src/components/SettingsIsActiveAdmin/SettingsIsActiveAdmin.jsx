@@ -21,12 +21,14 @@ export default function SettingsIsActiveAdmin (){
     })
 
     function handleSelectActive(e) {
+        // console.log("active: ", e.target.value)
         setInput({
             ...input,
             isActive: e.target.value
         })
     }
     function handleSelectChange(e){
+        // console.log("id: ", e.target.value)
         setInput({
             ...input,
             id: e.target.value
@@ -62,6 +64,7 @@ export default function SettingsIsActiveAdmin (){
             id: '',
             isActive: ''
         })
+        window.location.reload()
     }
 
     useEffect(() => {
@@ -73,7 +76,7 @@ export default function SettingsIsActiveAdmin (){
 
 
     return allUser ?(
-        <div>
+        <div className={style.container}>
             <div>
             <form onSubmit={handleSubmit}>
                 <select className={style.selects} onChange={handleSelectChange}>
@@ -86,7 +89,7 @@ export default function SettingsIsActiveAdmin (){
                             })
                         }
                 </select>
-                <select className={style.selects} defaultValue={false} onChange={handleSelectActive}> 
+                <select className={style.selects} onChange={handleSelectActive}> 
                             <option value='null' selected>----</option>
                             <option value='true'>Activar</option>
                             <option value='false'>Bloquear</option>
@@ -95,7 +98,7 @@ export default function SettingsIsActiveAdmin (){
             </form>
             </div>
             
-            <div>
+            <div className={style.subContainer}>
                 <h3>Usuarios Bloqueados:</h3>
                 {allUserInactive ? (
                     <ul>

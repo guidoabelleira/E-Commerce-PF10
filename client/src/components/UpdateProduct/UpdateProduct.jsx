@@ -5,7 +5,7 @@ import { putProduct, } from '../../redux/actions';
 import style from './UpdateProduct.module.css'
 //import Loading from '../Loading/Loading'
 
-export default function UpdateProduct () {
+export default function UpdateProduct() {
 
     const dispatch = useDispatch()
     const categories = useSelector(state => state.allCategories)
@@ -31,7 +31,7 @@ export default function UpdateProduct () {
         setProduct(newProduct)
     }
 
-    const handleOnCheck =  event => {
+    const handleOnCheck = event => {
         event.preventDefault()
         const newData = { ...product }
         newData[event.target.name] = event.target.checked
@@ -41,7 +41,7 @@ export default function UpdateProduct () {
     const handleNewCategorie = event => {
         event.preventDefault()
         const newCategorie = { ...product }
-        newCategorie.categories.push({name: event.target.value})
+        newCategorie.categories.push({ name: event.target.value })
         setProduct(newCategorie)
     }
 
@@ -49,8 +49,8 @@ export default function UpdateProduct () {
         event.preventDefault()
         const newData = { ...product }
         let allCategories = []
-        for(let i=0; i<product.categories.length; i++){
-            if(product.categories[i].name !== event.target.value){
+        for (let i = 0; i < product.categories.length; i++) {
+            if (product.categories[i].name !== event.target.value) {
                 allCategories.push(product.categories[i])
             }
         }
@@ -77,13 +77,14 @@ export default function UpdateProduct () {
 
     return (
 
-        <div className={'Formulario'}>
-            <label 
+        <div className={style.container}>
+            <label
                 htmlFor="targetProduct"
             >
                 Seleccione el producto que desea editar
             </label>
-            <select 
+            <select
+                className={style.selects}
                 key="targetProduct"
                 id="targetProduct"
                 name="targetProduct"
@@ -94,7 +95,7 @@ export default function UpdateProduct () {
                         <option
                             key={product.id.toString()}
                             name={product.name}
-                            value={product.id -1}
+                            value={product.id - 1}
                         >
                             {product.name}
                         </option>)
@@ -103,7 +104,7 @@ export default function UpdateProduct () {
 
             <h1>Actulización de productos - Id: {product.id}</h1>
 
-            <form 
+            <form
                 className={style.FormStyle}
                 onSubmit={event => onSubmit(event)}
             >
@@ -113,29 +114,29 @@ export default function UpdateProduct () {
                     </b>
                 </label>
 
-                <input 
-                    key= 'name'
-                    id= 'name'
-                    name= 'name'
-                    type= 'text'
-                    placeholder= 'name'
+                <input
+                    key='name'
+                    id='name'
+                    name='name'
+                    type='text'
+                    placeholder='name'
                     onChange={event => handleOnChange(event)}
-                    value= {product.name}
+                    value={product.name}
                 />
 
-                <label 
+                <label
                     htmlFor='image'
                 >
                     <b>
                         Imagen
                     </b>
                 </label>
-                <input 
+                <input
                     key='image'
-                    id= 'image'
-                    name= 'image'
-                    type= 'file'
-                    placeholder= 'image'
+                    id='image'
+                    name='image'
+                    type='file'
+                    placeholder='image'
                 />
 
                 <label htmlFor='price'>
@@ -144,18 +145,18 @@ export default function UpdateProduct () {
                     </b>
                 </label>
 
-                <input 
-                    key= 'price'
-                    id= 'price'
-                    name= 'price'
-                    type= 'number'
-                    step= '0.01'
-                    placeholder= 'price'
+                <input
+                    key='price'
+                    id='price'
+                    name='price'
+                    type='number'
+                    step='0.01'
+                    placeholder='price'
                     onChange={event => handleOnChange(event)}
-                    value= {product.price}
+                    value={product.price}
                 />
 
-                <label 
+                <label
                     htmlFor='stock'
                 >
                     <b>
@@ -163,51 +164,51 @@ export default function UpdateProduct () {
                     </b>
                 </label>
 
-                <input 
-                    key= 'stock'
-                    id= 'stock'
-                    name= 'stock'
-                    type= 'number'
-                    placeholder= 'stock'
-                    value= {product.stock}
+                <input
+                    key='stock'
+                    id='stock'
+                    name='stock'
+                    type='number'
+                    placeholder='stock'
+                    value={product.stock}
                     onChange={event => handleOnChange(event)}
                 />
 
-                <label 
+                <label
                     htmlFor='onStock'
                 >
                     <b>
-                        En Inventario: {product.onStock.toString()}
-                    </b>
-                </label>
-
-                <input 
-                    key= 'onStock'
-                    id= 'onStock'
-                    name= 'onStock'
-                    type= 'checkbox'
-                    checked= {product.onStock}
-                    onChange={event => handleOnCheck(event)}
-                />
-
-                <label 
-                    htmlFor='onSale'
-                >
-                    <b>
-                        En Oferta: {product.onSale.toString()}
+                        En Inventario
                     </b>
                 </label>
 
                 <input
-                    key= 'onSale'
-                    id= 'onSale'
-                    name= 'onSale'
-                    type= 'checkbox'
-                    checked= {product.onSale}
+                    key='onStock'
+                    id='onStock'
+                    name='onStock'
+                    type='checkbox'
+                    checked={product.onStock}
                     onChange={event => handleOnCheck(event)}
                 />
 
-                <label 
+                <label
+                    htmlFor='onSale'
+                >
+                    <b>
+                        En Oferta
+                    </b>
+                </label>
+
+                <input
+                    key='onSale'
+                    id='onSale'
+                    name='onSale'
+                    type='checkbox'
+                    checked={product.onSale}
+                    onChange={event => handleOnCheck(event)}
+                />
+
+                <label
                     htmlFor='description'
                 >
                     <b>
@@ -216,36 +217,37 @@ export default function UpdateProduct () {
                 </label>
 
                 <textarea
-                    key= 'description'
-                    id= 'description'
-                    name= 'description'
-                    rows= '10'
-                    cols= '45'
-                    placeholder= 'description'
+                    key='description'
+                    id='description'
+                    name='description'
+                    rows='10'
+                    cols='45'
+                    placeholder='description'
                     onChange={event => handleOnChange(event)}
-                    value= {product.description}
+                    value={product.description}
                 />
 
-                <label 
+<br/>
+                <label
                     htmlFor='Categorias'
                 >
                     <b>
                         Categorias
                     </b>
                 </label>
-
-                <select 
+                <select
+                    className={style.selects}
                     key="ounedCategories"
-                    name="categories" 
+                    name="categories"
                     id="Categorias"
                     onClick={event => handleRemoveCategorie(event)}
-                >
-                    {product.categories?
-                        product.categories.map((cat, index)=> (
-                            <option 
-                                key={index}
-                                name= {product.categories.name}
-                                value={cat.name}
+                    >
+                    {product.categories ?
+                        product.categories.map((cat, index) => (
+                            <option
+                            key={index}
+                            name={product.categories.name}
+                            value={cat.name}
                             >
                                 {cat.name}
                             </option>)
@@ -254,15 +256,16 @@ export default function UpdateProduct () {
                         <option>No Categories Yet</option>
                     }
                 </select>
-
+<br/>
                 <button
-                    type='button'
-                    onClick={() => setShowCategories(!showCategories)}
+                className={style.bttn}
+                type='button'
+                onClick={() => setShowCategories(!showCategories)}
                 >{
-                    showCategories?
-                        'No agregar Categoría'
-                        :
-                        'Agregar Categoria'
+                    showCategories ?
+                    'No agregar Categoría'
+                    :
+                    'Agregar Categoria'
                 }</button>
 
                 <div>
@@ -276,30 +279,31 @@ export default function UpdateProduct () {
                                 </b>
                             </label>
 
-                            <select 
+                            <select
+                                className={style.selects}
                                 key="allCategories"
-                                name="categories" 
+                                name="categories"
                                 id="categories"
                                 onClick={event => handleNewCategorie(event)}
-                            >
+                                >
                                 {categories.map(
                                     (cat, index) => (
                                         <option
-                                            key={index}
-                                            name={categories.filter(c => c.name === cat.name)}
-                                            value={cat.name}
+                                        key={index}
+                                        name={categories.filter(c => c.name === cat.name)}
+                                        value={cat.name}
                                         >
                                             {cat.name}
                                         </option>
                                     )
-                                )}
+                                    )}
                             </select>
 
                         </>
                     }
                 </div>
 
-                <button>
+                <button className={style.bttn}>
                     Enviar Cambios
                 </button>
             </form>

@@ -35,3 +35,12 @@
     line-height: 20px;
     transition: all 0.25s ease;
   }
+
+  @media (max-width: 700px) { 
+      .subContainer ul{
+          margin-left: 5%;
+      }
+      .container{
+          margin-top: 5%;
+      }
+  }

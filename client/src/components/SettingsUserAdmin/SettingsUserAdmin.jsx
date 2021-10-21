@@ -60,6 +60,7 @@ export default function SettingsUserAdmin (){
             id: '',
             isAdmin: false
         })
+        window.location.reload()
     }
 
     useEffect(() => {
@@ -74,7 +75,7 @@ export default function SettingsUserAdmin (){
             <h2>Editar Usuarios</h2>
             <form onSubmit={handleSubmit}>
                 <select className={style.selects} onChange={handleSelectChange}>
-                    <option defaultValue={false} selected> Buscar por email * </option>
+                    <option value="" selected> Buscar por email * </option>
                         {
                             allUser?.map(e => {
                                 return (
@@ -85,7 +86,7 @@ export default function SettingsUserAdmin (){
                 </select>
                     <p>
                         <select className={style.selects} onChange={handleSelectIsAdmin}> 
-                            <option value='null' selected>Privilegios *</option>
+                            <option value="" selected >Privilegios *</option>
                             <option value='user'>User</option>
                             <option value='admin'>Admin</option>
                         </select>

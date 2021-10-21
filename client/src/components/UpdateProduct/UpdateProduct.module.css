@@ -13,7 +13,7 @@
     justify-items: center;
     align-items: center;
     justify-content: center;
-    text-align: center;
+
     padding: 5%;
     border-radius: 50px;
     background: #0E6655;
@@ -23,7 +23,7 @@
  
 .input {
     width: 250px;
-    position: relative;
+    position: initial;
     align-items: center;
     background: white;
     padding: 10px;
@@ -38,17 +38,40 @@
 .bttn{
     background-color: white;
     color:#0E6655;
-    width: 100px;
+    width: 150px;
     height: 35px;
     border:none;
     border-radius: 25px;
     margin-top: 2%;
+    cursor: pointer;
 }
  
 .bttn:hover {
     background-color:rgb(202, 199, 199);
+    transition-duration: 0.5s;
 }
  
 .label {
     text-align: left;
 }
+
+.selects {
+    width: 355px;
+    height: 40px;
+    padding: 7px 10px;
+    margin-right: 2%;
+    margin-left: 2%;
+    outline: 0;
+    border: none;
+    border-radius: 10px;
+    color: #0E6655;
+    background: #ffffff;
+    font-size: 1em;
+    font-family: inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+  }

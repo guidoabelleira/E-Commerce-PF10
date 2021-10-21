@@ -65,6 +65,7 @@ export default function ProfileUserSettings (idUser){
             input_provincia: '',
             input_comentarios: ''
         })
+        window.location.reload()
     }
     
     return(

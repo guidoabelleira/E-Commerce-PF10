@@ -121,7 +121,7 @@ function Form() {
                     />
                     {/* <span>Descripción</span> */}
                     <br></br>
-                    <input
+                    <textarea
                         placeholder="Descripción"
                         value={input.description}
                         name="description"
@@ -131,12 +131,11 @@ function Form() {
                         type="text"
                     />
                      <br></br>
-                    <label className={style.divs}>Categorias:</label>
                     <select
                         onChange={handleSelectCategory}
                         className={style.select}
                     >
-                        <option value={null}></option>
+                        <option value={null}>Categorías</option>
                         {
                             categories.map((el) => {
                                 return (
@@ -145,25 +144,22 @@ function Form() {
                             })
                         }
                     </select>
-                        <p>{input.category.map(el => el.toString()+ " ")}</p>
-                 <br></br>  
+                        <p>{input.category.map(el => el.toString()+ " ")}</p> 
  
-                    <label className={style.divs}>¿En stock?</label>
                     <select
                         onChange={handleSelectOnStock}
                         className={style.select}
                     >
-                        <option value={null}>Seleccionar</option>
+                        <option value={null}>En stock?</option>
                         <option value={true}>Si</option>
                         <option value={false}>No</option>
                     </select>
                     <br></br>
-                    <label className={style.divs}>¿En oferta?</label>
                     <select
                         onChange={handleSelectOnSale}
                         className={style.select}
                     >
-                        <option value={null}>Seleccionar</option>
+                        <option value={null}>En oferta?</option>
                         <option value={true}>Si</option>
                         <option value={false}>No</option>
                     </select>

@@ -23,10 +23,10 @@ router.get("/getHome/latests", async (req, res, next) => {
     }
 })
 
-router.get("/alertStock/", async (req, res, next) => {
-    const {num} = req.body
+router.get("/alertStock/:id", async (req, res, next) => {
+    const {id} = req.params
     try {
-        const stock = await alertStock(num);
+        const stock = await alertStock(id);
         res.send(stock);
     }
     catch (error) {
@@ -163,6 +163,41 @@ router.post('/', async (req, res, next) => {
     }
 });
 
+// Ruta para asignar una categoria a un producto
+router.post("/:idProduct/addCategory/:idCategory", (req, res, next) => {
+    const { idProduct, idCategory } = req.params;
+    var product = Product.findByPk(idProduct);
+    var category = Category.findByPk(idCategory);
+  
+    Promise.all([product, category])
+      .then((data) => {
+        data[0].addCategory(data[1]);
+        res
+          .status(200)
+          .send(
+            `Se agrego la categoria ${data[1].dataValues.name} al producto ${data[0].dataValues.name}`
+          );
+      })
+      .catch(next);
+  });
+  
+  //Ruta para eliminar una categoria de un producto
+  router.delete("/:idProduct/deleteCategory/:idCategory", (req, res, next) => {
+    const { idProduct, idCategory } = req.params;
+    var product = Product.findByPk(idProduct);
+    var category = Category.findByPk(idCategory);
+  
+    Promise.all([product, category])
+      .then((data) => {
+        data[0].removeCategory(data[1]);
+        res
+          .status(200)
+          .send(
+            `Se elimino la categoria ${data[1].dataValues.name} del producto ${data[0].dataValues.name}`
+          );
+      })
+      .catch(next);
+  });
 
 
 module.exports = router;

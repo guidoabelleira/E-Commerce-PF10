@@ -20,7 +20,7 @@
 }
 
 .input {
-        width: 250px;
+        width: 100%;
     position: relative;
     align-items: center;
     background: white;

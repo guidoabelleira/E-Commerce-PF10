@@ -51,6 +51,7 @@ export default function OrderSetState (id){
             state: 'null',
             message: ''
         })
+        window.location.reload()
     }
 
     return(

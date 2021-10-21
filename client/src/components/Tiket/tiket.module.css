@@ -9,34 +9,19 @@
     padding: 1%;
 }
 
-.Inputs {
-    background-color:#0E6655 ;
-    padding: 1%;
-    border: 1%;
-    border-radius: 10px;
-    color: white;
-    width: 32%;
-    margin-left: 35%;
-    margin-top: 11%;
-    text-align: center;
-}
-
 .Inputs2 {
     background-color:#0E6655 ;
     padding: 1%;
     border: 1%;
     border-radius: 10px;
-    color: white;
+    color: rgb(204, 200, 200);
     width: 160px;
     position: absolute;
     top: 20px;
     right:10px;
 }
 
-.img {
-    margin-left:25%;
-    width: 50%;
-}
 .title {
     text-align: center;
+    color: red;
 }
