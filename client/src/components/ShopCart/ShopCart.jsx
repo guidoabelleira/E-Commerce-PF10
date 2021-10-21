@@ -26,7 +26,7 @@ function ShopCart() {
                         <img src={e.image} alt="img" width="50px"  height="50px"/>
                     </Link>
                     <p className={style.tittle}>{e.name}</p>
-                    <p className={style.price}>$ {e.price}</p>
+                    <p className={style.price}>${e.price}</p>
                     <div className={style.agregar}>
                     <button  type="button" className={style.bttn} onClick={a=> dispatch(addPCart(e, products))}> + </button>
                     <p className={style.count}> {e.count}</p>
