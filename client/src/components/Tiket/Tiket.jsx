@@ -7,6 +7,7 @@ import Loading from "../Loading/Loading";
 import { Link } from "react-router-dom";
 
 import style from "./tiket.module.css"
+import AddReview from "../AddReview/AddReview";
 
 
 export default function Tiket (props) {
@@ -40,7 +41,6 @@ export default function Tiket (props) {
                                     <p>Cantidad: {e.orderline.quantity}u.</p>
                                     <p>Precio unitario: ${e.price}</p>
                                     <p>Sub Total: {e.orderline.subtotal}</p>
-                                    <p>**boton review de producto**</p>
                                 </li>
                             )
                         })}
@@ -53,6 +53,11 @@ export default function Tiket (props) {
                     </p>
                 </div>
             </div>
+
+            <div>
+                <AddReview props={orderId.product}/>
+            </div>
+
             <Link to= "/orderadmin">
                 <button className={style.Inputs2}> <h3>Volver</h3></button>
             </Link>
