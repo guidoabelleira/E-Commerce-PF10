@@ -23,10 +23,10 @@ router.get("/getHome/latests", async (req, res, next) => {
     }
 })
 
-router.get("/alertStock/", async (req, res, next) => {
-    const {num} = req.body
+router.get("/alertStock/:id", async (req, res, next) => {
+    const {id} = req.params
     try {
-        const stock = await alertStock(num);
+        const stock = await alertStock(id);
         res.send(stock);
     }
     catch (error) {

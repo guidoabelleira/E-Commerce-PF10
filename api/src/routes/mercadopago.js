@@ -15,7 +15,13 @@ router.post("/", (req, res, next) => {
   });
 
   let preference = {
-    items: []
+    items: [],
+    back_urls: {
+      success: "http://localhost:3000/order", // /home
+      failure: "http://localhost:3000/home",
+      pendind: "http://localhost:3000/home",
+    },
+    auto_return: "all",
   };
 
   const addPreference = products.forEach((el) => {
