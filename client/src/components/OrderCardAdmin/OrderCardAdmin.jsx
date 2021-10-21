@@ -5,17 +5,16 @@ export default function OrderCardAdmin({id, totalPrice, createdAt, index}){
     // voy a recibir order
     
 
-
     return (
         
         <div className={style.container} key={index}>
             <div className={style.subContainer}>
-                <h4>Pedido: {createdAt}</h4>
+                <h4>Pedido: {createdAt.split("T")[0]}</h4>
                 <p>id: {id}</p>
                 <p>Precio total: {totalPrice}</p>
             </div>
             <div className={style.buttons}>
-            <Link to={`/tiket/${id}`}><button>Ticket</button></Link>
+            <Link to={`/tiket/${id}`}><button className={style.bttn}>Ticket</button></Link>
             {/* ver ruta tiket, crear componente tiketdetail */}
             </div>
             
